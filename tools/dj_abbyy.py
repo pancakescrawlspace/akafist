@@ -36,6 +36,9 @@ Page JSON (all coordinates in pixels of the 600 ppi leaf, as in the JP2 files; h
           words                          [text, l, t, r, b, conf, flags, fs]; conf = mean ABBYY char confidence
                                          (0–100, -1 unknown); flags: i italic, b bold, s smallcaps,
                                          o lang=RussianOldSpelling, d word in ABBYY's dictionary, ? mostly suspicious
+          (Phase 3b, dj_heads.py)        text_d, text_merged, disputed, fixed, d_cut, d_line — the paragraph's text
+                                         from witness D and after the D/B/A vote (see dj_heads.py); kept across
+                                         re-runs of this script as long as the paragraph box is the same
     noise                                [{bbox, text}] tiny fragments left out of the columns
     entries_hint                         one per hanging paragraph in main/supplement pages:
                                          {col, para, bbox, abbyy, abbyy_conf, eq, headword, headword_source, conf}
@@ -751,6 +754,8 @@ def dump(page):
             out.append(f' "{k}": [')
             out.extend('  ' + jd(h) + (',' if i < len(page[k]) - 1 else '') for i, h in enumerate(page[k]))
             out.append(' ],')
+    if 'witness' in page:
+        out.append(f' "witness": {jd(page["witness"])},')
     out.append(f' "warnings": {jd(page["warnings"])}')
     out.append('}')
     return '\n'.join(out) + '\n'
@@ -781,6 +786,24 @@ def carry_over(page, path):
     if orphans:
         page['orphan_hints'] = orphans
         page['warnings'].append(f'{len(orphans)} filled headword(s) no longer match a paragraph: see orphan_hints')
+    # the witness text of Phase 3b step 1 (dj_heads.py), per paragraph, by paragraph box
+    keys = ('text_d', 'text_merged', 'disputed', 'fixed', 'd_cut', 'd_line')
+    old_paras = [p for c in old.get('columns', []) for p in c['paragraphs'] if 'text_merged' in p]
+    if old_paras:
+        new_paras = [p for c in page['columns'] for p in c['paragraphs']]
+        lost = 0
+        for op in old_paras:
+            best = max(new_paras, key=lambda n: iou(n['bbox'], op['bbox']), default=None)
+            if best is not None and iou(best['bbox'], op['bbox']) > 0.5 and 'text_merged' not in best:
+                for k in keys:
+                    best[k] = op.get(k)
+            else:
+                lost += 1
+        if lost or len(old_paras) != len(new_paras):
+            page['warnings'].append(f'paragraphs changed ({lost} witness texts lost, {len(new_paras)} paragraphs '
+                                    f'now, {len(old_paras)} before): run dj_heads.py --pages {page["idx"]} --force')
+        elif 'witness' in old:
+            page['witness'] = old['witness']
 
 
 def read_manifest():
