@@ -8,6 +8,8 @@ write djachenko/manifest.tsv.
     python3 tools/dj_fetch.py --convert    # JP2 (600 ppi) -> djachenko/pages/NNNN.jpg (300 ppi), parallel, skips existing
     python3 tools/dj_fetch.py --manifest   # write/refresh djachenko/manifest.tsv from scandata + page_numbers.json
     python3 tools/dj_fetch.py --all
+    python3 tools/dj_fetch.py --reprint    # second witness: the 1993 reprint (another copy of the 1900 edition, margins
+                                           # intact): DjVu + archive.org's ABBYY XML into djachenko/scan/reprint1993/
 
 Every step is idempotent. Downloads use curl with resume and are verified against the MD5s in the item's _files.xml."""
 import argparse, hashlib, json, os, re, subprocess, sys, zipfile
@@ -21,12 +23,16 @@ SCAN, PAGES, JP2 = DJ / 'scan', DJ / 'pages', DJ / 'pages' / 'jp2'
 MANIFEST = DJ / 'manifest.tsv'
 
 ITEM = '20200215_20200215_0856'
-BASE = f'https://archive.org/download/{ITEM}/'
 STEM = 'Дьяченко. Полный церковнославянский словарь'
 UA = 'akafist-dictionary-research/1.0 (personal digitisation project; contact: r.pannekoek@bereslim.nl)'
 META_FILES = [f'{ITEM}_files.xml', f'{STEM}_scandata.xml', f'{STEM}_page_numbers.json',
               f'{STEM}_djvu.txt', f'{STEM}_djvu.xml', f'{STEM}_abbyy.gz']
 JP2_ZIP = f'{STEM}_jp2.zip'
+REPRINT = 'DyachenkoG.PolnyjCerkovnoslavyanskijSlovarM.19931159p'
+REPRINT_STEM = 'Dyachenko G., Polnyj cerkovnoslavyanskij slovar (M., 1993, 1159p)'
+REPRINT_DIR = SCAN / 'reprint1993'
+REPRINT_FILES = [f'{REPRINT}_files.xml', f'{REPRINT_STEM}.djvu', f'{REPRINT_STEM}_abbyy.gz', f'{REPRINT_STEM}_djvu.txt',
+                 f'{REPRINT_STEM}_scandata.xml']
 WORK_WIDTH = 2126          # 600 ppi -> 300 ppi
 JPEG_QUALITY = 88
 
@@ -39,26 +45,26 @@ def md5_of(path):
     return h.hexdigest()
 
 
-def expected_md5s():
-    fx = SCAN / f'{ITEM}_files.xml'
+def expected_md5s(item=ITEM, dest=SCAN):
+    fx = dest / f'{item}_files.xml'
     if not fx.exists():
         return {}
     x = fx.read_text(encoding='utf-8')
     return {m.group(1): m.group(2) for m in re.finditer(r'<file name="([^"]+)"[^>]*>.*?<md5>(\w+)</md5>', x, re.S)}
 
 
-def download(name):
-    SCAN.mkdir(parents=True, exist_ok=True)
-    dest = SCAN / name
-    md5s = expected_md5s()
+def download(name, item=ITEM, folder=SCAN):
+    folder.mkdir(parents=True, exist_ok=True)
+    dest = folder / name
+    md5s = expected_md5s(item, folder)
     if dest.exists() and name in md5s and md5_of(dest) == md5s[name]:
         print('ok      ', name)
         return
-    url = BASE + quote(name)
+    url = f'https://archive.org/download/{item}/' + quote(name)
     print('fetching', name)
     subprocess.run(['curl', '-sS', '-L', '-A', UA, '--retry', '5', '--retry-delay', '10', '-C', '-', '-o', str(dest), url],
                    check=True)
-    md5s = expected_md5s()
+    md5s = expected_md5s(item, folder)
     if name in md5s and not name.endswith('_files.xml'):     # files.xml cannot list its own checksum
         got = md5_of(dest)
         if got != md5s[name]:
@@ -144,7 +150,7 @@ def manifest():
 
 def main():
     ap = argparse.ArgumentParser()
-    for opt in ('meta', 'jp2', 'extract', 'convert', 'manifest', 'all'):
+    for opt in ('meta', 'jp2', 'extract', 'convert', 'manifest', 'all', 'reprint'):
         ap.add_argument('--' + opt, action='store_true')
     ap.add_argument('--workers', type=int, help='parallel workers for --convert (default: all cores)')
     a = ap.parse_args()
@@ -159,6 +165,9 @@ def main():
         convert(a.workers)
     if a.all or a.manifest:
         manifest()
+    if a.reprint:
+        for name in REPRINT_FILES:
+            download(name, REPRINT, REPRINT_DIR)
 
 
 if __name__ == '__main__':

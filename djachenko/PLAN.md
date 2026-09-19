@@ -8,6 +8,8 @@ Revision 2 (2026-09-19, after Phase 1 investigation): source scan chosen; an exi
 coordinates and formatting was found, which reshapes Phases 2–4 (see "Findings" and the phases themselves).
 Revision 3 (2026-09-19, after Phase 3a): the book has a large supplement (a second alphabetical sequence), an errata
 table and scan defects (left margins cut off on 242 pages); Phases 2–6 amended accordingly (marked "Rev. 3").
+Revision 4 (2026-09-19, session 2): other copies surveyed (`COPIES.md`); a second independent witness (the 1993
+reprint, margins intact, with its own OCR) downloaded; Phase 2 gets a triangulation question (marked "Rev. 4").
 
 This plan is written to be executed over several sessions. Every phase has a *Definition of done* and a *Resume*
 paragraph; all state lives in files under `djachenko/` so that a new session can read `PROGRESS.md`, the manifest and
@@ -48,10 +50,12 @@ djachenko/
   PLAN.md          this file
   PROGRESS.md      running log: date, what was done, "NEXT:" line (the first thing a new session reads)
   SOURCE.md        which scan was used, URL, checksums, page count, leaf → printed-page mapping
+  COPIES.md        every other copy/scan located (witnesses A, B, C), with what was checked and what could not be
   manifest.tsv     one row per leaf: idx, printed_page, section (front/main/blank/supplement/back), letter(s) on
                    the page (from the table of contents), status, notes
                    status ∈ {new, image, ocr, parsed, checked}
-  scan/            the archive.org files: metadata, OCR layers, JP2 zip (git-ignored; large)
+  scan/            the archive.org files: metadata, OCR layers, JP2 zip (git-ignored; large);
+                   scan/reprint1993/ the second witness (1993 reprint DjVu + OCR), `dj_fetch.py --reprint`
   pages/           NNNN.jpg, one 300 ppi working image per leaf; pages/jp2/ the 600 ppi originals (git-ignored)
   ocr/             per-page JSON built from the ABBYY layer plus the headword/Greek passes (Phase 3 schema) — committed;
                    ocr/report.tsv: per-page statistics and warnings of the last dj_abbyy.py run
@@ -136,9 +140,14 @@ definitions only, Greek only):
 5. Rev. 3: **Entry segmentation** of Phase 3a (`entries_hint` = hanging paragraphs) — precision/recall against the
    ground truth, separately for ordinary pages and for pages with a cut-off margin (paragraphs marked `guessed`).
 6. Rev. 3: **Cut-off headwords** — on the 242 pages with a cut-off left margin the first letter(s) of many headwords
-   are not in the image. Decide: complete them from the alphabetical context (guide words, neighbouring entries —
-   usually unambiguous), or fetch those pages from another copy (Azbyka's PNGs of the 2004 reprint, ~242 requests,
-   or the Wikimedia Commons PDF at ~100 ppi). Check first whether the other copies have the margin.
+   are not in the image. Answered in session 2 (user's decision: triangulate with other copies): the 1993 reprint is an
+   independent copy with intact margins (witness B, `COPIES.md`), downloaded to `scan/reprint1993/`; read the cut
+   headwords there, with the alphabetical context as a check. Measure on the cut ground-truth page how well B's
+   images and B's own OCR serve for that.
+7. Rev. 4: **Triangulation** — B has its own OCR (DjVu text layer; archive.org's ABBYY XML). Measure its CER on the
+   ground truth next to A's, and how often A and B disagree where either is wrong: where A and B agree, the text can
+   probably be trusted without proofreading; where they disagree, look at the image. Witness C (Indiana copy via
+   HathiTrust) only if it becomes accessible.
 
 *Definition of done:* `eval/RESULTS.md` records the numbers and names the route for definitions, headwords and Greek;
 `PROGRESS.md` says so.

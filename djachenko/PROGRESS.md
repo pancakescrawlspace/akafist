@@ -43,12 +43,30 @@ See PLAN.md for the phases. Newest entry last.
     the text). Paper patch over the lower left column of p. 1120. Details in SOURCE.md ("Scan defects").
   - manifest.tsv: section (front/main/blank/supplement/back) and letters per page, from the book's table of contents
     (leaf 37; pp. 865–1120 are a supplement "Прибавленіе" with its own А–Я sequence; p. 864 blank); the detected letter
-    initials agree with the TOC except on 3 explained pages. Front matter corrected by hand: leaf 1 = p. I, leaves 2–6 =
-    pp. IV–VIII, pp. II–III missing from the scan. The OCR'd running-head page numbers confirm the page map.
+    initials agree with the TOC except on 3 explained pages. Front matter corrected by hand: leaves 2–6 = pp. IV–VIII
+    (leaf 1 first recorded as p. I with pp. II–III missing — wrong, corrected below to p. III). The OCR'd running-head
+    page numbers confirm the page map.
   - PLAN.md revision 3: Phase 2 ground truth should include a cut-margin page (leaf 1124) and a long-article page
     (leaf 465); new Phase 2 questions 5 (segmentation accuracy) and 6 (cut-off headwords: context or another copy);
     Phase 4 gets the two alphabetical sequences (main/supplement) and Дьяченко's errata table (leaves 32–36).
   Phase 3a done.
+
+- User decisions for Phase 2 (same day): (1) the user will check the ground-truth transcriptions (djachenko/eval/gt/);
+  (2) look for other copies/scans of the book to triangulate the original text, in particular where this scan has
+  the left margin cut off; (3) keep a precise record of every scan located, downloadable or not → djachenko/COPIES.md
+  (also referenced from CLAUDE.md).
+- Copy survey (session 2): 16 sources recorded in COPIES.md. They reduce to three physical copies ("witnesses"):
+  A = the Russian State Library copy scanned by the Presidential Library (our scan; also archive.org
+  polnyjtserkovnoslavjanskijslovarsovne27 and dyachenkos-dictionary-church-slavonic — identical images, same cut
+  margins); B = the copy reproduced in the Moscow 1993 reprint (archive.org DyachenkoG…19931159p, B-001-027-578-ALL,
+  both Wikimedia Commons files, Azbyka's PNGs — all with the same damaged letters; margins intact, title page
+  present); C = Indiana University's copy (Google Books lgbgAAAAMAAJ, snippet view; HathiTrust blocked for automated
+  access — the user is checking by hand). Tver diocese PDF and predanie.ru could not be fetched (404/400).
+  Downloaded witness B: `python3 tools/dj_fetch.py --reprint` → djachenko/scan/reprint1993/ (DjVu 1,158 pp.,
+  bilevel 300 dpi ≈ 237 ppi at original size, own OCR text layer; archive.org ABBYY XML; MD5-verified).
+  Correction: leaf 1 is p. III, not p. I — the preface runs on from leaf 1 to leaf 2 (the "…а за симъ" line compared
+  earlier was a footnote; confirmed by B and by Azbyka's transcription of the preface). Nothing of the preface is
+  missing; pp. I–II (title page and verso) are not in scan A. Manifest and SOURCE.md fixed. PLAN.md revision 4.
 
 NEXT: Phase 2 — choose the 6 ground-truth pages (PLAN.md Phase 2, incl. Rev. 3 notes), transcribe them into
 djachenko/eval/gt/NNNN.txt (ask the user whether they want to check the transcriptions), write tools/dj_eval.py, and

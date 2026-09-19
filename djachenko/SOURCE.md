@@ -28,11 +28,13 @@ the ABBYY layer.
 **Leaf → printed page.** Leaf numbers are 0-based as in the JP2 file names (`…_0150.jp2` = leaf 150). Verified by
 eye: leaf 150 = printed page 113 (guide words Вѣр— / Вѣк—). The automatic map in `page_numbers.json` is copied into
 `manifest.tsv`; corrections made by hand in the manifest take precedence when the manifest is regenerated.
-Result of the check (2026-09-19): leaf 0 cover, leaf 1 = p. I (first page of the preface, unnumbered), leaves 2–6 =
+Result of the check (2026-09-19): leaf 0 cover, leaf 1 = p. III (first page of the preface, unnumbered), leaves 2–6 =
 pp. IV–VIII (numbers read from the images; the automatic map missed them), leaves 7–36 = pp. IX–XXXVIII, leaf 37 the
 unnumbered table of contents, leaf 38 = p. 1 (unnumbered in print; set by hand), leaves 39–1157 = pp. 2–1120 without
-a single gap or repeat, leaf 1158 back cover. **Pp. II–III are missing from the scan**: leaf 1 ends "…а за симъ",
-leaf 2 (p. IV) begins "цѣли, которой мы желали…". So for the dictionary proper: **printed page = leaf − 37**.
+a single gap or repeat, leaf 1158 back cover. The preface text runs on from leaf 1 ("…высказаться какъ о той") to
+leaf 2 ("цѣли, которой мы желали…"), so nothing of it is missing; pp. I–II (title page and its verso) are not in this
+scan — the 1993 reprint (witness B in COPIES.md) has the title page. So for the dictionary proper: **printed page =
+leaf − 37**.
 25 leaves have a page-number confidence below 90 in the automatic map; their numbers fit the sequence, so they are
 accepted. Phase 3a confirmed the map independently: the page number read from the running head of every dictionary
 page agrees with the manifest, up to single-digit OCR confusions (3/8, 5/8, 0/9) on 81 pages.
@@ -48,12 +50,15 @@ misprints Ѩ as 826—857 for 856—857. The letter initials found on the pages 
 808 (Ч, set beside the column), p. 858 (Ѯ, at the head of the page) — both not read by ABBYY — and p. 1120 (an extra gap
 before the closing "Конецъ … Бгу слава").
 
+**Other copies.** Every other scan or copy located — including the ones that could not be downloaded — is recorded in
+`COPIES.md`. This scan is witness A (the Russian State Library copy, digitised by the Presidential Library); the second
+witness, B (the copy behind the 1993 reprint, margins intact), is downloaded into `scan/reprint1993/`.
+
 **Scan defects found in Phase 3a.**
 - **Left margin cut off** on 242 dictionary pages, all of them even leaves (left-hand pages): 123 in the main part and
   119 of the 128 left-hand pages of the supplement. The lines of the left column start at the image edge, and the first
   letter or two of the headwords (on the worst pages also of the continuation lines) are missing from the image. Listed
-  in `ocr/report.tsv` ("margin cut off"). Headwords there must be completed from the alphabetical context or from
-  another copy.
+  in `ocr/report.tsv` ("margin cut off"). Witness B (see COPIES.md) has these margins intact.
 - **Paper patch** over the lower left column of p. 1120 (leaf 1157): the starts of about ten entries (Авій …) are
   covered.
 - Pictures instead of text: 18 headwords with tall superscripts (e.g. Кощѵна p. 266, Пѣвцы, Служба, Фѵлло,
