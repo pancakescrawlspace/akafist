@@ -177,7 +177,15 @@ See PLAN.md for the phases. Newest entry last.
   Not yet in the rendition: Дьяченко's abbreviations list (front matter), the "checked" mark, the original's
   spanning letter initials (Typst places them in the column), the errata.
 
-NEXT: Phase 3b step 2 — the reading itself, once the user has chosen:
+- ⚠ OPEN DEFECT (session 3, end): quotation marks float in the text (the OCR emits them as separate words: „ x " with
+  spaces on both sides; straight " where the book prints “). Approach drafted in djachenko/QUOTES.md — fix it in
+  dj_parse.tidy() (not in the witness texts, not in text_merged), with a per-entry opening/closing state machine,
+  normalisation to the book's „…“, a `quotes` flag for unbalanced cases. The user doubts that the 28 «/24 » are
+  genuine: check them against the scans before fixing the rule. Also in QUOTES.md: before proofreading starts, a
+  corrections layer (corrections.tsv applied after tidying) is needed, because dj_parse regenerates entries.tsv.
+
+NEXT: first the quotation-mark fix of djachenko/QUOTES.md (with the «» check), then Phase 3b step 2 — the reading itself,
+  once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
