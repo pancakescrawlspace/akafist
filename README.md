@@ -90,3 +90,39 @@ Worth deciding once, then keeping identical wherever they recur:
 - **Icon titles**: `все́х скорбя́щих Ра́досте` (Ikos 3), `Живоно́сный Исто́чник` (Ikos 12), `Одиги́трия / Путеводи́тельница` (Ikos 7, Ikos 5), `Держа́вный покро́в`.
 - **St Basil / Nicaea II**: `че́сть бо ико́ны на первообра́зное восхо́дит` (Kontakion 8).
 - **Doxologies**: `Пречестно́е и Великоле́пое И́мя Отца́ и Сы́на и Свята́го Ду́ха`, `ны́не и при́сно и во ве́ки веко́в`, `Тебе́ сла́ва подоба́ет`.
+
+## References
+
+The glosses and notes were written from the compiler's knowledge of the texts, not by systematic look-up; these are the
+standard works against which entries should be checked.
+
+**Church Slavonic**
+- Г. Дьяченко, *Полный церковнославянский словарь* (Москва, 1900) — the classic one-volume dictionary, still the first
+  place to look. Only page scans exist online (azbyka.ru, dhonorare.ru, Wikimedia Commons/archive.org); there is no
+  transcribed edition. A plan for producing a structured digital copy is in `djachenko/PLAN.md`.
+- *Большой словарь церковнославянского языка Нового времени* (Институт русского языка РАН, Москва, 2016–; in progress,
+  alphabetically from А) — the modern scholarly dictionary of the Slavonic of the printed service books, with citations.
+- А. Бончев, *Речник на църковнославянския език* (София, 2002–2012), 2 vols — useful second opinion.
+
+**Russian** (for the Russian column)
+- С. И. Ожегов, Н. Ю. Шведова, *Толковый словарь русского языка* (the desk dictionary of normative Russian; Ожегов's own
+  *Словарь русского языка* first appeared in 1949).
+- Д. Н. Ушаков (ed.), *Толковый словарь русского языка*, 4 vols (Москва, 1935–1940) — older, fuller on literary and
+  church-flavoured vocabulary.
+- Both are searchable at gramota.ru.
+
+**Greek** (for the Greek terms cited in the notes)
+- G. W. H. Lampe, *A Patristic Greek Lexicon* (Oxford, 1961) — patristic and liturgical vocabulary.
+- Liddell–Scott–Jones, *A Greek–English Lexicon* (LSJ) and Bauer–Danker (BDAG), *A Greek-English Lexicon of the New
+  Testament* — classical and New Testament usage.
+- The Greek text of the Akathist (Ἀκάθιστος Ὕμνος) for the passages the Kazan akathist paraphrases.
+
+**Scripture**
+- Septuagint (Rahlfs–Hanhart) for Old Testament references; Psalm numbering in this dictionary follows the LXX.
+- The Elizabeth Bible (Елизаветинская Библия, 1751) for the Church Slavonic wording of quotations.
+
+**Dutch**
+- Dutch Orthodox service books for fixed liturgical terms — in particular the translations of the Liturgy of St John
+  Chrysostom and of the Akathist hymn in use in the Netherlands and Flanders, which are the source of renderings such as
+  *Moeder Gods*, *Alheilige*, *Verheug u*, *in de eeuwen der eeuwen*.
+- For Gospel quotations (Luke 1) the Willibrordvertaling and NBG 1951 / NBV21 are cited where their wording matters.
