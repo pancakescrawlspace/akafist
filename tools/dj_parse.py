@@ -15,7 +15,8 @@ reading of the head, after it the definition. The headword is the step-2 reading
 (`entries_hint[].headword`, source vision/manual), else D's head text is used provisionally and the entry is flagged
 `hw_provisional`.
 
-Columns of entries.tsv (tab-separated, UTF-8, one entry per line):
+Columns of entries.tsv (tab-separated, UTF-8, one entry per line; no quoting — read it with csv.QUOTE_NONE, the
+definitions contain quotation marks):
     id             leaf-column-paragraph of the entry's first paragraph, e.g. 0341-1-02 (stable across runs)
     part           main | supplement (two alphabetical sequences)
     page           printed page of the entry's start;  col  a | b

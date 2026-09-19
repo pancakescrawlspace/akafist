@@ -82,7 +82,7 @@ tools/
   dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
                    sanity checks of the ground truth and of the entry starts (exists)
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv + FLAGS.md (exists; headwords provisional until step 2 runs)
-  dj_link.py       Phase 5: cross-reference entries.tsv with dictionary/dictionary.psv lemmas
+  dj_link.py       Phase 5: cross-reference entries.tsv with dictionary/dictionary.psv lemmas → links.tsv (exists)
   dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst)
 ```
 
@@ -274,7 +274,8 @@ listed in `djachenko/FLAGS.md` (regenerated each run).
 1. `tools/dj_link.py`: for every lemma of `dictionary/dictionary.psv`, find the matching Дьяченко entries by
    `headword_key` (with a small set of fallbacks: infinitive ↔ 1 sg. verb forms, ъ/ь variants, ѵ→и/в). Output
    `djachenko/links.tsv` (lemma → entry ids, match type) and a list of akathist lemmas with no match, to be resolved by
-   hand.
+   hand. — Rev. 5: **exists** (session 3); with the provisional headwords it links 243 of 703 lemmas (exact 229,
+   verb 11, soft 3); the rest waits for the step-2 headwords. Re-run after every step-2 batch.
 2. Proofread the linked entries against the page image (open `pages/NNNN.png`, fix the text in `entries.tsv`, set
    `status=checked`). Estimate: ~500–600 entries, a few minutes each — spread over sessions; `PROGRESS.md` records the
    last checked id.

@@ -155,6 +155,14 @@ See PLAN.md for the phases. Newest entry last.
   Not done: Дьяченко's errata table (leaves 32–36 → errata.tsv; needs its own transcription session, Greek-heavy)
   and the manifest status column.
 
+- Phase 5 step 1 (session 3, continued; user: "go ahead with dj_link.py"): tools/dj_link.py links the 703 akathist
+  lemmas (modern civil forms with accents, verbs as infinitives; alternatives "в, во", "он, она, они",
+  "избавля́ти(ся)" and glosses "(село)" handled) to entries.tsv by headword_key with fallbacks infinitive ↔ 1 sg.
+  present and ь/ъ/й-insensitive comparison → djachenko/links.tsv (lemma, pos, match, ids, headwords, parts).
+  With the provisional headwords: 243 linked (exact 229, verb 11, soft 3), 460 none — a lower bound until step 2
+  (e.g. а́нгел, ами́нь, благи́й are unmatched only because D reads the CS initial А as Я). Matches sampled: right.
+  entries.tsv must be read with csv.QUOTE_NONE (definitions contain quotation marks) — noted in dj_parse.py.
+
 NEXT: Phase 3b step 2 — the reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
