@@ -24,10 +24,10 @@ Letters: [А](#а) · [Б](#б) · [В](#в) · [Г](#г) · [Д](#д) · [Е](#
 
 *interj* — forms: аллилуиа (12)
 
-- **RU:** аллилуия
+- **RU:** аллилуйя (в церковных текстах также аллилуия)
 - **EN:** Alleluia
 - **NL:** Alleluja
-- *Notes:* Hebr. hallelu-Yah, "praise the Lord" (Ps 104–106, 111–118, 146–150; Rev 19:1-6). Fixed refrain of every kontakion; Dutch Orthodox usage: "Alleluja".
+- *Notes:* Hebr. hallelu-Yah, "praise the Lord" (Ps 104–106, 111–118, 146–150; Rev 19:1-6). Fixed refrain of every kontakion. Modern Russian spells it аллилуйя; аллилуия is the CS spelling (аллилуїа) carried over into Russian church books. Dutch Orthodox usage: "Alleluja".
 
 ### ами́нь
 

@@ -25,6 +25,10 @@
 // PT Serif has proper mark anchoring for Cyrillic, so the stress marks (U+0301) sit centred on their vowels;
 // Greek (absent from PT Serif) falls back to Libertinus Serif, which Typst bundles.
 #set text(font: ("PT Serif", "Libertinus Serif"), size: 8.2pt, lang: "en")
+// PT Serif does contain a few Greek-coded technical glyphs (π, μ, Ω …); without this rule Typst would take those from
+// PT Serif and the rest of a Greek word from Libertinus. Force every Greek run into Libertinus. The run must start with
+// a Greek letter so that Cyrillic combining stress marks (U+0301) are never matched on their own.
+#show regex("\\p{Greek}[\\p{Greek}\\p{M}]*"): set text(font: "Libertinus Serif")
 #set par(justify: true, leading: 0.42em, spacing: 0.42em)
 
 // letter sections: a large initial in the column, no page break (as in a printed dictionary)
@@ -78,7 +82,7 @@ Each entry gives the *headword* (lemma, civil script, with stress), the _part of
 
 #entry("ага́рянский", "adj", "агарянскаго, агарянским, агарянскую", "агарянский, мусульманский (татарский)", "Hagarene; of the Hagarenes (i.e. Muslim, here: Tatar)", "Hagareens; van de Hagarenen (d.w.z. islamitisch, hier: Tataars)", "From Hagar (Gen 16; 21; 25:12): the Ishmaelites/Hagarenes (Ps 82:7 LXX Ἀγαρηνοί) — the standard Byzantine-Slavonic name for Muslims. Here: the Tatars of Kazan. Do not flatten to “Muslim” without losing the biblical resonance.")
 
-#entry("аллилу́иа", "interj", "аллилуиа (12)", "аллилуия", "Alleluia", "Alleluja", "Hebr. hallelu-Yah, “praise the Lord” (Ps 104–106, 111–118, 146–150; Rev 19:1-6). Fixed refrain of every kontakion; Dutch Orthodox usage: “Alleluja”.")
+#entry("аллилу́иа", "interj", "аллилуиа (12)", "аллилуйя (в церковных текстах также аллилуия)", "Alleluia", "Alleluja", "Hebr. hallelu-Yah, “praise the Lord” (Ps 104–106, 111–118, 146–150; Rev 19:1-6). Fixed refrain of every kontakion. Modern Russian spells it аллилуйя; аллилуия is the CS spelling (аллилуїа) carried over into Russian church books. Dutch Orthodox usage: “Alleluja”.")
 
 #entry("ами́нь", "interj", "аминь (2)", "аминь", "Amen", "Amen", "Hebr. “truly, so be it” (Deut 27:15ff; Rev 22:20-21).")
 
