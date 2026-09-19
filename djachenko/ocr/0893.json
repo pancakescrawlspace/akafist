@@ -205,5 +205,5 @@
   {"col":3,"para":2,"bbox":[149,6069,881,6157],"abbyy":"ЬАголгд и ілгоуліл","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":2,"bbox":[2317,6069,2643,6159],"abbyy":"Ь&дзонд","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (24 lines end at the image edge); line ends of the right column missing"]
 }

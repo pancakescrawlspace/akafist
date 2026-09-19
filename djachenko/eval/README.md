@@ -17,7 +17,11 @@ Page images: `djachenko/pages/NNNN.jpg` (300 ppi; 600 ppi originals in `pages/jp
 
 **Status of each file:** the second line says `status: draft` until the user has checked it against the image,
 then `status: checked (date)`. User's checks so far: 0045 checked thoroughly, no error found (2026-09-19); 0517
-checked cursorily, no error found (2026-09-19).
+checked cursorily, no error found (2026-09-19). After those checks, comparing the OCR witnesses against the GT
+(`tools/dj_eval.py --suspects`: places where two independent OCRs agree against the transcription) found 11 slips
+in five files, each confirmed on the images and corrected; they are listed in the files' header comments (0045: 6,
+0465: 2, 0893: 2, 1124: 1). The remaining 35 disagreements are OCR errors (checked). Results: `RESULTS.md`;
+candidate texts per witness and page in `cand/` (cached; `--refresh` re-extracts them from the scans).
 
 - In the small CS type и and н look nearly the same (ABBYY reads н for both), л is Λ-shaped and а is ɑ-shaped; where
   the glyphs do not decide, the word is read by sense and the choice noted in the file (e.g. Ѫзилиште on p. 856).

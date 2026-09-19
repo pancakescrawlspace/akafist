@@ -154,5 +154,5 @@
   {"col":2,"para":6,"bbox":[2301,5475,2969,5577],"abbyy":"Дьоазьіченъ","abbyy_conf":19,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[2307,5797,3241,5901],"abbyy":"Двуглавый орелъ","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": ["side a: no flush line (edge from prior)"]
+ "warnings": ["side b: right margin cut off in the scan (28 lines end at the image edge); line ends of the right column missing","side a: no flush line (edge from prior)"]
 }

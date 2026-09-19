@@ -219,5 +219,5 @@
   {"col":2,"para":14,"bbox":[2329,4495,3539,4589],"abbyy":"Вытручати, вытрутити","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2329,4801,2595,4875],"abbyy":"Выть","abbyy_conf":82,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (28 lines end at the image edge); line ends of the right column missing"]
 }

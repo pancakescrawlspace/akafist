@@ -179,5 +179,5 @@
   {"col":1,"para":14,"bbox":[247,4617,797,4701],"abbyy":"Богословіе","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2385,2935,3029,3043],"abbyy":"Богослуженіе","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (52 lines end at the image edge); line ends of the right column missing"]
 }

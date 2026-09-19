@@ -169,5 +169,5 @@
  ],
  "entries_hint": [
  ],
- "warnings": ["side a: lines at the edge lack \"=\", taken as continuation lines"]
+ "warnings": ["side b: right margin cut off in the scan (48 lines end at the image edge); line ends of the right column missing","side a: lines at the edge lack \"=\", taken as continuation lines"]
 }

@@ -211,5 +211,5 @@
   {"col":2,"para":9,"bbox":[2337,5967,3017,6081],"abbyy":"Пенитенціарій","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2335,6193,2841,6273],"abbyy":"Пентаполь","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (21 lines end at the image edge); line ends of the right column missing"]
 }

@@ -159,5 +159,5 @@
   {"col":2,"para":3,"bbox":[2405,705,2985,813],"abbyy":"Ошый дін","abbyy_conf":14,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2441,6047,2889,6131],"abbyy":"Основаніе","abbyy_conf":34,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (17 lines end at the image edge); line ends of the right column missing"]
 }

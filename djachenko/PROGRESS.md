@@ -90,9 +90,30 @@ See PLAN.md for the phases. Newest entry last.
   "мꙋгленый" without С (p. 623), broken digit in "(Іер. 12, 4)" (p. 428). (4) In the small CS type и/н, в/к, б/в
   are hard to tell apart; Google's reading of D often gets the headwords right where ABBYY on A fails.
 
-NEXT: Phase 2 measurements — write tools/dj_eval.py (reads eval/gt/*.txt per the README conventions; CER/WER overall,
-headwords `{…}` only, definitions only, Greek only; spacing ignored) and score: (a) ABBYY on A from ocr/*.json,
-(b) B's OCR (scan/reprint1993: DjVu text layer via djvutxt, or its _abbyy.gz), (c) Google's text layer of D
-(pdftotext -f N -layout/-bbox scan/google/google_cornell.pdf; PDF page = p + 48) and of C. Also: entry segmentation
-(entries_hint vs. GT entry starts); count pages with a cut right margin. Write results to eval/RESULTS.md. The user
-may still report corrections to the draft GT files — re-run the evaluation after any change.
+- Phase 2 measurements (session 3; the scoring itself was written and first run at the end of session 2 but not
+  logged): tools/dj_eval.py scores four candidates against eval/gt/ — ABBYY on A, B's DjVu text, Google's text of D
+  and of C (reading order rebuilt from word boxes; CER strict/norm, per zone hw/def/grc; segmentation of ocr/*.json;
+  `--vote`, `--suspects`, `--show`); tools/dj_inspect.py (dump/overlay/lines/find across all four witnesses/gtcheck/
+  segcheck). Results in eval/RESULTS.md, numbers in eval/results.tsv, candidate texts cached in eval/cand/.
+  Headline numbers (norm): definitions — D 1.5 % CER, C 1.8 %, A 3.8 %, B 3.8 %; where D and B agree (95 % of
+  characters) only 0.13 % is wrong; majority D/B/A 0.8 %. Headwords — every OCR ~48 % exact, majority 50 %; vision
+  on a contact sheet of 600 ppi crops: 25/25 on a fresh page (leaf 341). Greek — ~14,700 words in the book, D reads
+  them at 2 % strict CER; ABBYY garbles all. Segmentation — recall 99 %, precision 100 % on ordinary pages, 81 %
+  among the guessed paragraphs of a cut page.
+  New finding: scan A also lacks the RIGHT margin on 313 odd leaves (196 main, 113 supplement; last 1–4 characters
+  of column b's lines); dj_abbyy.py now warns about it (re-run; only warnings changed), SOURCE.md updated. 551 of
+  1,119 dictionary pages are incomplete in A on one side; D has both margins.
+  Ground truth: `--suspects` (D and B agreeing against the GT) found 11 slips in the drafts, all confirmed on the
+  images and corrected (0045: 6, 0465: 2, 0893: 2, 1124: 1 — see the files' headers; 0045 had been checked by the
+  user before these). The 35 remaining disagreements are OCR errors. gtcheck's parentheses test fixed (it stripped
+  the ")" of references).
+  Route decided (PLAN.md revision 5, Phase 3b rewritten): text from D aligned to A's segmentation and voted with B
+  and A, disagreements flagged; headwords by vision on crops with the witnesses as check; Greek from D. Phase 2 done.
+  Open for the user: run the ~850 headword contact sheets through the API (~2 M tokens, unattended) or read them in
+  interactive sessions; and the draft GT files (0465, 0517, 0660, 0893, 1124) still await the user's check.
+
+NEXT: Phase 3b step 1 — write tools/dj_heads.py: per page, rebuild D's reading order from `pdftotext -bbox` (reuse
+dj_eval.reading_order), align to A's text (dj_eval.align), cut at A's paragraph starts, vote D/B/A per character,
+store text_d / text_merged / disputed spans in ocr/NNNN.json; test on the six GT pages (the merged text should score
+~1 % CER with dj_eval) and on a left-cut and a right-cut page. Then step 2, the crop/contact-sheet pipeline (crops
+from A, from D on left-cut pages), after the user has chosen API vs. interactive reading.

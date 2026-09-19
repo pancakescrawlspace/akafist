@@ -262,5 +262,5 @@
   {"col":2,"para":19,"bbox":[2325,4577,2697,4683],"abbyy":"Мн'ѣ ШЕ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":20,"bbox":[2323,5339,2891,5419],"abbyy":"Молбитане","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (20 lines end at the image edge); line ends of the right column missing"]
 }

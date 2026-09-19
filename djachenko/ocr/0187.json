@@ -176,5 +176,5 @@
   {"col":1,"para":13,"bbox":[361,4619,667,4719],"abbyy":"Домра","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":14,"bbox":[365,5029,641,5131],"abbyy":"Домъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": ["side b: no flush line (edge from prior)"]
+ "warnings": ["side b: no flush line (edge from prior)","side b: right margin cut off in the scan (49 lines end at the image edge); line ends of the right column missing"]
 }

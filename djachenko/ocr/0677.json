@@ -201,5 +201,5 @@
   {"col":2,"para":8,"bbox":[2331,2245,3771,2341],"abbyy":"Сословія у древнихъ славянъ","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2339,3057,4167,3159],"abbyy":"Щ подвластные моужамъ; 6) доброродие","abbyy_conf":79,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (9 lines end at the image edge); line ends of the right column missing"]
 }

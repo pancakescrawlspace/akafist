@@ -573,6 +573,12 @@ def layout(leaf, pg, printed):
         if mode == 'cut':
             warnings.append(f'side {side}: margin cut off in the scan ({len(clipped)} lines at the image edge); '
                             f'entry starts from position and text features')
+        # the right margin: on ~300 right-hand pages the scan cuts the line ends of the right column (the last
+        # 1-4 characters of the full lines); the text there has to come from another copy (eval/RESULTS.md)
+        rclipped = sum(1 for ln in lns if ln['box'][2] >= W - CLIPPED)
+        if side == 'b' and rclipped >= 3:
+            warnings.append(f'side b: right margin cut off in the scan ({rclipped} lines end at the image edge); '
+                            f'line ends of the right column missing')
 
     def ind_of(ln, side, prev):
         """0 flush, 1 indented, 2 deeper; plus whether the decision is a guess from text features."""

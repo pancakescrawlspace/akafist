@@ -160,5 +160,5 @@
   {"col":1,"para":7,"bbox":[305,1997,1241,2073],"abbyy":"Сивиллины книги","abbyy_conf":40,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2431,5951,2753,6027],"abbyy":"Сивый","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (52 lines end at the image edge); line ends of the right column missing"]
 }

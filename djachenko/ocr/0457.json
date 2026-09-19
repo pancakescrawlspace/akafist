@@ -170,5 +170,5 @@
   {"col":2,"para":9,"bbox":[2397,4023,3151,4155],"abbyy":"Пет^объ постъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2401,5057,2693,5191],"abbyy":"Штр","abbyy_conf":5,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (15 lines end at the image edge); line ends of the right column missing"]
 }

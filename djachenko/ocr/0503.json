@@ -191,5 +191,5 @@
   {"col":2,"para":18,"bbox":[2411,5859,3027,5941],"abbyy":"Постгтичгель","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2411,6059,2873,6195],"abbyy":"ПогЬцілю","abbyy_conf":19,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": ["side a: no flush line (edge from prior)"]
+ "warnings": ["side b: right margin cut off in the scan (36 lines end at the image edge); line ends of the right column missing","side a: no flush line (edge from prior)"]
 }

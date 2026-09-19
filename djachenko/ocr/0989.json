@@ -191,5 +191,5 @@
   {"col":2,"para":8,"bbox":[2435,3369,2913,3463],"abbyy":"Граженіе","abbyy_conf":72,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2435,3573,2743,3667],"abbyy":"Грама","abbyy_conf":84,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (36 lines end at the image edge); line ends of the right column missing"]
 }

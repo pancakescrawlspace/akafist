@@ -160,5 +160,5 @@
   {"col":2,"para":7,"bbox":[2419,5733,3387,5829],"abbyy":"Детаву или цатаву","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2423,6139,2685,6233],"abbyy":"Цець","abbyy_conf":71,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": ["side a: lines at the edge lack \"=\", taken as continuation lines","side a: no flush line (edge from prior)"]
+ "warnings": ["side b: right margin cut off in the scan (45 lines end at the image edge); line ends of the right column missing","side a: lines at the edge lack \"=\", taken as continuation lines","side a: no flush line (edge from prior)"]
 }

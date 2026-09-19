@@ -211,5 +211,5 @@
   {"col":2,"para":10,"bbox":[2373,3917,2657,4047],"abbyy":"вздцл","abbyy_conf":19,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2383,5383,3911,5497],"abbyy":"О3ЕКІА {евр. крѣпость Господня","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (30 lines end at the image edge); line ends of the right column missing"]
 }

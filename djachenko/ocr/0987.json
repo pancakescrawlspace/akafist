@@ -160,5 +160,5 @@
   {"col":2,"para":7,"bbox":[2383,6007,2829,6095],"abbyy":"Гор*ішлініі","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2385,6113,2973,6205],"abbyy":"Горянщина","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": ["side a: lines at the edge lack \"=\", taken as continuation lines","side a: no flush line (edge from prior)"]
+ "warnings": ["side b: right margin cut off in the scan (42 lines end at the image edge); line ends of the right column missing","side a: lines at the edge lack \"=\", taken as continuation lines","side a: no flush line (edge from prior)"]
 }

@@ -177,5 +177,5 @@
   {"col":2,"para":7,"bbox":[2473,4955,2811,5031],"abbyy":"Аланы","abbyy_conf":72,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2487,5977,3683,6073],"abbyy":"Аланъ, ялань или елань","abbyy_conf":79,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (44 lines end at the image edge); line ends of the right column missing"]
 }

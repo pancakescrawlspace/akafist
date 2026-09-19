@@ -188,5 +188,5 @@
   {"col":2,"para":8,"bbox":[2423,5673,3079,5767],"abbyy":"Летаргицкій","abbyy_conf":71,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2425,5979,2783,6075],"abbyy":"Летува","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (43 lines end at the image edge); line ends of the right column missing"]
 }

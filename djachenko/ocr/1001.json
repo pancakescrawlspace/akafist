@@ -211,5 +211,5 @@
   {"col":2,"para":10,"bbox":[2407,5027,3667,5125],"abbyy":"ДоБроволенніе, доврокодьстко","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2403,5949,3159,6049],"abbyy":"Доврогокіишьстко","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (42 lines end at the image edge); line ends of the right column missing"]
 }

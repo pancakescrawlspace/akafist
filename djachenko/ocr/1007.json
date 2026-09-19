@@ -172,5 +172,5 @@
   {"col":2,"para":4,"bbox":[2349,4759,2807,4861],"abbyy":"Думникъ","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2347,4963,3105,5063],"abbyy":"Думные дьяки","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (48 lines end at the image edge); line ends of the right column missing"]
 }

@@ -184,5 +184,5 @@
   {"col":2,"para":3,"bbox":[2443,5987,2819,6055],"abbyy":"ІІомііѣстіі","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2439,6133,2925,6241],"abbyy":"Поморскій","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (42 lines end at the image edge); line ends of the right column missing"]
 }

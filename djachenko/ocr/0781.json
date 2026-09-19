@@ -211,5 +211,5 @@
   {"col":2,"para":9,"bbox":[2335,3601,2673,3673],"abbyy":"Тагнжтіі","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2327,6245,2719,6325],"abbyy":"Таго'ГА","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (5 lines end at the image edge); line ends of the right column missing"]
 }

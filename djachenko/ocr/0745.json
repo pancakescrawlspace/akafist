@@ -190,5 +190,5 @@
   {"col":2,"para":15,"bbox":[2423,5589,3183,5675],"abbyy":"Тапаѳ-іі и тафатн","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":16,"bbox":[2425,5895,3525,5987],"abbyy":"Тарабарская грамота","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (38 lines end at the image edge); line ends of the right column missing"]
 }

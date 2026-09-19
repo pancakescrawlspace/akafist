@@ -61,6 +61,11 @@ bilevel) in `scan/google/`.
   119 of the 128 left-hand pages of the supplement. The lines of the left column start at the image edge, and the first
   letter or two of the headwords (on the worst pages also of the continuation lines) are missing from the image. Listed
   in `ocr/report.tsv` ("margin cut off"). Witnesses B, C and D (see COPIES.md) have these margins intact.
+- **Right margin cut off** (found in Phase 2, 2026-09-19) on 313 pages, all odd leaves (right-hand pages): 196 in
+  the main part, 113 in the supplement, 4 in the front/back matter. The full lines of the right column end at the
+  image edge, so their last 1–4 characters are missing (typically 20–140 px at 600 ppi). No page is cut on both
+  sides; 551 of the 1,119 dictionary pages are incomplete on one side. Listed in `ocr/report.tsv` ("right margin cut
+  off"); witness D supplies the line ends (eval/RESULTS.md §6).
 - **Paper patch** over the lower left column of p. 1120 (leaf 1157): the starts of about ten entries (Авій …) are
   covered.
 - Pictures instead of text: 18 headwords with tall superscripts (e.g. Кощѵна p. 266, Пѣвцы, Служба, Фѵлло,

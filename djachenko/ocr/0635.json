@@ -147,5 +147,5 @@
   {"col":2,"para":3,"bbox":[2419,4237,3465,4317],"abbyy":"Символическія книги","abbyy_conf":63,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2419,4767,2839,4843],"abbyy":"Символъ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "warnings": []
+ "warnings": ["side b: right margin cut off in the scan (41 lines end at the image edge); line ends of the right column missing"]
 }

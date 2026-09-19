@@ -10,6 +10,12 @@ Revision 3 (2026-09-19, after Phase 3a): the book has a large supplement (a seco
 table and scan defects (left margins cut off on 242 pages); Phases 2–6 amended accordingly (marked "Rev. 3").
 Revision 4 (2026-09-19, session 2): other copies surveyed (`COPIES.md`); a second independent witness (the 1993
 reprint, margins intact, with its own OCR) downloaded; Phase 2 gets a triangulation question (marked "Rev. 4").
+Revision 5 (2026-09-19, session 3, after the Phase 2 measurements — `eval/RESULTS.md`): the route is decided. The
+definition text and the Greek come from witness D's text layer (Google, Cornell copy: 1.5 % CER against ABBYY's
+3.8 % on A), voted with B and A; the entry segmentation stays A's geometry (99 % recall, 100 % precision on ordinary
+pages); the headwords are read from crops by a vision model (25/25 on a test page, against ~48 % for any OCR). Scan A
+also lacks the *right* margin on 313 right-hand pages, so half the pages are incomplete in A. Phase 3b rewritten
+(marked "Rev. 5").
 
 This plan is written to be executed over several sessions. Every phase has a *Definition of done* and a *Resume*
 paragraph; all state lives in files under `djachenko/` so that a new session can read `PROGRESS.md`, the manifest and
@@ -66,8 +72,11 @@ djachenko/
 tools/
   dj_fetch.py      Phase 1: download scan + OCR layers, extract page images, write manifest (exists)
   dj_abbyy.py      Phase 3a: ABBYY XML → ocr/NNNN.json (text, geometry, formatting), idempotent (exists)
-  dj_heads.py      Phase 3b: recover the Church Slavonic headwords (and Greek runs) for a page range, idempotent
-  dj_eval.py       Phase 2: CER/WER of an OCR output against a ground-truth file
+  dj_heads.py      Phase 3b (Rev. 5): per page, align witness D's text to A's segmentation, vote the definition text
+                   with B and A, transfer the headword boxes, read the headwords from crops; idempotent
+  dj_eval.py       Phase 2: CER of the OCR candidates against the ground truth, per zone; triangulation (exists)
+  dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
+                   sanity checks of the ground truth and of the entry starts (exists)
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv, with validation report
   dj_link.py       Phase 5: cross-reference entries.tsv with dictionary/dictionary.psv lemmas
   dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst)
@@ -112,7 +121,12 @@ and the supplement — and record the leaf→printed offset(s) in `SOURCE.md`.
 and a section, `SOURCE.md` is filled in. Committed: `SOURCE.md`, `manifest.tsv`, `.gitignore`, `tools/dj_fetch.py`.
 *Resume:* run `python3 tools/dj_fetch.py --all`; it only does what is missing. Then fill in sections if still empty.
 
-## Phase 2 — Measure what the ABBYY layer gives and choose the route for the rest (one to two sessions)
+## Phase 2 — Measure what the ABBYY layer gives and choose the route for the rest (one to two sessions) — DONE
+
+Rev. 5: done 2026-09-19 (sessions 2–3); the numbers and the route are in `eval/RESULTS.md`. In short: definitions
+from D (1.5 % CER) voted with B and A (~1 % expected, disagreements flagged); segmentation from A's geometry; headwords
+by vision on crops; Greek from D (2 % strict CER, ~14,700 words in the book); the cut margins (left on 242 even
+leaves, right on 313 odd leaves) supplied by D. The questions below are kept for the record.
 
 Ground truth: 6 pages chosen to be representative — an ordinary page from А, one from the middle (П or С), one from a
 short late letter (Ѣ or Ѵ), one dense in Greek/Hebrew etymology, one from the supplement, one with poor print quality.
@@ -173,13 +187,25 @@ main + supplement (22,542 with "=" in their first two lines; 3,197 guessed, on 2
 and letters; `ocr/report.tsv` the per-page statistics and warnings. The book's "~30,000 entries" is a round figure:
 the "=" count (24,483) and the candidates agree on ~25,000.
 
-**3b. `tools/dj_heads.py --pages A-B`** recovers what ABBYY cannot (Rev. 3: including the 18 headwords that exist only
-as pictures — `abbyy` is "\ufffc" — and the cut-off first letters, see Phase 2 question 6): for every headword position
-found in 3a (or every column, depending on the Phase 2 result) it obtains the Church Slavonic headword in civil
-pre-reform script and writes it into the page JSON (`entries_hint[].headword`, with `source` and a confidence). Same for
-Greek runs if Phase 2 says so. Idempotent: skips pages whose headwords are already filled; the manifest status becomes
-`ocr` when a page is complete. Batches sized to a session; after every batch: `dj_parse.py --check`, a line in
-`PROGRESS.md`, commit.
+**3b. `tools/dj_heads.py --pages A-B`** (Rev. 5, after Phase 2) builds the page text from the witnesses on top of
+A's segmentation, in three steps per page, each idempotent and each recorded in the page JSON:
+
+1. *Text.* Rebuild D's reading order from its word boxes (`pdftotext -bbox`, prototype in `dj_eval.py`), align it to
+   A's text (Levenshtein; A's garbled headwords do not break the alignment), and cut D's text at A's paragraph starts.
+   Vote each character D/B/A (C as tie-breaker) and keep, per paragraph, the merged text plus the positions where D
+   and B disagree (`text_d`, `text_merged`, `disputed` spans) — those 5 % of characters are where nearly all remaining
+   errors are. On the 551 pages with a cut margin in A, D's text is by construction complete.
+2. *Headwords.* For every `entries_hint`, crop the headword box from A's 600 ppi image (from D's page image, located
+   through the alignment, on the 242 left-cut pages), tile ~30 crops on a contact sheet with numbers, and have a
+   vision model return the headwords in the GT transcription convention (CS letters as printed, no diacritics).
+   Write `headword` (as read), `headword_civil` (mapped), `headword_source`, and a `check` field: `confirmed` when B,
+   C or D read the same (norm), `disputed` otherwise. Also covers the 18 picture-only headwords and the cut-off
+   initials. Open decision (user): run the sheets through the API unattended (~850 sheets, ~2 M tokens) or in
+   interactive sessions.
+3. *Greek.* Greek runs come with D's text; where C disagrees on a Greek run, mark it `disputed`.
+
+Manifest status becomes `ocr` when a page has all three. Batches sized to a session; after every batch:
+`dj_parse.py --check`, a line in `PROGRESS.md`, commit.
 
 Per-page JSON schema (engine-independent):
 
@@ -260,9 +286,9 @@ Rev. 3: pp. XXIX–XXXIII = leaves 27–31, already in ocr/ as two-column text w
 |---|---|---|
 | 0 | done | |
 | 1 | done | |
-| 2 | 1–2 | ground truth is the slow part (~4 h of human-quality transcription for 6 pages) |
+| 2 | done | 2 sessions; ground truth ~4 h |
 | 3a | done | |
-| 3b | 3–8 | headwords only: ~2,300 column reads or ~750 contact sheets; token cost roughly 1–2M for a vision route |
+| 3b | 2 + reruns, or 4–8 | one session for the alignment/voting script and its checks, one for the crop pipeline; then either one unattended API pass over ~850 contact sheets (~2 M tokens) or 4–8 interactive sessions of sheet reading |
 | 4 | 1 + reruns | |
 | 5 | 3–6 short | proofreading ~550 linked entries |
 | 6 | 1 | |

@@ -139,5 +139,5 @@
  ],
  "entries_hint": [
  ],
- "warnings": ["side b: no flush line (edge from prior)","side a: no flush line (edge from prior)"]
+ "warnings": ["side b: no flush line (edge from prior)","side b: right margin cut off in the scan (45 lines end at the image edge); line ends of the right column missing","side a: no flush line (edge from prior)"]
 }
