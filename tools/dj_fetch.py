@@ -10,7 +10,7 @@ write djachenko/manifest.tsv.
     python3 tools/dj_fetch.py --all
 
 Every step is idempotent. Downloads use curl with resume and are verified against the MD5s in the item's _files.xml."""
-import argparse, hashlib, json, re, subprocess, sys, zipfile
+import argparse, hashlib, json, os, re, subprocess, sys, zipfile
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 from urllib.parse import quote
@@ -103,9 +103,9 @@ def convert_one(src):
     return True
 
 
-def convert():
+def convert(workers=None):
     srcs = sorted(JP2.glob('*.jp2'), key=lambda p: leaf_of(p.name))
-    with ProcessPoolExecutor() as ex:
+    with ProcessPoolExecutor(max_workers=workers) as ex:          # default: all cores
         n = sum(ex.map(convert_one, srcs, chunksize=4))
     print(f'{len(srcs)} pages, {n} newly converted')
 
@@ -146,6 +146,7 @@ def main():
     ap = argparse.ArgumentParser()
     for opt in ('meta', 'jp2', 'extract', 'convert', 'manifest', 'all'):
         ap.add_argument('--' + opt, action='store_true')
+    ap.add_argument('--workers', type=int, help='parallel workers for --convert (default: all cores)')
     a = ap.parse_args()
     if a.all or a.meta:
         for name in META_FILES:
@@ -155,7 +156,7 @@ def main():
     if a.all or a.extract:
         extract()
     if a.all or a.convert:
-        convert()
+        convert(a.workers)
     if a.all or a.manifest:
         manifest()
 

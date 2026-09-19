@@ -28,7 +28,11 @@ the ABBYY layer.
 **Leaf → printed page.** Leaf numbers are 0-based as in the JP2 file names (`…_0150.jp2` = leaf 150). Verified by
 eye: leaf 150 = printed page 113 (guide words Вѣр— / Вѣк—). The automatic map in `page_numbers.json` is copied into
 `manifest.tsv`; corrections made by hand in the manifest take precedence when the manifest is regenerated.
-(Section boundaries and any offset changes: see `manifest.tsv`, column `section`, and the notes below.)
+Result of the check (2026-09-19): leaves 0–6 unnumbered front matter, leaves 7–36 = pp. IX–XXXVIII, leaf 37
+unnumbered, leaf 38 = p. 1 (unnumbered in print; set by hand), leaves 39–1157 = pp. 2–1120 without a single gap or
+repeat, leaf 1158 unnumbered (end). So for the dictionary proper: **printed page = leaf − 37**. Letter boundaries and
+the start of the supplement ("Прибавление") are filled into `manifest.tsv` in Phase 3a. 25 leaves have a page-number
+confidence below 90 in the automatic map; their numbers fit the sequence, so they are accepted.
 
 **Notes.**
 - OCR quality (from a first look): the definition text is good and keeps pre-reform orthography (ѣ, і, ѳ, ъ);

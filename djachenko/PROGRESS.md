@@ -22,7 +22,10 @@ See PLAN.md for the phases. Newest entry last.
 - Wrote tools/dj_fetch.py; downloaded the metadata and OCR layers (verified); JP2 zip download started
   (`python3 tools/dj_fetch.py --jp2 --extract --convert --manifest`, log in djachenko/scan/fetch.log).
 
-NEXT: Phase 1 — make sure the JP2 download/extract/convert finished (`python3 tools/dj_fetch.py --all` is
-idempotent and resumes); check that djachenko/pages/ has 1,159 JPEGs and manifest.tsv shows status `image`;
-then fill the `section`/`letter` columns of manifest.tsv (front matter, first leaf of each letter, supplement) —
-easiest once Phase 3a's ABBYY parser exists (large-initial lines mark letter starts), so 3a may be written first.
+- JP2 zip downloaded and verified, 1,159 leaves extracted (pages/jp2/, 600 ppi) and converted to 300 ppi JPEGs
+  (pages/NNNN.jpg, 3.9 GB). manifest.tsv built: all leaves status `image`; page map checked (printed page = leaf − 37
+  for the dictionary proper, no gaps); sections front/main/back set. Phase 1 done except for the letter boundaries
+  and the supplement start, which Phase 3a fills from the ABBYY layer.
+
+NEXT: Phase 3a — write tools/dj_abbyy.py (ABBYY XML → ocr/NNNN.json per leaf, schema in PLAN.md Phase 3), run it over
+all leaves, and use its output to fill `letter`/supplement in manifest.tsv. Then Phase 2 (ground truth + measurements).
