@@ -4,6 +4,9 @@ Goal: a machine-readable, proofread-where-it-matters copy of Г. Дьяченк�
 ~30,000 entries, ~1,120 two-column pages + XXXVIII pages of front matter), and from it a Typst/PDF rendition in the
 style of `dictionary/dictionary.typ`. The book is public domain (published 1900, author †1903).
 
+Revision 2 (2026-09-19, after Phase 1 investigation): source scan chosen; an existing ABBYY OCR layer with word
+coordinates and formatting was found, which reshapes Phases 2–4 (see "Findings" and the phases themselves).
+
 This plan is written to be executed over several sessions. Every phase has a *Definition of done* and a *Resume*
 paragraph; all state lives in files under `djachenko/` so that a new session can read `PROGRESS.md`, the manifest and
 this plan and continue without any conversational memory.
@@ -13,15 +16,28 @@ this plan and continue without any conversational memory.
 - No transcribed text edition exists. Azbyka.ru (`/otechnik/Grigorij_Djachenko/polnyj-tserkovnoslavyanskij-slovar/`,
   38 per-letter pages) and dhonorare.ru (`/dict/dyachenko/`) serve **page images** only. Wikisource has an index
   (`Индекс:Полный церковнославянский словарь (Протоиерей Г.Дьяченко).djvu`) with **no OCR layer** and two transcribed
-  pages. So the text must be produced by OCR (in the wide sense) from a scan.
-- Scans available: the archive.org copy; the Wikimedia Commons PDF "Прот. Г. Дьяченко. Полный церковно-славянский
-  словарь (1900).pdf"; Azbyka's per-page PNGs of the 2004 reprint; dhonorare's per-page JPGs. One of the single-file
-  copies is preferable to 1,100+ requests to a website.
-- Typography of the original: two columns; headwords in Church Slavonic type (titla, ѣ ѧ ѡ ѵ), followed by "=" and
-  the definition in pre-reform Russian civil type; Greek, Hebrew, Latin in etymologies; biblical references in
-  parentheses. The "=" after the headword and the hanging indent are the structural markers to exploit.
-- Azbyka's robots.txt disallows automated fetching of `.epub`, `.txt`, `.djvu` files; HTML/PNG pages are not
-  disallowed. Any fetching is done with a descriptive User-Agent, sequentially, with a delay.
+  pages. So the text must be produced from a scan.
+- **Chosen scan: archive.org item `20200215_20200215_0856`** (1900 edition; 1,159 leaves at 4252×6520 px = 600 ppi;
+  the same scan as item `dyachenkos-dictionary-church-slavonic`). Rejected: Wikimedia Commons PDF and dhonorare.ru
+  (816×1156 px, ~100 ppi), Azbyka PNGs (1119×1755 px of the 2004 reprint, 1,150 requests), archive.org
+  `polnyjtserkovnoslavjanskijslovarsovne27` (OCR layer without ѣ/і) and `B-001-027-578-ALL` (182 ppi).
+- The chosen item carries archive.org's own OCR, made with **ABBYY FineReader with pre-reform Russian**: the plain text
+  (`_djvu.txt`, 8.5 MB) has 51,852 ѣ and 65,981 і, and reads well for the definition text
+  ("крѣпленія силъ молящихся, ибо тотчасъ"). It fails, as expected, on the **Church Slavonic headwords** ("Абіе" →
+  "Яеіе") and on **Greek** ("παραχρῆμα" → "тгарау р7][ла"). About 24,500 "=" signs survive (≈ number of entries).
+- The same OCR is available as ABBYY XML (`_abbyy.gz`, 79 MB: characters with coordinates *and* `<formatting>` with
+  font size / bold / italic), DjVu XML (`_djvu.xml`, 62 MB: words with coordinates) and hOCR (127 MB). Formatting and
+  geometry make it possible to find headwords (different typeface, at the hanging-indent start of a paragraph, before
+  "=") without reading the text, and to segment entries geometrically.
+- `_page_numbers.json` maps leaf → printed page number with 98 % confidence (leaf 150 = p. 113, verified against the
+  image); `_scandata.xml` gives leaf sizes. Page images can also be fetched singly at 300 ppi via
+  `https://archive.org/download/<item>/page/n<leaf>.jpg` (used for spot checks; the bulk comes from the JP2 zip).
+- Typography of the original (seen on p. 113): two columns; headwords in Church Slavonic type with titla, then "=" and
+  the definition in pre-reform civil type; italic for quotations and source names; Greek, Hebrew, Latin in etymologies;
+  biblical references in parentheses; guide words ("Вѣр—", "Вѣк—") in the head, page number centred, signature and the
+  running title "Церк.-славян. словарь свящ. Г. Дьяченко." in the foot.
+- Azbyka's robots.txt disallows automated fetching of `.epub`, `.txt`, `.djvu` files; not relevant now that archive.org
+  is the source. All fetching uses a descriptive User-Agent, sequentially, with resume and checksum verification.
 
 ## Layout of `djachenko/`
 
@@ -29,18 +45,19 @@ this plan and continue without any conversational memory.
 djachenko/
   PLAN.md          this file
   PROGRESS.md      running log: date, what was done, "NEXT:" line (the first thing a new session reads)
-  SOURCE.md        which scan was used, URL, checksum, page count, page-index → printed-page mapping
-  manifest.tsv     one row per scan page: idx, printed_page, section (front/letter/supplement), letter, status, notes
+  SOURCE.md        which scan was used, URL, checksums, page count, leaf → printed-page mapping
+  manifest.tsv     one row per leaf: idx, printed_page, section (front/letter/supplement), letter, status, notes
                    status ∈ {new, image, ocr, parsed, checked}
-  scan/            the downloaded scan (git-ignored; large)
-  pages/           one image per page, idx-numbered (git-ignored; regenerable from scan/)
-  ocr/             raw OCR per page: NNNN.json (see Phase 3 for the schema) — committed
+  scan/            the archive.org files: metadata, OCR layers, JP2 zip (git-ignored; large)
+  pages/           NNNN.jpg, one 300 ppi working image per leaf; pages/jp2/ the 600 ppi originals (git-ignored)
+  ocr/             per-page JSON built from the ABBYY layer plus the headword/Greek passes (Phase 3 schema) — committed
   entries.tsv      the structured dictionary (Phase 4 output) — committed
   eval/            ground-truth pages and evaluation results (Phase 2)
   djachenko.typ, djachenko.pdf   Typst rendition (Phase 6)
 tools/
-  dj_fetch.py      Phase 1: download scan, extract page images, write manifest skeleton
-  dj_ocr.py        Phase 3: OCR a page range, idempotent (skips pages with status ≥ ocr)
+  dj_fetch.py      Phase 1: download scan + OCR layers, extract page images, write manifest (exists)
+  dj_abbyy.py      Phase 3a: ABBYY XML → ocr/NNNN.json (text, geometry, formatting), idempotent
+  dj_heads.py      Phase 3b: recover the Church Slavonic headwords (and Greek runs) for a page range, idempotent
   dj_eval.py       Phase 2: CER/WER of an OCR output against a ground-truth file
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv, with validation report
   dj_link.py       Phase 5: cross-reference entries.tsv with dictionary/dictionary.psv lemmas
@@ -71,72 +88,78 @@ Decide and record in `PROGRESS.md`:
 
 *Definition of done:* the four decisions are written in `PROGRESS.md`.
 
-## Phase 1 — Acquire the scan and page images (one session, mostly unattended)
+## Phase 1 — Acquire the scan and page images (one session, mostly unattended) — IN PROGRESS
 
-1. Compare one sample page (same printed page, e.g. p. 100) from the candidate scans for resolution and legibility;
-   note results in `SOURCE.md`. Prefer the highest-resolution single-file copy (archive.org or Commons PDF).
-2. `tools/dj_fetch.py --source <url>`: download to `scan/`, record URL, size, SHA-256, page count in `SOURCE.md`.
-3. Extract page images losslessly at native resolution (`pdfimages -png` / `mutool draw` / `ddjvu`) to
-   `pages/NNNN.png`. Deskew and crop only if the OCR evaluation shows it helps (do it in a separate step, keeping
-   originals).
-4. Build `manifest.tsv`: for every page its printed page number and section. The front matter (Roman numerals), each
-   letter's first page and the supplement ("Прибавление") are found by hand from a handful of pages; the rest is
-   arithmetic. Record the idx→printed mapping in `SOURCE.md`.
+`tools/dj_fetch.py` does all of it, idempotently: `--meta` (files.xml, scandata, page_numbers.json, djvu.txt,
+djvu.xml, abbyy.gz; MD5-verified), `--jp2` (the 2.1 GB zip, resumable), `--extract` (JP2s into `pages/jp2/`),
+`--convert` (600 ppi JP2 → 300 ppi JPEG `pages/NNNN.jpg`, quality 88, parallel), `--manifest` (from scandata +
+page_numbers.json; keeps hand corrections already in the file).
 
-*Definition of done:* `scan/` present, `pages/` complete, `manifest.tsv` has one row per page with status `image`,
-`SOURCE.md` filled in. Committed: `SOURCE.md`, `manifest.tsv`, `.gitignore`.
-*Resume:* if `pages/` is incomplete, re-run step 3 (the script skips existing files).
+Then by hand, once: mark the sections in `manifest.tsv` — front matter (Roman-numbered pages), the first leaf of each
+letter (from the guide words / the large initials; the OCR text of each first page will contain the letter heading),
+and the supplement — and record the leaf→printed offset(s) in `SOURCE.md`.
 
-## Phase 2 — Choose the OCR route by measurement (one to two sessions)
+*Definition of done:* `scan/` holds the verified files, `pages/` has 1,159 JPEGs, every manifest row has status `image`
+and a section, `SOURCE.md` is filled in. Committed: `SOURCE.md`, `manifest.tsv`, `.gitignore`, `tools/dj_fetch.py`.
+*Resume:* run `python3 tools/dj_fetch.py --all`; it only does what is missing. Then fill in sections if still empty.
+
+## Phase 2 — Measure what the ABBYY layer gives and choose the route for the rest (one to two sessions)
 
 Ground truth: 6 pages chosen to be representative — an ordinary page from А, one from the middle (П or С), one from a
 short late letter (Ѣ or Ѵ), one dense in Greek/Hebrew etymology, one from the supplement, one with poor print quality.
-Transcribe them carefully by hand into `eval/gt/NNNN.txt` (headword lines start with `= `; column breaks marked). This
-is slow (~30–45 min per page) but is the only way to compare candidates honestly; the user may prefer to check these
-transcriptions.
+Transcribe them carefully by hand into `eval/gt/NNNN.txt` (one entry per paragraph, `headword = definition`, column
+breaks marked). This is slow (~30–45 min per page) but is the only way to compare candidates honestly; the user may
+prefer to check these transcriptions.
 
-Candidates, each producing `eval/<method>/NNNN.txt` for the same pages:
+Questions to answer with numbers (`tools/dj_eval.py gt.txt candidate.txt` → CER/WER overall, headwords only,
+definitions only, Greek only):
 
-- **Tesseract 5** with `rus` (fails on ѣ/і/ѳ by design), `script/Cyrillic`, and any community model for
-  pre-reform Russian or Church Slavonic that can be found; with and without column segmentation (`--psm 1/3/4`).
-  Free, fast, weak on the Slavonic headwords — may still be the best choice for the *definition* text.
-- **Kraken/eScriptorium** with a model trained on the ground-truth pages (needs more than 6 pages; realistic only if a
-  pretrained historical-Cyrillic model exists to fine-tune).
-- **Commercial OCR** (ABBYY FineReader lists Old/Church Slavonic among its languages; Google Document AI, Azure Vision):
-  cost per page to be checked; decide only if the free routes fail.
-- **Vision-model transcription (Claude reading the page image)**, one page per call, with a fixed output schema (see
-  Phase 3) so that transcription and entry segmentation happen in one pass. Strengths: mixed scripts, pre-reform
-  orthography, structure; costs tokens (order of magnitude: 1,150 pages × ~5k tokens ≈ 6M tokens for one pass) and
-  must be measured for hallucination (invented words look plausible — compare against ground truth, not by eye).
+1. **Definition text from the ABBYY layer** — is its CER low enough to use as is (with a proofreading pass only for
+   linked entries)? Expected yes; if not, Tesseract 5 (`rus`, `script/Cyrillic`) on the 300 ppi JPEGs is the fallback
+   to test, and the vision route the last resort.
+2. **Headword detection** — can headwords be located from geometry/formatting alone (ABBYY `<formatting>` font,
+   paragraph start with hanging indent, position before "=")? Measure recall/precision against the ground truth.
+3. **Headword transcription** — candidates: (a) a vision model reading a *column image* and returning only the list of
+   headwords in civil pre-reform script (small output, ~1,150 pages × 2 columns); (b) a vision model reading *headword
+   crops* built from the geometry of (2) — tiny images, easiest to verify, but ~30,000 calls unless batched into
+   contact sheets of ~40 crops; (c) Tesseract with any Church Slavonic model that can be found, on the crops; (d)
+   ABBYY's own garbled reading mapped back with a Slavonic-to-civil confusion table — probably hopeless, but cheap to
+   measure. Score CER on headwords only.
+4. **Greek** — how much Greek is there (count of parenthesised runs the ABBYY layer garbles), and is it worth a pass
+   over all entries or only over the linked subset? Candidate: vision on line crops where ABBYY confidence is low.
 
-`tools/dj_eval.py gt.txt candidate.txt` reports character and word error rate overall, for headwords only, and for
-definition text only. Record all numbers in `eval/RESULTS.md`.
+*Definition of done:* `eval/RESULTS.md` records the numbers and names the route for definitions, headwords and Greek;
+`PROGRESS.md` says so.
+*Resume:* ground-truth files and candidate outputs are on disk; continue with whichever candidates lack output.
 
-*Definition of done:* `eval/RESULTS.md` names the chosen route (possibly a hybrid: one engine for headwords, another for
-definitions) with its measured error rates, and `PROGRESS.md` says so.
-*Resume:* ground-truth files and candidate outputs are all on disk; continue with whichever candidates lack output.
+## Phase 3 — Build the per-page OCR files (3a: one run; 3b: several sessions)
 
-## Phase 3 — Bulk OCR, in batches (several sessions; the long phase)
+**3a. `tools/dj_abbyy.py`** converts the ABBYY XML into one `ocr/NNNN.json` per leaf: blocks → paragraphs → lines →
+words with bounding boxes, character confidence, and formatting (font size, bold, italic). This is a single
+deterministic run over all 1,159 leaves; no network, no tokens. It also records the guide words, page number and
+column boundaries per page.
 
-`tools/dj_ocr.py --pages 1-1160 [--batch 50]` runs the chosen route page by page, writes `ocr/NNNN.json`, sets the
-manifest status to `ocr`, and skips pages already done — so it can be interrupted at any moment and re-run.
+**3b. `tools/dj_heads.py --pages A-B`** recovers what ABBYY cannot: for every headword position found in 3a (or every
+column, depending on the Phase 2 result) it obtains the Church Slavonic headword in civil pre-reform script and
+writes it into the page JSON (`entries_hint[].headword`, with `source` and a confidence). Same for Greek runs if
+Phase 2 says so. Idempotent: skips pages whose headwords are already filled; the manifest status becomes `ocr` when a
+page is complete. Batches sized to a session; after every batch: `dj_parse.py --check`, a line in `PROGRESS.md`,
+commit.
 
-Per-page JSON schema (the same regardless of engine, so Phase 4 does not care which was used):
+Per-page JSON schema (engine-independent):
 
 ```
-{ "idx": 123, "printed_page": 85, "engine": "...", "columns": [
-    { "n": 1, "lines": ["…", "…"] },
-    { "n": 2, "lines": ["…", "…"] } ],
-  "entries_hint": [ {"headword": "…", "start_line": [1, 14]} ],   # optional, if the engine segments
+{ "idx": 150, "printed_page": 113, "guide_words": ["Вѣр—", "Вѣк—"],
+  "columns": [ { "n": 1, "bbox": [x0,y0,x1,y1],
+                 "paragraphs": [ { "bbox": [...], "hanging": true,
+                                   "lines": [ { "bbox": [...], "text": "…", "words": [ {"text": "…", "bbox": [...], "conf": 0.93, "font": "cs|civil|italic|greek?"} ] } ] } ] } ],
+  "entries_hint": [ { "col": 1, "para": 3, "headword": "Абіе", "headword_source": "vision|tesseract|abbyy", "conf": 0.9 } ],
   "warnings": ["…"] }
 ```
 
-Work in batches sized to a session (50–100 pages for the vision route, all pages at once for Tesseract). After every
-batch: run `dj_parse.py --check` on the new pages (Phase 4 in validation mode), append a line to `PROGRESS.md`
-("pages 301–400 OCR'd, 3 warnings"), commit.
-
-*Definition of done:* every manifest row has status ≥ `ocr`.
-*Resume:* `dj_ocr.py` with the full range; it does only what is missing. `PROGRESS.md` says which batch is next.
+*Definition of done:* every manifest row has status ≥ `ocr` (3a done for all, 3b done for all).
+*Resume:* run `dj_abbyy.py` (fast, idempotent) then `dj_heads.py` with the full range; `PROGRESS.md` says which
+batch is next.
 
 ## Phase 4 — Structure into entries (one session to write, then re-run after every batch)
 
@@ -146,9 +169,10 @@ batch: run `dj_parse.py --check` on the new pages (Phase 4 in validation mode), 
 id  headword_civil  headword_key  gram  definition  page  column  status  flags
 ```
 
-- Segmentation: an entry starts at a line beginning with a headword followed by `=` (Дьяченко's convention);
-  continuation lines are joined; hyphenation at line and column ends is repaired; cross-references ("см.") kept as
-  text.
+- Segmentation: primarily geometric — an entry starts at a paragraph whose first line begins at the column's left edge
+  while continuation lines are indented (hanging indent), confirmed by the "=" after the headword (Дьяченко's
+  convention); the two signals are cross-checked and disagreements flagged. Continuation lines are joined; hyphenation
+  at line and column ends repaired; cross-references ("см.") kept as text.
 - `gram` = the grammatical/etymological tag immediately after `=` when present (e.g. "(греч.)", "гл.").
 - `headword_key` = normalised modern spelling (Phase 0.2).
 - Validation report: headwords must be (nearly) alphabetical within a page and across pages — every violation is a
@@ -187,21 +211,22 @@ Phase 0.2, and Дьяченко's own list of abbreviations (transcribed from th
 
 *Definition of done:* `djachenko.pdf` builds cleanly from `entries.tsv`; README updated; committed.
 
-## Effort and budget (rough, to be revised after Phase 2)
+## Effort and budget (revised after the Phase 1 findings; to be revised again after Phase 2)
 
 | Phase | Sessions | Notes |
 |---|---|---|
-| 0 | ½ | decisions |
-| 1 | 1 | mostly download/extract time |
+| 0 | done | |
+| 1 | 1 | in progress: download/extract/convert, then sections in the manifest |
 | 2 | 1–2 | ground truth is the slow part (~4 h of human-quality transcription for 6 pages) |
-| 3 | 8–15 for the vision route (≈100 pages/session, ≈0.5M tokens each); 1 for Tesseract | the long phase |
+| 3a | ½ | one deterministic run |
+| 3b | 3–8 | headwords only: ~2,300 column reads or ~750 contact sheets; token cost roughly 1–2M for a vision route |
 | 4 | 1 + reruns | |
-| 5 | 3–6 short | proofreading ~550 entries |
+| 5 | 3–6 short | proofreading ~550 linked entries |
 | 6 | 1 | |
 
-Total for the full text with targeted proofreading: on the order of 15–25 sessions if the vision route is chosen,
-about half that if Tesseract proves adequate for the definitions. A full proofreading of all 30,000 entries is *not*
-part of this plan; it is a Wikisource-sized effort.
+Total for the full text with targeted proofreading: on the order of 10–18 sessions, about half the previous estimate,
+because the definition text no longer has to be OCR'd or transcribed. A full proofreading of all 30,000 entries is
+*not* part of this plan.
 
 ## Session protocol
 
