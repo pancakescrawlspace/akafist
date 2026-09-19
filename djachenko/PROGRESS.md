@@ -142,6 +142,19 @@ See PLAN.md for the phases. Newest entry last.
   The user retracted the earlier "API pass" answer and asked for a clear statement of both options (given in the
   session); decision pending.
 
+- Phase 4 first version (session 3, continued; user: "go ahead" with what needs no decision): tools/dj_parse.py
+  → djachenko/entries.tsv (25,362 entries: 20,079 main, 5,283 supplement; 10 MB) and FLAGS.md. Entries from the
+  hanging paragraphs, text = text_merged joined across columns and pages, split at the first separator; headword
+  from step 2 where read (25 so far), else provisional from D (25,337 flagged hw_provisional; 874 hw_missing where
+  Google skipped the CS headword); eq_from_A recovers the head where D dropped the "=" (863). Flags: order (LIS
+  on the book's letter order, per part; meaningless until the headwords are read), parens (725, real: sense
+  numbers excluded), no_sep (726: mostly continuations that Phase 3a took for entry starts on cut-margin pages —
+  step 2's null answers will merge them), guessed, no_eq, odd_len, empty (19). Checked by eye on leaf 341 (all 25
+  entries right, page-break continuation right, disputed spans still aligned after tidying). A page-level entry-
+  count check was tried and dropped (a page of 81 short Въз- entries and a one-article page are both normal).
+  Not done: Дьяченко's errata table (leaves 32–36 → errata.tsv; needs its own transcription session, Greek-heavy)
+  and the manifest status column.
+
 NEXT: Phase 3b step 2 — the reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`

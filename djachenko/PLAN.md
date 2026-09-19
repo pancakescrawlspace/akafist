@@ -66,7 +66,7 @@ djachenko/
   pages/           NNNN.jpg, one 300 ppi working image per leaf; pages/jp2/ the 600 ppi originals (git-ignored)
   ocr/             per-page JSON built from the ABBYY layer plus the headword/Greek passes (Phase 3 schema) — committed;
                    ocr/report.tsv: per-page statistics and warnings of the last dj_abbyy.py run
-  entries.tsv      the structured dictionary (Phase 4 output) — committed
+  entries.tsv      the structured dictionary (Phase 4 output) — committed; FLAGS.md its validation report
   eval/            ground-truth pages and evaluation results (Phase 2)
   cache/           rendered D pages, entry crops, contact sheets (Phase 3b step 2; git-ignored, rebuilt on demand)
   heads_batches.tsv  Message Batches submitted by `dj_heads.py read --batch`, with their status (committed)
@@ -81,7 +81,7 @@ tools/
   dj_eval.py       Phase 2: CER of the OCR candidates against the ground truth, per zone; triangulation (exists)
   dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
                    sanity checks of the ground truth and of the entry starts (exists)
-  dj_parse.py      Phase 4: ocr/*.json → entries.tsv, with validation report
+  dj_parse.py      Phase 4: ocr/*.json → entries.tsv + FLAGS.md (exists; headwords provisional until step 2 runs)
   dj_link.py       Phase 5: cross-reference entries.tsv with dictionary/dictionary.psv lemmas
   dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst)
 ```
@@ -234,6 +234,12 @@ Per-page JSON schema (engine-independent):
 batch is next.
 
 ## Phase 4 — Structure into entries (one session to write, then re-run after every batch)
+
+Rev. 5 (session 3): `tools/dj_parse.py` exists and runs (1.5 s) — see its docstring for the actual columns
+(`id part page col headword headword_civil headword_key hw_source sep gram definition disputed status flags`) and
+flags; `FLAGS.md` is its report. It builds on the Phase 3b texts (`text_merged`) and takes the headwords from step 2
+where they exist, provisionally from D's text otherwise (`hw_provisional`). Still to do in this phase: the errata
+table (`errata.tsv`, below) and the manifest status; re-run after every step-2 batch. The original design follows.
 
 `tools/dj_parse.py` turns `ocr/*.json` into `entries.tsv`:
 
