@@ -165,6 +165,6 @@
   {"col":2,"para":4,"bbox":[2043,4939,2333,5051],"abbyy":"Идфж","abbyy_conf":8,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2047,5279,2481,5353],"abbyy":"Алхимія","abbyy_conf":41,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":919,"b_page":871,"c_page":[313],"chars":4109,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":144,"fixed":10,"odd":[]},
+ "witness": {"version":7,"d_page":919,"b_page":871,"c_page":[313],"chars":4109,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":144,"fixed":10,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features"]
 }

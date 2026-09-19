@@ -240,6 +240,6 @@
   {"col":2,"para":13,"bbox":[2263,3867,2645,3943],"abbyy":"Октенія","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2267,3985,2757,4099],"abbyy":"Октои\\\"х","abbyy_conf":20,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":428,"b_page":380,"c_page":[426],"chars":3695,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":205,"fixed":36,"odd":[]},
+ "witness": {"version":7,"d_page":428,"b_page":380,"c_page":[426],"chars":3695,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":205,"fixed":36,"odd":[]},
  "warnings": []
 }

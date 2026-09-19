@@ -201,6 +201,6 @@
   {"col":2,"para":7,"bbox":[2099,3961,2447,4055],"abbyy":"Вироза","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2099,4497,2499,4629],"abbyy":"Еи^сйеіА","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":125,"b_page":77,"c_page":[123],"chars":3746,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":167,"fixed":10,"odd":[]},
+ "witness": {"version":7,"d_page":125,"b_page":77,"c_page":[123],"chars":3746,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":167,"fixed":10,"odd":[]},
  "warnings": []
 }

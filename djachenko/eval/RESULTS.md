@@ -197,6 +197,15 @@ starts; per-character vote). Scored as candidates `merged` and `text_d` (`dj_eva
   "=" sign (19:0) and final ъ/ь (9:3), and wrong otherwise (period/comma 0:14, Latin letters, и/н, а/л in CS type).
   A first version without the C condition made the headwords and the Greek worse (B and A share the CS-type
   confusions and read Cyrillic look-alikes for Greek).
+- Third exception (session 4): **Google's script confusion**. D reads Cyrillic letters as Greek look-alikes —
+  single letters ("чтο", "πρимѣру", "θиміамъ") and whole words of the Old Church Slavonic citation type ("Γλι" for
+  "гдь", p. 223) — and C, being Google too, confirms them, so the rule above kept the Greek. The FineReader pair
+  may now fix a Greek character when D's own letter run is mostly Cyrillic, or when the run is unaccented (real
+  Greek here carries accents and breathings) and A and B read every letter of it as the same Cyrillic letter.
+  Effect on the GT (norm): definitions **1.02 % → 0.98 %** CER, all **1.80 % → 1.75 %**, Greek unchanged at 1.50 %.
+  Book-wide: 1,335 Greek characters gone from the definitions, 528 entries changed, mixed-script words 890 → 558.
+  The unit must be the letter run, not the whitespace token: "(συνοδία)-спутники" would otherwise count as
+  Cyrillic and the Greek word would be rewritten.
 - Of the remaining definition errors, 85 % lie inside a `disputed` span (9.3 % of the characters are flagged, with
   one character of slack); headwords 98 %, Greek 100 %. Proofreading the flagged spans therefore catches most of
   what is left; the unflagged remainder (~5 characters a page) are errors D and B share.

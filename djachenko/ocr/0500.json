@@ -209,6 +209,6 @@
   {"col":2,"para":8,"bbox":[2111,3681,2787,3755],"abbyy":"Постельничій","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2109,4993,2725,5101],"abbyy":"Постйгн^ти","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":511,"b_page":463,"c_page":[509],"chars":3913,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":171,"fixed":37,"odd":[]},
+ "witness": {"version":7,"d_page":511,"b_page":463,"c_page":[509],"chars":3913,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":171,"fixed":37,"odd":[]},
  "warnings": []
 }

@@ -73,7 +73,7 @@ lemma	pos	match	ids	headwords	parts
 ве́ровати	v	none			
 весь (село)	n.f	exact	0110-1-12;0110-2-02	Весь;Весь	main;main
 весе́лие	n.n	exact	0955-2-02	Веселіе	supplement
-ве́чный	adj	none			
+ве́чный	adj	exact	0154-1-12	Вѣчный	main
 взира́ти	v	exact	0112-2-02	Взирати	main
 взя́ти	v	none			
 ви́дети	v	exact	0958-1-05	Видѣти	supplement
@@ -234,7 +234,7 @@ lemma	pos	match	ids	headwords	parts
 истека́ти	v	none			
 и́стинный	adj	exact	0267-1-11	Истинный	main
 источа́ти, источи́ти	v	verb	1037-1-09	Источаю	supplement
-исто́чник	n.m	none			
+исто́чник	n.m	exact	0267-2-23	Источникъ	main
 исхи́тити	v	none			
 исцеле́ние	n.n	none			
 исцеля́тися	v	none			
@@ -254,7 +254,7 @@ lemma	pos	match	ids	headwords	parts
 лесть	n.f	none			
 ликовствова́ти	v	none			
 лице́	n.n	none			
-лик	n.m	exact	0319-2-06	Лика и ликъ	main
+лик	n.m	exact	0319-2-06;0320-1-09	Лика и ликъ;Лик	main;main
 лобыза́ти	v	none			
 луча́	n.f	none			
 любе́зно	adv	none			
@@ -646,14 +646,14 @@ lemma	pos	match	ids	headwords	parts
 усе́рдно	adv	none			
 уста́, устна́	n.pl	none			
 устраша́ти	v	none			
-устраше́ние	n.n	none			
+устраше́ние	n.n	exact	0801-1-09	Оӱстрашеніє	main
 усынови́ти	v	none			
 утверди́ти	v	none			
 утвержда́ти	v	none			
 утвержде́ние	n.n	none			
 утеше́ние	n.n	none			
 Уте́шительница	n.f	none			
-утоли́ти	v	none			
+утоли́ти	v	exact	0803-2-03	Оутолити	main
 утро́ба	n.f	none			
 уче́ние	n.n	exact	0807-2-08	Оученіє	main
 хвале́бный	adj	none			

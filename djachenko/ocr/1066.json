@@ -214,6 +214,6 @@
   {"col":2,"para":4,"bbox":[1861,1753,2257,1847],"abbyy":"Купало","abbyy_conf":71,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[1907,6085,2283,6179],"abbyy":"КѴпинл","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":1077,"b_page":1029,"c_page":[471],"chars":4022,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":134,"fixed":8,"odd":[]},
+ "witness": {"version":7,"d_page":1077,"b_page":1029,"c_page":[471],"chars":4022,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":134,"fixed":8,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (31 lines at the image edge); entry starts from position and text features"]
 }

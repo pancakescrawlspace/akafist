@@ -190,6 +190,6 @@
   {"col":2,"para":7,"bbox":[2255,3987,2637,4061],"abbyy":"Выносъ","abbyy_conf":64,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2249,4807,2629,4881],"abbyy":"Выносъ","abbyy_conf":63,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":158,"b_page":110,"c_page":[156],"chars":4001,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":120,"fixed":14,"odd":[]},
+ "witness": {"version":7,"d_page":158,"b_page":110,"c_page":[156],"chars":4001,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":120,"fixed":14,"odd":[]},
  "warnings": []
 }

@@ -187,6 +187,6 @@
   {"col":2,"para":13,"bbox":[2357,5547,2677,5639],"abbyy":"Видня","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2359,5771,3043,5863],"abbyy":"Видъ іісдлдірсііъ","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":968,"b_page":920,"c_page":[362],"chars":3825,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":215,"fixed":15,"odd":[]},
+ "witness": {"version":7,"d_page":968,"b_page":920,"c_page":[362],"chars":3825,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":215,"fixed":15,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (37 lines end at the image edge); line ends of the right column missing"]
 }

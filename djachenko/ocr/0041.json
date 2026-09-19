@@ -184,6 +184,6 @@
   {"col":2,"para":7,"bbox":[2313,4105,2623,4185],"abbyy":"йпосъ","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2309,4657,4145,4769],"abbyy":"Япосъ надгробный, Агіосъ задушиый","abbyy_conf":51,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":52,"b_page":4,"c_page":[50],"chars":3982,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":220,"fixed":18,"odd":[]},
+ "witness": {"version":7,"d_page":52,"b_page":4,"c_page":[50],"chars":3982,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":220,"fixed":18,"odd":[]},
  "warnings": []
 }

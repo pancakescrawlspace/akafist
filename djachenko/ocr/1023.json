@@ -205,6 +205,6 @@
   {"col":2,"para":14,"bbox":[2179,5961,2597,6057],"abbyy":"Збройка","abbyy_conf":75,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2177,6169,2691,6265],"abbyy":"Збудовать","abbyy_conf":84,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":1034,"b_page":986,"c_page":[428],"chars":4000,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":157,"fixed":26,"odd":[]},
+ "witness": {"version":7,"d_page":1034,"b_page":986,"c_page":[428],"chars":4000,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":157,"fixed":26,"odd":[]},
  "warnings": []
 }

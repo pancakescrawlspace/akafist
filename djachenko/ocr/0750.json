@@ -196,6 +196,6 @@
   {"col":2,"para":6,"bbox":[2039,5993,2385,6065],"abbyy":"Темдыгд","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[2037,6087,3931,6219],"abbyy":"ТОМИЛА КЛАСТЬ ИЛИ ТЁМНОЕ СОКО0ИЦІЕ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":761,"b_page":713,"c_page":[155],"chars":3971,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":164,"fixed":18,"odd":[]},
+ "witness": {"version":7,"d_page":761,"b_page":713,"c_page":[155],"chars":3971,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":164,"fixed":18,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (6 lines at the image edge); entry starts from position and text features"]
 }

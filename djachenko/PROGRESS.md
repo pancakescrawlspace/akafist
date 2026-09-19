@@ -237,6 +237,27 @@ See PLAN.md for the phases. Newest entry last.
   rewritten as two independent projects, with a Mermaid diagram of the Дьяченко toolchain and its sources; PLAN.md
   and CLAUDE.md paths updated.
 
+- Script confusion fixed in the vote; the citation type flagged (session 4, continued; user, browsing the PDF at
+  Нноходьцъ p. 223: Greek letters among Russian ones, and part-capitalised words).
+  Diagnosis: both are the book's THIRD text class — Old Church Slavonic quotations set in a heavy uncial face,
+  which no OCR reads. ABBYY's formatting does not mark it (same flags and font size as the civil text, checked on
+  leaf 260), so there is no typographic signal to key on.
+  1. FIXED — `Γλι` (D and C) vs `гдь` (A and B): Google reads Cyrillic letters as Greek look-alikes, and C, being
+     Google, confirms D, so the vote's "two engines against two" rule kept the Greek. `dj_heads.merge` has a third
+     exception now (see eval/RESULTS.md): A+B may fix a Greek character when D's own letter run is mostly Cyrillic,
+     or when the run is unaccented and A and B read every letter of it as the same Cyrillic letter. The unit is the
+     letter run, not the whitespace token — the first version rewrote genuine Greek in "(συνοδία)-спутники".
+     VERSION 7, step 1 re-run over the book: GT definitions 1.02 % → 0.98 % CER, all 1.80 % → 1.75 %, Greek
+     unchanged at 1.50 %; 528 entries changed, 1,335 Greek characters gone, mixed-script words 890 → 558,
+     `order` 8031 → 7983. Sampled 16 changes: all right (τρεν→греч, Ακαθ→Акаѳ, Ηο→Но, βολα→вола …).
+  2. NOT FIXED, flagged — the capitals (`ННОУЛДЫН ВМ. ЄдиноҮЛДЫН`). No safe rule: mostly-capital words are also
+     Roman numerals and genuine abbreviations (Б. М., СВ.), and the letters are wrong anyway, so lowercasing would
+     hide an unread passage behind a plausible word. New flags in dj_parse: `caps` (184 entries) and `script`
+     (515), both listed in FLAGS.md. The route is in PLAN.md Phase 3b step 4: read these spans in the same vision
+     pass as the headwords. The user's point stands — this is what a real reading pass is for.
+  (The user read `Γλι` as "Где"; the scan shows `гдⷭь` with a titlo, i.e. Господь — the quotation is Ps 67:7,
+  "Господь вселяет единомысленныя въ домъ", so A's and B's `гдь` is the right reading.)
+
 NEXT: Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`

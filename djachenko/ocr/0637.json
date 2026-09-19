@@ -189,6 +189,6 @@
   {"col":2,"para":9,"bbox":[2307,4279,2719,4371],"abbyy":"Синодик","abbyy_conf":34,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2301,5317,2603,5407],"abbyy":"Синод","abbyy_conf":70,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":648,"b_page":600,"c_page":[42],"chars":3815,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":143,"fixed":15,"odd":[]},
+ "witness": {"version":7,"d_page":648,"b_page":600,"c_page":[42],"chars":3815,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":143,"fixed":15,"odd":[]},
  "warnings": []
 }

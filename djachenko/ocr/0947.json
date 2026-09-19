@@ -151,6 +151,6 @@
   {"col":1,"para":4,"bbox":[221,1519,869,1603],"abbyy":"Бѣлая кость","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2327,5735,2755,5811],"abbyy":"Бѣлбогъ","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":958,"b_page":910,"c_page":[352],"chars":4195,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":101,"fixed":14,"odd":[]},
+ "witness": {"version":7,"d_page":958,"b_page":910,"c_page":[352],"chars":4195,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":101,"fixed":14,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (37 lines end at the image edge); line ends of the right column missing"]
 }

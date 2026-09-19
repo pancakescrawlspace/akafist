@@ -153,6 +153,6 @@
   {"col":2,"para":5,"bbox":[2059,4633,2615,4723],"abbyy":"Рожданица","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2059,5039,2613,5129],"abbyy":"Рожденикъ","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":601,"b_page":553,"c_page":[599],"chars":4085,"cuts":{"line":7,"aligned":0,"forced":0},"disputed":97,"fixed":6,"odd":[]},
+ "witness": {"version":7,"d_page":601,"b_page":553,"c_page":[599],"chars":4085,"cuts":{"line":7,"aligned":0,"forced":0},"disputed":97,"fixed":6,"odd":[]},
  "warnings": ["side a: no flush line (edge from prior)"]
 }

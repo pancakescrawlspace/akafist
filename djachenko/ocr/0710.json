@@ -153,6 +153,6 @@
   {"col":1,"para":4,"bbox":[51,2897,57,2907],"abbyy":".","abbyy_conf":64,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":5,"bbox":[23,4773,637,4871],"abbyy":"Стригольники","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":721,"b_page":673,"c_page":[115],"chars":4274,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":83,"fixed":8,"odd":[]},
+ "witness": {"version":7,"d_page":721,"b_page":673,"c_page":[115],"chars":4274,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":83,"fixed":8,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)"]
 }

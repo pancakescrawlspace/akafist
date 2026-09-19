@@ -46,7 +46,9 @@ definitions contain quotation marks):
                    definition), odd_len (D's text much shorter/longer than A's for a paragraph of the entry),
                    quotes (quotation marks unbalanced after fix_quotes: the OCR dropped or misplaced one, or a
                    letter was misread as « or »), hw_cut (a step-2 headword with no separator after it: the text
-                   was cut after the headword's words)
+                   was cut after the headword's words), caps (a word mostly in capitals that is not a Roman
+                   numeral) and script (a word mixing Greek and Cyrillic letters) — both are usually the Old
+                   Church Slavonic citation type, which no OCR reads; they await a reading pass
 
 FLAGS.md: counts per flag and the entries flagged order/parens/no_sep/quotes. (A check of pages with an unusual
 number of entries was tried and dropped: a page of 81 short Въз- entries and a page of one long article are both
@@ -79,6 +81,13 @@ SEP_RE = re.compile(r'=|—|–|--|\s-\s|\(|(?<=\S)-(?=\s*' + ABBR + r'\.)|(?<=\
 GRAM_RE = re.compile(r'^(?:\((?P<par>[^()]{1,60})\)|(?P<abbr>' + ABBR + r'\.))')
 SENSE_RE = re.compile(r'(?:^|(?<=[\s=—;:,.]))(?:\d{1,2}|[а-я])$')      # "1)", "а)" — a sense number before ")"
 QUOTES = '"„“”«»'                    # double quotation marks as the OCR emits them (’ ‘ ' are left alone)
+# the Old Church Slavonic citation type of the book (a heavy uncial face, e.g. p. 223 "иноѹадыи вм. єдиноѹадыи"):
+# no OCR reads it — Google renders its letters as capitals or as Greek look-alikes, ABBYY as noise. Not repairable
+# by rule; the entries that show it are flagged so that the reading pass and the proofreading can find them.
+LETTERS = re.compile(r'[\u0370-\u03ff\u1f00-\u1fff\u0400-\u052fA-Za-z\u0300-\u036f]+')
+GREEK_L = re.compile(r'[\u0370-\u03ff\u1f00-\u1fff]')
+CYRIL_L = re.compile(r'[\u0400-\u052f]')
+ROMAN = re.compile(r'^[IVXLCDMІѴХ]+$')
 
 
 # ---------------------------------------------------------------- headword forms
@@ -366,6 +375,16 @@ def split_entry(e):
     e['gram'] = (('(' + g.group('par') + ')') if g and g.group('par') else g.group('abbr')) if g else ''
     if any(paren_balance(e['definition'])):
         e['flags'].add('parens')
+    for m in LETTERS.finditer(e['definition']):
+        w = ''.join(c for c in unicodedata.normalize('NFD', m.group(0)) if not unicodedata.combining(c))
+        letters = [c for c in w if c.isalpha()]
+        if len(letters) < 2:
+            continue
+        up = sum(c.isupper() for c in letters)
+        if up >= 2 and up >= 0.7 * len(letters) and not ROMAN.match(m.group(0)):
+            e['flags'].add('caps')
+        if GREEK_L.search(w) and CYRIL_L.search(w):
+            e['flags'].add('script')
 
 
 # ---------------------------------------------------------------- validation
@@ -423,7 +442,7 @@ def report(entries, write):
         lines += ['', f'Entries with a step-2 headword: {len(read)}; of them out of order: '
                       f'{sum("order" in e["flags"] for e in read)}, hw_disputed: '
                       f'{sum("hw_disputed" in e["flags"] for e in read)}.']
-    for flag in ('no_sep', 'parens', 'quotes', 'hw_cut', 'order'):
+    for flag in ('no_sep', 'parens', 'quotes', 'caps', 'script', 'hw_cut', 'order'):
         sel = [e for e in entries if flag in e['flags'] and (flag != 'order' or e['hw_source'] != 'D')]
         title = f'## {flag} ({len(sel)}' + (', step-2 headwords only' if flag == 'order' else '') + ')'
         lines += ['', title, '']

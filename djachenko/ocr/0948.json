@@ -184,6 +184,6 @@
   {"col":2,"para":3,"bbox":[1907,2065,2677,2161],"abbyy":"Бѣлый клобукъ","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[1915,2977,2527,3069],"abbyy":"Бѣлый царь","abbyy_conf":75,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":959,"b_page":911,"c_page":[353],"chars":4139,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":142,"fixed":15,"odd":[]},
+ "witness": {"version":7,"d_page":959,"b_page":911,"c_page":[353],"chars":4139,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":142,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (21 lines at the image edge); entry starts from position and text features"]
 }

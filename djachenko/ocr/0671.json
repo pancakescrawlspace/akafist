@@ -173,6 +173,6 @@
   {"col":2,"para":8,"bbox":[2311,4837,2915,4915],"abbyy":"Солнечникъ","abbyy_conf":82,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2315,5447,3217,5543],"abbyy":"Солнечный рубль","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":682,"b_page":634,"c_page":[76],"chars":4008,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":136,"fixed":23,"odd":[]},
+ "witness": {"version":7,"d_page":682,"b_page":634,"c_page":[76],"chars":4008,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":136,"fixed":23,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (8 lines end at the image edge); line ends of the right column missing"]
 }

@@ -165,6 +165,6 @@
   {"col":2,"para":4,"bbox":[2033,5993,2295,6087],"abbyy":"Ирой","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2033,6093,2977,6189],"abbyy":"Ирха {монгол, иргул","abbyy_conf":78,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":273,"b_page":225,"c_page":[271],"chars":4076,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":72,"fixed":10,"odd":[]},
+ "witness": {"version":7,"d_page":273,"b_page":225,"c_page":[271],"chars":4076,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":72,"fixed":10,"odd":[]},
  "warnings": []
 }

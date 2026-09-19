@@ -203,6 +203,6 @@
   {"col":2,"para":5,"bbox":[1851,5319,2363,5419],"abbyy":"Делыгаца","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[1845,5951,2753,6049],"abbyy":"Денежный дворъ","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":1009,"b_page":961,"c_page":[403],"chars":4087,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":180,"fixed":23,"odd":[]},
+ "witness": {"version":7,"d_page":1009,"b_page":961,"c_page":[403],"chars":4087,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":180,"fixed":23,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (43 lines at the image edge); entry starts from position and text features"]
 }

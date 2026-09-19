@@ -186,6 +186,6 @@
   {"col":2,"para":7,"bbox":[2323,4929,2597,5003],"abbyy":"Конъ","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2321,5357,3417,5455],"abbyy":"Коньки на крышахъ","abbyy_conf":62,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":1066,"b_page":1018,"c_page":[460],"chars":4010,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":148,"fixed":10,"odd":[]},
+ "witness": {"version":7,"d_page":1066,"b_page":1018,"c_page":[460],"chars":4010,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":148,"fixed":10,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (46 lines end at the image edge); line ends of the right column missing"]
 }

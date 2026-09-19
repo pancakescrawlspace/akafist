@@ -161,6 +161,6 @@
   {"col":2,"para":5,"bbox":[2097,4271,2451,4401],"abbyy":"Сы^иціе","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2099,4999,2457,5099],"abbyy":"Сырный","abbyy_conf":73,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":745,"b_page":697,"c_page":[139],"chars":4022,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":122,"fixed":8,"odd":[]},
+ "witness": {"version":7,"d_page":745,"b_page":697,"c_page":[139],"chars":4022,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":122,"fixed":8,"odd":[]},
  "warnings": []
 }

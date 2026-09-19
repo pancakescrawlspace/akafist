@@ -228,6 +228,6 @@
   {"col":2,"para":16,"bbox":[2387,5239,3383,5333],"abbyy":"Королекъ, кралекъ","abbyy_conf":80,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2405,5951,2895,6043],"abbyy":"Коромола","abbyy_conf":71,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":312,"b_page":264,"c_page":[310],"chars":3580,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":153,"fixed":16,"odd":[]},
+ "witness": {"version":7,"d_page":312,"b_page":264,"c_page":[310],"chars":3580,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":153,"fixed":16,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (29 lines end at the image edge); line ends of the right column missing"]
 }

@@ -192,6 +192,6 @@
   {"col":1,"para":17,"bbox":[1,4915,865,4981],"abbyy":"яныхъ младенцевъ","abbyy_conf":83,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":18,"bbox":[25,5601,365,5699],"abbyy":"Гафлч","abbyy_conf":70,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":1123,"b_page":1075,"c_page":[517],"chars":4094,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":118,"fixed":11,"odd":[]},
+ "witness": {"version":7,"d_page":1123,"b_page":1075,"c_page":[517],"chars":4094,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":118,"fixed":11,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (48 lines at the image edge); entry starts from position and text features"]
 }

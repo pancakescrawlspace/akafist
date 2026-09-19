@@ -184,6 +184,6 @@
   {"col":2,"para":9,"bbox":[1957,5605,2301,5679],"abbyy":"Вязень","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[1961,5931,2191,6003],"abbyy":"Вязь","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":989,"b_page":941,"c_page":[383],"chars":3920,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":192,"fixed":14,"odd":[]},
+ "witness": {"version":7,"d_page":989,"b_page":941,"c_page":[383],"chars":3920,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":192,"fixed":14,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (8 lines at the image edge); entry starts from position and text features"]
 }

@@ -184,6 +184,6 @@
   {"col":2,"para":6,"bbox":[1973,1977,2281,2069],"abbyy":"Уетырн","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[1975,3097,2657,3171],"abbyy":"1Іеть и четья","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":869,"b_page":821,"c_page":[263],"chars":3863,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":156,"fixed":23,"odd":[]},
+ "witness": {"version":7,"d_page":869,"b_page":821,"c_page":[263],"chars":3863,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":156,"fixed":23,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features"]
 }

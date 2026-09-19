@@ -215,6 +215,16 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
    model's output, which the effort level governs — measure on the six GT pages at effort low and medium first)
    or interactive sessions (~1,700 sheets of 15).
 3. *Greek.* Greek runs come with D's text; where C disagrees on a Greek run, mark it `disputed`.
+4. *The Old Church Slavonic citation type* (added session 4). Besides the civil text and the Church Slavonic
+   headwords, the book has a third text class: quotations from Old Russian manuscripts set in a heavy uncial face
+   (e.g. p. 223 "нноѹадыи вм. єдиноѹадыи", p. 1087). No OCR reads it: Google renders its letters as capitals
+   ("ННОУЛДЫН") or as Greek look-alikes, ABBYY as noise, and A and B do not agree, so the vote cannot repair it.
+   Entries that show it are flagged `caps` (184) and `script` (515) by `dj_parse.py` — an over-estimate of the
+   spans and an under-estimate of the entries, since a citation may also come out as plausible lowercase noise.
+   Route: read these spans in the same vision pass as the headwords (crops of the lines instead of the entry
+   start), since it is the same problem — type that only a reader can decode. Until then the text of those spans
+   is wrong and must not be trusted; a cosmetic lowercasing was considered and rejected, because it would hide an
+   unread passage behind a plausible-looking word.
 
 Manifest status becomes `ocr` when a page has all three. Batches sized to a session; after every batch:
 `dj_parse.py --check`, a line in `PROGRESS.md`, commit.

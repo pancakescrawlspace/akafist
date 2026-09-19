@@ -246,6 +246,6 @@
   {"col":2,"para":18,"bbox":[2265,5631,2969,5727],"abbyy":"Нлдождитиса","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2265,5853,2691,5945],"abbyy":"Надолба","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":376,"b_page":328,"c_page":[374],"chars":3574,"cuts":{"line":39,"aligned":0,"forced":0},"disputed":194,"fixed":23,"odd":[]},
+ "witness": {"version":7,"d_page":376,"b_page":328,"c_page":[374],"chars":3574,"cuts":{"line":39,"aligned":0,"forced":0},"disputed":194,"fixed":23,"odd":[]},
  "warnings": []
 }

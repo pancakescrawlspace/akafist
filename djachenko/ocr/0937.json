@@ -189,6 +189,6 @@
   {"col":2,"para":9,"bbox":[2413,4269,2755,4367],"abbyy":"Борове","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2425,4381,3437,4467],"abbyy":"Бородовая пошлина","abbyy_conf":72,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":948,"b_page":900,"c_page":[342],"chars":3987,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":202,"fixed":10,"odd":[]},
+ "witness": {"version":7,"d_page":948,"b_page":900,"c_page":[342],"chars":3987,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":202,"fixed":10,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (47 lines end at the image edge); line ends of the right column missing"]
 }

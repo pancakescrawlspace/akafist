@@ -46,7 +46,7 @@ same at norm level, "disputed" otherwise, "no_entry" for null) and confirmed_by.
 by hand. `read --batch` submits Message Batches and records their ids in djachenko/heads_batches.tsv, so that
 `collect` can fetch them in a later session; every step writes page by page and skips what is done.
 """
-import argparse, base64, bisect, csv, glob, io, json, re, subprocess, sys, time
+import argparse, base64, bisect, csv, glob, io, json, re, subprocess, sys, time, unicodedata
 from datetime import datetime, timezone
 from multiprocessing import Pool
 from pathlib import Path
@@ -58,8 +58,9 @@ from dj_witness import (CORNELL, DJ, OCR, PDF_DPI, align, b_page, c_page, d_page
                         load_page, norm_char, norm_seq, page_text, side_texts)
 import dj_abbyy  # noqa: E402  (dump, iou)
 
-VERSION = 6            # of the witness block; bump to redo every page (6 = the printer's sheet signature is no
-#                        longer read as text — dj_witness.reading_order; 5 = + italic spans from ABBYY's word flags)
+VERSION = 7            # of the witness block; bump to redo every page (7 = A+B may fix Google's Greek look-alikes
+#                        inside a Cyrillic word; 6 = the printer's sheet signature is no longer read as text —
+#                        dj_witness.reading_order; 5 = + italic spans from ABBYY's word flags)
 CUT_TOL = 15           # characters: how far a paragraph start may move to reach a line start of D
 PARA_KEYS = ('text_d', 'text_merged', 'disputed', 'italic', 'fixed', 'd_cut', 'd_line')
 
@@ -171,6 +172,21 @@ def cut_positions(a_text, paras, d_text, d_lines):
 
 # ---------------------------------------------------------------- the vote
 
+GREEK = re.compile(r'[\u0370-\u03ff\u1f00-\u1fff]')
+CYRIL = re.compile(r'[\u0400-\u052f]')
+
+
+def letter_run(text, i):
+    """(start, end) of the run of letters of `text` around position i — the printed word, not the whitespace token:
+    a Greek word glued to Cyrillic by a hyphen or "=" ("(συνοδία)-спутники") must count as two words."""
+    a = b = i
+    while a > 0 and (text[a - 1].isalpha() or unicodedata.combining(text[a - 1])):
+        a -= 1
+    while b < len(text) and (text[b].isalpha() or unicodedata.combining(text[b])):
+        b += 1
+    return a, b
+
+
 def merge(d_text, b_text, a_text, c_text, a_tags=None):
     """-> (merged text, out_at, disputed, italic): out_at[r] = offset in the merged text of D's raw index r
     (len(d_text)+1 entries); disputed = [(start, end, fixed)] in merged coordinates, one per place where B differs
@@ -180,7 +196,8 @@ def merge(d_text, b_text, a_text, c_text, a_tags=None):
     not to confirm D: A and B are both FineReader and share the CS-type confusions (и/н, а/л, . for ,), C and D
     are both Google; two engines against two is a tie, and Google measured better (eval/RESULTS.md). Two exceptions
     where Google is systematically weak and the FineReader pair was right 19:0 and 9:3 on the ground truth: the "="
-    after the headword (Google reads a third of them) and final ъ/ь."""
+    after the headword (Google reads a third of them) and final ъ/ь. A third: a Greek letter of D inside a word
+    that is Cyrillic (see greek_fix_allowed) — Google's script confusion, which C shares."""
     d_seq, d_idx = norm_seq(d_text)
     n = len(d_seq)
 
@@ -202,6 +219,26 @@ def merge(d_text, b_text, a_text, c_text, a_tags=None):
     rB, rawB, _ = readings_of(b_text)
     rA, _, iA = readings_of(a_text, a_tags)
     rC, _, _ = readings_of(c_text)
+
+    # Script confusion. Google reads Cyrillic letters as Greek look-alikes ("чтο", "πρимѣру", and whole words of
+    # the Old Church Slavonic citation type: "Γλι" for "гдь"), and C confirms D because both are Google — so the
+    # rule above keeps the Greek. The FineReader pair may fix a Greek character when D's own word is otherwise
+    # Cyrillic, or when A and B read every letter of that word as the same Cyrillic letter.
+    allowed = {}
+
+    def greek_fix_allowed(r):
+        a, b = letter_run(d_text, r)
+        if a not in allowed:
+            w = d_text[a:b]
+            ok = len(CYRIL.findall(w)) > len(GREEK.findall(w))       # D itself read the word as mostly Cyrillic
+            if not ok and not any(unicodedata.combining(c) for c in unicodedata.normalize('NFD', w)):
+                # a whole word in Greek letters, unaccented (real Greek here carries accents and breathings):
+                # take it only if A and B read every letter of it as the same Cyrillic letter
+                k0, k1 = bisect.bisect_left(d_idx, a), bisect.bisect_left(d_idx, b)
+                ks = [k for k in range(k0, k1) if d_seq[k].isalpha()]
+                ok = len(ks) > 1 and all(rA[k] == rB[k] and CYRIL.match(rA[k] or ' ') for k in ks)
+            allowed[a] = ok
+        return allowed[a]
     pieces, piece_at, flagged, ital = [], [0] * (len(d_text) + 1), [], []
     pos = k = 0
     while k < n:
@@ -218,7 +255,8 @@ def merge(d_text, b_text, a_text, c_text, a_tags=None):
         dn, bn, an, cn = (''.join(x[k:k1]) for x in (d_seq, rB, rA, rC))
         if bn == dn:
             pieces.append(d_text[r])
-        elif bn == an and (cn != dn or ('=' in bn and '=' not in dn) or {bn, dn} == {'ъ', 'ь'}):
+        elif bn == an and (cn != dn or ('=' in bn and '=' not in dn) or {bn, dn} == {'ъ', 'ь'}
+                           or (GREEK.match(dn) and CYRIL.match(bn) and greek_fix_allowed(r))):
             flagged.append((len(pieces), True))
             pieces.append(''.join(rawB[k:k1]))
         else:

@@ -170,6 +170,6 @@
   {"col":2,"para":3,"bbox":[2097,5135,3311,5279],"abbyy":"ПРАЗДНИКЪ ОПр'&СНОКОЕХ","abbyy_conf":26,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2091,6083,2483,6161],"abbyy":"- ленія^","abbyy_conf":90,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":523,"b_page":475,"c_page":[521],"chars":4074,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":131,"fixed":21,"odd":[]},
+ "witness": {"version":7,"d_page":523,"b_page":475,"c_page":[521],"chars":4074,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":131,"fixed":21,"odd":[]},
  "warnings": []
 }

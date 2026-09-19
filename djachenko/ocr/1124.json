@@ -246,6 +246,6 @@
   {"col":2,"para":14,"bbox":[2037,4601,2661,4691],"abbyy":"Нокладникъ","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2023,4693,2553,4787],"abbyy":"Поклоненіе","abbyy_conf":40,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":6,"d_page":1135,"b_page":1087,"c_page":[529],"chars":4070,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":193,"fixed":17,"odd":[]},
+ "witness": {"version":7,"d_page":1135,"b_page":1087,"c_page":[529],"chars":4070,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":193,"fixed":17,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (57 lines at the image edge); entry starts from position and text features"]
 }
