@@ -197,6 +197,6 @@
   {"col":2,"para":9,"bbox":[2045,2779,3171,2863],"abbyy":"Москоловдмге, москодовдстко","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2041,5341,2949,5467],"abbyy":"Мосолъ и Ѳобеаъ","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":365,"b_page":317,"c_page":[363],"chars":4005,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":167,"fixed":21,"odd":[]},
+ "witness": {"version":6,"d_page":365,"b_page":317,"c_page":[363],"chars":4005,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":167,"fixed":21,"odd":[]},
  "warnings": []
 }

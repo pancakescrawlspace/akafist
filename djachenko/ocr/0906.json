@@ -184,6 +184,6 @@
   {"col":2,"para":5,"bbox":[1883,5103,3353,5201],"abbyy":"Александрійская библіотека","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[1881,5817,3151,5913],"abbyy":"Александрійская школа","abbyy_conf":82,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":917,"b_page":869,"c_page":[311],"chars":4067,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":120,"fixed":10,"odd":[]},
+ "witness": {"version":6,"d_page":917,"b_page":869,"c_page":[311],"chars":4067,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":120,"fixed":10,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (34 lines at the image edge); entry starts from position and text features"]
 }

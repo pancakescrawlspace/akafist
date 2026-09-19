@@ -238,6 +238,6 @@
   {"col":2,"para":21,"bbox":[2083,5727,2631,5849],"abbyy":"ПйИЗИ|ЛТЕЛ","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":22,"bbox":[2087,5929,2741,6081],"abbyy":"Призовъ оч^с","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":543,"b_page":495,"c_page":[541],"chars":3613,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":244,"fixed":25,"odd":[]},
+ "witness": {"version":6,"d_page":543,"b_page":495,"c_page":[541],"chars":3613,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":244,"fixed":25,"odd":[]},
  "warnings": []
 }

@@ -262,6 +262,6 @@
   {"col":2,"para":19,"bbox":[1993,5643,2701,5767],"abbyy":"Немимо^одио","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":20,"bbox":[1991,5865,2549,5941],"abbyy":"Нешотчавъ","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1105,"b_page":1057,"c_page":[499],"chars":3602,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":253,"fixed":22,"odd":[]},
+ "witness": {"version":6,"d_page":1105,"b_page":1057,"c_page":[499],"chars":3602,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":253,"fixed":22,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (47 lines at the image edge); entry starts from position and text features"]
 }

@@ -228,6 +228,6 @@
   {"col":2,"para":17,"bbox":[2123,5939,2443,6009],"abbyy":"Поскокъ","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2113,6045,2711,6125],"abbyy":"ПосічО.мАити","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":508,"b_page":460,"c_page":[506],"chars":3771,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":163,"fixed":22,"odd":[]},
+ "witness": {"version":6,"d_page":508,"b_page":460,"c_page":[506],"chars":3771,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":163,"fixed":22,"odd":[]},
  "warnings": []
 }

@@ -46,8 +46,9 @@ scan A and witness D (`dj_inspect.py find`):
   `един»`, `«розваніе`, `че«.`, `нап ».`, `«кга`, `«аставленіе`, `«увазію`, `«гре`, `«зькъ`, `«дрость`, `«долитъ`,
   `«за=`, `«χρυσοπορφύρος)`. Not fixed by rule; most unbalance their entry and surface under the `quotes` flag.
 - **`’ ‘ ”`, 5, all noise:** a speck (p. 8), CS accent marks before a headword (p. 13), a stray mark (p. 492), and
-  **two printer's signature marks** `32 ’` (p. 499) and `64 ’` (p. 1011) — see PROGRESS.md: the asterisked sheet
-  signatures leak into the text on pages ≡ 3 (mod 16), a separate defect. Apostrophes `'` (91) are left alone.
+  **two printer's signature marks** `32 ’` (p. 499) and `64 ’` (p. 1011) — page furniture that leaked into the
+  text; that was a separate defect, fixed the same session in `dj_witness.reading_order` (see PROGRESS.md).
+  Apostrophes `'` (91) are left alone.
 
 ## Where it is fixed
 

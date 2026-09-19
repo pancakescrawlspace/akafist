@@ -170,6 +170,6 @@
   {"col":2,"para":7,"bbox":[2189,4449,2477,4521],"abbyy":"Адн же","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2167,4963,3397,5049],"abbyy":"Ялконояь или ЯлконосгГй","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":59,"b_page":11,"c_page":[57],"chars":3947,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":145,"fixed":14,"odd":[]},
+ "witness": {"version":6,"d_page":59,"b_page":11,"c_page":[57],"chars":3947,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":145,"fixed":14,"odd":[]},
  "warnings": []
 }

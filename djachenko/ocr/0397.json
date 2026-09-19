@@ -260,6 +260,6 @@
   {"col":2,"para":19,"bbox":[2333,5659,3221,5809],"abbyy":"Окезсм^тбити-са","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":20,"bbox":[2335,5999,3069,6135],"abbyy":"0кезс^дмитига","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":408,"b_page":360,"c_page":[406],"chars":3447,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":227,"fixed":33,"odd":[]},
+ "witness": {"version":6,"d_page":408,"b_page":360,"c_page":[406],"chars":3447,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":227,"fixed":33,"odd":[]},
  "warnings": []
 }

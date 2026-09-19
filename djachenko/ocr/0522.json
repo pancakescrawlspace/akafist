@@ -238,6 +238,6 @@
   {"col":2,"para":19,"bbox":[1947,5999,2577,6133],"abbyy":"ПрЕКЛОНИТЕЛЬ","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":20,"bbox":[1945,6221,2607,6349],"abbyy":"ПрЕКЛоиАТИСА","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":533,"b_page":485,"c_page":[531],"chars":3492,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":214,"fixed":27,"odd":[]},
+ "witness": {"version":6,"d_page":533,"b_page":485,"c_page":[531],"chars":3492,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":214,"fixed":27,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (12 lines at the image edge); entry starts from position and text features"]
 }

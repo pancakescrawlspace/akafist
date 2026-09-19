@@ -218,6 +218,6 @@
   {"col":2,"para":18,"bbox":[2239,4517,2761,4601],"abbyy":"Подколѣнный","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2235,4623,2859,4713],"abbyy":"Подкоэюрый","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":488,"b_page":440,"c_page":[486],"chars":3748,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":107,"fixed":36,"odd":[]},
+ "witness": {"version":6,"d_page":488,"b_page":440,"c_page":[486],"chars":3748,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":107,"fixed":36,"odd":[]},
  "warnings": []
 }

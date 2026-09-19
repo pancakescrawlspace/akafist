@@ -177,6 +177,6 @@
   {"col":2,"para":9,"bbox":[2217,5063,2601,5179],"abbyy":"Го# жлю","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2217,5521,2457,5615],"abbyy":"Гръвъ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1002,"b_page":954,"c_page":[396],"chars":4126,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":186,"fixed":25,"odd":[]},
+ "witness": {"version":6,"d_page":1002,"b_page":954,"c_page":[396],"chars":4126,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":186,"fixed":25,"odd":[]},
  "warnings": []
 }

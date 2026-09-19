@@ -183,6 +183,6 @@
   {"col":2,"para":6,"bbox":[2127,2231,2367,2303],"abbyy":"Литка","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[2129,3359,2927,3449],"abbyy":"Литейное дѣло","abbyy_conf":56,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1083,"b_page":1035,"c_page":[477],"chars":4199,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":133,"fixed":15,"odd":[]},
+ "witness": {"version":6,"d_page":1083,"b_page":1035,"c_page":[477],"chars":4199,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":133,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (8 lines at the image edge); entry starts from position and text features"]
 }

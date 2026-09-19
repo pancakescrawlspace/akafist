@@ -186,6 +186,6 @@
   {"col":2,"para":7,"bbox":[2259,2991,2901,3087],"abbyy":"Деснтп, десдтн","abbyy_conf":36,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2259,3099,2669,3209],"abbyy":"Десница","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":190,"b_page":142,"c_page":[188],"chars":3997,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":219,"fixed":18,"odd":[]},
+ "witness": {"version":6,"d_page":190,"b_page":142,"c_page":[188],"chars":3997,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":219,"fixed":18,"odd":[]},
  "warnings": []
 }

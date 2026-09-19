@@ -239,6 +239,6 @@
   {"col":2,"para":17,"bbox":[2067,5649,2735,5745],"abbyy":"Домокн, докою","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2063,5755,3369,5867],"abbyy":"ДоМОБЬТЕЦа„ ДОМОБНИК‘Х","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":197,"b_page":149,"c_page":[195],"chars":3615,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":216,"fixed":24,"odd":[]},
+ "witness": {"version":6,"d_page":197,"b_page":149,"c_page":[195],"chars":3615,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":216,"fixed":24,"odd":[]},
  "warnings": []
 }

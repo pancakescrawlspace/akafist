@@ -154,6 +154,6 @@
   {"col":1,"para":6,"bbox":[1,2967,739,3103],"abbyy":"ФдцН/КЬл фдрисг","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":7,"bbox":[1,3089,303,3199],"abbyy":"Ъ\\^\\\\іѵл","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":821,"b_page":773,"c_page":[215],"chars":4027,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":144,"fixed":8,"odd":[]},
+ "witness": {"version":6,"d_page":821,"b_page":773,"c_page":[215],"chars":4027,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":144,"fixed":8,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)"]
 }

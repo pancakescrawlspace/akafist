@@ -166,6 +166,6 @@
   {"col":2,"para":4,"bbox":[2249,4043,2537,4133],"abbyy":"Гумыю","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2229,5691,2477,5787],"abbyy":"Гуня","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1004,"b_page":956,"c_page":[398],"chars":4113,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":184,"fixed":12,"odd":[]},
+ "witness": {"version":6,"d_page":1004,"b_page":956,"c_page":[398],"chars":4113,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":184,"fixed":12,"odd":[]},
  "warnings": []
 }

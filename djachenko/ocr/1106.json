@@ -192,6 +192,6 @@
   {"col":2,"para":9,"bbox":[2087,2813,2641,2971],"abbyy":"Ом^ркн^ти","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2097,3581,2487,3693],"abbyy":"Омофор","abbyy_conf":42,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1117,"b_page":1069,"c_page":[511],"chars":4015,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":186,"fixed":16,"odd":[]},
+ "witness": {"version":6,"d_page":1117,"b_page":1069,"c_page":[511],"chars":4015,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":186,"fixed":16,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (7 lines at the image edge); entry starts from position and text features"]
 }

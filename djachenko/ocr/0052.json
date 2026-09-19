@@ -185,6 +185,6 @@
   {"col":2,"para":11,"bbox":[2071,5139,2579,5221],"abbyy":"’Ямомеанё","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2099,5885,2515,5979],"abbyy":"Амулеты","abbyy_conf":30,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":63,"b_page":15,"c_page":[61],"chars":3889,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":148,"fixed":24,"odd":[]},
+ "witness": {"version":6,"d_page":63,"b_page":15,"c_page":[61],"chars":3889,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":148,"fixed":24,"odd":[]},
  "warnings": []
 }

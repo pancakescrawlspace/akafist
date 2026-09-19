@@ -249,6 +249,6 @@
   {"col":2,"para":20,"bbox":[2285,5927,3001,6045],"abbyy":"бдиномоцжый","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":21,"bbox":[2285,6155,3157,6287],"abbyy":"бдИНОМЙД^ЕННИКЪ","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":216,"b_page":168,"c_page":[214],"chars":3417,"cuts":{"line":41,"aligned":0,"forced":0},"disputed":210,"fixed":20,"odd":[]},
+ "witness": {"version":6,"d_page":216,"b_page":168,"c_page":[214],"chars":3417,"cuts":{"line":41,"aligned":0,"forced":0},"disputed":210,"fixed":20,"odd":[]},
  "warnings": []
 }

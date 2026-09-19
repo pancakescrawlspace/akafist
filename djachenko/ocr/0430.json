@@ -273,6 +273,6 @@
   {"col":2,"para":22,"bbox":[2059,5805,2627,5895],"abbyy":"Отгонител","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":23,"bbox":[2059,6035,2805,6135],"abbyy":"ОтгрЕКЛТИСА^І","abbyy_conf":34,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":441,"b_page":393,"c_page":[439],"chars":3686,"cuts":{"line":48,"aligned":0,"forced":0},"disputed":253,"fixed":28,"odd":[]},
+ "witness": {"version":6,"d_page":441,"b_page":393,"c_page":[439],"chars":3686,"cuts":{"line":48,"aligned":0,"forced":0},"disputed":253,"fixed":28,"odd":[]},
  "warnings": []
 }

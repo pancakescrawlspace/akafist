@@ -222,6 +222,6 @@
   {"col":2,"para":18,"bbox":[2121,5519,2641,5655],"abbyy":"Разгн^ті’е","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2119,5769,2865,5899],"abbyy":"Разгн’Ѣбатиса","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":585,"b_page":537,"c_page":[583],"chars":3554,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":198,"fixed":23,"odd":[]},
+ "witness": {"version":6,"d_page":585,"b_page":537,"c_page":[583],"chars":3554,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":198,"fixed":23,"odd":[]},
  "warnings": []
 }

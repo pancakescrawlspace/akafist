@@ -211,6 +211,6 @@
   {"col":2,"para":17,"bbox":[2127,5589,2675,5715],"abbyy":"Пдач^бница","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2129,5829,2867,5907],"abbyy":"ПллчЕБопл&счгко","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":477,"b_page":429,"c_page":[475],"chars":3711,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":152,"fixed":19,"odd":[]},
+ "witness": {"version":6,"d_page":477,"b_page":429,"c_page":[475],"chars":3711,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":152,"fixed":19,"odd":[]},
  "warnings": []
 }

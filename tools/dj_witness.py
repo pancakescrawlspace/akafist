@@ -97,6 +97,13 @@ def words_B(leaf):
 
 FOOT_RE = re.compile(r'Ц[еѳe]рк\W{0,3}сла|словарь,?\s*свящ|Дьяченко\.?$', re.I)
 HYPHENS = ('-', '¬', '‐')
+SIG_RE = re.compile(r"\d{1,2}[*°'’`·.,]?")     # the printer's sheet signature: "32", "32*", "64°" as the OCR reads it
+
+
+def ascii_digits(s):
+    """Digits of another script as their value: the book prints Arabic numerals only, so a Bengali ১ or a Devanagari
+    ४ is the OCR misreading one of them (seen on the signature of p. 115)."""
+    return ''.join(str(unicodedata.decimal(c)) if c.isdigit() and not c.isascii() else c for c in s)
 
 
 def join_lines(lines):
@@ -113,7 +120,7 @@ def join_lines(lines):
     return out
 
 
-def reading_order(words, W, H, mixed_lines=False):
+def reading_order(words, W, H, mixed_lines=False, signature=False):
     """words: [(text, x0, y0, x1, y1)] top-left origin -> dict(text, lines, words):
     text   the body text in reading order: band by band, left column before right; header, footer and full-width
            headings left out; lines joined, hyphenation repaired (as join_lines)
@@ -123,7 +130,9 @@ def reading_order(words, W, H, mixed_lines=False):
     The text is identical to what join_lines gives per band and side, joined with single spaces.
     mixed_lines: also keep a word on a line when its box overlaps the line's band although its centre is off — for
     a Church Slavonic headword beside civil text; only for witnesses with precise boxes (Google's C and D), on B's
-    coarse boxes it pulls in noise."""
+    coarse boxes it pulls in noise.
+    signature: the page is one of those that carry the printer's sheet signature at the foot (every 16th page and
+    the third page of the sheet), so a signature merged into the lowest printed line may be taken off its end."""
     words = [(w[0].strip(),) + tuple(w[1:]) for w in words if w[0].strip()]
     if not words:
         return dict(text='', lines=[], words=[])
@@ -168,8 +177,28 @@ def reading_order(words, W, H, mixed_lines=False):
     foot = [l for l in L if FOOT_RE.search(l['text']) and l['y0'] > 0.85 * H]
     bottom = min(l['y0'] for l in foot) - 0.3 * wh if foot else H
     keep = [l for l in L if l['y1'] > top - 0.3 * wh and l['y0'] < bottom]
-    last = max((l['y1'] for l in keep if l['side'] != 'w'), default=H)
-    keep = [l for l in keep if not (l['n'] <= 2 and l['y0'] > last - 0.2 * wh and len(l['text']) <= 6)]
+    # page furniture at the foot: a line of one or two short words lying below every other line of the page — the
+    # printer's signature ("32 *", on every third page of a sheet), a stray page number, a speck. Each candidate is
+    # compared with the other lines only, so that a short last line of a column (a word continued from the line
+    # above, e.g. "ство .") is not taken for furniture when the other column ends just as low.
+    bot = sorted((l['y1'] for l in keep if l['side'] != 'w'), reverse=True)[:2]
+    others = lambda l: (bot[1] if len(bot) > 1 else H) if bot and l['y1'] == bot[0] else (bot[0] if bot else H)
+    keep = [l for l in keep
+            if not (l['side'] != 'w' and l['n'] <= 2 and len(l['text']) <= 6 and l['y0'] > others(l) - 0.2 * wh)]
+    if signature:
+        # the signature can also sit level with the lowest line of a column and be clustered into it; there it is
+        # the last word, printed in smaller type than the text (p. 115: "Іисусь-Христо- ১*")
+        for side in 'ab':
+            sel = [l for l in keep if l['side'] == side]
+            if not sel:
+                continue
+            low = max(sel, key=lambda l: l['y1'])
+            w = low['words'][-1] if low['n'] >= 2 else None
+            lh = sorted(v[4] - v[2] for v in low['words'])[low['n'] // 2] if w else 0
+            if w and w[4] - w[2] <= 0.8 * lh and SIG_RE.fullmatch(ascii_digits(w[0])):
+                ws = low['words'][:-1]
+                low.update(words=ws, text=' '.join(v[0] for v in ws), n=len(ws), y0=min(v[2] for v in ws),
+                           y1=max(v[4] for v in ws), x0=min(v[1] for v in ws), x1=max(v[3] for v in ws))
     # bands: cut at full-width lines (headings) and at gaps of > 3 line heights in both columns
     heads = sorted((l['y0'] + l['y1']) / 2 for l in keep if l['side'] == 'w')
     ys = sorted((l['y0'], l['y1']) for l in keep if l['side'] != 'w')
@@ -234,7 +263,7 @@ def side_texts(page):
 def page_text(name, leaf):
     """Body text of witness B, C or D for a leaf, with spans (reading_order)."""
     words, W, H = {'B': words_B, 'C': words_C, 'D': words_D}[name](leaf)
-    r = reading_order(words, W, H, mixed_lines=name in 'CD')
+    r = reading_order(words, W, H, mixed_lines=name in 'CD', signature=page_of(leaf) % 16 in (1, 3))
     r.update(W=W, H=H)
     return r
 

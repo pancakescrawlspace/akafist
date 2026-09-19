@@ -194,12 +194,12 @@ See PLAN.md for the phases. Newest entry last.
   sample right against scan A.
   The user found a second cause at Ядамъ (PDF p. 7): Typst's smart quotes (lang "ru") turned straight `"` into
   `«`/`»`; dj_build.py now sets `smartquote(enabled: false)`. PDF rebuilt.
-- ⚠ OPEN DEFECT (found during the check): the printer's asterisked sheet signatures (`3*`, `5 *`, `32 ’`, `64 ’` …,
+- ⚠ OPEN DEFECT (found during the check; FIXED the same session, below): the printer's asterisked sheet signatures (`3*`, `5 *`, `32 ’`, `64 ’` …,
   on pages ≡ 3 mod 16: number = (p − 3)/16 + 1) are not recognised as page furniture and end up in the text of
   column b's last lines — 38 entries found by a simple pattern, some mid-sentence (`дыханіемъ 5 * своимъ`), more
   in garbled form (`১*`, `1 6*`). Fix at the page level (drop the word(s) in the footer zone of D's page, or strip
   the expected number + `*` from the last lines of those pages in dj_parse), with the spans remapped.
-- ⚠ OPEN DEFECT (Phase 4, found during the quote check; must be fixed before step-2 headwords are merged in bulk):
+- ⚠ OPEN DEFECT (Phase 4, found during the quote check; FIXED the same session, below):
   where D dropped the "=", the separator found is often a later "(" and D's head text holds the gloss and a
   quotation: `Инока- др. рус. инокиня. „Матери своей инокы Марѳы“` + `(Новг. л. 4).` As long as the headword is
   provisional this text is only misplaced (printed grey as the head); but with a step-2 headword split_entry keeps
@@ -207,8 +207,31 @@ See PLAN.md for the phases. Newest entry last.
   cut at "("). Fix: with a step-2 headword, look for the separator right after the headword's extent in the text
   (or prefer "=", "—" over "(" and the eq hint of A) and move any head text beyond the headword into the definition.
 
-NEXT: (1) the signature-mark defect above (small; same pattern as the quote fix); (2) the head-text defect above
-  (before any bulk headword merge); (3) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+- Both open defects fixed (session 4, continued; user: "fix both open defects").
+  1. Page furniture (`dj_witness.reading_order`): a foot line of one or two short words is dropped only when it
+     lies below EVERY other line of the page — each candidate is now compared with the other lines, not with the
+     bottom of all lines (which was the candidate itself, so the rule never fired) nor with the last body line
+     (which would eat a short last line of a column, e.g. p. 36 "нахаль-|ство ."). Plus, on the pages that carry a
+     signature (printed page ≡ 1 or 3 mod 16), a signature clustered INTO the lowest line is taken off its end when
+     it is set in smaller type and reads as a number with an optional mark; digits of other scripts count as their
+     value (the user's point: the book has no Bengali digits — p. 115 read `১*`).
+     Measured against the committed version over all 1,119 pages × witnesses B, C, D: 232 witness pages changed,
+     185 on p ≡ 3, 40 on p ≡ 1 (mod 16), 7 elsewhere — 5 specks (`і`, `V`, `\`, two strays), 1 hyphen artefact,
+     and nothing else; every "lost" word with letters was a hyphen-join corruption being undone (`бла10* гость`
+     → `благость`, `Сокра-` + `10`). dj_heads VERSION 6 → step 1 re-run over all pages (78 s, 0 errors, same
+     alignment statistics); 78 definitions in entries.tsv changed, all signature removals; signature-like
+     leftovers now 0 (were 38+); `quotes` 275 → 273. dj_eval --refresh: all 24 previously measured rows
+     byte-identical (no GT page carries a signature), results.tsv now holds all candidates.
+  2. Head text (`dj_parse.split_entry`): with a step-2 headword the separator is now looked for right after the
+     headword's own words (window: from the start of its last word to 3 characters past it); if none is there the
+     text is cut after those words, flag `hw_cut`, and everything else stays in the definition. Before, the first
+     separator anywhere in the first 80 characters won, so a gloss or quotation that D had run into the head was
+     dropped from the entry. Already true of one of the 25 read entries: `Механическїй` had lost "машиннымъ
+     искуствомъ устроенный." and has it back. Provisional entries are untouched (no step-2 headword, same path as
+     before); checked by simulating step-2 headwords on `Гадара`, `Инока`, `Стѣна плача`.
+  PDF rebuilt; links.tsv unchanged.
+
+NEXT: Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are

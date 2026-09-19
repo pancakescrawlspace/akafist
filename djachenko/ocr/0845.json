@@ -184,6 +184,6 @@
   {"col":2,"para":4,"bbox":[2277,4965,3409,5067],"abbyy":"Уйрокатн {древн .-слав","abbyy_conf":70,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2279,6013,3501,6105],"abbyy":"Чаровникъ, чародѣецъ","abbyy_conf":71,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":856,"b_page":808,"c_page":[250],"chars":3532,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":122,"fixed":12,"odd":[]},
+ "witness": {"version":6,"d_page":856,"b_page":808,"c_page":[250],"chars":3532,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":122,"fixed":12,"odd":[]},
  "warnings": []
 }

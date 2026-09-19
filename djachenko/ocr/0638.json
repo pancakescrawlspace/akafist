@@ -215,6 +215,6 @@
   {"col":2,"para":16,"bbox":[2103,5195,2563,5287],"abbyy":"СнхіАстнрнія","abbyy_conf":62,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2103,5403,2389,5527],"abbyy":"Сидела","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":649,"b_page":601,"c_page":[43],"chars":3640,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":194,"fixed":18,"odd":[]},
+ "witness": {"version":6,"d_page":649,"b_page":601,"c_page":[43],"chars":3640,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":194,"fixed":18,"odd":[]},
  "warnings": []
 }

@@ -209,6 +209,6 @@
   {"col":2,"para":15,"bbox":[2327,5869,3033,5967],"abbyy":"Итиль, Атель","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":16,"bbox":[2333,6079,2761,6167],"abbyy":"Нто?емы|ь","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":280,"b_page":232,"c_page":[278],"chars":3912,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":260,"fixed":26,"odd":[]},
+ "witness": {"version":6,"d_page":280,"b_page":232,"c_page":[278],"chars":3912,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":260,"fixed":26,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (27 lines end at the image edge); line ends of the right column missing"]
 }

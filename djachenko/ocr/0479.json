@@ -232,6 +232,6 @@
   {"col":2,"para":14,"bbox":[2319,5991,2941,6095],"abbyy":"Подризникъ","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2311,6229,2409,6289],"abbyy":"до","abbyy_conf":60,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":490,"b_page":442,"c_page":[488],"chars":3563,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":240,"fixed":20,"odd":[]},
+ "witness": {"version":6,"d_page":490,"b_page":442,"c_page":[488],"chars":3563,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":240,"fixed":20,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (20 lines end at the image edge); line ends of the right column missing"]
 }

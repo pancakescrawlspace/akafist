@@ -193,6 +193,6 @@
   {"col":2,"para":10,"bbox":[2455,5813,3385,5911],"abbyy":"Всадить въ дыбу","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2457,6021,3093,6105],"abbyy":"Е«коинстко","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":982,"b_page":934,"c_page":[376],"chars":4079,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":265,"fixed":27,"odd":[]},
+ "witness": {"version":6,"d_page":982,"b_page":934,"c_page":[376],"chars":4079,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":265,"fixed":27,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (44 lines end at the image edge); line ends of the right column missing"]
 }

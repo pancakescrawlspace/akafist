@@ -202,6 +202,6 @@
   {"col":2,"para":13,"bbox":[2055,4917,2333,5011],"abbyy":"Сулея","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2057,5821,2403,5959],"abbyy":"сУлйц,л","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":737,"b_page":689,"c_page":[131],"chars":3966,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":200,"fixed":27,"odd":[]},
+ "witness": {"version":6,"d_page":737,"b_page":689,"c_page":[131],"chars":3966,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":200,"fixed":27,"odd":[]},
  "warnings": []
 }

@@ -211,6 +211,6 @@
   {"col":2,"para":10,"bbox":[1841,5891,2131,5961],"abbyy":"Катокъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[1837,5997,2753,6089],"abbyy":"Батырь, баатырь","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":933,"b_page":885,"c_page":[327],"chars":4024,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":204,"fixed":13,"odd":[]},
+ "witness": {"version":6,"d_page":933,"b_page":885,"c_page":[327],"chars":4024,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":204,"fixed":13,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (47 lines at the image edge); entry starts from position and text features"]
 }

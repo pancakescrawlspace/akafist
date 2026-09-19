@@ -179,6 +179,6 @@
   {"col":2,"para":8,"bbox":[2093,5787,2371,5889],"abbyy":"Дѣлъ","abbyy_conf":71,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2097,5993,2785,6097],"abbyy":"Дѣра и дира","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1021,"b_page":973,"c_page":[415],"chars":4078,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":182,"fixed":15,"odd":[]},
+ "witness": {"version":6,"d_page":1021,"b_page":973,"c_page":[415],"chars":4078,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":182,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (5 lines at the image edge); entry starts from position and text features"]
 }

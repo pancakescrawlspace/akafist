@@ -190,6 +190,6 @@
   {"col":2,"para":7,"bbox":[2297,5543,2479,5619],"abbyy":"Але","abbyy_conf":79,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2293,5665,2759,5761],"abbyy":"Алебарда","abbyy_conf":65,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":58,"b_page":10,"c_page":[56],"chars":3997,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":164,"fixed":14,"odd":[]},
+ "witness": {"version":6,"d_page":58,"b_page":10,"c_page":[56],"chars":3997,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":164,"fixed":14,"odd":[]},
  "warnings": []
 }

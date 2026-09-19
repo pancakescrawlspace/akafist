@@ -10,8 +10,11 @@ Entries. An entry starts at every hanging paragraph of a main/supplement page (P
 headword reading of step 2 says the line is not an entry start (null) — then the paragraph continues the previous
 entry, as does every non-hanging paragraph (the first of a column or page). The entry's text is the paragraphs'
 `text_merged` (Phase 3b step 1: witness D voted with B, A, C), joined; a hyphen at a paragraph end joins the word.
-The text is split at the first separator (=, —, –, " - " or "(") within its first 80 characters: before it D's
-reading of the head, after it the definition. Typography is tidied (spaces before . , ; : ) and after "(" removed);
+The text is split at a separator (=, —, –, " - " or "("): with a headword read in step 2, at the first one right
+after the headword's own words (else the text is cut there, flag `hw_cut`, so that head text beyond the headword —
+a gloss or a quotation D ran into the head when it dropped the "=" — stays in the definition instead of being
+lost); with a provisional headword, at the first separator in the first 80 characters. Before it D's reading of the
+head, after it the definition. Typography is tidied (spaces before . , ; : ) and after "(" removed);
 in the definition the quotation marks are attached to their quotation and written as the book prints them
 (fix_quotes; djachenko/QUOTES.md): „…“, and «…» where the book has them (≈30 places, sometimes mixed «…“).
 The headword is the step-2 reading when there is one (`entries_hint[].headword`, source vision/manual), else D's
@@ -42,7 +45,8 @@ definitions contain quotation marks):
                    the longest non-decreasing subsequence of its part), parens (unbalanced parentheses in the
                    definition), odd_len (D's text much shorter/longer than A's for a paragraph of the entry),
                    quotes (quotation marks unbalanced after fix_quotes: the OCR dropped or misplaced one, or a
-                   letter was misread as « or »)
+                   letter was misread as « or »), hw_cut (a step-2 headword with no separator after it: the text
+                   was cut after the headword's words)
 
 FLAGS.md: counts per flag and the entries flagged order/parens/no_sep/quotes. (A check of pages with an unusual
 number of entries was tried and dropped: a page of 81 short Въз- entries and a page of one long article are both
@@ -289,16 +293,37 @@ def paren_balance(text):
     return depth, stray
 
 
+def word_bounds(text, k):
+    """(start, end) of the k-th word of `text` (single spaces after tidy; k clamped to the words there are)."""
+    parts = text.split(' ')
+    k = max(1, min(k, len(parts)))
+    return len(' '.join(parts[:k - 1])) + (1 if k > 1 else 0), len(' '.join(parts[:k]))
+
+
 def split_entry(e):
     """Head text / separator / definition; the headword from step 2 or provisionally from D's head text."""
     e['text'], e['spans'], e['ispans'] = tidy(e['text'], e['spans'], e['ispans'])
     text = e['text']
     h = e['hint']
-    m = SEP_RE.search(text, 0, min(len(text), 80))
+    # where to look for the separator: right after a headword read in step 2, else in the first 80 characters
+    hw_read = (h.get('headword') or '') if h and h.get('headword_source') else ''
+    if hw_read:
+        lo, hi = word_bounds(text, len(hw_read.split()))
+        window = (lo, min(len(text), hi + 3))
+    else:
+        window = (0, min(len(text), 80))
+    m = SEP_RE.search(text, *window)
     # the head ends at hend, the definition starts at cut
     if m:
         sep = m.group(0).strip()
         hend, cut = m.start(), (m.start() if sep == '(' else m.end())
+    elif hw_read:
+        # a step-2 headword with no separator next to it (D merged words, or dropped the "=" and the next "(" is
+        # far away): cut after the headword's words, so that the head text beyond it stays in the definition
+        hend = word_bounds(text, len(hw_read.split()))[1]
+        mm = re.match(r'\s*(=|—|–|--|-)\s*', text[hend:])
+        sep, cut = (mm.group(1) if mm else ''), hend + (mm.end() if mm else 0)
+        e['flags'].add('hw_cut')
     elif h and h['eq'] and h['abbyy']:
         # D dropped the "=" that A saw: the head has as many words as ABBYY's reading of it
         n = min(4, max(1, len(h['abbyy'].split())))
@@ -398,7 +423,7 @@ def report(entries, write):
         lines += ['', f'Entries with a step-2 headword: {len(read)}; of them out of order: '
                       f'{sum("order" in e["flags"] for e in read)}, hw_disputed: '
                       f'{sum("hw_disputed" in e["flags"] for e in read)}.']
-    for flag in ('no_sep', 'parens', 'quotes', 'order'):
+    for flag in ('no_sep', 'parens', 'quotes', 'hw_cut', 'order'):
         sel = [e for e in entries if flag in e['flags'] and (flag != 'order' or e['hw_source'] != 'D')]
         title = f'## {flag} ({len(sel)}' + (', step-2 headwords only' if flag == 'order' else '') + ')'
         lines += ['', title, '']

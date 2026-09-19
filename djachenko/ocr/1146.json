@@ -234,6 +234,6 @@
   {"col":2,"para":17,"bbox":[2069,6053,2429,6151],"abbyy":"Судина","abbyy_conf":83,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2069,6157,2465,6253],"abbyy":"Судство","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1157,"b_page":1109,"c_page":[551],"chars":3978,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":144,"fixed":15,"odd":[]},
+ "witness": {"version":6,"d_page":1157,"b_page":1109,"c_page":[551],"chars":3978,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":144,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (17 lines at the image edge); entry starts from position and text features"]
 }

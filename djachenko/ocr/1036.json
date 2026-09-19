@@ -186,6 +186,6 @@
   {"col":2,"para":7,"bbox":[2057,4045,2425,4125],"abbyy":"Истина","abbyy_conf":35,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2067,5091,2795,5187],"abbyy":"Истиннорѣчіе","abbyy_conf":51,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1047,"b_page":999,"c_page":[441],"chars":3974,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":144,"fixed":17,"odd":[]},
+ "witness": {"version":6,"d_page":1047,"b_page":999,"c_page":[441],"chars":3974,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":144,"fixed":17,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (7 lines at the image edge); entry starts from position and text features"]
 }

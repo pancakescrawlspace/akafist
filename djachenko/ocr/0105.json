@@ -224,6 +224,6 @@
   {"col":2,"para":17,"bbox":[2355,5275,2725,5371],"abbyy":"Ед да н і Е","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2359,5497,2573,5581],"abbyy":"Кдока","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":116,"b_page":68,"c_page":[114],"chars":3670,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":229,"fixed":19,"odd":[]},
+ "witness": {"version":6,"d_page":116,"b_page":68,"c_page":[114],"chars":3670,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":229,"fixed":19,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (25 lines end at the image edge); line ends of the right column missing"]
 }

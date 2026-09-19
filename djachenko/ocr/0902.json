@@ -161,6 +161,6 @@
   {"col":2,"para":8,"bbox":[2001,5807,3261,5901],"abbyy":"Авеста или Зендъ-Авеста","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2003,6117,2249,6187],"abbyy":"Лкіітн","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":913,"b_page":865,"c_page":[307],"chars":3038,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":130,"fixed":12,"odd":[]},
+ "witness": {"version":6,"d_page":913,"b_page":865,"c_page":[307],"chars":3038,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":130,"fixed":12,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (6 lines at the image edge); entry starts from position and text features"]
 }

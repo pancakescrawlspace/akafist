@@ -242,6 +242,6 @@
   {"col":2,"para":19,"bbox":[1995,5795,2263,5881],"abbyy":"Надодъ","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":20,"bbox":[1995,5903,2525,6019],"abbyy":"Нахожденіе","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":385,"b_page":337,"c_page":[383],"chars":3540,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":174,"fixed":17,"odd":[]},
+ "witness": {"version":6,"d_page":385,"b_page":337,"c_page":[383],"chars":3540,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":174,"fixed":17,"odd":[]},
  "warnings": []
 }

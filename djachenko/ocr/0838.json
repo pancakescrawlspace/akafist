@@ -173,6 +173,6 @@
   {"col":1,"para":12,"bbox":[25,5613,221,5717],"abbyy":"1|еіініт","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":13,"bbox":[21,5923,437,6017],"abbyy":"Денішныя","abbyy_conf":34,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":849,"b_page":801,"c_page":[243],"chars":3992,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":122,"fixed":16,"odd":[]},
+ "witness": {"version":6,"d_page":849,"b_page":801,"c_page":[243],"chars":3992,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":122,"fixed":16,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)"]
 }

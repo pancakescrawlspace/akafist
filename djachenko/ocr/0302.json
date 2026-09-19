@@ -279,6 +279,6 @@
   {"col":2,"para":25,"bbox":[2147,5757,2705,5855],"abbyy":"Кост^льный","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":26,"bbox":[2141,6197,2615,6265],"abbyy":"Костоголока","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":313,"b_page":265,"c_page":[311],"chars":3485,"cuts":{"line":50,"aligned":0,"forced":0},"disputed":247,"fixed":22,"odd":[]},
+ "witness": {"version":6,"d_page":313,"b_page":265,"c_page":[311],"chars":3485,"cuts":{"line":50,"aligned":0,"forced":0},"disputed":247,"fixed":22,"odd":[]},
  "warnings": []
 }

@@ -211,6 +211,6 @@
   {"col":2,"para":9,"bbox":[2337,5967,3017,6081],"abbyy":"Пенитенціарій","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2335,6193,2841,6273],"abbyy":"Пентаполь","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":460,"b_page":412,"c_page":[458],"chars":3859,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":191,"fixed":27,"odd":[]},
+ "witness": {"version":6,"d_page":460,"b_page":412,"c_page":[458],"chars":3859,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":191,"fixed":27,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (21 lines end at the image edge); line ends of the right column missing"]
 }

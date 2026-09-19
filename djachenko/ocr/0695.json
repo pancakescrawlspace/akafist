@@ -189,6 +189,6 @@
   {"col":2,"para":11,"bbox":[2283,5549,2971,5645],"abbyy":"Станъ, станіе","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2287,5757,2589,5837],"abbyy":"Станъ","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":706,"b_page":658,"c_page":[100],"chars":3968,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":161,"fixed":13,"odd":[]},
+ "witness": {"version":6,"d_page":706,"b_page":658,"c_page":[100],"chars":3968,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":161,"fixed":13,"odd":[]},
  "warnings": []
 }

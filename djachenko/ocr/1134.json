@@ -220,6 +220,6 @@
   {"col":4,"para":2,"bbox":[2011,3915,2619,4007],"abbyy":"Раздрочить","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":3,"bbox":[2003,4239,2861,4333],"abbyy":"Раздѣльнорѣчіе","abbyy_conf":53,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1145,"b_page":1097,"c_page":[539],"chars":3808,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":181,"fixed":15,"odd":[]},
+ "witness": {"version":6,"d_page":1145,"b_page":1097,"c_page":[539],"chars":3808,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":181,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (36 lines at the image edge); entry starts from position and text features"]
 }

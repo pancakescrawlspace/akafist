@@ -240,6 +240,6 @@
   {"col":2,"para":16,"bbox":[2325,5743,2689,5813],"abbyy":"Бдюстедь","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2321,6159,2797,6241],"abbyy":"Блюстига","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":942,"b_page":894,"c_page":[336],"chars":3958,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":642,"fixed":24,"odd":[]},
+ "witness": {"version":6,"d_page":942,"b_page":894,"c_page":[336],"chars":3958,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":642,"fixed":24,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (32 lines end at the image edge); line ends of the right column missing"]
 }

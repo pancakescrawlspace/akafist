@@ -157,6 +157,6 @@
   {"col":2,"para":9,"bbox":[1935,3785,2367,3869],"abbyy":"ІГсопный","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[1933,4113,2295,4197],"abbyy":"ІГкишъ","abbyy_conf":17,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":911,"b_page":863,"c_page":[305],"chars":3499,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":143,"fixed":16,"odd":[]},
+ "witness": {"version":6,"d_page":911,"b_page":863,"c_page":[305],"chars":3499,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":143,"fixed":16,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (43 lines at the image edge); entry starts from position and text features"]
 }

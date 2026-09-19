@@ -184,6 +184,6 @@
   {"col":2,"para":3,"bbox":[1967,919,2265,1011],"abbyy":"Брада","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[1965,2135,2589,2229],"abbyy":"Брадобритіе","abbyy_conf":66,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":949,"b_page":901,"c_page":[343],"chars":4162,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":134,"fixed":13,"odd":[]},
+ "witness": {"version":6,"d_page":949,"b_page":901,"c_page":[343],"chars":4162,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":134,"fixed":13,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (12 lines at the image edge); entry starts from position and text features"]
 }

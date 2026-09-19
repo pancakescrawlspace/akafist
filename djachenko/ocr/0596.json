@@ -165,6 +165,6 @@
   {"col":1,"para":9,"bbox":[37,2993,229,3101],"abbyy":"рУкд","abbyy_conf":20,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2009,5895,2497,5989],"abbyy":"Рукавицы","abbyy_conf":46,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":607,"b_page":559,"c_page":[605],"chars":3952,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":144,"fixed":12,"odd":[]},
+ "witness": {"version":6,"d_page":607,"b_page":559,"c_page":[605],"chars":3952,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":144,"fixed":12,"odd":[]},
  "warnings": []
 }

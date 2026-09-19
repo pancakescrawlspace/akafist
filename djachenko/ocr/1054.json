@@ -143,6 +143,6 @@
   {"col":1,"para":1,"bbox":[15,349,599,445],"abbyy":"лат. саіепсіае","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":2,"bbox":[9,457,279,545],"abbyy":"Каіаші","abbyy_conf":31,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1065,"b_page":1017,"c_page":[459],"chars":4256,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":101,"fixed":9,"odd":[]},
+ "witness": {"version":6,"d_page":1065,"b_page":1017,"c_page":[459],"chars":4256,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":101,"fixed":9,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (42 lines at the image edge); entry starts from position and text features"]
 }

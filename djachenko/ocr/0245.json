@@ -199,6 +199,6 @@
   {"col":4,"para":2,"bbox":[2325,4949,2743,5029],"abbyy":"Игемонъ","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":3,"bbox":[2353,5371,2489,5443],"abbyy":"Нго","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":256,"b_page":208,"c_page":[254],"chars":3407,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":146,"fixed":19,"odd":[]},
+ "witness": {"version":6,"d_page":256,"b_page":208,"c_page":[254],"chars":3407,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":146,"fixed":19,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (21 lines end at the image edge); line ends of the right column missing"]
 }

@@ -204,6 +204,6 @@
   {"col":2,"para":13,"bbox":[2285,5597,2541,5687],"abbyy":"Треста","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2295,6109,2705,6187],"abbyy":"ТйЕТИНА","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":778,"b_page":730,"c_page":[172],"chars":3839,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":268,"fixed":25,"odd":[]},
+ "witness": {"version":6,"d_page":778,"b_page":730,"c_page":[172],"chars":3839,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":268,"fixed":25,"odd":[]},
  "warnings": []
 }

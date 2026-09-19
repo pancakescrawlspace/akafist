@@ -192,6 +192,6 @@
   {"col":2,"para":15,"bbox":[2007,5489,2373,5577],"abbyy":"Ходить","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":16,"bbox":[2007,6197,2903,6293],"abbyy":"Ходъ Іерусалима","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":837,"b_page":789,"c_page":[231],"chars":3923,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":213,"fixed":25,"odd":[]},
+ "witness": {"version":6,"d_page":837,"b_page":789,"c_page":[231],"chars":3923,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":213,"fixed":25,"odd":[]},
  "warnings": []
 }

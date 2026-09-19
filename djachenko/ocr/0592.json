@@ -212,6 +212,6 @@
   {"col":2,"para":17,"bbox":[2135,5927,2365,5999],"abbyy":"Роптд","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2137,6049,2637,6135],"abbyy":"Роптикый","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":603,"b_page":555,"c_page":[601],"chars":3893,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":101,"fixed":12,"odd":[]},
+ "witness": {"version":6,"d_page":603,"b_page":555,"c_page":[601],"chars":3893,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":101,"fixed":12,"odd":[]},
  "warnings": []
 }

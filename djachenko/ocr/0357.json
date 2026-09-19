@@ -226,6 +226,6 @@
   {"col":2,"para":10,"bbox":[2327,4947,3131,5091],"abbyy":"М^чениколі-окецъ","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2323,5195,2901,5303],"abbyy":"Л\\Ѵчениченъ","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":368,"b_page":320,"c_page":[366],"chars":3695,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":285,"fixed":53,"odd":[]},
+ "witness": {"version":6,"d_page":368,"b_page":320,"c_page":[366],"chars":3695,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":285,"fixed":53,"odd":[]},
  "warnings": []
 }

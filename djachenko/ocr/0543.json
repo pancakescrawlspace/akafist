@@ -255,6 +255,6 @@
   {"col":2,"para":23,"bbox":[2231,5787,2843,5921],"abbyy":"Прод<\\лышцл","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":24,"bbox":[2225,6009,2637,6131],"abbyy":"ПродлніЕ","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":554,"b_page":506,"c_page":[552],"chars":3554,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":262,"fixed":28,"odd":[]},
+ "witness": {"version":6,"d_page":554,"b_page":506,"c_page":[552],"chars":3554,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":262,"fixed":28,"odd":[]},
  "warnings": []
 }

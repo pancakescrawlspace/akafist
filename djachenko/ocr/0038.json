@@ -134,6 +134,6 @@
   {"col":2,"para":7,"bbox":[2009,5065,2593,5143],"abbyy":"Абстиненты","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2007,5691,2157,5763],"abbyy":"Лбы","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":49,"b_page":1,"c_page":[47],"chars":2822,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":175,"fixed":15,"odd":[]},
+ "witness": {"version":6,"d_page":49,"b_page":1,"c_page":[47],"chars":2822,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":175,"fixed":15,"odd":[]},
  "warnings": []
 }

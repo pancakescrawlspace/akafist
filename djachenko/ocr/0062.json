@@ -177,6 +177,6 @@
   {"col":2,"para":10,"bbox":[2087,4937,2533,5083],"abbyy":"Петлитъ","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2081,5991,2609,6071],"abbyy":"Яйсонітинъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":73,"b_page":25,"c_page":[71],"chars":4051,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":247,"fixed":15,"odd":[]},
+ "witness": {"version":6,"d_page":73,"b_page":25,"c_page":[71],"chars":4051,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":247,"fixed":15,"odd":[]},
  "warnings": []
 }

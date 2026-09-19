@@ -175,6 +175,6 @@
   {"col":2,"para":9,"bbox":[2393,4729,3319,4823],"abbyy":"Вира, вѣра, впро","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2401,6161,2859,6257],"abbyy":"Вирникъ","abbyy_conf":83,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":970,"b_page":922,"c_page":[364],"chars":4147,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":157,"fixed":11,"odd":[]},
+ "witness": {"version":6,"d_page":970,"b_page":922,"c_page":[364],"chars":4147,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":157,"fixed":11,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (46 lines end at the image edge); line ends of the right column missing"]
 }

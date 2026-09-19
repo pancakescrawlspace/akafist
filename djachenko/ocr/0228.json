@@ -269,6 +269,6 @@
   {"col":2,"para":24,"bbox":[2081,6007,2415,6099],"abbyy":"Зазоръ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":25,"bbox":[2093,6109,2555,6239],"abbyy":"Здзр'кти","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":239,"b_page":191,"c_page":[237],"chars":3620,"cuts":{"line":46,"aligned":0,"forced":0},"disputed":212,"fixed":18,"odd":[]},
+ "witness": {"version":6,"d_page":239,"b_page":191,"c_page":[237],"chars":3620,"cuts":{"line":46,"aligned":0,"forced":0},"disputed":212,"fixed":18,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (13 lines at the image edge); entry starts from position and text features"]
 }

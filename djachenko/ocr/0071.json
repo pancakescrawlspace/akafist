@@ -228,6 +228,6 @@
   {"col":2,"para":16,"bbox":[2427,5343,3277,5495],"abbyy":"Безде^знобЫный","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2429,5585,2775,5691],"abbyy":"Бездна","abbyy_conf":80,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":82,"b_page":34,"c_page":[80],"chars":3628,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":151,"fixed":23,"odd":[]},
+ "witness": {"version":6,"d_page":82,"b_page":34,"c_page":[80],"chars":3628,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":151,"fixed":23,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (40 lines end at the image edge); line ends of the right column missing"]
 }

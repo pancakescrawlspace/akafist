@@ -196,6 +196,6 @@
   {"col":2,"para":10,"bbox":[2169,4527,2621,4601],"abbyy":"Еламскія","abbyy_conf":77,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2175,4959,2461,5039],"abbyy":"(/Ламъ","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":219,"b_page":171,"c_page":[217],"chars":3915,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":180,"fixed":25,"odd":[]},
+ "witness": {"version":6,"d_page":219,"b_page":171,"c_page":[217],"chars":3915,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":180,"fixed":25,"odd":[]},
  "warnings": []
 }

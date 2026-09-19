@@ -185,6 +185,6 @@
   {"col":2,"para":11,"bbox":[2147,4903,2989,4995],"abbyy":"Каменные суды","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2151,5725,3159,5817],"abbyy":"Каменный приказъ","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1053,"b_page":1005,"c_page":[447],"chars":4099,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":110,"fixed":12,"odd":[]},
+ "witness": {"version":6,"d_page":1053,"b_page":1005,"c_page":[447],"chars":4099,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":110,"fixed":12,"odd":[]},
  "warnings": []
 }

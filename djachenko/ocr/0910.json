@@ -177,6 +177,6 @@
   {"col":2,"para":6,"bbox":[1977,5355,2405,5437],"abbyy":"Янаболій","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[1979,5601,2385,5731],"abbyy":"Яндфо^л","abbyy_conf":52,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":921,"b_page":873,"c_page":[315],"chars":3949,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":159,"fixed":25,"odd":[]},
+ "witness": {"version":6,"d_page":921,"b_page":873,"c_page":[315],"chars":3949,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":159,"fixed":25,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features"]
 }

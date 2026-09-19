@@ -144,6 +144,6 @@
   {"col":2,"para":2,"bbox":[2335,3763,2723,3891],"abbyy":"Отоеці й","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2333,4037,2703,4135],"abbyy":"Отрокъ","abbyy_conf":58,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":1124,"b_page":1076,"c_page":[518],"chars":4164,"cuts":{"line":4,"aligned":0,"forced":0},"disputed":168,"fixed":17,"odd":[]},
+ "witness": {"version":6,"d_page":1124,"b_page":1076,"c_page":[518],"chars":4164,"cuts":{"line":4,"aligned":0,"forced":0},"disputed":168,"fixed":17,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (41 lines end at the image edge); line ends of the right column missing","side a: no flush line (edge from prior)"]
 }

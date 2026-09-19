@@ -239,6 +239,6 @@
   {"col":2,"para":20,"bbox":[2321,5875,2827,5997],"abbyy":"Од^елюса","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":21,"bbox":[2321,6103,3579,6225],"abbyy":"Од'^жднти и од^ждиггн","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":424,"b_page":376,"c_page":[422],"chars":3736,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":238,"fixed":31,"odd":[]},
+ "witness": {"version":6,"d_page":424,"b_page":376,"c_page":[422],"chars":3736,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":238,"fixed":31,"odd":[]},
  "warnings": []
 }

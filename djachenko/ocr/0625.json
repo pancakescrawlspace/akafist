@@ -181,6 +181,6 @@
   {"col":2,"para":7,"bbox":[2251,5971,2671,6063],"abbyy":"Седморнтл","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2251,6093,2667,6185],"abbyy":"Оедморш|д","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":636,"b_page":588,"c_page":[30],"chars":3761,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":120,"fixed":14,"odd":[]},
+ "witness": {"version":6,"d_page":636,"b_page":588,"c_page":[30],"chars":3761,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":120,"fixed":14,"odd":[]},
  "warnings": []
 }

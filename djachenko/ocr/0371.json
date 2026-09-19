@@ -214,6 +214,6 @@
   {"col":2,"para":8,"bbox":[2259,5813,2713,5931],"abbyy":"Наручный","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2259,6055,2663,6149],"abbyy":"ІІар'вканнк","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":382,"b_page":334,"c_page":[380],"chars":3826,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":157,"fixed":19,"odd":[]},
+ "witness": {"version":6,"d_page":382,"b_page":334,"c_page":[380],"chars":3826,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":157,"fixed":19,"odd":[]},
  "warnings": []
 }

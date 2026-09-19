@@ -208,6 +208,6 @@
   {"col":2,"para":8,"bbox":[2071,5527,2499,5619],"abbyy":"Покрута","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2069,6135,2615,6227],"abbyy":"Покрутарь","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":495,"b_page":447,"c_page":[493],"chars":3953,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":166,"fixed":16,"odd":[]},
+ "witness": {"version":6,"d_page":495,"b_page":447,"c_page":[493],"chars":3953,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":166,"fixed":16,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (14 lines at the image edge); entry starts from position and text features"]
 }

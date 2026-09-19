@@ -139,6 +139,6 @@
  ],
  "entries_hint": [
  ],
- "witness": {"version":5,"d_page":731,"b_page":683,"c_page":[125],"chars":4174,"cuts":{"line":2,"aligned":0,"forced":0},"disputed":105,"fixed":5,"odd":[]},
+ "witness": {"version":6,"d_page":731,"b_page":683,"c_page":[125],"chars":4174,"cuts":{"line":2,"aligned":0,"forced":0},"disputed":105,"fixed":5,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: no flush line (edge from prior)"]
 }

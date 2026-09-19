@@ -195,6 +195,6 @@
   {"col":2,"para":4,"bbox":[2317,4233,2671,4327],"abbyy":"Жолнырь","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2319,4339,2633,4473],"abbyy":"ЖРЕБІИ","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":234,"b_page":186,"c_page":[232],"chars":3905,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":153,"fixed":18,"odd":[]},
+ "witness": {"version":6,"d_page":234,"b_page":186,"c_page":[232],"chars":3905,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":153,"fixed":18,"odd":[]},
  "warnings": []
 }

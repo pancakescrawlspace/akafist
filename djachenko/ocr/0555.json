@@ -242,6 +242,6 @@
   {"col":2,"para":20,"bbox":[2395,5733,2915,5885],"abbyy":"ПротоІЕ^й","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":21,"bbox":[2397,5969,2887,6061],"abbyy":"Протомдгеръ","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":566,"b_page":518,"c_page":[564],"chars":3202,"cuts":{"line":41,"aligned":0,"forced":0},"disputed":186,"fixed":26,"odd":[]},
+ "witness": {"version":6,"d_page":566,"b_page":518,"c_page":[564],"chars":3202,"cuts":{"line":41,"aligned":0,"forced":0},"disputed":186,"fixed":26,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (11 lines end at the image edge); line ends of the right column missing"]
 }

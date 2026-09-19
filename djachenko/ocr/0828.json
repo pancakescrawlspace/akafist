@@ -188,6 +188,6 @@
   {"col":2,"para":9,"bbox":[2081,4615,2223,4693],"abbyy":"Хо","abbyy_conf":8,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2087,5441,3019,5535],"abbyy":"Хорсъ, или Хросъ","abbyy_conf":71,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":5,"d_page":839,"b_page":791,"c_page":[233],"chars":3996,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":181,"fixed":7,"odd":[]},
+ "witness": {"version":6,"d_page":839,"b_page":791,"c_page":[233],"chars":3996,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":181,"fixed":7,"odd":[]},
  "warnings": []
 }
