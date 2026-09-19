@@ -55,7 +55,8 @@ djachenko/
                    the page (from the table of contents), status, notes
                    status ∈ {new, image, ocr, parsed, checked}
   scan/            the archive.org files: metadata, OCR layers, JP2 zip (git-ignored; large);
-                   scan/reprint1993/ the second witness (1993 reprint DjVu + OCR), `dj_fetch.py --reprint`
+                   scan/reprint1993/ witness B (1993 reprint DjVu + OCR), `dj_fetch.py --reprint`;
+                   scan/google/ witnesses C and D (Google Books PDFs of the Indiana and Cornell copies)
   pages/           NNNN.jpg, one 300 ppi working image per leaf; pages/jp2/ the 600 ppi originals (git-ignored)
   ocr/             per-page JSON built from the ABBYY layer plus the headword/Greek passes (Phase 3 schema) — committed;
                    ocr/report.tsv: per-page statistics and warnings of the last dj_abbyy.py run
@@ -140,14 +141,14 @@ definitions only, Greek only):
 5. Rev. 3: **Entry segmentation** of Phase 3a (`entries_hint` = hanging paragraphs) — precision/recall against the
    ground truth, separately for ordinary pages and for pages with a cut-off margin (paragraphs marked `guessed`).
 6. Rev. 3: **Cut-off headwords** — on the 242 pages with a cut-off left margin the first letter(s) of many headwords
-   are not in the image. Answered in session 2 (user's decision: triangulate with other copies): the 1993 reprint is an
-   independent copy with intact margins (witness B, `COPIES.md`), downloaded to `scan/reprint1993/`; read the cut
-   headwords there, with the alphabetical context as a check. Measure on the cut ground-truth page how well B's
-   images and B's own OCR serve for that.
-7. Rev. 4: **Triangulation** — B has its own OCR (DjVu text layer; archive.org's ABBYY XML). Measure its CER on the
-   ground truth next to A's, and how often A and B disagree where either is wrong: where A and B agree, the text can
-   probably be trusted without proofreading; where they disagree, look at the image. Witness C (Indiana copy via
-   HathiTrust) only if it becomes accessible.
+   are not in the image. Answered in session 2 (user's decision: triangulate with other copies): three more copies
+   with intact margins are on disk (`COPIES.md`): B (1993 reprint, ~237 ppi bilevel), C (Indiana's reprint, Google,
+   600 ppi bilevel) and D (Cornell's original, Google, 600 ppi bilevel, complete). Read the cut headwords in D (then
+   C, B), with the alphabetical context as a check.
+7. Rev. 4: **Triangulation** — the witnesses bring their own OCR: B (DjVu text layer; archive.org's ABBYY XML), C
+   and D (Google's text layer in the PDFs). Measure their CER on the ground truth next to A's, and how often they
+   disagree where one is wrong: where independent readings agree, the text can probably be trusted without
+   proofreading; where they disagree, look at the images (A colour 600 ppi, D bilevel 600 ppi).
 
 *Definition of done:* `eval/RESULTS.md` records the numbers and names the route for definitions, headwords and Greek;
 `PROGRESS.md` says so.

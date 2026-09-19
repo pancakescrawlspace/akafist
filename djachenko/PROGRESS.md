@@ -67,6 +67,11 @@ See PLAN.md for the phases. Newest entry last.
   Correction: leaf 1 is p. III, not p. I — the preface runs on from leaf 1 to leaf 2 (the "…а за симъ" line compared
   earlier was a footnote; confirmed by B and by Azbyka's transcription of the preface). Nothing of the preface is
   missing; pp. I–II (title page and verso) are not in scan A. Manifest and SOURCE.md fixed. PLAN.md revision 4.
+- HathiTrust (user, by hand): the book is viewable but only single pages can be downloaded; agreed: hard pages on
+  request (COPIES.md item 12). The user then downloaded three Google Books PDFs (full downloads work from the
+  Netherlands); moved to djachenko/scan/google/ and identified: C = Indiana University's copy, a photo-offset reprint
+  ("Reprinted by JUH", title page 1899), 2 vols; D = Cornell University's original copy (title page 1900), complete.
+  Both bilevel 600 ppi with Google's OCR text layer, margins intact. D is now the best second witness.
 
 NEXT: Phase 2 — choose the 6 ground-truth pages (PLAN.md Phase 2, incl. Rev. 3 notes), transcribe them into
 djachenko/eval/gt/NNNN.txt (ask the user whether they want to check the transcriptions), write tools/dj_eval.py, and

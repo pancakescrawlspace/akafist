@@ -14,7 +14,9 @@ of damaged letters, specks and the crop.
 |---|---|---|---|---|
 | **A** | Russian State Library (РГБ), digitised by the Presidential Library (prlib.ru item 437968) | archive.org `20200215_20200215_0856`: colour, 600 ppi | left margin cut off on 242 left-hand pages | **downloaded**: working scan (`scan/`, `pages/`) |
 | **B** | an unidentified copy, reproduced photographically in the Moscow 1993 reprint (the 2004 reprint used by Azbyka shows the same damaged letters) | archive.org `DyachenkoG.PolnyjCerkovnoslavyanskijSlovarM.19931159p`: bilevel DjVu, 300 dpi at reprint size ≈ 237 ppi at original size | intact; has the title page | **downloaded** (`scan/reprint1993/`, 2026-09-19) as second witness |
-| **C** | Indiana University's copy, digitised by Google | Google Books `lgbgAAAAMAAJ` (vol. 2), probably also HathiTrust | unknown | **not accessible from here**; the user is checking HathiTrust by hand |
+| **C** | Indiana University's copy — a modern photo-offset **reprint** ("Reprinted by JUH" on the title verso; title page dated 1899), 2 vols; which original it reproduces is unknown | Google Books PDFs (downloaded by the user): bilevel JBIG2, 600 ppi | intact | **downloaded** (`scan/google/google_indiana_v1.pdf`, `_v2.pdf`, 2026-09-19) |
+| **D** | Cornell University Library's copy, an **original** (title page dated 1900), 1 vol. | Google Books PDF (downloaded by the user): bilevel JBIG2, 600 ppi | intact | **downloaded** (`scan/google/google_cornell.pdf`, 2026-09-19) — the best second witness |
+| (HathiTrust) | presumably C or D (Google-digitised) | page images | — | the user can download single pages; not needed now that C and D are here |
 
 ## Every source located
 
@@ -75,14 +77,37 @@ Page/image mapping: "p" = printed page of the dictionary proper (1–1120).
 10. **dhonorare.ru, <https://dhonorare.ru/dict/dyachenko/>** — page images 816×1156 (session 1). Lineage not
     checked; the page size equals 8, so probably witness B. Not downloaded.
 
-### Witness C (Indiana University copy) — not examined
+### Witnesses C and D (Google-digitised copies from Indiana and Cornell)
 
+C1. **Google Books PDFs of the Indiana University copy** (the user downloaded them from Google Books in the
+    Netherlands, 2026-09-19; the Google IDs were not recorded — ask the user for the URLs). Moved from the repo root to
+    `djachenko/scan/google/` (git-ignored):
+    - `google_indiana_v1.pdf` (originally `Полный_церковно_славя.pdf`): 618 PDF pages, 40,922,077 bytes, MD5
+      e17677545cf7a53600bd01910006c1d3; PDF metadata "Полный церковно-славянский словарь", "Григорий Михайлович
+      Дьяченко". Title page stamped "Indiana University Libraries Bloomington", shelfmark "PG 603 .D536 v.1"; title
+      page dated **1899**; verso: censor's permission "Москва, сентября 21 дня 1898 г." and **"Reprinted by JUH"** —
+      a photo-offset reprint. Front matter, then pp. 1–~560; PDF page = p + 46.
+    - `google_indiana_v2.pdf` (originally `Polnyĭ_t͡serkovno_slavi͡anskīĭ_slov.pdf`): 570 PDF pages, 38,800,838
+      bytes, MD5 8a46a010c787843250821969994f4906; "v. 2", same title page repeated; pp. ~560–1120; PDF page =
+      p − 558 (p. 1087 = PDF page 529).
+    Text pages: bilevel JBIG2 images at 600 ppi (~3700×5650 px) plus a hidden Google OCR text layer. Margins intact.
+D1. **Google Books PDF of the Cornell University Library copy** — `djachenko/scan/google/google_cornell.pdf`
+    (originally `Polnyĭ_t︠s︡erkovno_slavi︠a︡nsk.pdf`): 1,174 PDF pages, 95,330,806 bytes, MD5
+    b2241130c8a442e23376f1ed756b0a4c; PDF metadata "Polnyĭ t︠s︡erkovno-slavi︠a︡nskīĭ slovarʹ", "Grigorīĭ
+    Mihaĭlovich Dʹi︠a︡chenko". Cornell bookplate and date-due slip, shelfmark "PG 613 D53"; title page (PDF page 9)
+    dated **1900**; an original copy. Complete in one PDF: title page, preface from p. III, all pages to 1120;
+    PDF page = p + 48 (p. 1087 = PDF page 1135). Bilevel JBIG2 600 ppi, hidden Google OCR text layer. Margins intact.
+    On p. 1087 the text agrees with A and B; B shows a mid-dot in "175·об." that C and D lack.
 11. **Google Books `lgbgAAAAMAAJ`** — <https://books.google.com/books?id=lgbgAAAAMAAJ>: "Polnyĭ t͡serkovno-slavi͡anskīĭ
-    slovarʹ … Volume 2", Grigorīĭ Dʹi͡achenko, Tip. Vilʹde, 1899; original from Indiana University; snippet view from
-    the Netherlands. The Google Books API refused queries (daily quota) on 2026-09-19. Volume 1 not located yet.
-12. **HathiTrust** — the Google-digitised Indiana copy is probably catalogued there, but catalog.hathitrust.org
-    answers automated requests with 403 (Cloudflare). For an 1899 book published outside the US, full view is usually
-    US-only. The user is checking by hand (2026-09-19), e.g.
+    slovarʹ … Volume 2", Grigorīĭ Dʹi͡achenko, Tip. Vilʹde, 1899; original from Indiana University — probably the
+    record of C1 vol. 2 (the web fetch here saw only snippet view; the user could download the PDF). The Google Books
+    API refused queries (daily quota) on 2026-09-19.
+12. **HathiTrust** — catalog.hathitrust.org answers automated requests with 403 (Cloudflare), so it cannot be used
+    from here. The user checked by hand (2026-09-19): the book is there and can be viewed, but only **single pages**
+    can be downloaded, not whole volumes. Agreed procedure: for pages that are hard to read in A and B, list them by
+    printed page; the user saves them as `djachenko/scan/hathi/pNNNN.<ext>` (NNNN = printed page, e.g. `p1087.png`).
+    Record URL and volume IDs: not yet noted (asked of the user). Probably the same Google scans as C1/D1, which are
+    now complete on disk, so HathiTrust is only a fallback. Search used:
     <https://catalog.hathitrust.org/Search/Home?lookfor=Polnyi%20tserkovno-slavianskii%20slovar%20Diachenko&type=all>.
 
 ### Located but not examined (lineage unknown)
@@ -112,4 +137,6 @@ Page/image mapping: "p" = printed page of the dictionary proper (1–1120).
   archive.org's ABBYY XML (`scan/reprint1993/*_abbyy.gz`, same format as A's, so `tools/dj_abbyy.py` can in
   principle read it). Being bilevel and reduced, B is weaker for small print (Greek accents, italics) but good for
   headwords.
-- Witness C would be a third reading where A and B disagree; only if it becomes accessible.
+- Witness D (Cornell, original, 600 ppi bilevel, complete) is the best second witness for headwords and for pages
+  cut in A; C (Indiana, a reprint) and B are further readings where A and D disagree or are unclear. HathiTrust single
+  pages (12) only if something is still missing.

@@ -51,14 +51,16 @@ misprints Ѩ as 826—857 for 856—857. The letter initials found on the pages 
 before the closing "Конецъ … Бгу слава").
 
 **Other copies.** Every other scan or copy located — including the ones that could not be downloaded — is recorded in
-`COPIES.md`. This scan is witness A (the Russian State Library copy, digitised by the Presidential Library); the second
-witness, B (the copy behind the 1993 reprint, margins intact), is downloaded into `scan/reprint1993/`.
+`COPIES.md`. This scan is witness A (the Russian State Library copy, digitised by the Presidential Library). Further
+witnesses on disk, all with intact margins: B (the copy behind the 1993 reprint, `scan/reprint1993/`), C (Indiana
+University's photo-offset reprint, Google, 2 vols) and D (Cornell University's original copy, Google, 600 ppi
+bilevel) in `scan/google/`.
 
 **Scan defects found in Phase 3a.**
 - **Left margin cut off** on 242 dictionary pages, all of them even leaves (left-hand pages): 123 in the main part and
   119 of the 128 left-hand pages of the supplement. The lines of the left column start at the image edge, and the first
   letter or two of the headwords (on the worst pages also of the continuation lines) are missing from the image. Listed
-  in `ocr/report.tsv` ("margin cut off"). Witness B (see COPIES.md) has these margins intact.
+  in `ocr/report.tsv` ("margin cut off"). Witnesses B, C and D (see COPIES.md) have these margins intact.
 - **Paper patch** over the lower left column of p. 1120 (leaf 1157): the starts of about ten entries (Авій …) are
   covered.
 - Pictures instead of text: 18 headwords with tall superscripts (e.g. Кощѵна p. 266, Пѣвцы, Служба, Фѵлло,
