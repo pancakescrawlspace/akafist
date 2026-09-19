@@ -1,5 +1,6 @@
 # leaf 45 · p. 8 · guide words: {Азб}— | {Ака}—
-# status: draft (transcribed 2026-09-19 from scan A at 600 ppi, checked against ABBYY's reading line by line)
+# status: checked by the user 2026-09-19 (thoroughly; no error found). Transcribed 2026-09-19 from scan A at 600 ppi,
+#   checked against ABBYY's reading line by line
 # notes: col b "Регл." is printed with a broken л (it looks like "Рег ı."); "ἐλλ." has a smooth breathing as printed.
 @ col 1 a
 + (26, 1, 3—5) онъ называется Озіею; 2) одинъ изъ трехъ плѣнныхъ еврейскихъ юношей, товарищей пр. Даніила, получившій въ Вавилонѣ имя Авденаго (служитель свѣта) (Дан. 1, 6).

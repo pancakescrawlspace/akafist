@@ -15,8 +15,12 @@ were chosen to cover the kinds of page the book has (PLAN.md Phase 2):
 Page images: `djachenko/pages/NNNN.jpg` (300 ppi; 600 ppi originals in `pages/jp2/`). For leaf 1124 also witness B
 (`scan/reprint1993/`, DjVu page 1087) and D (`scan/google/google_cornell.pdf`, PDF page 1135); see COPIES.md.
 
-**Status of each file:** the first line says `status: draft` until the user has checked it against the image, then
-`status: checked (date)`.
+**Status of each file:** the second line says `status: draft` until the user has checked it against the image,
+then `status: checked (date)`. User's checks so far: 0045 checked thoroughly, no error found (2026-09-19); 0517
+checked cursorily, no error found (2026-09-19).
+
+- In the small CS type и and н look nearly the same (ABBYY reads н for both), л is Λ-shaped and а is ɑ-shaped; where
+  the glyphs do not decide, the word is read by sense and the choice noted in the file (e.g. Ѫзилиште on p. 856).
 
 ## Conventions
 
@@ -29,9 +33,14 @@ Page images: `djachenko/pages/NNNN.jpg` (300 ppi; 600 ppi originals in `pages/jp
 - A line starting with `+ ` continues an entry from the previous column or page (it is not an entry start).
 - Text as printed, pre-reform spelling included (ѣ, і, ѳ, ѵ, ъ), misprints included — nothing is corrected.
   Italics and bold are not marked. Spaces as printed, but the evaluation ignores differences in spacing.
+  **Deliberate:** the spacing around "=" follows the print, which is itself inconsistent ("слово=", "слово =",
+  "= слово" all occur); the evaluation ignores it, and Phase 4 may normalise it in `entries.tsv`.
 - **Church Slavonic type** (headwords, and CS words quoted in the definitions) is enclosed in `{ }` and written with
   the letters as printed — Cyrillic including ѡ ѿ ѻ ꙋ ѹ ѕ ꙁ є ѥ ї ѧ ꙗ ѩ ѫ ѭ ѯ ѱ ѳ ѵ ѣ — **without** accents,
-  breathings, titla and pokrytie; a superscript letter is written in its place in the word. The two shapes of z
+  breathings, titla and pokrytie; a superscript letter is written in its place in the word. **Deliberate** (user's
+  Phase 0 decision 2: headwords in civil pre-reform script, no titla or superscripts): the CS diacritics are not
+  transcribed, so the OCR candidates are not scored on them; a column with the full CS form (accents, titla) can be
+  added later if wanted. Greek, by contrast, keeps all its accents and breathings. The two shapes of z
   (ʒ-shaped in the large headword type, ζ-shaped in the small type) are both written з; ꙋ (8-shaped uk), оу and у
   are kept apart as printed. The civil pre-reform form
   used for `headword_civil` (Phase 0.2) is derived from this by a fixed mapping: ѡ ѻ ꙩ → о, ѿ → от, ꙋ ѹ оу → у,

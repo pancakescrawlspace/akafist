@@ -1,5 +1,6 @@
 # leaf 517 · p. 480 · guide words: {Пре}— | {Пре}—
-# status: draft (transcribed 2026-09-19 from scan A at 600 ppi, checked against ABBYY's reading line by line)
+# status: draft; checked cursorily by the user 2026-09-19, no error found (transcribed 2026-09-19 from scan A at
+#   600 ppi, checked against ABBYY's reading line by line)
 # notes: in this CS type в looks like к at low resolution (Преддверїе, Предживописати, Предликовствовати); ї is
 #   printed with two dots in the headwords (Преддверїе, Предержащїй, …).
 @ col 1 a
