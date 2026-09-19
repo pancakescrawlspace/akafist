@@ -112,8 +112,28 @@ See PLAN.md for the phases. Newest entry last.
   Open for the user: run the ~850 headword contact sheets through the API (~2 M tokens, unattended) or read them in
   interactive sessions; and the draft GT files (0465, 0517, 0660, 0893, 1124) still await the user's check.
 
-NEXT: Phase 3b step 1 — write tools/dj_heads.py: per page, rebuild D's reading order from `pdftotext -bbox` (reuse
-dj_eval.reading_order), align to A's text (dj_eval.align), cut at A's paragraph starts, vote D/B/A per character,
-store text_d / text_merged / disputed spans in ocr/NNNN.json; test on the six GT pages (the merged text should score
-~1 % CER with dj_eval) and on a left-cut and a right-cut page. Then step 2, the crop/contact-sheet pipeline (crops
-from A, from D on left-cut pages), after the user has chosen API vs. interactive reading.
+- Phase 3b step 1 (session 3, continued): user decisions — go ahead with step 1; the user will check the five
+  draft GT files later (not blocking); the headword reading route (API pass vs. interactive) is being reconsidered
+  after a clearer statement of both options (API key billed separately, ~$10–25 with Opus 5, half with the Batches
+  API; vs. 10–20 sessions of in-session reading) — no decision yet. Also: whatever runs must survive interruptions
+  (per-page/per-sheet persistence, resumable).
+  Written: tools/dj_witness.py (shared: witness word boxes and page mapping — D's PDF page = p + 48 and B's DjVu
+  page = p verified over the whole book —, reading order with line/word spans, per-side texts, normalisation,
+  alignment; dj_eval.py refactored onto it with identical results) and tools/dj_heads.py (step 1). Run over all
+  1,119 pages (62 s): per paragraph text_d / text_merged / disputed / fixed / d_cut / d_line, per page a witness
+  block (version 4). GT scores: definitions 1.0 % CER norm (D alone 1.5 %), Greek 1.5 %, headwords unchanged; 85 %
+  of the remaining definition errors inside the disputed spans; 26,937/26,947 cuts on a D line start.
+  Lessons recorded in RESULTS.md's addendum: A and B are both FineReader and must not outvote D on CS type or
+  Greek unless C fails to confirm D (exceptions "=" and final ъ/ь); align per column side, not per page (band
+  detection differs between witnesses); Google's precise boxes allow overlap-based line clustering (CS headwords
+  are taller), B's coarse boxes do not. dj_abbyy.py writes the witness block and carries the paragraph texts over
+  by box (verified byte-identical after a full re-run).
+
+NEXT: Phase 3b step 2 — the headword reading. Build the crop pipeline in dj_heads.py: per hanging paragraph a crop
+of the entry's first line (from A's 600 ppi JP2 via lines[0].bbox; on the 242 left-cut pages from D's page rendered
+at 600 ppi via d_line), one request per page with the crops as separate images (full resolution, ~100 tokens each,
+cheaper than contact sheets), asking for the headwords as a JSON list in the GT convention (CS letters as printed, no
+diacritics); few-shot examples from the GT pages in a cached system prompt; store in entries_hint[].headword with
+headword_source and a check field (confirmed when B/C/D read the same at norm level, else disputed); run the six GT
+pages first and score hw exact with dj_eval. Reader backends: Anthropic API (Batches, claude-opus-5) or a manual
+mode (sheets for in-session reading) — the user still has to choose; the crop pipeline and the storage are the same.

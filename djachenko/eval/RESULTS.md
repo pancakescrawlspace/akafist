@@ -176,3 +176,29 @@ confirmed 11 slips in the draft transcriptions, all corrected and noted in the f
 remaining disagreements were checked on the images and are OCR errors (и/н, final ъ/ь, ѵ read as и — `Сѵнод.` is
 printed with ѵ in four places on p. 1087, `Синод.` in one). The `status:` lines of the files are unchanged (0045
 checked by the user before the corrections; the rest draft).
+
+## Addendum (session 3, later): the merged text of Phase 3b step 1
+
+`tools/dj_heads.py` implements the route of §2 (per column side: D cut at A's paragraph starts, snapped to D's line
+starts; per-character vote). Scored as candidates `merged` and `text_d` (`dj_eval.py --only merged,text_d --refresh`):
+
+| candidate | level | CER all | headwords CER | headwords exact | definitions CER | Greek CER |
+|---|---|---:|---:|---:|---:|---:|
+| text_d (D cut at A's paragraphs) | norm | 2.3% | 14.7% | 62/132 | 1.5% | 1.5% |
+| merged (vote D / B / A, C as check) | strict | 2.6% | 16.6% | 47/132 | 1.8% | 2.3% |
+| merged | norm | 1.8% | 14.4% | 62/132 | **1.0%** | 1.5% |
+
+- The cut loses nothing (`text_d` ≡ `google_D`); the segmentation scored on the merged text is the same as on A's
+  (recall 99.2 %, precision 94.3 %). Over the book: 26,937 of 26,947 paragraph starts fell on a D line start
+  within 15 characters; 9 were placed at a word boundary, 1 forced; 19 paragraphs have a D text much shorter or
+  longer than A's (`witness.odd`), mostly headwords Google did not OCR at all.
+- The vote rule was tuned on the GT and is stated in `dj_heads.merge`: B and A (both FineReader) may overrule D
+  only when C (Google, like D) does not confirm D — where C confirmed D, the FineReader pair was right only for the
+  "=" sign (19:0) and final ъ/ь (9:3), and wrong otherwise (period/comma 0:14, Latin letters, и/н, а/л in CS type).
+  A first version without the C condition made the headwords and the Greek worse (B and A share the CS-type
+  confusions and read Cyrillic look-alikes for Greek).
+- Of the remaining definition errors, 85 % lie inside a `disputed` span (9.3 % of the characters are flagged, with
+  one character of slack); headwords 98 %, Greek 100 %. Proofreading the flagged spans therefore catches most of
+  what is left; the unflagged remainder (~5 characters a page) are errors D and B share.
+- Book-wide: 201,347 disputed places, 22,945 fixes; "=" within the first 80 characters of a hanging paragraph:
+  A 88.9 %, merged 83.5 % (Phase 4 uses A's `eq` hint as well).

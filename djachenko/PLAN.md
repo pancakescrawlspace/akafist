@@ -190,11 +190,12 @@ the "=" count (24,483) and the candidates agree on ~25,000.
 **3b. `tools/dj_heads.py --pages A-B`** (Rev. 5, after Phase 2) builds the page text from the witnesses on top of
 A's segmentation, in three steps per page, each idempotent and each recorded in the page JSON:
 
-1. *Text.* Rebuild D's reading order from its word boxes (`pdftotext -bbox`, prototype in `dj_eval.py`), align it to
-   A's text (Levenshtein; A's garbled headwords do not break the alignment), and cut D's text at A's paragraph starts.
-   Vote each character D/B/A (C as tie-breaker) and keep, per paragraph, the merged text plus the positions where D
-   and B disagree (`text_d`, `text_merged`, `disputed` spans) — those 5 % of characters are where nearly all remaining
-   errors are. On the 551 pages with a cut margin in A, D's text is by construction complete.
+1. *Text.* — **DONE** (session 3; `dj_heads.py`, shared code in `dj_witness.py`; eval/RESULTS.md addendum).
+   Per column side: D's reading order from its word boxes, aligned to A's text, cut at A's paragraph starts snapped
+   to D's line starts; per-character vote D/B/A with C as the check; per paragraph `text_d`, `text_merged`,
+   `disputed` spans, `fixed`, `d_cut`, `d_line`; per page a `witness` block. Definitions 1.0 % CER on the GT
+   (D alone 1.5 %), 85 % of the remaining errors inside the disputed spans. All 1,119 pages done (62 s; resumable;
+   `dj_abbyy.py` carries the texts over on regeneration).
 2. *Headwords.* For every `entries_hint`, crop the headword box from A's 600 ppi image (from D's page image, located
    through the alignment, on the 242 left-cut pages), tile ~30 crops on a contact sheet with numbers, and have a
    vision model return the headwords in the GT transcription convention (CS letters as printed, no diacritics).
