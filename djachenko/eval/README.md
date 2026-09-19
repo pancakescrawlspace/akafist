@@ -10,10 +10,10 @@ were chosen to cover the kinds of page the book has (PLAN.md Phase 2):
 | `gt/0465.txt` | 465 | 428 | a long article with verse quotations (П) |
 | `gt/0660.txt` | 660 | 623 | the lowest OCR confidence in the main part: poor print (С) |
 | `gt/0893.txt` | 893 | 856 | the rare letters Ѫ and Ѩ with an initial in mid-page; the most etymologies (Greek, Hebrew) |
-| `gt/1124.txt` | 1124 | 1087 | supplement; the left margin is cut off in scan A — the missing letters are read in witness B |
+| `gt/1124.txt` | 1124 | 1087 | supplement; the left margin is cut off in scan A — the missing letters are read in another copy |
 
 Page images: `djachenko/pages/NNNN.jpg` (300 ppi; 600 ppi originals in `pages/jp2/`). For leaf 1124 also witness B
-(`scan/reprint1993/`, DjVu page 1087; see COPIES.md).
+(`scan/reprint1993/`, DjVu page 1087) and D (`scan/google/google_cornell.pdf`, PDF page 1135); see COPIES.md.
 
 **Status of each file:** the first line says `status: draft` until the user has checked it against the image, then
 `status: checked (date)`.
@@ -37,7 +37,8 @@ Page images: `djachenko/pages/NNNN.jpg` (300 ppi; 600 ppi originals in `pages/jp
   used for `headword_civil` (Phase 0.2) is derived from this by a fixed mapping: ѡ ѻ ꙩ → о, ѿ → от, ꙋ ѹ оу → у,
   ѕ ꙁ → з, є ѥ → е, ї → і, ѧ ꙗ ѩ → я, ѫ → у, ѭ → ю, ѯ → кс, ѱ → пс; ѳ ѵ ѣ і ъ ь stay.
 - **Greek** in polytonic Unicode with accents and breathings as printed; Latin, Hebrew etc. as printed.
-- `‹…›` encloses letters that are not in scan A (margin cut off) and were read in witness B.
+- `‹…›` encloses letters that are not in scan A (margin cut off) and were read in another copy (witness D, else B
+  or C; see COPIES.md).
 - `[?]` after a word: reading uncertain. `□`: an illegible character. A letter that is printed but damaged (broken
   type) is transcribed as the letter it is, with a `# notes:` comment.
 - Roman numerals are written with Latin letters (XVI), as printed. An entry split across a column break: the first
