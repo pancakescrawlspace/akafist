@@ -177,15 +177,38 @@ See PLAN.md for the phases. Newest entry last.
   Not yet in the rendition: Дьяченко's abbreviations list (front matter), the "checked" mark, the original's
   spanning letter initials (Typst places them in the column), the errata.
 
-- ⚠ OPEN DEFECT (session 3, end): quotation marks float in the text (the OCR emits them as separate words: „ x " with
+- ⚠ OPEN DEFECT (session 3, end; fixed in session 4, below): quotation marks float in the text (the OCR emits them as separate words: „ x " with
   spaces on both sides; straight " where the book prints “). Approach drafted in djachenko/QUOTES.md — fix it in
   dj_parse.tidy() (not in the witness texts, not in text_merged), with a per-entry opening/closing state machine,
   normalisation to the book's „…“, a `quotes` flag for unbalanced cases. The user doubts that the 28 «/24 » are
   genuine: check them against the scans before fixing the rule. Also in QUOTES.md: before proofreading starts, a
   corrections layer (corrections.tsv applied after tidying) is needed, because dj_parse regenerates entries.tsv.
 
-NEXT: first the quotation-mark fix of djachenko/QUOTES.md (with the «» check), then Phase 3b step 2 — the reading itself,
-  once the user has chosen:
+- Quotation marks fixed (session 4; QUOTES.md rewritten as the record). `«»` check first, as the user asked: of the
+  52 `«`/`»`, about 30 are genuine (the book prints `«…»` in some articles, pp. 577–846, and mixed pairs `«…“`,
+  `„…»`), 4 are misread `„`/`“`, about 19 misread letters (`Соб»ство`, `«же` for ꙋже …); the 5 `’ ‘ ”` are noise.
+  dj_parse.fix_quotes() (in split_entry; definition and head text as separate passes): direction by glyph, else
+  by spacing, next printed character and depth; glyphs `„…“` (« » kept as printed); spacing attached; new flag
+  `quotes` (275 entries: unbalanced — OCR losses, misread letters — listed in FLAGS.md). Checked: only quotes and spaces changed,
+  all 145,780 italic/disputed spans still cover the same text, links.tsv unchanged, Ядамъ (p. 5b) and a random
+  sample right against scan A.
+  The user found a second cause at Ядамъ (PDF p. 7): Typst's smart quotes (lang "ru") turned straight `"` into
+  `«`/`»`; dj_build.py now sets `smartquote(enabled: false)`. PDF rebuilt.
+- ⚠ OPEN DEFECT (found during the check): the printer's asterisked sheet signatures (`3*`, `5 *`, `32 ’`, `64 ’` …,
+  on pages ≡ 3 mod 16: number = (p − 3)/16 + 1) are not recognised as page furniture and end up in the text of
+  column b's last lines — 38 entries found by a simple pattern, some mid-sentence (`дыханіемъ 5 * своимъ`), more
+  in garbled form (`১*`, `1 6*`). Fix at the page level (drop the word(s) in the footer zone of D's page, or strip
+  the expected number + `*` from the last lines of those pages in dj_parse), with the spans remapped.
+- ⚠ OPEN DEFECT (Phase 4, found during the quote check; must be fixed before step-2 headwords are merged in bulk):
+  where D dropped the "=", the separator found is often a later "(" and D's head text holds the gloss and a
+  quotation: `Инока- др. рус. инокиня. „Матери своей инокы Марѳы“` + `(Новг. л. 4).` As long as the headword is
+  provisional this text is only misplaced (printed grey as the head); but with a step-2 headword split_entry keeps
+  only the text after the separator, so the gloss would be LOST. 751 provisional heads have 4+ words (429 of them
+  cut at "("). Fix: with a step-2 headword, look for the separator right after the headword's extent in the text
+  (or prefer "=", "—" over "(" and the eq hint of A) and move any head text beyond the headword into the definition.
+
+NEXT: (1) the signature-mark defect above (small; same pattern as the quote fix); (2) the head-text defect above
+  (before any bulk headword merge); (3) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are

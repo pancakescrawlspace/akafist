@@ -1,10 +1,10 @@
-# Floating quotation marks — the defect and the planned fix (drafted 2026-09-19, not yet implemented)
+# Floating quotation marks — the defect and the fix
 
-**Status: open.** Raised by the user on the first Typst rendition: opening and closing quotation marks float
-among the words, separated by whitespace on both sides. To be fixed before proofreading starts (see the last
-section) and before the next rendition is shown around.
+**Status: fixed** (session 4, 2026-09-19) in `dj_parse.fix_quotes()`; the `«»` check asked for by the user is done
+(below). Drafted at the end of session 3, when the user saw quotation marks floating among the words of the first
+Typst rendition.
 
-## The defect, measured on the merged text of all 1,119 pages
+## The defect, measured on the merged text of all 1,119 pages (before the fix)
 
 About 8,100 quotation marks: `„` 3,965, straight `"` 2,881, `“` 1,109, `«` 28, `»` 24, a handful of `’ ‘ ”`.
 Google's text layer (witness D, the primary text) emits each quote as a separate word; `dj_witness.reading_order`
@@ -21,62 +21,83 @@ joins words with spaces; hence:
 | `"` | glued on both sides | 186 | `дам" = подобіе` (OCR dropped one quote or a space) |
 | `„` | glued on the wrong side | 61 | `харатьи"„` |
 
-The book itself is consistent: `„…“` (low-9 opening, high-6 closing). The straight `"` is an OCR rendering failure,
-not the print. ABBYY on A shows the same defect to a lesser degree.
+The straight `"` is an OCR rendering failure, not the print.
 
-## Where to fix it — the options along the pipeline
+**A second cause, in the PDF only** (found by the user at Ядамъ, p. 5b = page 7 of the PDF): `dj_build.py` set
+`lang: "ru"`, and Typst's smart quotes turn every straight `"` into `«` or `»` by their spacing, so `„дам" =`
+was printed as `„дам» =`, and floating ones in the wrong direction (`по подобію « (евр.`). Fixed by
+`#set smartquote(enabled: false)` in the generated preamble: the text's own glyphs are now printed as they are.
 
-1. `dj_witness.reading_order` (the witness texts): **no.** They are evidence; the Phase 2 measurements and the vote
-   are built on them as read; a typographic rewrite there would silently change what `dj_eval.py` scores.
-2. `dj_heads.py` step 1 (`text_merged`): **no.** It is a character-level merge with `disputed`/`italic` spans in its
-   coordinates; typography does not belong in it and would have to be redone whenever the vote rule changes.
-3. **`dj_parse.tidy()` — the right step.** Typographic clean-up already lives there (spaces before `.,;:)`, after
-   `(`, double spaces) with an old→new index table that remaps the spans. `entries.tsv` is what every consumer
-   reads (links, proofreading, Typst); `ocr/*.json` stays the faithful record.
-4. `dj_build.py` only: **no** — it would leave `entries.tsv` dirty for everything else.
+## What the book prints — the `«»` check (session 4)
 
-## The rule set (in `tidy`, per entry)
+The user doubted that the `«`/`»` in the text were genuine. All 52, and the 5 `’ ‘ ”`, were checked on crops of
+scan A and witness D (`dj_inspect.py find`):
 
-- Decide the direction first, then the spacing. `„` is always opening; `“` is always closing in this book. A
-  straight `"` is resolved by a small state machine per entry: depth 0 → opening, depth ≥ 1 → closing, with the
-  spacing context as tie-breaker (glued to the left of a letter → closing; glued to the right → opening). The
-  depth resets at the end of the entry.
-- Normalise the glyph to the book's convention: opening → `„`, closing → `“`.
-- Attach: remove the space after an opening quote and before a closing one; put a space before an opening quote
-  when a letter precedes it (`харатьи"„`); no space between a closing quote and following punctuation
-  (`исраильтянъ“ .` → `исраильтянъ“.` — the existing rule already does this part).
-- Leave `’`/`‘` alone (apostrophes in transliterations and Greek). Leave the `headword` field alone (quotes there
-  are noise that Phase 3b step 2 removes). The `disputed` and `italic` spans follow automatically through the
-  index table.
-- Unbalanced quotes in an entry (the OCR dropped one: the 186 `"` glued on both sides, the 61 `„` on the wrong
-  side) get a flag `quotes`, so that they surface in FLAGS.md instead of being guessed silently.
+- **Genuine `«…»`, about 30.** The book mostly uses `„…“` but prints `«…»` in some long articles and quotations:
+  pp. 577–578 (Свойственно… `«удаляется берегъ»`, `«несообразность»`, `«невѣсомую жидкость»` …), 579
+  (`«свѣденіе»`), 626–627 (`«И вражду положу… пяту»`, `«…Дѣвою»`), 668 (`«Имамъ… покоя»`), 675 (`«стружіе»`),
+  733 (`«вса́дники трїста́ты»`), 757, 797, 829, 846. **Mixed pairs are printed too**: `«…“` (pp. 621
+  `«Смертію умрете“`, 668 `«Отъ многой страдьбы… изнемогъ“`, 675 `«стружія“`, 703, 773 `«медоркіе“`) and `„…»`
+  (pp. 732 `„Къ Тебѣ утреннюю»`, 757 `„умыкаху жены собѣ»`). So `«` and `»` are kept as printed, and the pairing
+  rule treats `„ «` as opening and `“ »` as closing, in any combination.
+- **Misread `„`/`“`, 4:** `»Матер.` p. 564, `»Ахматовичемъ` p. 636, `» Опытъ` p. 952 (all `„` in print — a `»` in an
+  opening position with nothing open is now written `„`); `окаянна »` p. 654 (a small closing mark in italic type).
+- **Misread letters or specks, about 19:** `Соб»ство`, `благода»ственная`, `«же` (ꙋже), `жизнів»` (жизнію), `шнур»`,
+  `един»`, `«розваніе`, `че«.`, `нап ».`, `«кга`, `«аставленіе`, `«увазію`, `«гре`, `«зькъ`, `«дрость`, `«долитъ`,
+  `«за=`, `«χρυσοπορφύρος)`. Not fixed by rule; most unbalance their entry and surface under the `quotes` flag.
+- **`’ ‘ ”`, 5, all noise:** a speck (p. 8), CS accent marks before a headword (p. 13), a stray mark (p. 492), and
+  **two printer's signature marks** `32 ’` (p. 499) and `64 ’` (p. 1011) — see PROGRESS.md: the asterisked sheet
+  signatures leak into the text on pages ≡ 3 (mod 16), a separate defect. Apostrophes `'` (91) are left alone.
 
-## `«` and `»` — TO BE DOUBLE-CHECKED
+## Where it is fixed
 
-The draft above assumed the 28 `«` / 24 `»` are genuine (quoted Russian sources). **The user doubts this and wants
-it verified against the scans before the rule is fixed**: take every entry containing `«` or `»` (28 places — use the
-¶ page.column reference and `tools/dj_inspect.py find LEAF «word»` to crop scan A and witness D) and see whether
-the print has `«…»`, `„…“`, or something else (an OCR misreading of `„`/`“`, of a `„` broken by the line end, or
-of the small CS type is plausible). Decide then: keep `«»` as printed, or map them to `„“` like the straight `"`.
-Do the same spot-check for the three `’` and the one `‘`.
+In `dj_parse.split_entry`, after the existing tidying and after the separator is found: first on the definition,
+then on D's head text as a separate pass with its own pairing (its quotes are often noise — CS accent marks read as
+`"` — and must not upset the definition's pairing; but where D dropped the `=`, the head text runs on to the next
+`(` and carries real quotations, which the PDF prints in grey). The flag is the definition's. Not in the witness
+texts or `text_merged` (evidence for the Phase 2 measurements and the vote; `disputed`/`italic` spans live in their
+coordinates) and not in `dj_build.py` alone (entries.tsv is what every consumer reads). `ocr/*.json` stays the
+faithful record.
 
-## Verification after the change
+## The rules (`quote_roles`, `fix_quotes`)
 
-- Re-count: quotes with a space on both sides should be 0; opening and closing counts should nearly balance per
-  entry; list the `quotes`-flagged entries.
-- Sample ~30 entries with quotes against the scan via the ¶ reference (`dj_inspect.py find`).
-- Re-run the span-alignment check (compare a paragraph's `disputed`/`italic` texts in `ocr/*.json` with the spans
-  in `entries.tsv`, as done for leaf 341 `Мечка` in session 3).
-- The eval is untouched by construction (its norm level maps every quote to `"` and ignores whitespace); confirm
-  by re-running `dj_eval.py`.
-- Rebuild the PDF (`dj_build.py`, 4 min) and look at pages with quotations (p. 113 = leaf 150 has several).
+- **Direction.** `„ «` open, `“ » ”` close, as printed. A straight `"` by its spacing: glued to a word or
+  punctuation on the left and followed by a space, punctuation, `=`, `(` or another quote → closing; followed by
+  punctuation or `=` → closing; followed by a letter and not preceded by one → opening. A floating `"` (spaces on
+  both sides, or between two letters) is decided by the next printed character (`( . , ; : ) = —` → closing: a
+  source reference follows), then by a preceding `:` (→ opening), then by the depth (closing if a quotation is
+  open). A `»` in an opening position with nothing open → opening.
+- **Glyphs.** Opening `"` and misread `»` → `„`; closing `"` and `”` → `“`; `«` `»` `„` `“` kept.
+- **Spacing.** No space after an opening or before a closing mark; a space is added before an opening mark that
+  follows a word, punctuation or a closing mark (`харатьи"„` → `харатьи“ „`), and after a closing mark followed by
+  a word, `(` or an opening mark (`„зрѣти"смотрѣть` → `„зрѣти“ смотрѣть`). Punctuation after a closing mark stays
+  glued (the old tidy rule already removes the space before `.,;:)`).
+- **Kept as is:** `(")` (the text names the sign itself: the ико/kamora, pp. 878, 996), and `„ « »` between two
+  letters (noise inside a word, e.g. `муси„кію`) — the latter flagged.
+- **Flag `quotes`**: a closing mark with nothing open, a quotation left open at the end of the entry, or a mark
+  kept as noise. The `disputed` and `italic` spans follow through the index table.
 
-## A related point that must be settled before proofreading (Phase 5)
+## Verification (session 4)
+
+- Only quotation marks and spaces changed (definition and head text): the definitions compared with the previous
+  entries.tsv with quotes and whitespace removed are identical for all 25,362 entries; sep, part, page, col unchanged; `gram` changed in 10
+  entries (quotes inside the parenthesised tag, now tidied); 55 provisional heads changed in their quotes only
+  (6 of their keys, all long garbage heads, keep a final ъ now followed by `“`). links.tsv unchanged.
+- All 145,780 `italic`/`disputed` spans cover the same text as before (compared with quotes and spaces removed).
+- After (definitions): `„` 3,989, `“` 3,847, `«` 27, `»` 20, straight `"` 3 (`(")` twice, `8 "/ л.` once);
+  floating quotes: 5, all a stray `„` at the very end of an entry (flagged). **275 entries flagged `quotes`** (198 with more opening marks,
+  68 with more closing): OCR losses of one mark of a pair, the misread letters above, stray marks — for
+  proofreading; listed in FLAGS.md.
+- Ядамъ (p. 5b) checked mark by mark against scan A: all 9 quotations right (`„сотворимъ … по подобію“ (евр.`,
+  `„Адамъ“`, `„дам“ =`, `„дама“=`, `„адама“ само`, `„Адам“, и`, `„Тлѣніе … осужденія“ (3 кан.`). A random sample of
+  24 marks from unflagged entries: 15 could be checked on the scan (2 of them at another quotation of the same
+  word), all right (direction, glyph, attachment); the other 9 were on a later page of a long entry, in a cut
+  margin, or the crop found another word.
+- `dj_eval.py` does not read entries.tsv — untouched by construction. PDF rebuilt; the Ядамъ page checked by eye.
+
+## Still to settle before proofreading (Phase 5)
 
 `dj_parse.py` regenerates `entries.tsv` from `ocr/*.json` on every run, so the plan's "fix the text in
 `entries.tsv`, set status=checked" would lose the corrections at the next regeneration. Needed: a corrections layer
 that survives — suggested `djachenko/corrections.tsv` (entry id, field, corrected value, note), applied by
-`dj_parse.py` **after** tidying, carrying the `checked` status too. The quote fix belongs before that layer;
-corrections are final text.
-
-Estimated effort for the quote fix: about an hour (rules + flag + counts + checks), plus the `«»` spot-check.
+`dj_parse.py` **after** tidying and the quote fix, carrying the `checked` status too. Corrections are final text.

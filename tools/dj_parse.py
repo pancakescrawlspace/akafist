@@ -11,9 +11,11 @@ headword reading of step 2 says the line is not an entry start (null) — then t
 entry, as does every non-hanging paragraph (the first of a column or page). The entry's text is the paragraphs'
 `text_merged` (Phase 3b step 1: witness D voted with B, A, C), joined; a hyphen at a paragraph end joins the word.
 The text is split at the first separator (=, —, –, " - " or "(") within its first 80 characters: before it D's
-reading of the head, after it the definition. The headword is the step-2 reading when there is one
-(`entries_hint[].headword`, source vision/manual), else D's head text is used provisionally and the entry is flagged
-`hw_provisional`.
+reading of the head, after it the definition. Typography is tidied (spaces before . , ; : ) and after "(" removed);
+in the definition the quotation marks are attached to their quotation and written as the book prints them
+(fix_quotes; djachenko/QUOTES.md): „…“, and «…» where the book has them (≈30 places, sometimes mixed «…“).
+The headword is the step-2 reading when there is one (`entries_hint[].headword`, source vision/manual), else D's
+head text is used provisionally and the entry is flagged `hw_provisional`.
 
 Columns of entries.tsv (tab-separated, UTF-8, one entry per line; no quoting — read it with csv.QUOTE_NONE, the
 definitions contain quotation marks):
@@ -38,10 +40,13 @@ definitions contain quotation marks):
                    joined_null (a hanging paragraph that step 2 called "not an entry" was joined to this entry),
                    no_eq (A saw no "=" in the first two lines), order (headword out of alphabetical order: not in
                    the longest non-decreasing subsequence of its part), parens (unbalanced parentheses in the
-                   definition), odd_len (D's text much shorter/longer than A's for a paragraph of the entry)
+                   definition), odd_len (D's text much shorter/longer than A's for a paragraph of the entry),
+                   quotes (quotation marks unbalanced after fix_quotes: the OCR dropped or misplaced one, or a
+                   letter was misread as « or »)
 
-FLAGS.md: counts per flag and the entries flagged order/parens/no_sep. (A check of pages with an unusual number
-of entries was tried and dropped: a page of 81 short Въз- entries and a page of one long article are both normal.)
+FLAGS.md: counts per flag and the entries flagged order/parens/no_sep/quotes. (A check of pages with an unusual
+number of entries was tried and dropped: a page of 81 short Въз- entries and a page of one long article are both
+normal.)
 """
 import argparse, bisect, csv, json, re, sys, unicodedata
 from collections import Counter
@@ -69,6 +74,7 @@ ABBR = r'(?:греч|евр|лат|нѣм|санскр|перс|араб|тур|
 SEP_RE = re.compile(r'=|—|–|--|\s-\s|\(|(?<=\S)-(?=\s*' + ABBR + r'\.)|(?<=\.)\s?-(?=\s?\S)')
 GRAM_RE = re.compile(r'^(?:\((?P<par>[^()]{1,60})\)|(?P<abbr>' + ABBR + r'\.))')
 SENSE_RE = re.compile(r'(?:^|(?<=[\s=—;:,.]))(?:\d{1,2}|[а-я])$')      # "1)", "а)" — a sense number before ")"
+QUOTES = '"„“”«»'                    # double quotation marks as the OCR emits them (’ ‘ ' are left alone)
 
 
 # ---------------------------------------------------------------- headword forms
@@ -129,6 +135,100 @@ def tidy(text, *span_lists):
         i += 1
     new_at[len(text)] = len(out)
     return (''.join(out),) + tuple([[new_at[a], max(new_at[a], new_at[b])] for a, b in spans] for spans in span_lists)
+
+
+def quote_class(c):
+    """Context of a quotation mark: S space/edge, O opening bracket, W letter/digit, P punctuation, = dash, Q quote."""
+    if c is None or c.isspace():
+        return 'S'
+    if c in '([':
+        return 'O'
+    if c.isalnum():
+        return 'W'
+    if c in '.,;:!?)]':
+        return 'P'
+    if c in '=—–-':
+        return '='
+    return 'Q' if c in QUOTES else 'X'
+
+
+def quote_roles(text, start, end):
+    """Role of every quotation mark in text[start:end]: {index: 'open' | 'close' | 'keep'}, and whether the entry's
+    quotes are unbalanced. „ « open and “ » ” close as printed (QUOTES.md: the book prints „…“ and, in about 30
+    places, «…», also mixed); a straight " is decided by its spacing, and where it floats (spaces on both sides)
+    by the next printed character (a reference "(…)" or punctuation follows a closing mark), a ":" before it, then
+    the depth — closing if a quote is open. A » in an opening position with nothing open is a misread „."""
+    roles, depth, bad = {}, 0, False
+    for i in range(start, end):
+        ch = text[i]
+        if ch not in QUOTES:
+            continue
+        L = quote_class(text[i - 1] if i > start else None)
+        R = quote_class(text[i + 1] if i + 1 < len(text) else None)
+        if L == 'O' and R == 'P' or L == R == 'W' and ch != '"' or 'X' in (L, R):
+            roles[i] = 'keep'                         # "(")" names the sign itself; „ » inside a word is noise
+            bad = bad or L != 'O'
+            continue
+        if ch in '„«':
+            role = 'open'
+        elif ch == '»' and L in 'SO' and R == 'W' and depth == 0:
+            role = 'open'
+        elif ch in '“»”':
+            role = 'close'
+        elif L in 'WP' and R in 'P=SQO' or R in 'P=':
+            role = 'close'
+        elif R == 'W' and L != 'W':
+            role = 'open'
+        else:                                         # floating: the next/previous printed character, then depth
+            nxt, prv = text[i + 1:].lstrip()[:1], text[start:i].rstrip()[-1:]
+            if nxt and nxt in '(.,;:)=—–-':
+                role = 'close'                        # „… " (Источникъ)  —  a source reference follows
+            elif prv == ':' and nxt.isalnum():
+                role = 'open'                         # говоритъ: " слово…
+            else:
+                role = 'close' if depth else 'open'
+        if role == 'open':
+            depth += 1
+        elif depth:
+            depth -= 1
+        else:
+            bad = True                                # a closing quote with nothing open
+        roles[i] = role
+    return roles, bad or depth != 0
+
+
+def fix_quotes(text, start, end, *span_lists):
+    """Attach the quotation marks of text[start:end] to their quotation and write them as the book does: an opening
+    " → „, a closing " or ” → “, a misread opening » → „ (« » kept). Spaces go after an opening and before a
+    closing mark; one is added before an opening mark that follows a word or punctuation, and after a closing mark
+    that a word, "(" or an opening mark follows. Returns the text, the span lists remapped, and the unbalanced flag."""
+    roles, bad = quote_roles(text, start, end)
+    drop = set()
+    for q, role in roles.items():
+        step = 1 if role == 'open' else -1 if role == 'close' else 0
+        j = q + step
+        while step and start <= j < end and text[j] == ' ':
+            drop.add(j)
+            j += step
+    out, new_at = [], [0] * (len(text) + 1)
+    for i, ch in enumerate(text):
+        role = roles.get(i)
+        if role == 'open' and i > start and out and quote_class(out[-1]) in 'WPQ' and out[-1] not in '„«':
+            out.append(' ')
+        new_at[i] = len(out)
+        if i in drop:
+            continue
+        if role == 'open':
+            ch = '„' if ch in '"»' else ch
+        elif role == 'close':
+            ch = '“' if ch in '"”' else ch
+        out.append(ch)
+        if role == 'close' and i + 1 < len(text) and (text[i + 1].isalnum() or text[i + 1] == '('
+                                                      or roles.get(i + 1) == 'open'):
+            out.append(' ')
+    new_at[len(text)] = len(out)
+    return (''.join(out),) + tuple([[new_at[a], max(new_at[a], new_at[b])] for a, b in spans]
+                                   for spans in span_lists) + (bad,)
 
 
 def append_text(entry, text, disputed, italic):
@@ -195,21 +295,27 @@ def split_entry(e):
     text = e['text']
     h = e['hint']
     m = SEP_RE.search(text, 0, min(len(text), 80))
+    # the head ends at hend, the definition starts at cut
     if m:
-        head, sep, rest = text[:m.start()], m.group(0).strip(), text[m.end():]
-        if sep == '(':
-            rest = '(' + rest
-        cut = m.start() if sep == '(' else m.end()
+        sep = m.group(0).strip()
+        hend, cut = m.start(), (m.start() if sep == '(' else m.end())
     elif h and h['eq'] and h['abbyy']:
         # D dropped the "=" that A saw: the head has as many words as ABBYY's reading of it
         n = min(4, max(1, len(h['abbyy'].split())))
         words = text.split(' ', n)
-        head, rest = ' '.join(words[:n]), (words[n] if len(words) > n else '')
-        sep, cut = '', len(head) + (1 if len(words) > n else 0)
+        sep, hend = '', len(' '.join(words[:n]))
+        cut = hend + (1 if len(words) > n else 0)
         e['flags'].add('eq_from_A')
     else:
-        head, sep, rest, cut = '', '', text, 0
+        sep, hend, cut = '', 0, 0
         e['flags'].add('no_sep')
+    # quotation marks: the definition, then D's head text on its own (its quotes are often noise, so they must not
+    # upset the definition's pairing); the flag is the definition's
+    text, e['spans'], e['ispans'], unbalanced = fix_quotes(text, cut, len(text), e['spans'], e['ispans'])
+    text, e['spans'], e['ispans'], [[hend, cut]], _ = fix_quotes(text, 0, hend, e['spans'], e['ispans'], [[hend, cut]])
+    e['text'], head, rest = text, text[:hend], text[cut:]
+    if unbalanced:
+        e['flags'].add('quotes')
     if not text:
         e['flags'].add('empty')
     e['sep'] = '—' if sep in ('—', '–', '--', '-') else sep
@@ -292,7 +398,7 @@ def report(entries, write):
         lines += ['', f'Entries with a step-2 headword: {len(read)}; of them out of order: '
                       f'{sum("order" in e["flags"] for e in read)}, hw_disputed: '
                       f'{sum("hw_disputed" in e["flags"] for e in read)}.']
-    for flag in ('no_sep', 'parens', 'order'):
+    for flag in ('no_sep', 'parens', 'quotes', 'order'):
         sel = [e for e in entries if flag in e['flags'] and (flag != 'order' or e['hw_source'] != 'D')]
         title = f'## {flag} ({len(sel)}' + (', step-2 headwords only' if flag == 'order' else '') + ')'
         lines += ['', title, '']
