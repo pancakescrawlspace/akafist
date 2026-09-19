@@ -6,6 +6,8 @@ style of `dictionary/dictionary.typ`. The book is public domain (published 1900,
 
 Revision 2 (2026-09-19, after Phase 1 investigation): source scan chosen; an existing ABBYY OCR layer with word
 coordinates and formatting was found, which reshapes Phases 2–4 (see "Findings" and the phases themselves).
+Revision 3 (2026-09-19, after Phase 3a): the book has a large supplement (a second alphabetical sequence), an errata
+table and scan defects (left margins cut off on 242 pages); Phases 2–6 amended accordingly (marked "Rev. 3").
 
 This plan is written to be executed over several sessions. Every phase has a *Definition of done* and a *Resume*
 paragraph; all state lives in files under `djachenko/` so that a new session can read `PROGRESS.md`, the manifest and
@@ -46,17 +48,19 @@ djachenko/
   PLAN.md          this file
   PROGRESS.md      running log: date, what was done, "NEXT:" line (the first thing a new session reads)
   SOURCE.md        which scan was used, URL, checksums, page count, leaf → printed-page mapping
-  manifest.tsv     one row per leaf: idx, printed_page, section (front/letter/supplement), letter, status, notes
+  manifest.tsv     one row per leaf: idx, printed_page, section (front/main/blank/supplement/back), letter(s) on
+                   the page (from the table of contents), status, notes
                    status ∈ {new, image, ocr, parsed, checked}
   scan/            the archive.org files: metadata, OCR layers, JP2 zip (git-ignored; large)
   pages/           NNNN.jpg, one 300 ppi working image per leaf; pages/jp2/ the 600 ppi originals (git-ignored)
-  ocr/             per-page JSON built from the ABBYY layer plus the headword/Greek passes (Phase 3 schema) — committed
+  ocr/             per-page JSON built from the ABBYY layer plus the headword/Greek passes (Phase 3 schema) — committed;
+                   ocr/report.tsv: per-page statistics and warnings of the last dj_abbyy.py run
   entries.tsv      the structured dictionary (Phase 4 output) — committed
   eval/            ground-truth pages and evaluation results (Phase 2)
   djachenko.typ, djachenko.pdf   Typst rendition (Phase 6)
 tools/
   dj_fetch.py      Phase 1: download scan + OCR layers, extract page images, write manifest (exists)
-  dj_abbyy.py      Phase 3a: ABBYY XML → ocr/NNNN.json (text, geometry, formatting), idempotent
+  dj_abbyy.py      Phase 3a: ABBYY XML → ocr/NNNN.json (text, geometry, formatting), idempotent (exists)
   dj_heads.py      Phase 3b: recover the Church Slavonic headwords (and Greek runs) for a page range, idempotent
   dj_eval.py       Phase 2: CER/WER of an OCR output against a ground-truth file
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv, with validation report
@@ -88,7 +92,7 @@ Decide and record in `PROGRESS.md`:
 
 *Definition of done:* the four decisions are written in `PROGRESS.md`.
 
-## Phase 1 — Acquire the scan and page images (one session, mostly unattended) — IN PROGRESS
+## Phase 1 — Acquire the scan and page images (one session, mostly unattended) — DONE
 
 `tools/dj_fetch.py` does all of it, idempotently: `--meta` (files.xml, scandata, page_numbers.json, djvu.txt,
 djvu.xml, abbyy.gz; MD5-verified), `--jp2` (the 2.1 GB zip, resumable), `--extract` (JP2s into `pages/jp2/`),
@@ -107,6 +111,8 @@ and a section, `SOURCE.md` is filled in. Committed: `SOURCE.md`, `manifest.tsv`,
 
 Ground truth: 6 pages chosen to be representative — an ordinary page from А, one from the middle (П or С), one from a
 short late letter (Ѣ or Ѵ), one dense in Greek/Hebrew etymology, one from the supplement, one with poor print quality.
+Rev. 3: make the supplement page one with a cut-off left margin (e.g. leaf 1124 = p. 1087), since 242 pages are like
+that, and include one page with a long article (e.g. leaf 465 = p. 428) — segmentation behaves differently there.
 Transcribe them carefully by hand into `eval/gt/NNNN.txt` (one entry per paragraph, `headword = definition`, column
 breaks marked). This is slow (~30–45 min per page) but is the only way to compare candidates honestly; the user may
 prefer to check these transcriptions.
@@ -127,6 +133,12 @@ definitions only, Greek only):
    measure. Score CER on headwords only.
 4. **Greek** — how much Greek is there (count of parenthesised runs the ABBYY layer garbles), and is it worth a pass
    over all entries or only over the linked subset? Candidate: vision on line crops where ABBYY confidence is low.
+5. Rev. 3: **Entry segmentation** of Phase 3a (`entries_hint` = hanging paragraphs) — precision/recall against the
+   ground truth, separately for ordinary pages and for pages with a cut-off margin (paragraphs marked `guessed`).
+6. Rev. 3: **Cut-off headwords** — on the 242 pages with a cut-off left margin the first letter(s) of many headwords
+   are not in the image. Decide: complete them from the alphabetical context (guide words, neighbouring entries —
+   usually unambiguous), or fetch those pages from another copy (Azbyka's PNGs of the 2004 reprint, ~242 requests,
+   or the Wikimedia Commons PDF at ~100 ppi). Check first whether the other copies have the margin.
 
 *Definition of done:* `eval/RESULTS.md` records the numbers and names the route for definitions, headwords and Greek;
 `PROGRESS.md` says so.
@@ -137,14 +149,27 @@ definitions only, Greek only):
 **3a. `tools/dj_abbyy.py`** converts the ABBYY XML into one `ocr/NNNN.json` per leaf: blocks → paragraphs → lines →
 words with bounding boxes, character confidence, and formatting (font size, bold, italic). This is a single
 deterministic run over all 1,159 leaves; no network, no tokens. It also records the guide words, page number and
-column boundaries per page.
+column boundaries per page. — **DONE** (2026-09-19; 6 s for the whole book). The authoritative JSON schema is the
+docstring of `tools/dj_abbyy.py` (it supersedes the sketch below: columns carry side a/b and band, paragraphs are
+geometric — a new one at every flush line — and `entries_hint` carries ABBYY's reading and the headword's box).
+How it works: the column rule (a separator on nearly every page) gives the gutter and removes the skew; lines across
+it are split; header (page number, guide words, running title "Прибавленіе."), footer (signature line), letter
+initials (big type or pictures on the rule, or a 250–900 px gap across both columns where ABBYY recorded nothing) and
+specks (gutter, margin dust read as "п", ",", "„") are set aside; flush vs. indented is fitted per side relative to
+the rule with a strong prior (right column: text starts 62 px right of the rule), checked against the text (entry
+starts contain "=" in 82 % of cases, continuation lines in 2 %); on pages whose left margin is cut off, position and
+text features are combined (naive Bayes) and the paragraphs marked `guessed`. Result: 25,362 entry candidates in
+main + supplement (22,542 with "=" in their first two lines; 3,197 guessed, on 261 pages); `manifest.tsv` has section
+and letters; `ocr/report.tsv` the per-page statistics and warnings. The book's "~30,000 entries" is a round figure:
+the "=" count (24,483) and the candidates agree on ~25,000.
 
-**3b. `tools/dj_heads.py --pages A-B`** recovers what ABBYY cannot: for every headword position found in 3a (or every
-column, depending on the Phase 2 result) it obtains the Church Slavonic headword in civil pre-reform script and
-writes it into the page JSON (`entries_hint[].headword`, with `source` and a confidence). Same for Greek runs if
-Phase 2 says so. Idempotent: skips pages whose headwords are already filled; the manifest status becomes `ocr` when a
-page is complete. Batches sized to a session; after every batch: `dj_parse.py --check`, a line in `PROGRESS.md`,
-commit.
+**3b. `tools/dj_heads.py --pages A-B`** recovers what ABBYY cannot (Rev. 3: including the 18 headwords that exist only
+as pictures — `abbyy` is "\ufffc" — and the cut-off first letters, see Phase 2 question 6): for every headword position
+found in 3a (or every column, depending on the Phase 2 result) it obtains the Church Slavonic headword in civil
+pre-reform script and writes it into the page JSON (`entries_hint[].headword`, with `source` and a confidence). Same for
+Greek runs if Phase 2 says so. Idempotent: skips pages whose headwords are already filled; the manifest status becomes
+`ocr` when a page is complete. Batches sized to a session; after every batch: `dj_parse.py --check`, a line in
+`PROGRESS.md`, commit.
 
 Per-page JSON schema (engine-independent):
 
@@ -179,6 +204,13 @@ id  headword_civil  headword_key  gram  definition  page  column  status  flags
   segmentation or OCR error and is written to `flags`; pages whose entry count is far from the neighbours' are flagged;
   unbalanced parentheses flagged.
 - `status` starts as `raw`.
+- Rev. 3: the main part (pp. 1–863) and the supplement (pp. 865–1120) are two separate alphabetical sequences;
+  validate the order within each. Supplement entries add to or correct main entries: add a column `part`
+  (main/supplement) and, in Phase 5, link a supplement entry to the main entry with the same headword.
+- Rev. 3: apply Дьяченко's own errata table (front matter pp. XXXIV–XXXVIII, leaves 32–36; columns: page, line
+  counted from the top or bottom, column left/right, "напечатано", "слѣдуетъ читать"; a few hundred rows, much of it
+  Greek) — transcribe it once into `djachenko/errata.tsv` and apply it to `entries.tsv`, flagging each corrected
+  entry.
 
 *Definition of done:* `entries.tsv` covers all OCR'd pages; the validation report is in `PROGRESS.md`; flagged entries
 listed in `djachenko/FLAGS.md` (regenerated each run).
@@ -207,7 +239,8 @@ tag in italics; unchecked entries marked with a small sign; page reference to th
 the entry ("¶ 85b" = page 85, column b) so that anything can be verified against the scan.
 
 Front matter to include: title, bibliographic note, what "checked/unchecked" means, the encoding conventions of
-Phase 0.2, and Дьяченко's own list of abbreviations (transcribed from the front matter as part of Phase 3).
+Phase 0.2, and Дьяченко's own list of abbreviations (transcribed from the front matter as part of Phase 3;
+Rev. 3: pp. XXIX–XXXIII = leaves 27–31, already in ocr/ as two-column text with hanging indents).
 
 *Definition of done:* `djachenko.pdf` builds cleanly from `entries.tsv`; README updated; committed.
 
@@ -216,9 +249,9 @@ Phase 0.2, and Дьяченко's own list of abbreviations (transcribed from th
 | Phase | Sessions | Notes |
 |---|---|---|
 | 0 | done | |
-| 1 | 1 | in progress: download/extract/convert, then sections in the manifest |
+| 1 | done | |
 | 2 | 1–2 | ground truth is the slow part (~4 h of human-quality transcription for 6 pages) |
-| 3a | ½ | one deterministic run |
+| 3a | done | |
 | 3b | 3–8 | headwords only: ~2,300 column reads or ~750 contact sheets; token cost roughly 1–2M for a vision route |
 | 4 | 1 + reruns | |
 | 5 | 3–6 short | proofreading ~550 linked entries |

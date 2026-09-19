@@ -1,0 +1,19 @@
+{
+ "idx": 0,
+ "printed_page": "",
+ "section": "front",
+ "size": [4252,6520],
+ "dpi": 600,
+ "source": "abbyy",
+ "rule": null,
+ "header": {"page_number":"","running_title":"","guide_words":["",""]},
+ "footer": "",
+ "headings": [],
+ "figures": [[0,0,4252,6520],[3208,4092,3608,4164],[2984,3076,3260,3136],[894,4682,994,4864]],
+ "noise": [],
+ "columns": [
+ ],
+ "entries_hint": [
+ ],
+ "warnings": []
+}

@@ -28,11 +28,37 @@ the ABBYY layer.
 **Leaf → printed page.** Leaf numbers are 0-based as in the JP2 file names (`…_0150.jp2` = leaf 150). Verified by
 eye: leaf 150 = printed page 113 (guide words Вѣр— / Вѣк—). The automatic map in `page_numbers.json` is copied into
 `manifest.tsv`; corrections made by hand in the manifest take precedence when the manifest is regenerated.
-Result of the check (2026-09-19): leaves 0–6 unnumbered front matter, leaves 7–36 = pp. IX–XXXVIII, leaf 37
-unnumbered, leaf 38 = p. 1 (unnumbered in print; set by hand), leaves 39–1157 = pp. 2–1120 without a single gap or
-repeat, leaf 1158 unnumbered (end). So for the dictionary proper: **printed page = leaf − 37**. Letter boundaries and
-the start of the supplement ("Прибавление") are filled into `manifest.tsv` in Phase 3a. 25 leaves have a page-number
-confidence below 90 in the automatic map; their numbers fit the sequence, so they are accepted.
+Result of the check (2026-09-19): leaf 0 cover, leaf 1 = p. I (first page of the preface, unnumbered), leaves 2–6 =
+pp. IV–VIII (numbers read from the images; the automatic map missed them), leaves 7–36 = pp. IX–XXXVIII, leaf 37 the
+unnumbered table of contents, leaf 38 = p. 1 (unnumbered in print; set by hand), leaves 39–1157 = pp. 2–1120 without
+a single gap or repeat, leaf 1158 back cover. **Pp. II–III are missing from the scan**: leaf 1 ends "…а за симъ",
+leaf 2 (p. IV) begins "цѣли, которой мы желали…". So for the dictionary proper: **printed page = leaf − 37**.
+25 leaves have a page-number confidence below 90 in the automatic map; their numbers fit the sequence, so they are
+accepted. Phase 3a confirmed the map independently: the page number read from the running head of every dictionary
+page agrees with the manifest, up to single-digit OCR confusions (3/8, 5/8, 0/9) on 81 pages.
+
+**Structure (from the table of contents, leaf 37; checked against the letter initials found in Phase 3a).** Front
+matter: preface pp. I–XXVIII; Приложенія: А. how to use the dictionary XXVIII–XXIX, Б. table of abbreviations (authors,
+works, common nouns) XXIX–XXXIII (leaves 27–31), В. errata (Замѣченныя опечатки) XXXIV–XXXVIII (leaves 32–36, a table:
+page, line from top/bottom, column, "напечатано", "слѣдуетъ читать"). Main part pp. 1–863 (leaves 38–900), А to Ѵ; p.
+864 (leaf 901) blank; **Прибавленіе** (words omitted, additions and corrections) pp. 865–1120 (leaves 902–1157), a
+second alphabetical sequence А to Я — the TOC gives, for each letter, its pages in both parts; the table is in
+`tools/dj_abbyy.py` (`MAIN_LETTERS`, `SUPP_LETTERS`) and the letters on each page are in `manifest.tsv`. The TOC
+misprints Ѩ as 826—857 for 856—857. The letter initials found on the pages match the TOC on every letter start except p.
+808 (Ч, set beside the column), p. 858 (Ѯ, at the head of the page) — both not read by ABBYY — and p. 1120 (an extra gap
+before the closing "Конецъ … Бгу слава").
+
+**Scan defects found in Phase 3a.**
+- **Left margin cut off** on 242 dictionary pages, all of them even leaves (left-hand pages): 123 in the main part and
+  119 of the 128 left-hand pages of the supplement. The lines of the left column start at the image edge, and the first
+  letter or two of the headwords (on the worst pages also of the continuation lines) are missing from the image. Listed
+  in `ocr/report.tsv` ("margin cut off"). Headwords there must be completed from the alphabetical context or from
+  another copy.
+- **Paper patch** over the lower left column of p. 1120 (leaf 1157): the starts of about ten entries (Авій …) are
+  covered.
+- Pictures instead of text: 18 headwords with tall superscripts (e.g. Кощѵна p. 266, Пѣвцы, Служба, Фѵлло,
+  Хорѵгвь) were stored by ABBYY as picture blocks, so they have no OCR text; Phase 3a keeps them in the text flow as a
+  placeholder (U+FFFC).
 
 **Notes.**
 - OCR quality (from a first look): the definition text is good and keeps pre-reform orthography (ѣ, і, ѳ, ъ);

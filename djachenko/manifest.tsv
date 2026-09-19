@@ -1,11 +1,11 @@
 idx	printed_page	section	letter	status	notes
-0		front		image	
-1		front		image	
-2		front		image	
-3		front		image	
-4		front		image	
-5		front		image	
-6		front		image	
+0		front		image	cover
+1	I	front		image	unnumbered first page of the preface; pp. II-III are missing from the scan (text breaks off)
+2	IV	front		image	number read from the image
+3	V	front		image	number read from the image
+4	VI	front		image	number read from the image
+5	VII	front		image	number read from the image
+6	VIII	front		image	number read from the image
 7	IX	front		image	
 8	X	front		image	
 9	XI	front		image	
@@ -31,1130 +31,1130 @@ idx	printed_page	section	letter	status	notes
 29	XXXI	front		image	
 30	XXXII	front		image	
 31	XXXIII	front		image	page number confidence 75
-32	XXXIV	front		image	
+32	XXXIV	front		image	errata table (Замѣченныя опечатки) XXXIV-XXXVIII starts here
 33	XXXV	front		image	
 34	XXXVI	front		image	
 35	XXXVII	front		image	
 36	XXXVIII	front		image	page number confidence 62
-37		front		image	
-38	1	main		image	
-39	2	main		image	
-40	3	main		image	
-41	4	main		image	
-42	5	main		image	
-43	6	main		image	
-44	7	main		image	
-45	8	main		image	
-46	9	main		image	
-47	10	main		image	
-48	11	main		image	
-49	12	main		image	
-50	13	main		image	
-51	14	main		image	
-52	15	main		image	
-53	16	main		image	
-54	17	main		image	
-55	18	main		image	
-56	19	main		image	
-57	20	main		image	
-58	21	main		image	
-59	22	main		image	
-60	23	main		image	
-61	24	main		image	
-62	25	main		image	
-63	26	main		image	
-64	27	main		image	
-65	28	main		image	
-66	29	main		image	
-67	30	main		image	
-68	31	main		image	
-69	32	main		image	
-70	33	main		image	
-71	34	main		image	
-72	35	main		image	
-73	36	main		image	
-74	37	main		image	
-75	38	main		image	
-76	39	main		image	
-77	40	main		image	
-78	41	main		image	
-79	42	main		image	
-80	43	main		image	
-81	44	main		image	
-82	45	main		image	
-83	46	main		image	
-84	47	main		image	
-85	48	main		image	
-86	49	main		image	
-87	50	main		image	
-88	51	main		image	
-89	52	main		image	
-90	53	main		image	
-91	54	main		image	
-92	55	main		image	
-93	56	main		image	
-94	57	main		image	
-95	58	main		image	
-96	59	main		image	
-97	60	main		image	
-98	61	main		image	
-99	62	main		image	
-100	63	main		image	
-101	64	main		image	
-102	65	main		image	
-103	66	main		image	
-104	67	main		image	
-105	68	main		image	
-106	69	main		image	
-107	70	main		image	
-108	71	main		image	
-109	72	main		image	
-110	73	main		image	
-111	74	main		image	
-112	75	main		image	
-113	76	main		image	
-114	77	main		image	
-115	78	main		image	
-116	79	main		image	
-117	80	main		image	
-118	81	main		image	
-119	82	main		image	
-120	83	main		image	
-121	84	main		image	
-122	85	main		image	
-123	86	main		image	
-124	87	main		image	
-125	88	main		image	
-126	89	main		image	
-127	90	main		image	
-128	91	main		image	
-129	92	main		image	
-130	93	main		image	
-131	94	main		image	
-132	95	main		image	
-133	96	main		image	
-134	97	main		image	
-135	98	main		image	
-136	99	main		image	
-137	100	main		image	
-138	101	main		image	
-139	102	main		image	
-140	103	main		image	
-141	104	main		image	
-142	105	main		image	
-143	106	main		image	
-144	107	main		image	
-145	108	main		image	
-146	109	main		image	
-147	110	main		image	
-148	111	main		image	
-149	112	main		image	
-150	113	main		image	
-151	114	main		image	
-152	115	main		image	
-153	116	main		image	
-154	117	main		image	
-155	118	main		image	
-156	119	main		image	
-157	120	main		image	
-158	121	main		image	
-159	122	main		image	
-160	123	main		image	
-161	124	main		image	
-162	125	main		image	
-163	126	main		image	
-164	127	main		image	
-165	128	main		image	
-166	129	main		image	
-167	130	main		image	
-168	131	main		image	
-169	132	main		image	
-170	133	main		image	
-171	134	main		image	
-172	135	main		image	
-173	136	main		image	
-174	137	main		image	
-175	138	main		image	
-176	139	main		image	
-177	140	main		image	
-178	141	main		image	
-179	142	main		image	
-180	143	main		image	
-181	144	main		image	
-182	145	main		image	
-183	146	main		image	
-184	147	main		image	
-185	148	main		image	
-186	149	main		image	
-187	150	main		image	
-188	151	main		image	
-189	152	main		image	
-190	153	main		image	
-191	154	main		image	
-192	155	main		image	
-193	156	main		image	
-194	157	main		image	
-195	158	main		image	
-196	159	main		image	
-197	160	main		image	
-198	161	main		image	
-199	162	main		image	
-200	163	main		image	
-201	164	main		image	
-202	165	main		image	
-203	166	main		image	
-204	167	main		image	
-205	168	main		image	
-206	169	main		image	
-207	170	main		image	
-208	171	main		image	
-209	172	main		image	
-210	173	main		image	
-211	174	main		image	
-212	175	main		image	
-213	176	main		image	
-214	177	main		image	
-215	178	main		image	
-216	179	main		image	
-217	180	main		image	
-218	181	main		image	
-219	182	main		image	
-220	183	main		image	
-221	184	main		image	
-222	185	main		image	
-223	186	main		image	
-224	187	main		image	
-225	188	main		image	page number confidence 89
-226	189	main		image	
-227	190	main		image	
-228	191	main		image	
-229	192	main		image	
-230	193	main		image	
-231	194	main		image	
-232	195	main		image	
-233	196	main		image	
-234	197	main		image	
-235	198	main		image	
-236	199	main		image	
-237	200	main		image	
-238	201	main		image	
-239	202	main		image	
-240	203	main		image	
-241	204	main		image	
-242	205	main		image	
-243	206	main		image	
-244	207	main		image	
-245	208	main		image	
-246	209	main		image	
-247	210	main		image	
-248	211	main		image	
-249	212	main		image	
-250	213	main		image	
-251	214	main		image	
-252	215	main		image	
-253	216	main		image	
-254	217	main		image	
-255	218	main		image	
-256	219	main		image	
-257	220	main		image	
-258	221	main		image	
-259	222	main		image	
-260	223	main		image	
-261	224	main		image	
-262	225	main		image	
-263	226	main		image	
-264	227	main		image	
-265	228	main		image	
-266	229	main		image	
-267	230	main		image	
-268	231	main		image	
-269	232	main		image	
-270	233	main		image	
-271	234	main		image	
-272	235	main		image	
-273	236	main		image	
-274	237	main		image	
-275	238	main		image	
-276	239	main		image	
-277	240	main		image	
-278	241	main		image	
-279	242	main		image	
-280	243	main		image	
-281	244	main		image	
-282	245	main		image	
-283	246	main		image	
-284	247	main		image	
-285	248	main		image	
-286	249	main		image	
-287	250	main		image	
-288	251	main		image	
-289	252	main		image	
-290	253	main		image	
-291	254	main		image	
-292	255	main		image	
-293	256	main		image	
-294	257	main		image	
-295	258	main		image	
-296	259	main		image	
-297	260	main		image	
-298	261	main		image	
-299	262	main		image	
-300	263	main		image	
-301	264	main		image	
-302	265	main		image	
-303	266	main		image	
-304	267	main		image	
-305	268	main		image	
-306	269	main		image	
-307	270	main		image	
-308	271	main		image	
-309	272	main		image	
-310	273	main		image	
-311	274	main		image	
-312	275	main		image	
-313	276	main		image	
-314	277	main		image	
-315	278	main		image	
-316	279	main		image	
-317	280	main		image	
-318	281	main		image	page number confidence 88
-319	282	main		image	
-320	283	main		image	page number confidence 89
-321	284	main		image	
-322	285	main		image	
-323	286	main		image	
-324	287	main		image	
-325	288	main		image	
-326	289	main		image	
-327	290	main		image	
-328	291	main		image	
-329	292	main		image	
-330	293	main		image	
-331	294	main		image	
-332	295	main		image	
-333	296	main		image	
-334	297	main		image	
-335	298	main		image	
-336	299	main		image	
-337	300	main		image	
-338	301	main		image	
-339	302	main		image	
-340	303	main		image	
-341	304	main		image	
-342	305	main		image	
-343	306	main		image	
-344	307	main		image	
-345	308	main		image	
-346	309	main		image	
-347	310	main		image	
-348	311	main		image	
-349	312	main		image	
-350	313	main		image	
-351	314	main		image	
-352	315	main		image	
-353	316	main		image	
-354	317	main		image	
-355	318	main		image	
-356	319	main		image	
-357	320	main		image	
-358	321	main		image	
-359	322	main		image	
-360	323	main		image	
-361	324	main		image	
-362	325	main		image	
-363	326	main		image	
-364	327	main		image	
-365	328	main		image	
-366	329	main		image	
-367	330	main		image	
-368	331	main		image	
-369	332	main		image	
-370	333	main		image	
-371	334	main		image	
-372	335	main		image	
-373	336	main		image	
-374	337	main		image	
-375	338	main		image	
-376	339	main		image	
-377	340	main		image	
-378	341	main		image	
-379	342	main		image	
-380	343	main		image	
-381	344	main		image	
-382	345	main		image	
-383	346	main		image	
-384	347	main		image	
-385	348	main		image	
-386	349	main		image	
-387	350	main		image	
-388	351	main		image	
-389	352	main		image	
-390	353	main		image	
-391	354	main		image	
-392	355	main		image	
-393	356	main		image	
-394	357	main		image	
-395	358	main		image	
-396	359	main		image	
-397	360	main		image	
-398	361	main		image	
-399	362	main		image	
-400	363	main		image	
-401	364	main		image	
-402	365	main		image	
-403	366	main		image	
-404	367	main		image	
-405	368	main		image	
-406	369	main		image	
-407	370	main		image	
-408	371	main		image	
-409	372	main		image	
-410	373	main		image	
-411	374	main		image	
-412	375	main		image	
-413	376	main		image	
-414	377	main		image	
-415	378	main		image	
-416	379	main		image	
-417	380	main		image	
-418	381	main		image	
-419	382	main		image	
-420	383	main		image	
-421	384	main		image	
-422	385	main		image	
-423	386	main		image	
-424	387	main		image	
-425	388	main		image	
-426	389	main		image	
-427	390	main		image	
-428	391	main		image	
-429	392	main		image	
-430	393	main		image	
-431	394	main		image	
-432	395	main		image	
-433	396	main		image	
-434	397	main		image	
-435	398	main		image	
-436	399	main		image	
-437	400	main		image	
-438	401	main		image	
-439	402	main		image	
-440	403	main		image	
-441	404	main		image	
-442	405	main		image	
-443	406	main		image	
-444	407	main		image	
-445	408	main		image	
-446	409	main		image	
-447	410	main		image	
-448	411	main		image	
-449	412	main		image	
-450	413	main		image	
-451	414	main		image	
-452	415	main		image	
-453	416	main		image	
-454	417	main		image	
-455	418	main		image	
-456	419	main		image	
-457	420	main		image	
-458	421	main		image	
-459	422	main		image	
-460	423	main		image	
-461	424	main		image	
-462	425	main		image	
-463	426	main		image	
-464	427	main		image	
-465	428	main		image	
-466	429	main		image	
-467	430	main		image	
-468	431	main		image	
-469	432	main		image	
-470	433	main		image	
-471	434	main		image	
-472	435	main		image	
-473	436	main		image	
-474	437	main		image	
-475	438	main		image	
-476	439	main		image	
-477	440	main		image	
-478	441	main		image	
-479	442	main		image	
-480	443	main		image	
-481	444	main		image	
-482	445	main		image	
-483	446	main		image	
-484	447	main		image	
-485	448	main		image	
-486	449	main		image	
-487	450	main		image	
-488	451	main		image	
-489	452	main		image	
-490	453	main		image	
-491	454	main		image	
-492	455	main		image	
-493	456	main		image	
-494	457	main		image	
-495	458	main		image	
-496	459	main		image	
-497	460	main		image	
-498	461	main		image	
-499	462	main		image	
-500	463	main		image	
-501	464	main		image	
-502	465	main		image	
-503	466	main		image	
-504	467	main		image	
-505	468	main		image	
-506	469	main		image	
-507	470	main		image	
-508	471	main		image	
-509	472	main		image	
-510	473	main		image	
-511	474	main		image	
-512	475	main		image	
-513	476	main		image	
-514	477	main		image	
-515	478	main		image	
-516	479	main		image	
-517	480	main		image	
-518	481	main		image	
-519	482	main		image	
-520	483	main		image	
-521	484	main		image	
-522	485	main		image	
-523	486	main		image	
-524	487	main		image	
-525	488	main		image	
-526	489	main		image	
-527	490	main		image	page number confidence 87
-528	491	main		image	
-529	492	main		image	
-530	493	main		image	
-531	494	main		image	
-532	495	main		image	
-533	496	main		image	
-534	497	main		image	
-535	498	main		image	
-536	499	main		image	
-537	500	main		image	
-538	501	main		image	
-539	502	main		image	
-540	503	main		image	
-541	504	main		image	
-542	505	main		image	
-543	506	main		image	
-544	507	main		image	
-545	508	main		image	
-546	509	main		image	
-547	510	main		image	
-548	511	main		image	
-549	512	main		image	
-550	513	main		image	
-551	514	main		image	
-552	515	main		image	
-553	516	main		image	
-554	517	main		image	
-555	518	main		image	
-556	519	main		image	
-557	520	main		image	
-558	521	main		image	
-559	522	main		image	
-560	523	main		image	
-561	524	main		image	
-562	525	main		image	
-563	526	main		image	
-564	527	main		image	
-565	528	main		image	
-566	529	main		image	
-567	530	main		image	
-568	531	main		image	
-569	532	main		image	
-570	533	main		image	page number confidence 85
-571	534	main		image	page number confidence 86
-572	535	main		image	
-573	536	main		image	
-574	537	main		image	
-575	538	main		image	
-576	539	main		image	page number confidence 88
-577	540	main		image	
-578	541	main		image	
-579	542	main		image	
-580	543	main		image	
-581	544	main		image	
-582	545	main		image	
-583	546	main		image	
-584	547	main		image	
-585	548	main		image	
-586	549	main		image	
-587	550	main		image	
-588	551	main		image	
-589	552	main		image	
-590	553	main		image	
-591	554	main		image	
-592	555	main		image	
-593	556	main		image	
-594	557	main		image	
-595	558	main		image	
-596	559	main		image	
-597	560	main		image	
-598	561	main		image	
-599	562	main		image	
-600	563	main		image	
-601	564	main		image	
-602	565	main		image	
-603	566	main		image	
-604	567	main		image	
-605	568	main		image	
-606	569	main		image	
-607	570	main		image	
-608	571	main		image	
-609	572	main		image	
-610	573	main		image	
-611	574	main		image	
-612	575	main		image	
-613	576	main		image	
-614	577	main		image	
-615	578	main		image	
-616	579	main		image	
-617	580	main		image	
-618	581	main		image	
-619	582	main		image	
-620	583	main		image	
-621	584	main		image	
-622	585	main		image	
-623	586	main		image	
-624	587	main		image	page number confidence 88
-625	588	main		image	
-626	589	main		image	
-627	590	main		image	
-628	591	main		image	
-629	592	main		image	
-630	593	main		image	
-631	594	main		image	
-632	595	main		image	
-633	596	main		image	
-634	597	main		image	
-635	598	main		image	page number confidence 86
-636	599	main		image	
-637	600	main		image	
-638	601	main		image	
-639	602	main		image	
-640	603	main		image	
-641	604	main		image	
-642	605	main		image	
-643	606	main		image	
-644	607	main		image	
-645	608	main		image	
-646	609	main		image	
-647	610	main		image	
-648	611	main		image	
-649	612	main		image	
-650	613	main		image	
-651	614	main		image	
-652	615	main		image	
-653	616	main		image	
-654	617	main		image	
-655	618	main		image	
-656	619	main		image	
-657	620	main		image	
-658	621	main		image	
-659	622	main		image	
-660	623	main		image	
-661	624	main		image	
-662	625	main		image	
-663	626	main		image	
-664	627	main		image	
-665	628	main		image	
-666	629	main		image	
-667	630	main		image	
-668	631	main		image	
-669	632	main		image	
-670	633	main		image	
-671	634	main		image	
-672	635	main		image	
-673	636	main		image	
-674	637	main		image	
-675	638	main		image	
-676	639	main		image	
-677	640	main		image	
-678	641	main		image	
-679	642	main		image	
-680	643	main		image	
-681	644	main		image	
-682	645	main		image	
-683	646	main		image	
-684	647	main		image	
-685	648	main		image	
-686	649	main		image	
-687	650	main		image	
-688	651	main		image	
-689	652	main		image	
-690	653	main		image	
-691	654	main		image	
-692	655	main		image	
-693	656	main		image	
-694	657	main		image	
-695	658	main		image	
-696	659	main		image	
-697	660	main		image	
-698	661	main		image	
-699	662	main		image	
-700	663	main		image	
-701	664	main		image	
-702	665	main		image	
-703	666	main		image	
-704	667	main		image	
-705	668	main		image	
-706	669	main		image	
-707	670	main		image	
-708	671	main		image	
-709	672	main		image	
-710	673	main		image	
-711	674	main		image	
-712	675	main		image	
-713	676	main		image	
-714	677	main		image	
-715	678	main		image	
-716	679	main		image	
-717	680	main		image	
-718	681	main		image	
-719	682	main		image	
-720	683	main		image	
-721	684	main		image	
-722	685	main		image	
-723	686	main		image	
-724	687	main		image	
-725	688	main		image	
-726	689	main		image	
-727	690	main		image	
-728	691	main		image	
-729	692	main		image	
-730	693	main		image	
-731	694	main		image	
-732	695	main		image	
-733	696	main		image	
-734	697	main		image	
-735	698	main		image	
-736	699	main		image	
-737	700	main		image	
-738	701	main		image	
-739	702	main		image	
-740	703	main		image	
-741	704	main		image	
-742	705	main		image	
-743	706	main		image	
-744	707	main		image	
-745	708	main		image	
-746	709	main		image	
-747	710	main		image	page number confidence 89
-748	711	main		image	
-749	712	main		image	
-750	713	main		image	
-751	714	main		image	
-752	715	main		image	
-753	716	main		image	
-754	717	main		image	
-755	718	main		image	
-756	719	main		image	
-757	720	main		image	
-758	721	main		image	
-759	722	main		image	
-760	723	main		image	
-761	724	main		image	
-762	725	main		image	
-763	726	main		image	
-764	727	main		image	
-765	728	main		image	
-766	729	main		image	
-767	730	main		image	
-768	731	main		image	
-769	732	main		image	
-770	733	main		image	
-771	734	main		image	
-772	735	main		image	
-773	736	main		image	
-774	737	main		image	
-775	738	main		image	
-776	739	main		image	
-777	740	main		image	
-778	741	main		image	
-779	742	main		image	
-780	743	main		image	
-781	744	main		image	page number confidence 89
-782	745	main		image	
-783	746	main		image	page number confidence 89
-784	747	main		image	
-785	748	main		image	page number confidence 89
-786	749	main		image	
-787	750	main		image	
-788	751	main		image	
-789	752	main		image	
-790	753	main		image	
-791	754	main		image	
-792	755	main		image	
-793	756	main		image	
-794	757	main		image	page number confidence 87
-795	758	main		image	
-796	759	main		image	
-797	760	main		image	
-798	761	main		image	
-799	762	main		image	
-800	763	main		image	
-801	764	main		image	page number confidence 88
-802	765	main		image	
-803	766	main		image	
-804	767	main		image	
-805	768	main		image	
-806	769	main		image	
-807	770	main		image	
-808	771	main		image	
-809	772	main		image	
-810	773	main		image	page number confidence 88
-811	774	main		image	
-812	775	main		image	page number confidence 88
-813	776	main		image	
-814	777	main		image	
-815	778	main		image	
-816	779	main		image	
-817	780	main		image	
-818	781	main		image	
-819	782	main		image	
-820	783	main		image	
-821	784	main		image	
-822	785	main		image	
-823	786	main		image	
-824	787	main		image	
-825	788	main		image	
-826	789	main		image	
-827	790	main		image	
-828	791	main		image	
-829	792	main		image	
-830	793	main		image	
-831	794	main		image	
-832	795	main		image	
-833	796	main		image	
-834	797	main		image	
-835	798	main		image	
-836	799	main		image	
-837	800	main		image	
-838	801	main		image	
-839	802	main		image	
-840	803	main		image	
-841	804	main		image	
-842	805	main		image	
-843	806	main		image	
-844	807	main		image	
-845	808	main		image	
-846	809	main		image	
-847	810	main		image	
-848	811	main		image	
-849	812	main		image	
-850	813	main		image	
-851	814	main		image	
-852	815	main		image	
-853	816	main		image	
-854	817	main		image	
-855	818	main		image	
-856	819	main		image	
-857	820	main		image	
-858	821	main		image	
-859	822	main		image	
-860	823	main		image	
-861	824	main		image	
-862	825	main		image	
-863	826	main		image	
-864	827	main		image	
-865	828	main		image	
-866	829	main		image	
-867	830	main		image	
-868	831	main		image	
-869	832	main		image	page number confidence 88
-870	833	main		image	
-871	834	main		image	
-872	835	main		image	
-873	836	main		image	
-874	837	main		image	
-875	838	main		image	
-876	839	main		image	
-877	840	main		image	
-878	841	main		image	
-879	842	main		image	
-880	843	main		image	
-881	844	main		image	
-882	845	main		image	
-883	846	main		image	
-884	847	main		image	
-885	848	main		image	
-886	849	main		image	
-887	850	main		image	
-888	851	main		image	
-889	852	main		image	
-890	853	main		image	
-891	854	main		image	page number confidence 85
-892	855	main		image	
-893	856	main		image	
-894	857	main		image	
-895	858	main		image	
-896	859	main		image	
-897	860	main		image	
-898	861	main		image	
-899	862	main		image	
-900	863	main		image	
-901	864	main		image	
-902	865	main		image	
-903	866	main		image	
-904	867	main		image	
-905	868	main		image	
-906	869	main		image	
-907	870	main		image	
-908	871	main		image	
-909	872	main		image	
-910	873	main		image	
-911	874	main		image	
-912	875	main		image	
-913	876	main		image	
-914	877	main		image	
-915	878	main		image	
-916	879	main		image	
-917	880	main		image	
-918	881	main		image	
-919	882	main		image	
-920	883	main		image	
-921	884	main		image	
-922	885	main		image	
-923	886	main		image	
-924	887	main		image	
-925	888	main		image	
-926	889	main		image	
-927	890	main		image	
-928	891	main		image	
-929	892	main		image	
-930	893	main		image	
-931	894	main		image	
-932	895	main		image	
-933	896	main		image	
-934	897	main		image	
-935	898	main		image	
-936	899	main		image	
-937	900	main		image	
-938	901	main		image	
-939	902	main		image	
-940	903	main		image	
-941	904	main		image	
-942	905	main		image	
-943	906	main		image	
-944	907	main		image	
-945	908	main		image	
-946	909	main		image	
-947	910	main		image	
-948	911	main		image	
-949	912	main		image	
-950	913	main		image	
-951	914	main		image	
-952	915	main		image	
-953	916	main		image	
-954	917	main		image	
-955	918	main		image	
-956	919	main		image	
-957	920	main		image	
-958	921	main		image	
-959	922	main		image	
-960	923	main		image	
-961	924	main		image	
-962	925	main		image	
-963	926	main		image	
-964	927	main		image	
-965	928	main		image	
-966	929	main		image	
-967	930	main		image	
-968	931	main		image	
-969	932	main		image	
-970	933	main		image	
-971	934	main		image	
-972	935	main		image	
-973	936	main		image	
-974	937	main		image	
-975	938	main		image	
-976	939	main		image	
-977	940	main		image	
-978	941	main		image	
-979	942	main		image	
-980	943	main		image	
-981	944	main		image	
-982	945	main		image	
-983	946	main		image	
-984	947	main		image	
-985	948	main		image	
-986	949	main		image	page number confidence 88
-987	950	main		image	
-988	951	main		image	
-989	952	main		image	
-990	953	main		image	
-991	954	main		image	
-992	955	main		image	
-993	956	main		image	
-994	957	main		image	
-995	958	main		image	
-996	959	main		image	
-997	960	main		image	
-998	961	main		image	
-999	962	main		image	
-1000	963	main		image	
-1001	964	main		image	
-1002	965	main		image	
-1003	966	main		image	
-1004	967	main		image	
-1005	968	main		image	
-1006	969	main		image	
-1007	970	main		image	
-1008	971	main		image	
-1009	972	main		image	
-1010	973	main		image	
-1011	974	main		image	
-1012	975	main		image	
-1013	976	main		image	
-1014	977	main		image	
-1015	978	main		image	
-1016	979	main		image	
-1017	980	main		image	
-1018	981	main		image	
-1019	982	main		image	
-1020	983	main		image	
-1021	984	main		image	
-1022	985	main		image	
-1023	986	main		image	
-1024	987	main		image	
-1025	988	main		image	
-1026	989	main		image	
-1027	990	main		image	
-1028	991	main		image	
-1029	992	main		image	
-1030	993	main		image	
-1031	994	main		image	
-1032	995	main		image	
-1033	996	main		image	
-1034	997	main		image	
-1035	998	main		image	
-1036	999	main		image	
-1037	1000	main		image	
-1038	1001	main		image	
-1039	1002	main		image	
-1040	1003	main		image	
-1041	1004	main		image	
-1042	1005	main		image	
-1043	1006	main		image	
-1044	1007	main		image	
-1045	1008	main		image	
-1046	1009	main		image	
-1047	1010	main		image	
-1048	1011	main		image	
-1049	1012	main		image	
-1050	1013	main		image	page number confidence 89
-1051	1014	main		image	
-1052	1015	main		image	
-1053	1016	main		image	
-1054	1017	main		image	
-1055	1018	main		image	
-1056	1019	main		image	
-1057	1020	main		image	
-1058	1021	main		image	
-1059	1022	main		image	
-1060	1023	main		image	
-1061	1024	main		image	
-1062	1025	main		image	
-1063	1026	main		image	
-1064	1027	main		image	
-1065	1028	main		image	
-1066	1029	main		image	
-1067	1030	main		image	
-1068	1031	main		image	
-1069	1032	main		image	
-1070	1033	main		image	
-1071	1034	main		image	
-1072	1035	main		image	
-1073	1036	main		image	
-1074	1037	main		image	
-1075	1038	main		image	
-1076	1039	main		image	
-1077	1040	main		image	
-1078	1041	main		image	
-1079	1042	main		image	
-1080	1043	main		image	
-1081	1044	main		image	
-1082	1045	main		image	
-1083	1046	main		image	
-1084	1047	main		image	
-1085	1048	main		image	
-1086	1049	main		image	
-1087	1050	main		image	
-1088	1051	main		image	
-1089	1052	main		image	
-1090	1053	main		image	
-1091	1054	main		image	
-1092	1055	main		image	
-1093	1056	main		image	
-1094	1057	main		image	
-1095	1058	main		image	
-1096	1059	main		image	
-1097	1060	main		image	
-1098	1061	main		image	
-1099	1062	main		image	
-1100	1063	main		image	
-1101	1064	main		image	
-1102	1065	main		image	
-1103	1066	main		image	
-1104	1067	main		image	
-1105	1068	main		image	
-1106	1069	main		image	
-1107	1070	main		image	
-1108	1071	main		image	
-1109	1072	main		image	
-1110	1073	main		image	
-1111	1074	main		image	
-1112	1075	main		image	
-1113	1076	main		image	
-1114	1077	main		image	page number confidence 88
-1115	1078	main		image	
-1116	1079	main		image	
-1117	1080	main		image	
-1118	1081	main		image	
-1119	1082	main		image	
-1120	1083	main		image	
-1121	1084	main		image	
-1122	1085	main		image	
-1123	1086	main		image	
-1124	1087	main		image	
-1125	1088	main		image	
-1126	1089	main		image	
-1127	1090	main		image	
-1128	1091	main		image	
-1129	1092	main		image	
-1130	1093	main		image	
-1131	1094	main		image	
-1132	1095	main		image	
-1133	1096	main		image	
-1134	1097	main		image	
-1135	1098	main		image	
-1136	1099	main		image	
-1137	1100	main		image	
-1138	1101	main		image	
-1139	1102	main		image	
-1140	1103	main		image	
-1141	1104	main		image	
-1142	1105	main		image	
-1143	1106	main		image	
-1144	1107	main		image	
-1145	1108	main		image	
-1146	1109	main		image	
-1147	1110	main		image	
-1148	1111	main		image	
-1149	1112	main		image	
-1150	1113	main		image	
-1151	1114	main		image	
-1152	1115	main		image	
-1153	1116	main		image	
-1154	1117	main		image	
-1155	1118	main		image	
-1156	1119	main		image	
-1157	1120	main		image	
-1158		back		image	
+37		front		image	table of contents (Оглавленіе), unnumbered
+38	1	main	А	image	
+39	2	main	А	image	
+40	3	main	А	image	
+41	4	main	А	image	
+42	5	main	А	image	
+43	6	main	А	image	
+44	7	main	А	image	
+45	8	main	А	image	
+46	9	main	А	image	
+47	10	main	А	image	
+48	11	main	А	image	
+49	12	main	А	image	
+50	13	main	А	image	
+51	14	main	А	image	
+52	15	main	А	image	
+53	16	main	А	image	
+54	17	main	А	image	
+55	18	main	А	image	
+56	19	main	А	image	
+57	20	main	А	image	
+58	21	main	А	image	
+59	22	main	А	image	
+60	23	main	А	image	
+61	24	main	А	image	
+62	25	main	А	image	
+63	26	main	А	image	
+64	27	main	А	image	
+65	28	main	А	image	
+66	29	main	А	image	
+67	30	main	А	image	
+68	31	main	Б	image	
+69	32	main	Б	image	
+70	33	main	Б	image	
+71	34	main	Б	image	
+72	35	main	Б	image	
+73	36	main	Б	image	
+74	37	main	Б	image	
+75	38	main	Б	image	
+76	39	main	Б	image	
+77	40	main	Б	image	
+78	41	main	Б	image	
+79	42	main	Б	image	
+80	43	main	Б	image	
+81	44	main	Б	image	
+82	45	main	Б	image	
+83	46	main	Б	image	
+84	47	main	Б	image	
+85	48	main	Б	image	
+86	49	main	Б	image	
+87	50	main	Б	image	
+88	51	main	Б	image	
+89	52	main	Б	image	
+90	53	main	Б	image	
+91	54	main	Б	image	
+92	55	main	Б	image	
+93	56	main	Б	image	
+94	57	main	Б	image	
+95	58	main	Б	image	
+96	59	main	Б	image	
+97	60	main	Б	image	
+98	61	main	Б	image	
+99	62	main	Б	image	
+100	63	main	Б	image	
+101	64	main	Б	image	
+102	65	main	Б,В	image	
+103	66	main	В	image	
+104	67	main	В	image	
+105	68	main	В	image	
+106	69	main	В	image	
+107	70	main	В	image	
+108	71	main	В	image	
+109	72	main	В	image	
+110	73	main	В	image	
+111	74	main	В	image	
+112	75	main	В	image	
+113	76	main	В	image	
+114	77	main	В	image	
+115	78	main	В	image	
+116	79	main	В	image	
+117	80	main	В	image	
+118	81	main	В	image	
+119	82	main	В	image	
+120	83	main	В	image	
+121	84	main	В	image	
+122	85	main	В	image	
+123	86	main	В	image	
+124	87	main	В	image	
+125	88	main	В	image	
+126	89	main	В	image	
+127	90	main	В	image	
+128	91	main	В	image	
+129	92	main	В	image	
+130	93	main	В	image	
+131	94	main	В	image	
+132	95	main	В	image	
+133	96	main	В	image	
+134	97	main	В	image	
+135	98	main	В	image	
+136	99	main	В	image	
+137	100	main	В	image	
+138	101	main	В	image	
+139	102	main	В	image	
+140	103	main	В	image	
+141	104	main	В	image	
+142	105	main	В	image	
+143	106	main	В	image	
+144	107	main	В	image	
+145	108	main	В	image	
+146	109	main	В	image	
+147	110	main	В	image	
+148	111	main	В	image	
+149	112	main	В	image	
+150	113	main	В	image	
+151	114	main	В	image	
+152	115	main	В	image	
+153	116	main	В	image	
+154	117	main	В	image	
+155	118	main	В,Г	image	
+156	119	main	Г	image	
+157	120	main	Г	image	
+158	121	main	Г	image	
+159	122	main	Г	image	
+160	123	main	Г	image	
+161	124	main	Г	image	
+162	125	main	Г	image	
+163	126	main	Г	image	
+164	127	main	Г	image	
+165	128	main	Г	image	
+166	129	main	Г	image	
+167	130	main	Г	image	
+168	131	main	Г	image	
+169	132	main	Г	image	
+170	133	main	Г	image	
+171	134	main	Г	image	
+172	135	main	Г,Д	image	
+173	136	main	Д	image	
+174	137	main	Д	image	
+175	138	main	Д	image	
+176	139	main	Д	image	
+177	140	main	Д	image	
+178	141	main	Д	image	
+179	142	main	Д	image	
+180	143	main	Д	image	
+181	144	main	Д	image	
+182	145	main	Д	image	
+183	146	main	Д	image	
+184	147	main	Д	image	
+185	148	main	Д	image	
+186	149	main	Д	image	
+187	150	main	Д	image	
+188	151	main	Д	image	
+189	152	main	Д	image	
+190	153	main	Д	image	
+191	154	main	Д	image	
+192	155	main	Д	image	
+193	156	main	Д	image	
+194	157	main	Д	image	
+195	158	main	Д	image	
+196	159	main	Д	image	
+197	160	main	Д	image	
+198	161	main	Д	image	
+199	162	main	Д	image	
+200	163	main	Д	image	
+201	164	main	Д,Е	image	
+202	165	main	Е	image	
+203	166	main	Е	image	
+204	167	main	Е	image	
+205	168	main	Е	image	
+206	169	main	Е	image	
+207	170	main	Е	image	
+208	171	main	Е	image	
+209	172	main	Е	image	
+210	173	main	Е	image	
+211	174	main	Е	image	
+212	175	main	Е	image	
+213	176	main	Е	image	
+214	177	main	Е	image	
+215	178	main	Е,Ж	image	
+216	179	main	Ж	image	
+217	180	main	Ж	image	
+218	181	main	Ж	image	
+219	182	main	Ж	image	
+220	183	main	Ж	image	
+221	184	main	Ж	image	
+222	185	main	Ж	image	
+223	186	main	Ж	image	
+224	187	main	Ж	image	
+225	188	main	Ж	image	page number confidence 89
+226	189	main	З	image	
+227	190	main	З	image	
+228	191	main	З	image	
+229	192	main	З	image	
+230	193	main	З	image	
+231	194	main	З	image	
+232	195	main	З	image	
+233	196	main	З	image	
+234	197	main	З	image	
+235	198	main	З	image	
+236	199	main	З	image	
+237	200	main	З	image	
+238	201	main	З	image	
+239	202	main	З	image	
+240	203	main	З	image	
+241	204	main	З	image	
+242	205	main	З	image	
+243	206	main	З	image	
+244	207	main	З	image	
+245	208	main	З,И	image	
+246	209	main	И	image	
+247	210	main	И	image	
+248	211	main	И	image	
+249	212	main	И	image	
+250	213	main	И	image	
+251	214	main	И	image	
+252	215	main	И	image	
+253	216	main	И	image	
+254	217	main	И	image	
+255	218	main	И	image	
+256	219	main	И	image	
+257	220	main	И	image	
+258	221	main	И	image	
+259	222	main	И	image	
+260	223	main	И	image	
+261	224	main	И	image	
+262	225	main	И	image	
+263	226	main	И	image	
+264	227	main	И	image	
+265	228	main	И	image	
+266	229	main	И	image	
+267	230	main	И	image	
+268	231	main	И	image	
+269	232	main	И	image	
+270	233	main	И,І	image	
+271	234	main	І	image	
+272	235	main	І	image	
+273	236	main	І	image	
+274	237	main	І	image	
+275	238	main	І	image	
+276	239	main	І	image	
+277	240	main	І,К	image	
+278	241	main	К	image	
+279	242	main	К	image	
+280	243	main	К	image	
+281	244	main	К	image	
+282	245	main	К	image	
+283	246	main	К	image	
+284	247	main	К	image	
+285	248	main	К	image	
+286	249	main	К	image	
+287	250	main	К	image	
+288	251	main	К	image	
+289	252	main	К	image	
+290	253	main	К	image	
+291	254	main	К	image	
+292	255	main	К	image	
+293	256	main	К	image	
+294	257	main	К	image	
+295	258	main	К	image	
+296	259	main	К	image	
+297	260	main	К	image	
+298	261	main	К	image	
+299	262	main	К	image	
+300	263	main	К	image	
+301	264	main	К	image	
+302	265	main	К	image	
+303	266	main	К	image	
+304	267	main	К	image	
+305	268	main	К	image	
+306	269	main	К	image	
+307	270	main	К	image	
+308	271	main	К	image	
+309	272	main	К	image	
+310	273	main	К	image	
+311	274	main	К	image	
+312	275	main	К	image	
+313	276	main	К	image	
+314	277	main	К,Л	image	
+315	278	main	Л	image	
+316	279	main	Л	image	
+317	280	main	Л	image	
+318	281	main	Л	image	page number confidence 88
+319	282	main	Л	image	
+320	283	main	Л	image	page number confidence 89
+321	284	main	Л	image	
+322	285	main	Л	image	
+323	286	main	Л	image	
+324	287	main	Л	image	
+325	288	main	Л	image	
+326	289	main	Л	image	
+327	290	main	Л	image	
+328	291	main	Л	image	
+329	292	main	Л	image	
+330	293	main	Л	image	
+331	294	main	Л	image	
+332	295	main	М	image	
+333	296	main	М	image	
+334	297	main	М	image	
+335	298	main	М	image	
+336	299	main	М	image	
+337	300	main	М	image	
+338	301	main	М	image	
+339	302	main	М	image	
+340	303	main	М	image	
+341	304	main	М	image	
+342	305	main	М	image	
+343	306	main	М	image	
+344	307	main	М	image	
+345	308	main	М	image	
+346	309	main	М	image	
+347	310	main	М	image	
+348	311	main	М	image	
+349	312	main	М	image	
+350	313	main	М	image	
+351	314	main	М	image	
+352	315	main	М	image	
+353	316	main	М	image	
+354	317	main	М	image	
+355	318	main	М	image	
+356	319	main	М	image	
+357	320	main	М	image	
+358	321	main	М	image	
+359	322	main	М	image	
+360	323	main	М	image	
+361	324	main	М	image	
+362	325	main	М	image	
+363	326	main	М,Н	image	
+364	327	main	Н	image	
+365	328	main	Н	image	
+366	329	main	Н	image	
+367	330	main	Н	image	
+368	331	main	Н	image	
+369	332	main	Н	image	
+370	333	main	Н	image	
+371	334	main	Н	image	
+372	335	main	Н	image	
+373	336	main	Н	image	
+374	337	main	Н	image	
+375	338	main	Н	image	
+376	339	main	Н	image	
+377	340	main	Н	image	
+378	341	main	Н	image	
+379	342	main	Н	image	
+380	343	main	Н	image	
+381	344	main	Н	image	
+382	345	main	Н	image	
+383	346	main	Н	image	
+384	347	main	Н	image	
+385	348	main	Н	image	
+386	349	main	Н	image	
+387	350	main	Н	image	
+388	351	main	Н	image	
+389	352	main	Н	image	
+390	353	main	Н	image	
+391	354	main	Н	image	
+392	355	main	Н	image	
+393	356	main	Н	image	
+394	357	main	Н	image	
+395	358	main	Н	image	
+396	359	main	Н,О	image	
+397	360	main	О	image	
+398	361	main	О	image	
+399	362	main	О	image	
+400	363	main	О	image	
+401	364	main	О	image	
+402	365	main	О	image	
+403	366	main	О	image	
+404	367	main	О	image	
+405	368	main	О	image	
+406	369	main	О	image	
+407	370	main	О	image	
+408	371	main	О	image	
+409	372	main	О	image	
+410	373	main	О	image	
+411	374	main	О	image	
+412	375	main	О	image	
+413	376	main	О	image	
+414	377	main	О	image	
+415	378	main	О	image	
+416	379	main	О	image	
+417	380	main	О	image	
+418	381	main	О	image	
+419	382	main	О	image	
+420	383	main	О	image	
+421	384	main	О	image	
+422	385	main	О	image	
+423	386	main	О	image	
+424	387	main	О	image	
+425	388	main	О	image	
+426	389	main	О	image	
+427	390	main	О	image	
+428	391	main	О	image	
+429	392	main	О	image	
+430	393	main	О	image	
+431	394	main	О	image	
+432	395	main	О	image	
+433	396	main	О	image	
+434	397	main	О	image	
+435	398	main	О	image	
+436	399	main	О	image	
+437	400	main	О	image	
+438	401	main	О	image	
+439	402	main	О,П	image	
+440	403	main	П	image	
+441	404	main	П	image	
+442	405	main	П	image	
+443	406	main	П	image	
+444	407	main	П	image	
+445	408	main	П	image	
+446	409	main	П	image	
+447	410	main	П	image	
+448	411	main	П	image	
+449	412	main	П	image	
+450	413	main	П	image	
+451	414	main	П	image	
+452	415	main	П	image	
+453	416	main	П	image	
+454	417	main	П	image	
+455	418	main	П	image	
+456	419	main	П	image	
+457	420	main	П	image	
+458	421	main	П	image	
+459	422	main	П	image	
+460	423	main	П	image	
+461	424	main	П	image	
+462	425	main	П	image	
+463	426	main	П	image	
+464	427	main	П	image	
+465	428	main	П	image	
+466	429	main	П	image	
+467	430	main	П	image	
+468	431	main	П	image	
+469	432	main	П	image	
+470	433	main	П	image	
+471	434	main	П	image	
+472	435	main	П	image	
+473	436	main	П	image	
+474	437	main	П	image	
+475	438	main	П	image	
+476	439	main	П	image	
+477	440	main	П	image	
+478	441	main	П	image	
+479	442	main	П	image	
+480	443	main	П	image	
+481	444	main	П	image	
+482	445	main	П	image	
+483	446	main	П	image	
+484	447	main	П	image	
+485	448	main	П	image	
+486	449	main	П	image	
+487	450	main	П	image	
+488	451	main	П	image	
+489	452	main	П	image	
+490	453	main	П	image	
+491	454	main	П	image	
+492	455	main	П	image	
+493	456	main	П	image	
+494	457	main	П	image	
+495	458	main	П	image	
+496	459	main	П	image	
+497	460	main	П	image	
+498	461	main	П	image	
+499	462	main	П	image	
+500	463	main	П	image	
+501	464	main	П	image	
+502	465	main	П	image	
+503	466	main	П	image	
+504	467	main	П	image	
+505	468	main	П	image	
+506	469	main	П	image	
+507	470	main	П	image	
+508	471	main	П	image	
+509	472	main	П	image	
+510	473	main	П	image	
+511	474	main	П	image	
+512	475	main	П	image	
+513	476	main	П	image	
+514	477	main	П	image	
+515	478	main	П	image	
+516	479	main	П	image	
+517	480	main	П	image	
+518	481	main	П	image	
+519	482	main	П	image	
+520	483	main	П	image	
+521	484	main	П	image	
+522	485	main	П	image	
+523	486	main	П	image	
+524	487	main	П	image	
+525	488	main	П	image	
+526	489	main	П	image	
+527	490	main	П	image	page number confidence 87
+528	491	main	П	image	
+529	492	main	П	image	
+530	493	main	П	image	
+531	494	main	П	image	
+532	495	main	П	image	
+533	496	main	П	image	
+534	497	main	П	image	
+535	498	main	П	image	
+536	499	main	П	image	
+537	500	main	П	image	
+538	501	main	П	image	
+539	502	main	П	image	
+540	503	main	П	image	
+541	504	main	П	image	
+542	505	main	П	image	
+543	506	main	П	image	
+544	507	main	П	image	
+545	508	main	П	image	
+546	509	main	П	image	
+547	510	main	П	image	
+548	511	main	П	image	
+549	512	main	П	image	
+550	513	main	П	image	
+551	514	main	П	image	
+552	515	main	П	image	
+553	516	main	П	image	
+554	517	main	П	image	
+555	518	main	П	image	
+556	519	main	П	image	
+557	520	main	П	image	
+558	521	main	П	image	
+559	522	main	П	image	
+560	523	main	П	image	
+561	524	main	П	image	
+562	525	main	П	image	
+563	526	main	П	image	
+564	527	main	П	image	
+565	528	main	П	image	
+566	529	main	П	image	
+567	530	main	П	image	
+568	531	main	П	image	
+569	532	main	П	image	
+570	533	main	П,Р	image	page number confidence 85
+571	534	main	Р	image	page number confidence 86
+572	535	main	Р	image	
+573	536	main	Р	image	
+574	537	main	Р	image	
+575	538	main	Р	image	
+576	539	main	Р	image	page number confidence 88
+577	540	main	Р	image	
+578	541	main	Р	image	
+579	542	main	Р	image	
+580	543	main	Р	image	
+581	544	main	Р	image	
+582	545	main	Р	image	
+583	546	main	Р	image	
+584	547	main	Р	image	
+585	548	main	Р	image	
+586	549	main	Р	image	
+587	550	main	Р	image	
+588	551	main	Р	image	
+589	552	main	Р	image	
+590	553	main	Р	image	
+591	554	main	Р	image	
+592	555	main	Р	image	
+593	556	main	Р	image	
+594	557	main	Р	image	
+595	558	main	Р	image	
+596	559	main	Р	image	
+597	560	main	Р	image	
+598	561	main	Р	image	
+599	562	main	Р	image	
+600	563	main	Р	image	
+601	564	main	Р	image	
+602	565	main	Р	image	
+603	566	main	Р	image	
+604	567	main	Р,С	image	
+605	568	main	С	image	
+606	569	main	С	image	
+607	570	main	С	image	
+608	571	main	С	image	
+609	572	main	С	image	
+610	573	main	С	image	
+611	574	main	С	image	
+612	575	main	С	image	
+613	576	main	С	image	
+614	577	main	С	image	
+615	578	main	С	image	
+616	579	main	С	image	
+617	580	main	С	image	
+618	581	main	С	image	
+619	582	main	С	image	
+620	583	main	С	image	
+621	584	main	С	image	
+622	585	main	С	image	
+623	586	main	С	image	
+624	587	main	С	image	page number confidence 88
+625	588	main	С	image	
+626	589	main	С	image	
+627	590	main	С	image	
+628	591	main	С	image	
+629	592	main	С	image	
+630	593	main	С	image	
+631	594	main	С	image	
+632	595	main	С	image	
+633	596	main	С	image	
+634	597	main	С	image	
+635	598	main	С	image	page number confidence 86
+636	599	main	С	image	
+637	600	main	С	image	
+638	601	main	С	image	
+639	602	main	С	image	
+640	603	main	С	image	
+641	604	main	С	image	
+642	605	main	С	image	
+643	606	main	С	image	
+644	607	main	С	image	
+645	608	main	С	image	
+646	609	main	С	image	
+647	610	main	С	image	
+648	611	main	С	image	
+649	612	main	С	image	
+650	613	main	С	image	
+651	614	main	С	image	
+652	615	main	С	image	
+653	616	main	С	image	
+654	617	main	С	image	
+655	618	main	С	image	
+656	619	main	С	image	
+657	620	main	С	image	
+658	621	main	С	image	
+659	622	main	С	image	
+660	623	main	С	image	
+661	624	main	С	image	
+662	625	main	С	image	
+663	626	main	С	image	
+664	627	main	С	image	
+665	628	main	С	image	
+666	629	main	С	image	
+667	630	main	С	image	
+668	631	main	С	image	
+669	632	main	С	image	
+670	633	main	С	image	
+671	634	main	С	image	
+672	635	main	С	image	
+673	636	main	С	image	
+674	637	main	С	image	
+675	638	main	С	image	
+676	639	main	С	image	
+677	640	main	С	image	
+678	641	main	С	image	
+679	642	main	С	image	
+680	643	main	С	image	
+681	644	main	С	image	
+682	645	main	С	image	
+683	646	main	С	image	
+684	647	main	С	image	
+685	648	main	С	image	
+686	649	main	С	image	
+687	650	main	С	image	
+688	651	main	С	image	
+689	652	main	С	image	
+690	653	main	С	image	
+691	654	main	С	image	
+692	655	main	С	image	
+693	656	main	С	image	
+694	657	main	С	image	
+695	658	main	С	image	
+696	659	main	С	image	
+697	660	main	С	image	
+698	661	main	С	image	
+699	662	main	С	image	
+700	663	main	С	image	
+701	664	main	С	image	
+702	665	main	С	image	
+703	666	main	С	image	
+704	667	main	С	image	
+705	668	main	С	image	
+706	669	main	С	image	
+707	670	main	С	image	
+708	671	main	С	image	
+709	672	main	С	image	
+710	673	main	С	image	
+711	674	main	С	image	
+712	675	main	С	image	
+713	676	main	С	image	
+714	677	main	С	image	
+715	678	main	С	image	
+716	679	main	С	image	
+717	680	main	С	image	
+718	681	main	С	image	
+719	682	main	С	image	
+720	683	main	С	image	
+721	684	main	С	image	
+722	685	main	С	image	
+723	686	main	С	image	
+724	687	main	С	image	
+725	688	main	С	image	
+726	689	main	С	image	
+727	690	main	С	image	
+728	691	main	С	image	
+729	692	main	С	image	
+730	693	main	С	image	
+731	694	main	С	image	
+732	695	main	С	image	
+733	696	main	С	image	
+734	697	main	С	image	
+735	698	main	С	image	
+736	699	main	С	image	
+737	700	main	С	image	
+738	701	main	С	image	
+739	702	main	С	image	
+740	703	main	С	image	
+741	704	main	С	image	
+742	705	main	С,Т	image	
+743	706	main	Т	image	
+744	707	main	Т	image	
+745	708	main	Т	image	
+746	709	main	Т	image	
+747	710	main	Т	image	page number confidence 89
+748	711	main	Т	image	
+749	712	main	Т	image	
+750	713	main	Т	image	
+751	714	main	Т	image	
+752	715	main	Т	image	
+753	716	main	Т	image	
+754	717	main	Т	image	
+755	718	main	Т	image	
+756	719	main	Т	image	
+757	720	main	Т	image	
+758	721	main	Т	image	
+759	722	main	Т	image	
+760	723	main	Т	image	
+761	724	main	Т	image	
+762	725	main	Т	image	
+763	726	main	Т	image	
+764	727	main	Т	image	
+765	728	main	Т	image	
+766	729	main	Т	image	
+767	730	main	Т	image	
+768	731	main	Т	image	
+769	732	main	Т	image	
+770	733	main	Т	image	
+771	734	main	Т	image	
+772	735	main	Т	image	
+773	736	main	Т	image	
+774	737	main	Т	image	
+775	738	main	Т	image	
+776	739	main	Т	image	
+777	740	main	Т	image	
+778	741	main	Т	image	
+779	742	main	Т	image	
+780	743	main	Т	image	
+781	744	main	Т	image	page number confidence 89
+782	745	main	Т,У	image	
+783	746	main	У	image	page number confidence 89
+784	747	main	У	image	
+785	748	main	У	image	page number confidence 89
+786	749	main	У	image	
+787	750	main	У	image	
+788	751	main	У	image	
+789	752	main	У	image	
+790	753	main	У	image	
+791	754	main	У	image	
+792	755	main	У	image	
+793	756	main	У	image	
+794	757	main	У	image	page number confidence 87
+795	758	main	У	image	
+796	759	main	У	image	
+797	760	main	У	image	
+798	761	main	У	image	
+799	762	main	У	image	
+800	763	main	У	image	
+801	764	main	У	image	page number confidence 88
+802	765	main	У	image	
+803	766	main	У	image	
+804	767	main	У	image	
+805	768	main	У	image	
+806	769	main	У	image	
+807	770	main	У	image	
+808	771	main	У	image	
+809	772	main	У,Ф	image	
+810	773	main	Ф	image	page number confidence 88
+811	774	main	Ф	image	
+812	775	main	Ф	image	page number confidence 88
+813	776	main	Ф	image	
+814	777	main	Ф	image	
+815	778	main	Ф	image	
+816	779	main	Ф	image	
+817	780	main	Ф,Х	image	
+818	781	main	Х	image	
+819	782	main	Х	image	
+820	783	main	Х	image	
+821	784	main	Х	image	
+822	785	main	Х	image	
+823	786	main	Х	image	
+824	787	main	Х	image	
+825	788	main	Х	image	
+826	789	main	Х	image	
+827	790	main	Х	image	
+828	791	main	Х	image	
+829	792	main	Х	image	
+830	793	main	Х	image	
+831	794	main	Х	image	
+832	795	main	Х	image	
+833	796	main	Х	image	
+834	797	main	Х	image	
+835	798	main	Х	image	
+836	799	main	Х,Ц	image	
+837	800	main	Ц	image	
+838	801	main	Ц	image	
+839	802	main	Ц	image	
+840	803	main	Ц	image	
+841	804	main	Ц	image	
+842	805	main	Ц	image	
+843	806	main	Ц	image	
+844	807	main	Ц	image	
+845	808	main	Ч	image	
+846	809	main	Ч	image	
+847	810	main	Ч	image	
+848	811	main	Ч	image	
+849	812	main	Ч	image	
+850	813	main	Ч	image	
+851	814	main	Ч	image	
+852	815	main	Ч	image	
+853	816	main	Ч	image	
+854	817	main	Ч	image	
+855	818	main	Ч	image	
+856	819	main	Ч	image	
+857	820	main	Ч	image	
+858	821	main	Ч	image	
+859	822	main	Ч	image	
+860	823	main	Ч	image	
+861	824	main	Ч	image	
+862	825	main	Ч	image	
+863	826	main	Ч	image	
+864	827	main	Ч	image	
+865	828	main	Ч	image	
+866	829	main	Ч	image	
+867	830	main	Ч,Ш	image	
+868	831	main	Ш	image	
+869	832	main	Ш	image	page number confidence 88
+870	833	main	Ш	image	
+871	834	main	Ш	image	
+872	835	main	Ш	image	
+873	836	main	Ш	image	
+874	837	main	Ш,Щ	image	
+875	838	main	Щ	image	
+876	839	main	Щ,Ъ	image	
+877	840	main	Ъ,Ы,Ь	image	
+878	841	main	Ѣ	image	
+879	842	main	Ѣ,Ю	image	
+880	843	main	Ю	image	
+881	844	main	Ю	image	
+882	845	main	Ю	image	
+883	846	main	Ю,Я	image	
+884	847	main	Я	image	
+885	848	main	Я	image	
+886	849	main	Я	image	
+887	850	main	Я	image	
+888	851	main	Я	image	
+889	852	main	Я	image	
+890	853	main	Я	image	
+891	854	main	Я,Ѥ	image	page number confidence 85
+892	855	main	Ѫ	image	
+893	856	main	Ѫ,Ѩ	image	
+894	857	main	Ѩ,Ѭ	image	
+895	858	main	Ѯ,Ѱ,Ѳ	image	
+896	859	main	Ѳ	image	
+897	860	main	Ѳ	image	
+898	861	main	Ѳ	image	
+899	862	main	Ѳ,Ѵ	image	
+900	863	main	Ѵ	image	
+901	864	blank		image	blank page
+902	865	supplement	А	image	
+903	866	supplement	А	image	
+904	867	supplement	А	image	
+905	868	supplement	А	image	
+906	869	supplement	А	image	
+907	870	supplement	А	image	
+908	871	supplement	А	image	
+909	872	supplement	А	image	
+910	873	supplement	А	image	
+911	874	supplement	А	image	
+912	875	supplement	А	image	
+913	876	supplement	А	image	
+914	877	supplement	А	image	
+915	878	supplement	А	image	
+916	879	supplement	А	image	
+917	880	supplement	А	image	
+918	881	supplement	А	image	
+919	882	supplement	А	image	
+920	883	supplement	А,Б	image	
+921	884	supplement	Б	image	
+922	885	supplement	Б	image	
+923	886	supplement	Б	image	
+924	887	supplement	Б	image	
+925	888	supplement	Б	image	
+926	889	supplement	Б	image	
+927	890	supplement	Б	image	
+928	891	supplement	Б	image	
+929	892	supplement	Б	image	
+930	893	supplement	Б	image	
+931	894	supplement	Б	image	
+932	895	supplement	Б	image	
+933	896	supplement	Б	image	
+934	897	supplement	Б	image	
+935	898	supplement	Б	image	
+936	899	supplement	Б	image	
+937	900	supplement	Б	image	
+938	901	supplement	Б	image	
+939	902	supplement	Б	image	
+940	903	supplement	Б	image	
+941	904	supplement	Б	image	
+942	905	supplement	Б	image	
+943	906	supplement	Б	image	
+944	907	supplement	Б	image	
+945	908	supplement	Б	image	
+946	909	supplement	Б	image	
+947	910	supplement	Б	image	
+948	911	supplement	Б	image	
+949	912	supplement	Б,В	image	
+950	913	supplement	В	image	
+951	914	supplement	В	image	
+952	915	supplement	В	image	
+953	916	supplement	В	image	
+954	917	supplement	В	image	
+955	918	supplement	В	image	
+956	919	supplement	В	image	
+957	920	supplement	В	image	
+958	921	supplement	В	image	
+959	922	supplement	В	image	
+960	923	supplement	В	image	
+961	924	supplement	В	image	
+962	925	supplement	В	image	
+963	926	supplement	В	image	
+964	927	supplement	В	image	
+965	928	supplement	В	image	
+966	929	supplement	В	image	
+967	930	supplement	В	image	
+968	931	supplement	В	image	
+969	932	supplement	В	image	
+970	933	supplement	В	image	
+971	934	supplement	В	image	
+972	935	supplement	В	image	
+973	936	supplement	В	image	
+974	937	supplement	В	image	
+975	938	supplement	В	image	
+976	939	supplement	В	image	
+977	940	supplement	В	image	
+978	941	supplement	В	image	
+979	942	supplement	В,Г	image	
+980	943	supplement	Г	image	
+981	944	supplement	Г	image	
+982	945	supplement	Г	image	
+983	946	supplement	Г	image	
+984	947	supplement	Г	image	
+985	948	supplement	Г	image	
+986	949	supplement	Г	image	page number confidence 88
+987	950	supplement	Г	image	
+988	951	supplement	Г	image	
+989	952	supplement	Г	image	
+990	953	supplement	Г	image	
+991	954	supplement	Г	image	
+992	955	supplement	Г	image	
+993	956	supplement	Г	image	
+994	957	supplement	Г,Д	image	
+995	958	supplement	Д	image	
+996	959	supplement	Д	image	
+997	960	supplement	Д	image	
+998	961	supplement	Д	image	
+999	962	supplement	Д	image	
+1000	963	supplement	Д	image	
+1001	964	supplement	Д	image	
+1002	965	supplement	Д	image	
+1003	966	supplement	Д	image	
+1004	967	supplement	Д	image	
+1005	968	supplement	Д	image	
+1006	969	supplement	Д	image	
+1007	970	supplement	Д	image	
+1008	971	supplement	Д	image	
+1009	972	supplement	Д	image	
+1010	973	supplement	Д	image	
+1011	974	supplement	Д,Е	image	
+1012	975	supplement	Е	image	
+1013	976	supplement	Е	image	
+1014	977	supplement	Е	image	
+1015	978	supplement	Е,Ж	image	
+1016	979	supplement	Ж	image	
+1017	980	supplement	Ж	image	
+1018	981	supplement	Ж,З	image	
+1019	982	supplement	З	image	
+1020	983	supplement	З	image	
+1021	984	supplement	З	image	
+1022	985	supplement	З	image	
+1023	986	supplement	З	image	
+1024	987	supplement	З	image	
+1025	988	supplement	З	image	
+1026	989	supplement	З	image	
+1027	990	supplement	З	image	
+1028	991	supplement	З	image	
+1029	992	supplement	З	image	
+1030	993	supplement	З,И	image	
+1031	994	supplement	И	image	
+1032	995	supplement	И	image	
+1033	996	supplement	И	image	
+1034	997	supplement	И	image	
+1035	998	supplement	И	image	
+1036	999	supplement	И	image	
+1037	1000	supplement	И	image	
+1038	1001	supplement	И,І	image	
+1039	1002	supplement	І	image	
+1040	1003	supplement	І	image	
+1041	1004	supplement	К	image	
+1042	1005	supplement	К	image	
+1043	1006	supplement	К	image	
+1044	1007	supplement	К	image	
+1045	1008	supplement	К	image	
+1046	1009	supplement	К	image	
+1047	1010	supplement	К	image	
+1048	1011	supplement	К	image	
+1049	1012	supplement	К	image	
+1050	1013	supplement	К	image	page number confidence 89
+1051	1014	supplement	К	image	
+1052	1015	supplement	К	image	
+1053	1016	supplement	К	image	
+1054	1017	supplement	К	image	
+1055	1018	supplement	К	image	
+1056	1019	supplement	К	image	
+1057	1020	supplement	К	image	
+1058	1021	supplement	К	image	
+1059	1022	supplement	К	image	
+1060	1023	supplement	К	image	
+1061	1024	supplement	К	image	
+1062	1025	supplement	К	image	
+1063	1026	supplement	К	image	
+1064	1027	supplement	К	image	
+1065	1028	supplement	К	image	
+1066	1029	supplement	К	image	
+1067	1030	supplement	К	image	
+1068	1031	supplement	К,Л	image	
+1069	1032	supplement	Л	image	
+1070	1033	supplement	Л	image	
+1071	1034	supplement	Л	image	
+1072	1035	supplement	Л	image	
+1073	1036	supplement	Л	image	
+1074	1037	supplement	Л	image	
+1075	1038	supplement	Л	image	
+1076	1039	supplement	Л	image	
+1077	1040	supplement	Л,М	image	
+1078	1041	supplement	М	image	
+1079	1042	supplement	М	image	
+1080	1043	supplement	М	image	
+1081	1044	supplement	М	image	
+1082	1045	supplement	М	image	
+1083	1046	supplement	М	image	
+1084	1047	supplement	М	image	
+1085	1048	supplement	М	image	
+1086	1049	supplement	М	image	
+1087	1050	supplement	М	image	
+1088	1051	supplement	М	image	
+1089	1052	supplement	Н	image	
+1090	1053	supplement	Н	image	
+1091	1054	supplement	Н	image	
+1092	1055	supplement	Н	image	
+1093	1056	supplement	Н	image	
+1094	1057	supplement	Н	image	
+1095	1058	supplement	Н	image	
+1096	1059	supplement	Н	image	
+1097	1060	supplement	Н	image	
+1098	1061	supplement	Н	image	
+1099	1062	supplement	Н,О	image	
+1100	1063	supplement	О	image	
+1101	1064	supplement	О	image	
+1102	1065	supplement	О	image	
+1103	1066	supplement	О	image	
+1104	1067	supplement	О	image	
+1105	1068	supplement	О	image	
+1106	1069	supplement	О	image	
+1107	1070	supplement	О	image	
+1108	1071	supplement	О	image	
+1109	1072	supplement	О	image	
+1110	1073	supplement	О	image	
+1111	1074	supplement	О	image	
+1112	1075	supplement	О	image	
+1113	1076	supplement	О	image	
+1114	1077	supplement	О	image	page number confidence 88
+1115	1078	supplement	О,П	image	
+1116	1079	supplement	П	image	
+1117	1080	supplement	П	image	
+1118	1081	supplement	П	image	
+1119	1082	supplement	П	image	
+1120	1083	supplement	П	image	
+1121	1084	supplement	П	image	
+1122	1085	supplement	П	image	
+1123	1086	supplement	П	image	
+1124	1087	supplement	П	image	
+1125	1088	supplement	П	image	
+1126	1089	supplement	П	image	
+1127	1090	supplement	П	image	
+1128	1091	supplement	П	image	
+1129	1092	supplement	П	image	
+1130	1093	supplement	П	image	
+1131	1094	supplement	П	image	
+1132	1095	supplement	П	image	
+1133	1096	supplement	П	image	
+1134	1097	supplement	П,Р	image	
+1135	1098	supplement	Р	image	
+1136	1099	supplement	Р	image	
+1137	1100	supplement	Р	image	
+1138	1101	supplement	Р,С	image	
+1139	1102	supplement	С	image	
+1140	1103	supplement	С	image	
+1141	1104	supplement	С	image	
+1142	1105	supplement	С	image	
+1143	1106	supplement	С	image	
+1144	1107	supplement	С	image	
+1145	1108	supplement	С	image	
+1146	1109	supplement	С	image	
+1147	1110	supplement	С	image	
+1148	1111	supplement	С,Т	image	
+1149	1112	supplement	Т	image	
+1150	1113	supplement	Т	image	
+1151	1114	supplement	Т	image	
+1152	1115	supplement	Т,У	image	
+1153	1116	supplement	У,Ф	image	
+1154	1117	supplement	Ф,Х	image	
+1155	1118	supplement	Ц,Ч	image	
+1156	1119	supplement	Ч,Ш,Ѣ	image	
+1157	1120	supplement	Ю,Я	image	
+1158		back		image	back cover
