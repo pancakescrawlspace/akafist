@@ -79,7 +79,20 @@ See PLAN.md for the phases. Newest entry last.
   layer of witness D (Cornell PDF) reads the CS headwords far better than ABBYY does on A (e.g. p. 623: Смудреникъ,
   Смученикъ, Смышленіе, Смѣжаю и сомжаю, Смѣйна — all right; ABBYY: garbage) — a strong candidate for the headwords.
 
-NEXT: Phase 2 — transcribe the remaining ground-truth pages (eval/gt/1124.txt = p. 1087, cut margin: read the missing
-letters in witness D; 0465.txt = p. 428; 0893.txt = p. 856), tell the user they can check eval/gt/*.txt; then write
-tools/dj_eval.py and measure CER per candidate: ABBYY on A (ocr/*.json), B's OCR (DjVu text layer / ABBYY XML),
-Google's text layer of C/D (pdftotext -bbox), separately for headwords, definitions and Greek; and entry segmentation.
+- Ground truth complete (session 2): all six pages in djachenko/eval/gt/ (0045 p. 8, 0517 p. 480, 0660 p. 623,
+  1124 p. 1087, 0893 p. 856, 0465 p. 428; ~22,900 characters, 141 entries/paragraphs). The user checked 0045
+  thoroughly (no error) and 0517 cursorily (no error); the rest are `status: draft`. The user asked that two
+  conventions be explicit decisions, now in eval/README.md: spacing around "=" follows the (inconsistent) print and
+  is ignored by the evaluation; CS accents/titla are not transcribed (Phase 0 decision 2).
+  Findings while transcribing: (1) p. 856 (leaf 893) also has the RIGHT margin of col b cut off in scan A (line ends
+  read in D) — Phase 3a only detects cut left margins; check how many pages have this. (2) p. 1087: in scan A even
+  the indented lines of col a lose their first letter. (3) Misprints of the book itself, confirmed in D:
+  "мꙋгленый" without С (p. 623), broken digit in "(Іер. 12, 4)" (p. 428). (4) In the small CS type и/н, в/к, б/в
+  are hard to tell apart; Google's reading of D often gets the headwords right where ABBYY on A fails.
+
+NEXT: Phase 2 measurements — write tools/dj_eval.py (reads eval/gt/*.txt per the README conventions; CER/WER overall,
+headwords `{…}` only, definitions only, Greek only; spacing ignored) and score: (a) ABBYY on A from ocr/*.json,
+(b) B's OCR (scan/reprint1993: DjVu text layer via djvutxt, or its _abbyy.gz), (c) Google's text layer of D
+(pdftotext -f N -layout/-bbox scan/google/google_cornell.pdf; PDF page = p + 48) and of C. Also: entry segmentation
+(entries_hint vs. GT entry starts); count pages with a cut right margin. Write results to eval/RESULTS.md. The user
+may still report corrections to the draft GT files — re-run the evaluation after any change.
