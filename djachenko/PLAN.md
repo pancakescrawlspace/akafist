@@ -2,7 +2,7 @@
 
 Goal: a machine-readable, proofread-where-it-matters copy of Г. Дьяченко, *Полный церковнославянский словарь* (Москва 1900;
 ~30,000 entries, ~1,120 two-column pages + XXXVIII pages of front matter), and from it a Typst/PDF rendition in the
-style of `dictionary/dictionary.typ`. The book is public domain (published 1900, author †1903).
+style of `akathist/dictionary/dictionary.typ`. The book is public domain (published 1900, author †1903).
 
 Revision 2 (2026-09-19, after Phase 1 investigation): source scan chosen; an existing ABBYY OCR layer with word
 coordinates and formatting was found, which reshapes Phases 2–4 (see "Findings" and the phases themselves).
@@ -83,7 +83,7 @@ tools/
   dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
                    sanity checks of the ground truth and of the entry starts (exists)
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv + FLAGS.md (exists; headwords provisional until step 2 runs)
-  dj_link.py       Phase 5: cross-reference entries.tsv with dictionary/dictionary.psv lemmas → links.tsv (exists)
+  dj_link.py       Phase 5: cross-reference entries.tsv with akathist/dictionary/dictionary.psv lemmas → links.tsv (exists)
   dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst), in the original's layout (exists)
 ```
 
@@ -96,7 +96,7 @@ Decide and record in `PROGRESS.md`:
 
 1. **Scope of the Typst output.** (a) the whole dictionary (~30,000 entries; at the current two-column A5 style this is
    in the order of 900–1,100 pages), or (b) a subset: the entries for the ~700 lemmas of the akathist dictionary plus
-   whatever else is wanted, as an appendix or companion volume to `dictionary/dictionary.pdf`. The pipeline is the same
+   whatever else is wanted, as an appendix or companion volume to `akathist/dictionary/dictionary.pdf`. The pipeline is the same
    up to Phase 5 either way; only Phase 6 differs. Default: build the full `entries.tsv`, render (b) first, (a) when
    proofreading has progressed.
 2. **Headword encoding.** Store headwords in *civil pre-reform script* (keeping ѣ, і, ѳ, ѵ, final ъ, but no titla or
@@ -272,7 +272,7 @@ listed in `djachenko/FLAGS.md` (regenerated each run).
 
 ## Phase 5 — Cross-reference and targeted proofreading (several short sessions)
 
-1. `tools/dj_link.py`: for every lemma of `dictionary/dictionary.psv`, find the matching Дьяченко entries by
+1. `tools/dj_link.py`: for every lemma of `akathist/dictionary/dictionary.psv`, find the matching Дьяченко entries by
    `headword_key` (with a small set of fallbacks: infinitive ↔ 1 sg. verb forms, ъ/ь variants, ѵ→и/в). Output
    `djachenko/links.tsv` (lemma → entry ids, match type) and a list of akathist lemmas with no match, to be resolved by
    hand. — Rev. 5: **exists** (session 3); with the provisional headwords it links 243 of 703 lemmas (exact 229,
@@ -280,7 +280,7 @@ listed in `djachenko/FLAGS.md` (regenerated each run).
 2. Proofread the linked entries against the page image (open `pages/NNNN.png`, fix the text in `entries.tsv`, set
    `status=checked`). Estimate: ~500–600 entries, a few minutes each — spread over sessions; `PROGRESS.md` records the
    last checked id.
-3. Optionally add a `dj` column to `dictionary/dictionary.psv` with the entry ids, so `dictionary.md/.typ` can show
+3. Optionally add a `dj` column to `akathist/dictionary/dictionary.psv` with the entry ids, so `dictionary.md/.typ` can show
    "Дьяченко s.v. …".
 
 *Definition of done:* every akathist lemma is linked or explicitly marked "not in Дьяченко"; linked entries `checked`.

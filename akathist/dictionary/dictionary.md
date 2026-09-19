@@ -1,6 +1,6 @@
 # Church Slavonic dictionary of the Akathist to the Theotokos before the Kazan icon
 
-Church Slavonic → Russian · English · Dutch. Generated from `dictionary.psv` by `tools/build.py`; 703 entries covering all 1070 distinct word-forms (2298 tokens) of the source text in `source/akafist-kazanskaja-cs.txt`.
+Church Slavonic → Russian · English · Dutch. Generated from `dictionary.psv` by `tools/build.py`; 703 entries covering all 1070 distinct word-forms (2298 tokens) of the source text in `akathist/source/akafist-kazanskaja-cs.txt`.
 
 Each entry gives the lemma (headword, civil script, with stress), part of speech, the forms in which the word actually occurs in the akathist (accent-free, with number of occurrences), the three glosses, and notes on the Greek original, biblical and liturgical background, false friends with modern Russian, and Dutch Orthodox usage. Glosses separated by ";" are alternatives in descending order of preference; the notes say when a rendering should be fixed once and kept throughout.
 

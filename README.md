@@ -1,21 +1,38 @@
-# Akathist to the Theotokos before the Kazan icon — groundwork for a Dutch translation
+# Church Slavonic: two projects
+
+This repository holds two separate pieces of work. They share a subject, a repository and a scripts folder, and
+nothing else.
+
+| Folder | Project |
+|---|---|
+| `akathist/` | **Akathist to the Theotokos before the Kazan icon** — the text and a 703-entry dictionary of it, as groundwork for a Dutch translation. Built by `tools/build.py`. |
+| `djachenko/` | **A digital edition of Дьяченко's dictionary of 1900** — the whole of Г. Дьяченко's *Полный церковнославянский словарь*, 25,362 entries, made from four scanned copies. Built by `tools/dj_*.py`. |
+
+The Дьяченко project started as a reference work for the akathist dictionary, but it is its own undertaking: it
+digitises the entire book, not the part the akathist needs, and it can be read, run and used without the akathist
+project. The single point of contact is `tools/dj_link.py`, which cross-references the akathist's 703 lemmas with
+Дьяченко's entries (Phase 5 of its plan).
+
+---
+
+## 1. The akathist and its dictionary (`akathist/`)
 
 Source: https://azbyka.ru/molitvoslov/akafist-presvjatoj-bogorodice-pred-ikonoj-kazanskaja.html
 (Church Slavonic in civil script with stress marks, with a Russian rendering), retrieved 2026-09-19.
 
-## Contents
+### Contents
 
 | Path | What it is |
 |---|---|
-| `source/akafist-kazanskaja-cs.txt` | The Church Slavonic text, one paragraph per line, headings `## Конда́к 1.` etc. (kontakia 1–13, ikoi 1–12, the repeated ikos 1 / kontakion 1, two prayers). |
-| `source/akafist-kazanskaja-ru.txt` | The Russian rendering from the same page, aligned paragraph for paragraph. |
-| `dictionary/dictionary.psv` | **Master dictionary** (edit this one). 703 entries, one per line, fields separated by ` \| `: lemma · part of speech · attested forms · Russian · English · Dutch · notes. |
-| `dictionary/dictionary.md` | The same, generated as readable Markdown, alphabetical, with occurrence counts per form. |
-| `dictionary/forms-index.tsv` | Every word-form of the text (1070) → its lemma, so a form met while translating can be looked up directly. |
-| `dictionary/dictionary.typ`, `dictionary/dictionary.pdf` | The same in a conventional printed-dictionary layout (Typst source and the compiled PDF): two columns on A5, run-in entries with hanging indent, guide words in the running head, letters bookmarked in the PDF outline. |
+| `akathist/source/akafist-kazanskaja-cs.txt` | The Church Slavonic text, one paragraph per line, headings `## Конда́к 1.` etc. (kontakia 1–13, ikoi 1–12, the repeated ikos 1 / kontakion 1, two prayers). |
+| `akathist/source/akafist-kazanskaja-ru.txt` | The Russian rendering from the same page, aligned paragraph for paragraph. |
+| `akathist/dictionary/dictionary.psv` | **Master dictionary** (edit this one). 703 entries, one per line, fields separated by ` \| `: lemma · part of speech · attested forms · Russian · English · Dutch · notes. |
+| `akathist/dictionary/dictionary.md` | The same, generated as readable Markdown, alphabetical, with occurrence counts per form. |
+| `akathist/dictionary/forms-index.tsv` | Every word-form of the text (1070) → its lemma, so a form met while translating can be looked up directly. |
+| `akathist/dictionary/dictionary.typ`, `dictionary.pdf` | The same in a conventional printed-dictionary layout (Typst source and the compiled PDF): two columns on A5, run-in entries with hanging indent, guide words in the running head, letters bookmarked in the PDF outline. |
 | `tools/build.py` | Regenerates all derived files from the master and checks that every form in the source text is covered by exactly one entry: `python3 tools/build.py` (options: `--paper a4` gives three columns; `--columns`, `--size`; `--no-pdf` skips the Typst compilation). |
 
-## How the dictionary was made
+### How the dictionary was made
 
 1. The Church Slavonic text was tokenised (2298 tokens, 1070 distinct forms after removing stress marks).
 2. Every form was assigned to a lemma by hand; the build script verifies that nothing is missing, nothing is claimed twice
@@ -34,7 +51,7 @@ Typst's bundled Libertinus Serif for Greek. If PT Serif is not installed Typst w
 leaves the stress marks visibly displaced to the right of their vowels; any serif font with Cyrillic mark anchoring
 (Times New Roman also works) can be put first in the `font:` list of `tools/build.py`.
 
-## Conventions
+### Conventions
 
 - Headwords are in civil script with the stress as printed in the source. Verbs are given under the infinitive
   (`вопи́ти`), participles under their verb, nouns in nom. sg., adjectives in the long masculine form (`благи́й`),
@@ -45,7 +62,7 @@ leaves the stress marks visibly displaced to the right of their vowels; any seri
   `Alreine`, `Verheug u`, `ontferming`, `in de eeuwen der eeuwen`, `eerbiedwaardiger dan de Cherubijnen`) and on the Dutch Bible
   tradition for Gospel quotations (Luke 1:28, 30, 38, 42, 48).
 
-## Church Slavonic words that are not what they look like in Russian
+### Church Slavonic words that are not what they look like in Russian
 
 The notes flag these individually; the ones a translator most needs to have in mind:
 
@@ -70,7 +87,7 @@ The notes flag these individually; the ones a translator most needs to have in m
 | лик / лице́ | choir, company / face | — (two different nouns) |
 | у́м / ра́зум / смысл | νοῦς / γνῶσις-σύνεσις / φρόνημα | — (three words, keep them apart) |
 
-## Passages that quote or echo other texts
+### Passages that quote or echo other texts
 
 Worth deciding once, then keeping identical wherever they recur:
 
@@ -91,15 +108,15 @@ Worth deciding once, then keeping identical wherever they recur:
 - **St Basil / Nicaea II**: `че́сть бо ико́ны на первообра́зное восхо́дит` (Kontakion 8).
 - **Doxologies**: `Пречестно́е и Великоле́пое И́мя Отца́ и Сы́на и Свята́го Ду́ха`, `ны́не и при́сно и во ве́ки веко́в`, `Тебе́ сла́ва подоба́ет`.
 
-## References
+### References
 
 The glosses and notes were written from the compiler's knowledge of the texts, not by systematic look-up; these are the
 standard works against which entries should be checked.
 
 **Church Slavonic**
 - Г. Дьяченко, *Полный церковнославянский словарь* (Москва, 1900) — the classic one-volume dictionary, still the first
-  place to look. Only page scans exist online (azbyka.ru, dhonorare.ru, Wikimedia Commons/archive.org); there is no
-  transcribed edition. A plan for producing a structured digital copy is in `djachenko/PLAN.md`.
+  place to look. Only page scans of it exist online; the digital edition being made from them is the second project in
+  this repository, [below](#2-a-digital-edition-of-дьяченко-1900-djachenko).
 - *Большой словарь церковнославянского языка Нового времени* (Институт русского языка РАН, Москва, 2016–; in progress,
   alphabetically from А) — the modern scholarly dictionary of the Slavonic of the printed service books, with citations.
 - А. Бончев, *Речник на църковнославянския език* (София, 2002–2012), 2 vols — useful second opinion.
@@ -126,3 +143,133 @@ standard works against which entries should be checked.
   Chrysostom and of the Akathist hymn in use in the Netherlands and Flanders, which are the source of renderings such as
   *Moeder Gods*, *Alheilige*, *Verheug u*, *in de eeuwen der eeuwen*.
 - For Gospel quotations (Luke 1) the Willibrordvertaling and NBG 1951 / NBV21 are cited where their wording matters.
+
+---
+
+## 2. A digital edition of Дьяченко (1900) (`djachenko/`)
+
+Прот. Григорий Дьяченко, *Полный церковно-славянскій словарь (со внесеніемъ въ него важнѣйшихъ древне-русскихъ словъ
+и выраженій)*, Москва: Типографія Вильде, 1900 — XXXVIII + 1,120 pages in two columns, about 30,000 entries. It is
+still the first place to look up a Church Slavonic word, and it is in the public domain (author †1903). Scans of it
+are everywhere; **a transcribed edition does not exist**. This project makes one: a structured, machine-readable
+`entries.tsv`, and from it a rendition set like the original.
+
+The text is not taken from one scan. Four copies of the 1900 printing — "witnesses", recorded with everything that
+was checked about them in `COPIES.md` — were located, and their OCR layers were scored against six pages transcribed
+by hand (`eval/`). Each kind of content then comes from whichever witness reads it best, and the rest is voted
+character by character:
+
+| | Physical copy | Scan | What it contributes |
+|---|---|---|---|
+| **A** | Russian State Library | archive.org, colour 600 ppi JP2, with archive.org's ABBYY FineReader layer | the **page geometry**: columns, bands, paragraphs, entry starts, italics, headword boxes. Its left margin is cut off on 242 pages and its right margin on 313 |
+| **B** | the copy reproduced in the 1993 reprint | archive.org DjVu, ≈237 ppi, with its own OCR | second opinion in the vote |
+| **C** | Indiana University (a photo-offset reprint) | Google Books PDF, 600 ppi, 2 vols | third opinion |
+| **D** | Cornell University (an original of 1900) | Google Books PDF, 600 ppi | the **primary text**: 1.5 % character error against the ground truth, and it has the margins and the Greek that A lost |
+
+Measured on the six ground-truth pages (`eval/RESULTS.md`): definition text ≈1 % character error after the vote,
+Greek 1.5 %, entry segmentation 99 % recall and 100 % precision on ordinary pages. The Church Slavonic headwords are
+the one thing no OCR reads (about 48 % exact in every layer), so they are read from 400 ppi crops of the page images
+by a vision model — the step still outstanding.
+
+### The toolchain
+
+```mermaid
+flowchart TD
+    subgraph SRC["Sources — four copies of the 1900 printing"]
+        WA["A · РГБ copy<br/>archive.org: 600 ppi JP2<br/>+ ABBYY FineReader XML"]
+        WB["B · 1993 reprint<br/>DjVu + its own OCR layer"]
+        WC["C · Indiana copy<br/>Google Books PDF, 2 vols"]
+        WD["D · Cornell copy<br/>Google Books PDF"]
+    end
+
+    WA --> FETCH["dj_fetch.py — Phase 1<br/>download · MD5 · extract · 300 ppi JPEGs"]
+    WB --> FETCH
+    WC -- "by hand from Google Books" --> SCAN
+    WD -- "by hand from Google Books" --> SCAN
+    FETCH --> SCAN[("scan/ · pages/ · manifest.tsv<br/>≈6 GB, git-ignored")]
+
+    SCAN --> ABBYY["dj_abbyy.py — Phase 3a<br/>ABBYY XML → layout: columns, bands,<br/>paragraphs, entry starts, italics, headword boxes"]
+    ABBYY --> OCRJ[("ocr/NNNN.json — one file per leaf<br/>the faithful record, committed")]
+
+    SCAN --> WITLIB["dj_witness.py — shared library<br/>word boxes of B, C, D · reading order · page furniture<br/>normalisation · alignment"]
+
+    WITLIB --> HEADS["dj_heads.py — Phase 3b<br/>step 1: D's text on A's segmentation, voted with B, C, A<br/>step 2: headwords read from crops by a vision model"]
+    OCRJ --> HEADS
+    HEADS -- "text_merged · disputed · italic · headwords" --> OCRJ
+
+    WITLIB --> EVAL["dj_eval.py — Phase 2<br/>character error per zone, segmentation,<br/>headword vote, suspect ground truth"]
+    GT[("eval/gt/*.txt<br/>6 pages transcribed by hand")] --> EVAL
+    EVAL --> RES[("eval/RESULTS.md · results.tsv")]
+
+    OCRJ --> PARSE["dj_parse.py — Phase 4<br/>entries, typography, quotation marks,<br/>headword forms and keys, validation"]
+    PARSE --> ENT[("entries.tsv — 25,362 entries")]
+    PARSE --> FLG[("FLAGS.md — what needs checking")]
+
+    PSV[("akathist/dictionary/dictionary.psv<br/>703 akathist lemmas")] --> LINK["dj_link.py — Phase 5<br/>lemma → entry, with fallbacks"]
+    ENT --> LINK
+    LINK --> LNK[("links.tsv")]
+
+    ENT --> BUILD["dj_build.py — Phase 6<br/>Typst in the original's layout"]
+    BUILD --> PDF[("djachenko.typ + .pdf<br/>≈1,000 pages, git-ignored")]
+
+    OCRJ --> INSP["dj_inspect.py — crops, overlays,<br/>the same line in all four witnesses, checks"]
+    SCAN --> INSP
+```
+
+`dj_witness.py` is a library, not a command; every other script is run directly and is idempotent and resumable, so
+an interrupted run can simply be repeated. What each of them does in detail is in its own docstring.
+
+| Script | Phase | Output |
+|---|---|---|
+| `tools/dj_fetch.py` | 1 | `scan/` (MD5-verified originals), `pages/` (600 ppi JP2 + 300 ppi JPEG), `manifest.tsv` |
+| `tools/dj_abbyy.py` | 3a | `ocr/NNNN.json`: the page's layout and ABBYY's reading |
+| `tools/dj_witness.py` | — | shared access to B, C, D and the text machinery (used by 3b and 2) |
+| `tools/dj_heads.py` | 3b | the merged text and the headwords, written back into `ocr/NNNN.json` |
+| `tools/dj_eval.py` | 2 | `eval/results.tsv`; the numbers behind every routing decision |
+| `tools/dj_parse.py` | 4 | `entries.tsv`, `FLAGS.md` |
+| `tools/dj_link.py` | 5 | `links.tsv` (akathist lemmas → entries) |
+| `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf` |
+| `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye |
+
+### Where it stands
+
+- **Text:** merged for all 1,119 dictionary pages; 25,362 entries (20,079 in the main sequence, 5,283 in the
+  supplement) in `entries.tsv`, with the spans where the witnesses disagree and the italics marked per entry.
+- **Headwords:** 25 read so far; the other 25,337 carry witness D's provisional reading and are printed grey in the
+  PDF. Reading them is the next step.
+- **Cross-reference:** 243 of the 703 akathist lemmas are linked — a lower bound until the headwords are read.
+- **Rendition:** the whole book in the original's layout, about 1,000 A4 pages.
+- **Proofreading:** not started. `FLAGS.md` lists what to look at first.
+
+### Documentation
+
+`djachenko/` documents itself, so that a session months later can pick the work up:
+
+| File | What it holds |
+|---|---|
+| `PROGRESS.md` | the running log; **its `NEXT:` line is where to start** |
+| `PLAN.md` | the phases, each with a definition of done and a resume paragraph |
+| `SOURCE.md` | the scan in use: URLs, checksums, leaf → printed page, scan defects |
+| `COPIES.md` | every copy or scan located, including those that could not be downloaded |
+| `eval/RESULTS.md` | the Phase 2 measurements and the route they decided |
+| `FLAGS.md` | the validation report of the last `dj_parse.py` run |
+| `QUOTES.md` | a worked example of one defect (floating quotation marks): measurement, rules, verification |
+
+### Rebuilding it
+
+The scans (≈6 GB) and the generated PDF are not in the repository; everything else is.
+
+```sh
+python3 tools/dj_fetch.py --all     # witness A and the OCR layers, resumable (witnesses C and D by hand)
+python3 tools/dj_abbyy.py           # Phase 3a: layout → ocr/*.json          (~6 s)
+python3 tools/dj_heads.py text      # Phase 3b step 1: the merged text       (~80 s)
+python3 tools/dj_parse.py           # Phase 4: entries.tsv + FLAGS.md        (~3 s)
+python3 tools/dj_link.py            # Phase 5: links.tsv
+python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)
+python3 tools/dj_eval.py --refresh  # Phase 2: re-score everything against eval/gt/
+```
+
+Requirements: Python 3 with `numpy` and `Pillow`, the `pdftotext`/`pdftoppm` (poppler) and `djvused`/`ddjvu`
+(DjVuLibre) command-line tools for the witnesses, and [Typst](https://typst.app) for the PDF. The two fonts of the
+rendition (Ponomar Unicode for Church Slavonic, Old Standard TT for the civil text and Greek) are fetched by
+`dj_build.py`; both are under the SIL Open Font License.

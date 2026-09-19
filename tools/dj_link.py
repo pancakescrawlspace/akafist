@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Phase 5 of djachenko/PLAN.md, step 1: link the lemmas of the akathist dictionary to Дьяченко's entries.
 
-    python3 tools/dj_link.py             # dictionary/dictionary.psv × djachenko/entries.tsv -> djachenko/links.tsv
+    python3 tools/dj_link.py             # akathist/…/dictionary.psv × djachenko/entries.tsv -> djachenko/links.tsv
 
 For every lemma (modern-orthography civil form with accents, e.g. благоволи́ти, ага́рянский) the entries of
 entries.tsv whose headword_key matches, in this order of match types (the first that yields anything wins):
@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from dj_parse import civil, modern_key  # noqa: E402
 from dj_witness import DJ  # noqa: E402
 
-LEMMAS = DJ.parent / 'dictionary' / 'dictionary.psv'
+LEMMAS = DJ.parent / 'akathist' / 'dictionary' / 'dictionary.psv'
 ENTRIES = DJ / 'entries.tsv'
 LINKS = DJ / 'links.tsv'
 

@@ -231,6 +231,12 @@ See PLAN.md for the phases. Newest entry last.
      before); checked by simulating step-2 headwords on `Гадара`, `Инока`, `Стѣна плача`.
   PDF rebuilt; links.tsv unchanged.
 
+- Repository restructured (session 4, end; user's request): the akathist project moved into `akathist/`
+  (`akathist/source/`, `akathist/dictionary/`); `djachenko/` and `tools/` unchanged. The only path that mattered
+  here: `dj_link.py` now reads `akathist/dictionary/dictionary.psv` (links.tsv unchanged after the move). README.md
+  rewritten as two independent projects, with a Mermaid diagram of the Дьяченко toolchain and its sources; PLAN.md
+  and CLAUDE.md paths updated.
+
 NEXT: Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
