@@ -50,6 +50,11 @@ checked cursorily, no error found (2026-09-19).
   or C; see COPIES.md).
 - `[?]` after a word: reading uncertain. `□`: an illegible character. A letter that is printed but damaged (broken
   type) is transcribed as the letter it is, with a `# notes:` comment.
+- Verse quotations (set indented) are joined like prose, one space between verse lines; a turned-over verse end is
+  joined to its line.
+- A defect of scan A (cut margin) is supplemented from another copy; a defect of the printed book itself (a letter
+  missing, broken type) is transcribed as printed and noted — checked in witness D, e.g. "мꙋгленый" (p. 623) lacks
+  its С in both copies.
 - Roman numerals are written with Latin letters (XVI), as printed. An entry split across a column break: the first
   part keeps its final hyphen (`со сбо-`), the continuation starts with `+ ` (`+ рами …`).
 - How it was made: each column was read line by line in 600 ppi crops of scan A, and every line was compared with
