@@ -73,7 +73,13 @@ See PLAN.md for the phases. Newest entry last.
   ("Reprinted by JUH", title page 1899), 2 vols; D = Cornell University's original copy (title page 1900), complete.
   Both bilevel 600 ppi with Google's OCR text layer, margins intact. D is now the best second witness.
 
-NEXT: Phase 2 — choose the 6 ground-truth pages (PLAN.md Phase 2, incl. Rev. 3 notes), transcribe them into
-djachenko/eval/gt/NNNN.txt (ask the user whether they want to check the transcriptions), write tools/dj_eval.py, and
-measure: definition text CER of the ABBYY layer (take the text from ocr/*.json), entry segmentation (entries_hint),
-and the headword candidates (a: vision on column images, b: vision on headword crops from entries_hint[].bbox).
+- Phase 2 started (session 2): ground-truth conventions in djachenko/eval/README.md; transcribed (status draft, for
+  the user to check): eval/gt/0045.txt (p. 8), 0517.txt (p. 480), 0660.txt (p. 623). Method: 600 ppi crops of scan A,
+  line by line against ABBYY's reading; doubtful glyphs checked in witness D. Observation to measure: Google's text
+  layer of witness D (Cornell PDF) reads the CS headwords far better than ABBYY does on A (e.g. p. 623: Смудреникъ,
+  Смученикъ, Смышленіе, Смѣжаю и сомжаю, Смѣйна — all right; ABBYY: garbage) — a strong candidate for the headwords.
+
+NEXT: Phase 2 — transcribe the remaining ground-truth pages (eval/gt/1124.txt = p. 1087, cut margin: read the missing
+letters in witness D; 0465.txt = p. 428; 0893.txt = p. 856), tell the user they can check eval/gt/*.txt; then write
+tools/dj_eval.py and measure CER per candidate: ABBYY on A (ocr/*.json), B's OCR (DjVu text layer / ABBYY XML),
+Google's text layer of C/D (pdftotext -bbox), separately for headwords, definitions and Greek; and entry segmentation.
