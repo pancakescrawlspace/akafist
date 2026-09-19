@@ -68,12 +68,16 @@ djachenko/
                    ocr/report.tsv: per-page statistics and warnings of the last dj_abbyy.py run
   entries.tsv      the structured dictionary (Phase 4 output) — committed
   eval/            ground-truth pages and evaluation results (Phase 2)
+  cache/           rendered D pages, entry crops, contact sheets (Phase 3b step 2; git-ignored, rebuilt on demand)
+  heads_batches.tsv  Message Batches submitted by `dj_heads.py read --batch`, with their status (committed)
   djachenko.typ, djachenko.pdf   Typst rendition (Phase 6)
 tools/
   dj_fetch.py      Phase 1: download scan + OCR layers, extract page images, write manifest (exists)
   dj_abbyy.py      Phase 3a: ABBYY XML → ocr/NNNN.json (text, geometry, formatting), idempotent (exists)
-  dj_heads.py      Phase 3b (Rev. 5): per page, align witness D's text to A's segmentation, vote the definition text
-                   with B and A, transfer the headword boxes, read the headwords from crops; idempotent
+  dj_heads.py      Phase 3b (Rev. 5): `text` — per page, align witness D's text to A's segmentation, vote with B, A
+                   and C (exists, run); `crops`/`read`/`collect`/`sheet`/`enter`/`check` — the headwords from
+                   crops, by the API or by hand (exists, not yet run); idempotent and resumable throughout
+  dj_witness.py    shared: witness word boxes and page mapping, reading order, normalisation, alignment (exists)
   dj_eval.py       Phase 2: CER of the OCR candidates against the ground truth, per zone; triangulation (exists)
   dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
                    sanity checks of the ground truth and of the entry starts (exists)
@@ -196,13 +200,19 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
    `disputed` spans, `fixed`, `d_cut`, `d_line`; per page a `witness` block. Definitions 1.0 % CER on the GT
    (D alone 1.5 %), 85 % of the remaining errors inside the disputed spans. All 1,119 pages done (62 s; resumable;
    `dj_abbyy.py` carries the texts over on regeneration).
-2. *Headwords.* For every `entries_hint`, crop the headword box from A's 600 ppi image (from D's page image, located
-   through the alignment, on the 242 left-cut pages), tile ~30 crops on a contact sheet with numbers, and have a
-   vision model return the headwords in the GT transcription convention (CS letters as printed, no diacritics).
-   Write `headword` (as read), `headword_civil` (mapped), `headword_source`, and a `check` field: `confirmed` when B,
-   C or D read the same (norm), `disputed` otherwise. Also covers the 18 picture-only headwords and the cut-off
-   initials. Open decision (user): run the sheets through the API unattended (~850 sheets, ~2 M tokens) or in
-   interactive sessions.
+2. *Headwords.* — pipeline **built** (session 3), reading not yet run. For every `entries_hint` a crop of the start of
+   the entry's first line, from A's 600 ppi image or from D's rendered page on the 242 left-cut pages (via `d_line`),
+   at 400 ppi (`cache/crops/`). `dj_heads.py read` sends one request per page with the crops as separate images
+   (~110 tokens each, ~3.5 M image tokens for the book) after a cached few-shot prefix of seven GT examples, and
+   stores the JSON answer in `entries_hint[]`: `headword` (GT convention: letters as printed, no diacritics; null
+   for a line that is not an entry start), `headword_source`, `check` (`confirmed` when D, C, B or A contain the
+   same reading at norm level, else `disputed`, `no_entry`), `confirmed_by`. `read --batch` uses Message Batches
+   (half price) and records the batch ids in `heads_batches.tsv` for `collect` in a later session; `sheet`/`enter`
+   do the same by hand (tested on leaf 341: 25/25, 23 confirmed, the 2 disputed are the ones needing a second
+   look). `dj_eval.py --heads` scores the readings on the GT pages. `headword_civil` is derived in Phase 4.
+   Open decision (user): API (needs `pip install anthropic` and ANTHROPIC_API_KEY; cost = ~$17 of images + the
+   model's output, which the effort level governs — measure on the six GT pages at effort low and medium first)
+   or interactive sessions (~1,700 sheets of 15).
 3. *Greek.* Greek runs come with D's text; where C disagrees on a Greek run, mark it `disputed`.
 
 Manifest status becomes `ocr` when a page has all three. Batches sized to a session; after every batch:

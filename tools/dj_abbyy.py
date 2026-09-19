@@ -774,13 +774,14 @@ def carry_over(page, path):
     if not path.exists():
         return
     old = json.loads(path.read_text(encoding='utf-8'))
-    filled = [h for h in old.get('entries_hint', []) + old.get('orphan_hints', []) if h.get('headword')]
+    filled = [h for h in old.get('entries_hint', []) + old.get('orphan_hints', []) if h.get('headword_source')]
     orphans = []
     for h in filled:
         best = max(page['entries_hint'], key=lambda n: iou(n['bbox'], h['bbox']), default=None)
-        if best is not None and iou(best['bbox'], h['bbox']) > 0.3 and not best['headword']:
-            for k in ('headword', 'headword_source', 'conf'):
-                best[k] = h[k]
+        if best is not None and iou(best['bbox'], h['bbox']) > 0.3 and not best.get('headword_source'):
+            for k in ('headword', 'headword_source', 'conf', 'check', 'confirmed_by'):
+                if k in h:
+                    best[k] = h[k]
         else:
             orphans.append(h)
     if orphans:

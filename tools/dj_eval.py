@@ -4,6 +4,7 @@
     python3 tools/dj_eval.py                  # extract all candidates, score them, write eval/results.tsv + print
     python3 tools/dj_eval.py --show google_D 660     # aligned differences for one candidate and one GT leaf
     python3 tools/dj_eval.py --show abbyy_A 660 --zone hw
+    python3 tools/dj_eval.py --heads           # Phase 3b step 2: headwords in ocr/*.json vs the GT pages
 
 Candidates (text per page in reading order, cached in djachenko/eval/cand/<name>/NNNN.txt, NNNN = leaf of scan A):
     abbyy_A    archive.org's ABBYY layer of scan A, in the reading order of ocr/NNNN.json (Phase 3a)
@@ -273,6 +274,53 @@ def suspects(names=('google_D', 'djvu_B'), level='norm', context=12):
     print(f'{total} places where {" and ".join(names)} agree against the GT ({level})')
 
 
+def gt_headword_list(leaf):
+    """The headwords of a GT page in order: the first {…} of every entry line (‹› removed), else the text before
+    the first = — ( ."""
+    out = []
+    for line in (GT_DIR / f'{leaf:04d}.txt').read_text(encoding='utf-8').splitlines():
+        if not line.strip() or line.startswith(('#', '@', '+')):
+            continue
+        line = line.replace('[?]', '')
+        if line.startswith('{'):
+            hw = line[1:line.index('}')]
+        else:
+            hw = re.split(r'=|—|–|\s-\s|\(', line)[0]
+        out.append(hw.replace('‹', '').replace('›', '').strip())
+    return out
+
+
+def heads(level='norm'):
+    """Score the headwords of Phase 3b step 2 (entries_hint[].headword in ocr/*.json) against the GT pages: the two
+    headword lists are aligned (a false or missed entry start shifts them), a GT headword counts as right when the
+    reading aligned with it is identical at `level`."""
+    def n(s):
+        return ''.join(c for c, _ in normalise([(ch, None) for ch in s], level))
+    tot = dict(gt=0, right=0, read=0, null=0, missing=0)
+    for leaf in gt_leaves():
+        pg = json.loads((OCR / f'{leaf:04d}.json').read_text(encoding='utf-8'))
+        hints = [h for h in pg['entries_hint'] if h.get('headword_source')]
+        if not hints:
+            continue
+        gt = gt_headword_list(leaf)
+        cand = [h['headword'] for h in hints if h['headword'] is not None]
+        a, b = [n(x) for x in gt], [n(x) for x in cand]
+        _, cost_at, j_at = align(a, b)
+        right = sum(1 for c in cost_at if c == 0)
+        wrong = [(gt[i], cand[j_at[i]] if j_at[i] < len(cand) else '—') for i, c in enumerate(cost_at) if c]
+        print(f'leaf {leaf}: {right}/{len(gt)} GT headwords read exactly ({level}); {len(hints)} candidates, '
+              f'{len(hints) - len(cand)} answered null; wrong: {wrong}')
+        tot['gt'] += len(gt)
+        tot['right'] += right
+        tot['read'] += len(hints)
+        tot['null'] += len(hints) - len(cand)
+    if tot['gt']:
+        print(f'all: {tot["right"]}/{tot["gt"]} = {tot["right"] / tot["gt"]:.1%} exact ({level}); '
+              f'{tot["read"]} candidates read, {tot["null"]} null')
+    else:
+        print('no GT page has step-2 headwords yet (dj_heads.py read/enter)')
+
+
 def show(name, leaf, level, zone=None):
     gt = parse_gt(GT_DIR / f'{leaf:04d}.txt')
     text, _ = candidate(name, leaf)
@@ -304,7 +352,11 @@ def main():
     ap.add_argument('--vote', action='store_true', help='headword triangulation across the candidates')
     ap.add_argument('--suspects', action='store_true',
                     help='places where independent candidates agree against the GT (default google_D, djvu_B)')
+    ap.add_argument('--heads', action='store_true', help='score the step-2 headwords (dj_heads.py) on the GT pages')
     a = ap.parse_args()
+    if a.heads:
+        heads(a.level)
+        return
     if getattr(a, 'suspects', False):
         suspects(tuple(a.only.split(',')) if a.only else ('google_D', 'djvu_B'), a.level)
         return

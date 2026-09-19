@@ -2,3 +2,4 @@ djachenko/scan/
 djachenko/pages/
 __pycache__/
 djachenko/inspect/
+djachenko/cache/

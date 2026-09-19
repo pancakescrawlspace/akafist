@@ -129,11 +129,25 @@ See PLAN.md for the phases. Newest entry last.
   are taller), B's coarse boxes do not. dj_abbyy.py writes the witness block and carries the paragraph texts over
   by box (verified byte-identical after a full re-run).
 
-NEXT: Phase 3b step 2 — the headword reading. Build the crop pipeline in dj_heads.py: per hanging paragraph a crop
-of the entry's first line (from A's 600 ppi JP2 via lines[0].bbox; on the 242 left-cut pages from D's page rendered
-at 600 ppi via d_line), one request per page with the crops as separate images (full resolution, ~100 tokens each,
-cheaper than contact sheets), asking for the headwords as a JSON list in the GT convention (CS letters as printed, no
-diacritics); few-shot examples from the GT pages in a cached system prompt; store in entries_hint[].headword with
-headword_source and a check field (confirmed when B/C/D read the same at norm level, else disputed); run the six GT
-pages first and score hw exact with dj_eval. Reader backends: Anthropic API (Batches, claude-opus-5) or a manual
-mode (sheets for in-session reading) — the user still has to choose; the crop pipeline and the storage are the same.
+- Phase 3b step 2 pipeline (session 3, continued): dj_heads.py restructured into subcommands (text, show, crops,
+  sheet, enter, read, collect, check, report). Crops: start of the entry's first line from the column's left edge
+  (A's JP2; D's page rendered at 600 ppi on left-cut pages — a word box of D can miss the first letter, hence the
+  column edge), 400 ppi JPEG, cache/crops/ (git-ignored). Manual path tested on leaf 341 (enter → check: 23 of 25
+  confirmed by a witness, the 2 disputed are the two I had to zoom on earlier). API path written per the SDK
+  reference (claude-opus-5, few-shot prefix with cache_control, JSON answer, direct or Message Batches with the
+  batch ids recorded in heads_batches.tsv) but UNTESTED: no SDK installed, no key. dj_eval.py --heads scores the
+  step-2 headwords on the GT pages (tested with a planted error). dj_abbyy.py carries headword/check fields over.
+  Request size measured: ~110 image tokens per crop, ~3.5 M image tokens for the book (~$17 at Opus 5 input
+  price); the model's output (thinking + answers, $25/M) may cost as much again — governed by the effort level.
+  The user retracted the earlier "API pass" answer and asked for a clear statement of both options (given in the
+  session); decision pending.
+
+NEXT: Phase 3b step 2 — the reading itself, once the user has chosen:
+  (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
+      45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
+      (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
+      misread; then `read --batch` for the rest (records batch ids; `collect` later, resumable), then `check`.
+  (B) By hand: `sheet LEAF` → read → `enter LEAF FILE`, ~15 entries a sheet, in batches with commits.
+  Either way, then Phase 4 (dj_parse.py: entries.tsv from text_merged + headwords, headword_civil mapping,
+  alphabetical validation, the "=" from A's eq hint where the merged text lost it). The five draft GT files still
+  await the user's check (not blocking).
