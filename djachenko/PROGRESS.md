@@ -163,6 +163,20 @@ See PLAN.md for the phases. Newest entry last.
   (e.g. а́нгел, ами́нь, благи́й are unmatched only because D reads the CS initial А as Я). Matches sampled: right.
   entries.tsv must be read with csv.QUOTE_NONE (definitions contain quotation marks) — noted in dj_parse.py.
 
+- Phase 6 first version (session 3, continued; user: match the ORIGINAL's layout, not the akathist dictionary's):
+  tools/dj_build.py → djachenko/djachenko.typ + .pdf (git-ignored, regenerated in 4 min). Page measured on scan A
+  (text block 169 × 249 mm, columns 82.5 mm, gutter 5.3 mm, pitch 12.6 pt, indent 4.9 mm) on A4; two columns with
+  a rule, page number over a double rule, guide words (first three letters + dash) in CS type, running title +
+  signature number every 16th page, letter initials (all 68 sections placed from the manifest's letters). Fonts
+  fetched (OFL) into djachenko/fonts/: Ponomar Unicode (headwords), Old Standard TT (civil text, Greek). Marks of
+  the edition: grey headwords where still provisional, small grey ¶ page.column refs, --marks underlines disputed
+  spans; title page + "About this edition" page with the status figures. Whole book: 1,001 pages (original 1,120
+  → ~10 % denser). Also: step 1 now carries ABBYY's italic flags through the alignment (VERSION 5; `italic` spans
+  per paragraph and an `italic` column in entries.tsv), so sources and quotations are set in italics (partially:
+  ABBYY misses some). dj_parse: eq_from_A off-by-one fixed; enum/list/heading markup escaped in the builder.
+  Not yet in the rendition: Дьяченко's abbreviations list (front matter), the "checked" mark, the original's
+  spanning letter initials (Typst places them in the column), the errata.
+
 NEXT: Phase 3b step 2 — the reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`

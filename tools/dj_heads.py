@@ -28,7 +28,8 @@ Step 1, per page (leaf of scan A, main and supplement only):
   4. B, A and C are aligned to D; per character, if B differs from D, A reads like B and C does not confirm D,
      B's reading replaces D's ("fixed"); every other place where B differs from D stays D's but is "disputed".
   5. Written into the page JSON, per paragraph: text_d (D's raw text), text_merged (after the vote), disputed
-     (spans [start, end) in text_merged where D and B disagree), fixed (count), d_cut ("line" snapped to a D line
+     (spans [start, end) in text_merged where D and B disagree), italic (spans of words ABBYY flagged italic on A,
+     carried over through the alignment — the book's sources and quotations), fixed (count), d_cut ("line" snapped to a D line
      start, "aligned" not snapped, "forced" pushed to keep the order), d_line (box of the paragraph's first line
      in D, 600 ppi pixels — for the headword crops of step 2); and per page: witness {version, d_page, b_page,
      c_page, chars, cuts, disputed, fixed, odd = [col, para, length ratio] of paragraphs whose D text is much
@@ -57,9 +58,9 @@ from dj_witness import (CORNELL, DJ, OCR, PDF_DPI, align, b_page, c_page, d_page
                         load_page, norm_char, norm_seq, page_text, side_texts)
 import dj_abbyy  # noqa: E402  (dump, iou)
 
-VERSION = 4            # of the witness block; bump to redo every page (4 = per-side alignment; mixed lines for C, D)
+VERSION = 5            # of the witness block; bump to redo every page (5 = + italic spans from ABBYY's word flags)
 CUT_TOL = 15           # characters: how far a paragraph start may move to reach a line start of D
-PARA_KEYS = ('text_d', 'text_merged', 'disputed', 'fixed', 'd_cut', 'd_line')
+PARA_KEYS = ('text_d', 'text_merged', 'disputed', 'italic', 'fixed', 'd_cut', 'd_line')
 
 PAGES = DJ / 'pages'
 CACHE = DJ / 'cache'                  # rendered D pages, crops (git-ignored)
@@ -74,23 +75,60 @@ GT_EXAMPLES = [(517, 0, 'Предгрѧдꙋ'), (517, 1, 'Преддверїе')
 
 # ---------------------------------------------------------------- A
 
+HYPHENS_A = ('-', '¬', '‐')
+
+
+def line_tags(ln):
+    """Per character of the line's text: True where ABBYY flagged the word italic."""
+    text, tags, cur = ln['text'], [False] * len(ln['text']), 0
+    for w in ln['words']:
+        k = text.find(w[0], cur)
+        if k < 0:
+            continue
+        if 'i' in (w[6] or ''):
+            for i in range(k, k + len(w[0])):
+                tags[i] = True
+        cur = k + len(w[0])
+    return tags
+
+
+def join_tagged(lines):
+    """join_lines() for (text, tags) pairs: the same text, with the tags carried along."""
+    out, tags = '', []
+    for t, tg in lines:
+        lead = len(t) - len(t.lstrip())
+        t2 = t.strip()
+        tg = tg[lead:lead + len(t2)]
+        if not t2:
+            continue
+        if out.endswith(HYPHENS_A) and not out.endswith(' -'):
+            out, tags = out[:-1] + t2, tags[:-1] + tg
+        else:
+            out, tags = ((out + ' ' + t2), (tags + [False] + tg)) if out else (t2, tg)
+    return out, tags
+
+
 def a_paragraphs(pg, side):
-    """-> (text of A's paragraphs on one column side, top to bottom, [dict(col, para, start, text, hanging)]):
-    paragraphs joined with a space, a hyphenated paragraph end joined to a continuation (as dj_eval.cand_abbyy_A)."""
-    text, paras = '', []
+    """-> (text of A's paragraphs on one column side, top to bottom, its per-character italic tags,
+    [dict(col, para, start, text, hanging)]): paragraphs joined with a space, a hyphenated paragraph end joined to a
+    continuation (the text is the same as dj_eval.cand_abbyy_A builds)."""
+    text, tags, paras = '', [], []
     for ci, c in enumerate(pg['columns']):
         if c['side'] != side:
             continue
         for pi, p in enumerate(c['paragraphs']):
-            para = join_lines(ln['text'] for ln in p['lines']).replace('￼', '')
+            para, ptags = join_tagged((ln['text'], line_tags(ln)) for ln in p['lines'])
+            if '￼' in para:
+                ptags = [t for ch, t in zip(para, ptags) if ch != '￼']
+                para = para.replace('￼', '')
             if para:
                 if text and not (text.endswith(('-', '¬')) and not p['hanging']):
-                    text += ' '
+                    text, tags = text + ' ', tags + [False]
                 elif text:
-                    text = text[:-1]
+                    text, tags = text[:-1], tags[:-1]
             paras.append(dict(col=ci, para=pi, start=len(text), text=para, hanging=p['hanging']))
-            text += para
-    return text, paras
+            text, tags = text + para, tags + ptags
+    return text, tags, paras
 
 
 # ---------------------------------------------------------------- cutting D at A's paragraph starts
@@ -132,10 +170,12 @@ def cut_positions(a_text, paras, d_text, d_lines):
 
 # ---------------------------------------------------------------- the vote
 
-def merge(d_text, b_text, a_text, c_text):
-    """-> (merged text, out_at, disputed): out_at[r] = offset in the merged text of D's raw index r (len(d_text)+1
-    entries); disputed = [(start, end, fixed)] in merged coordinates, one per place where B differs from D — fixed
-    means B's reading replaced D's (the span is then B's text, possibly empty). A fix needs B and A to agree AND C
+def merge(d_text, b_text, a_text, c_text, a_tags=None):
+    """-> (merged text, out_at, disputed, italic): out_at[r] = offset in the merged text of D's raw index r
+    (len(d_text)+1 entries); disputed = [(start, end, fixed)] in merged coordinates, one per place where B differs
+    from D — fixed means B's reading replaced D's (the span is then B's text, possibly empty); italic = per merged
+    character, whether the A character aligned with it was flagged italic by ABBYY (a_tags, per A character).
+    A fix needs B and A to agree AND C
     not to confirm D: A and B are both FineReader and share the CS-type confusions (и/н, а/л, . for ,), C and D
     are both Google; two engines against two is a tie, and Google measured better (eval/RESULTS.md). Two exceptions
     where Google is systematically weak and the FineReader pair was right 19:0 and 9:3 on the ground truth: the "="
@@ -143,24 +183,25 @@ def merge(d_text, b_text, a_text, c_text):
     d_seq, d_idx = norm_seq(d_text)
     n = len(d_seq)
 
-    def readings_of(text):
-        """Per norm position of D: the witness's reading there, normalised and raw."""
+    def readings_of(text, tags=None):
+        """Per norm position of D: the witness's reading there, normalised and raw (and its italic tag)."""
         seq, idx = norm_seq(text)
         if not n or not seq:
-            return [''] * n, [''] * n
+            return [''] * n, [''] * n, [False] * n
         _, _, j_at = align(d_seq, seq)
-        norm, raw = [], []
+        norm, raw, ital = [], [], []
         for k in range(n):
             j0 = j_at[k]
             j1 = j_at[k + 1] if k + 1 < n else len(seq)
             norm.append(''.join(seq[j0:j1]) if j1 > j0 else '')
             raw.append(text[idx[j0]:idx[j1 - 1] + 1] if j1 > j0 else '')
-        return norm, raw
+            ital.append(bool(tags) and j1 > j0 and tags[idx[j0]])
+        return norm, raw, ital
 
-    rB, rawB = readings_of(b_text)
-    rA, _ = readings_of(a_text)
-    rC, _ = readings_of(c_text)
-    pieces, piece_at, flagged = [], [0] * (len(d_text) + 1), []
+    rB, rawB, _ = readings_of(b_text)
+    rA, _, iA = readings_of(a_text, a_tags)
+    rC, _, _ = readings_of(c_text)
+    pieces, piece_at, flagged, ital = [], [0] * (len(d_text) + 1), [], []
     pos = k = 0
     while k < n:
         r = d_idx[k]
@@ -170,6 +211,7 @@ def merge(d_text, b_text, a_text, c_text):
         while pos < r:                            # whitespace and other characters without a norm form
             piece_at[pos] = len(pieces)
             pieces.append(d_text[pos])
+            ital.append(None)
             pos += 1
         piece_at[r] = len(pieces)
         dn, bn, an, cn = (''.join(x[k:k1]) for x in (d_seq, rB, rA, rC))
@@ -181,18 +223,40 @@ def merge(d_text, b_text, a_text, c_text):
         else:
             flagged.append((len(pieces), False))
             pieces.append(d_text[r])
+        ital.append(any(iA[k:k1]))
         pos, k = r + 1, k1
     while pos < len(d_text):
         piece_at[pos] = len(pieces)
         pieces.append(d_text[pos])
+        ital.append(None)
         pos += 1
     piece_at[len(d_text)] = len(pieces)
-    offs, acc = [], 0
-    for s in pieces:
+    offs, acc, italic = [], 0, []
+    for s, it in zip(pieces, ital):
         offs.append(acc)
         acc += len(s)
+        italic.extend([it] * len(s))
     offs.append(acc)
-    return ''.join(pieces), [offs[i] for i in piece_at], [(offs[i], offs[i + 1], f) for i, f in flagged]
+    return (''.join(pieces), [offs[i] for i in piece_at], [(offs[i], offs[i + 1], f) for i, f in flagged],
+            italic)
+
+
+def italic_spans(text, italic, start, end):
+    """Word-level italic runs within text[start:end] (spans relative to start): a word is italic when at least
+    half of its letters are; runs of italic words, with the spaces between them, are joined."""
+    spans, run = [], None
+    for m in re.finditer(r'\S+', text[start:end]):
+        flags = [italic[start + i] for i in range(m.start(), m.end()) if text[start + i].isalnum()]
+        flags = [f for f in flags if f is not None]
+        if flags and sum(flags) * 2 >= len(flags):
+            if run and text[start + run[1]:start + m.start()].isspace():
+                run[1] = m.end()
+            else:
+                run = [m.start(), m.end()]
+                spans.append(run)
+        else:
+            run = None
+    return [sp for sp in spans if sp[1] - sp[0] >= 2]
 
 
 # ---------------------------------------------------------------- one page
@@ -205,22 +269,22 @@ def build_page(leaf, pg=None):
     n_disputed = n_fixed = n_chars = 0
     odd = []                                   # paragraphs whose D text is much shorter/longer than A's
     for side in 'ab':
-        a_text, paras = a_paragraphs(pg, side)
+        a_text, a_tags, paras = a_paragraphs(pg, side)
         D, B, C = (W[n][side] for n in 'DBC')
         d_text = D['text']
         n_chars += len(d_text)
         cuts = cut_positions(a_text, paras, d_text, D['lines'])
-        merged, out_at, disputed = merge(d_text, B['text'], a_text, C['text'])
+        merged, out_at, disputed, italic = merge(d_text, B['text'], a_text, C['text'], a_tags)
         n_disputed += len(disputed)
         n_fixed += sum(1 for _, _, f in disputed if f)
         line_at = {l['start']: l for l in D['lines']}
-        build_side(pg, paras, cuts, d_text, merged, out_at, disputed, line_at, k, stats, odd)
+        build_side(pg, paras, cuts, d_text, merged, out_at, disputed, italic, line_at, k, stats, odd)
     pg['witness'] = dict(version=VERSION, d_page=d_page(leaf), b_page=b_page(leaf), c_page=list(c_page(leaf)[1:]),
                          chars=n_chars, cuts=stats, disputed=n_disputed, fixed=n_fixed, odd=odd)
     return pg
 
 
-def build_side(pg, paras, cuts, d_text, merged, out_at, disputed, line_at, k, stats, odd):
+def build_side(pg, paras, cuts, d_text, merged, out_at, disputed, italic, line_at, k, stats, odd):
     """Write the per-paragraph results of one column side into the page; odd collects [col, para, ratio] for
     paragraphs whose merged text is < 0.75 or > 1.35 times the length of A's (a mis-cut, or a headword Google
     did not read at all)."""
@@ -244,6 +308,7 @@ def build_side(pg, paras, cuts, d_text, merged, out_at, disputed, line_at, k, st
         par['text_d'] = d_text[raw:raw_end].strip()
         par['text_merged'] = mseg
         par['disputed'] = spans
+        par['italic'] = italic_spans(merged, italic, base, base + len(mseg))
         par['fixed'] = fixed
         par['d_cut'] = how
         ln = line_at.get(raw)

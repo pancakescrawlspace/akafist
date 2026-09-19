@@ -70,7 +70,8 @@ djachenko/
   eval/            ground-truth pages and evaluation results (Phase 2)
   cache/           rendered D pages, entry crops, contact sheets (Phase 3b step 2; git-ignored, rebuilt on demand)
   heads_batches.tsv  Message Batches submitted by `dj_heads.py read --batch`, with their status (committed)
-  djachenko.typ, djachenko.pdf   Typst rendition (Phase 6)
+  djachenko.typ, djachenko.pdf   Typst rendition (Phase 6; generated, 9 + 20 MB — git-ignored, rebuilt with dj_build.py)
+  fonts/           Ponomar Unicode, Old Standard TT (OFL; fetched by dj_build.py; git-ignored)
 tools/
   dj_fetch.py      Phase 1: download scan + OCR layers, extract page images, write manifest (exists)
   dj_abbyy.py      Phase 3a: ABBYY XML → ocr/NNNN.json (text, geometry, formatting), idempotent (exists)
@@ -83,7 +84,7 @@ tools/
                    sanity checks of the ground truth and of the entry starts (exists)
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv + FLAGS.md (exists; headwords provisional until step 2 runs)
   dj_link.py       Phase 5: cross-reference entries.tsv with dictionary/dictionary.psv lemmas → links.tsv (exists)
-  dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst)
+  dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst), in the original's layout (exists)
 ```
 
 `.gitignore` gets `djachenko/scan/` and `djachenko/pages/`. Everything else is committed, in small batches, so that a
@@ -286,11 +287,18 @@ listed in `djachenko/FLAGS.md` (regenerated each run).
 
 ## Phase 6 — Typst rendition (one session for the script; re-run at will)
 
-`tools/dj_build.py [--subset links|all] [--paper a5|a4]` writes `djachenko/djachenko.typ` in the style of
-`dictionary/dictionary.typ` (same preamble: PT Serif + Libertinus, Greek rule, guide words, hanging-indent entries, big
-letter initials, front matter) and compiles it. Entry style: **headword** (civil pre-reform) `=` definition; grammatical
-tag in italics; unchecked entries marked with a small sign; page reference to the 1900 edition in grey at the end of
-the entry ("¶ 85b" = page 85, column b) so that anything can be verified against the scan.
+Rev. 5 (session 3, user's decision): the rendition follows the **original's layout**, not the akathist dictionary's
+style. `tools/dj_build.py [--subset all|links] [--leaves A-B] [--marks] [--no-refs]` writes `djachenko/djachenko.typ`
+and compiles it (whole book: 25,362 entries → ~1,000 A4 pages, 4 min, 20 MB): the original's text block (169 × 249
+mm, measured on scan A) on A4, two columns with a rule, 12.6 pt line pitch, hanging indent 4.9 mm, page number over a
+short double rule, guide words in Church Slavonic type, the running title with the signature number every sixteenth
+page; letter initials in the column. Fonts (OFL, fetched into `djachenko/fonts/`, git-ignored): Ponomar Unicode for
+the headwords (the Synodal CS typeface), Old Standard TT for the civil text and the Greek. Headwords not yet read
+from the images (`hw_provisional`) are printed grey; italics are ABBYY's (carried over in Phase 3b step 1, incomplete);
+a small grey ¶ with page and column of the 1900 edition ends every entry; `--marks` underlines the disputed spans.
+Front matter: title page and an "About this edition" page with the status figures. Not yet: Дьяченко's own list of
+abbreviations (front matter pp. XXIX–XXXIII), the "checked" mark (nothing is checked yet). — The earlier design
+(akathist style, `--paper a5`) is superseded.
 
 Front matter to include: title, bibliographic note, what "checked/unchecked" means, the encoding conventions of
 Phase 0.2, and Дьяченко's own list of abbreviations (transcribed from the front matter as part of Phase 3;

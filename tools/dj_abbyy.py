@@ -788,7 +788,7 @@ def carry_over(page, path):
         page['orphan_hints'] = orphans
         page['warnings'].append(f'{len(orphans)} filled headword(s) no longer match a paragraph: see orphan_hints')
     # the witness text of Phase 3b step 1 (dj_heads.py), per paragraph, by paragraph box
-    keys = ('text_d', 'text_merged', 'disputed', 'fixed', 'd_cut', 'd_line')
+    keys = ('text_d', 'text_merged', 'disputed', 'italic', 'fixed', 'd_cut', 'd_line')
     old_paras = [p for c in old.get('columns', []) for p in c['paragraphs'] if 'text_merged' in p]
     if old_paras:
         new_paras = [p for c in page['columns'] for p in c['paragraphs']]

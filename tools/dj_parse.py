@@ -29,6 +29,8 @@ definitions contain quotation marks):
     gram           the tag right after the separator: a parenthesised group "(греч. …)" or an abbreviation "гл."
     definition     the text after the separator (all of it; the gram tag is not removed)
     disputed       spans "start-end;…" in `definition` where witnesses D and B disagree (from step 1)
+    italic         spans "start-end;…" in `definition` printed in italics (sources, quotations; from ABBYY's word
+                   flags on A, carried over in step 1 — incomplete: ABBYY misses part of the italics)
     status         raw (Phase 5 sets checked)
     flags          ;-separated: hw_provisional, hw_disputed (step 2 reading confirmed by no witness), hw_missing,
                    guessed (entry start decided from text features, cut-margin page), no_sep (no separator found),
@@ -51,7 +53,7 @@ from dj_witness import DJ, LOOKALIKE, OCR, join_lines  # noqa: E402
 ENTRIES = DJ / 'entries.tsv'
 FLAGS = DJ / 'FLAGS.md'
 COLUMNS = ['id', 'part', 'page', 'col', 'headword', 'headword_civil', 'headword_key', 'hw_source', 'sep', 'gram',
-           'definition', 'disputed', 'status', 'flags']
+           'definition', 'disputed', 'italic', 'status', 'flags']
 
 # the book's letter order (from its table of contents; ѕ and ѡ have no sections of their own)
 COLLATION = 'абвгдежзиіклмнопрстуфхцчшщъыьѣэюяѥѫѩѭѯѱѳѵ'
@@ -114,8 +116,8 @@ def para_text(p):
     return t.strip()
 
 
-def tidy(text, spans):
-    """Remove the OCR's spaces before . , ; : ) and after (, and double spaces; the spans follow the text."""
+def tidy(text, *span_lists):
+    """Remove the OCR's spaces before . , ; : ) and after (, and double spaces; the span lists follow the text."""
     out, new_at, i = [], [0] * (len(text) + 1), 0
     while i < len(text):
         new_at[i] = len(out)
@@ -126,11 +128,11 @@ def tidy(text, spans):
         out.append(ch)
         i += 1
     new_at[len(text)] = len(out)
-    return ''.join(out), [[new_at[a], max(new_at[a], new_at[b])] for a, b in spans]
+    return (''.join(out),) + tuple([[new_at[a], max(new_at[a], new_at[b])] for a, b in spans] for spans in span_lists)
 
 
-def append_text(entry, text, disputed):
-    """Join a paragraph's text to the entry; disputed spans are shifted into the entry's coordinates."""
+def append_text(entry, text, disputed, italic):
+    """Join a paragraph's text to the entry; the spans are shifted into the entry's coordinates."""
     if not text:
         return
     base = entry['text']
@@ -144,6 +146,7 @@ def append_text(entry, text, disputed):
         off = 0
     entry['text'] = base + text
     entry['spans'].extend([s + off, e + off] for s, e in disputed)
+    entry['ispans'].extend([s + off, e + off] for s, e in italic)
 
 
 def build_entries(pgs):
@@ -158,8 +161,8 @@ def build_entries(pgs):
                 start = p['hanging'] and not (read and h['headword'] is None)
                 if start or cur is None:
                     cur = dict(id=f"{pg['idx']:04d}-{col['n']}-{pi:02d}", part=pg['section'],
-                               page=pg['printed_page'], col=col['side'], text='', spans=[], hint=h, flags=set(),
-                               leaf=pg['idx'])
+                               page=pg['printed_page'], col=col['side'], text='', spans=[], ispans=[], hint=h,
+                               flags=set(), leaf=pg['idx'])
                     if p.get('guessed'):
                         cur['flags'].add('guessed')
                     if h and not h['eq']:
@@ -169,7 +172,7 @@ def build_entries(pgs):
                     cur['flags'].add('joined_null')
                 if (col['n'], pi) in odd:
                     cur['flags'].add('odd_len')
-                append_text(cur, para_text(p), p.get('disputed') or [])
+                append_text(cur, para_text(p), p.get('disputed') or [], p.get('italic') or [])
     return entries
 
 
@@ -188,7 +191,7 @@ def paren_balance(text):
 
 def split_entry(e):
     """Head text / separator / definition; the headword from step 2 or provisionally from D's head text."""
-    e['text'], e['spans'] = tidy(e['text'], e['spans'])
+    e['text'], e['spans'], e['ispans'] = tidy(e['text'], e['spans'], e['ispans'])
     text = e['text']
     h = e['hint']
     m = SEP_RE.search(text, 0, min(len(text), 80))
@@ -202,7 +205,7 @@ def split_entry(e):
         n = min(4, max(1, len(h['abbyy'].split())))
         words = text.split(' ', n)
         head, rest = ' '.join(words[:n]), (words[n] if len(words) > n else '')
-        sep, cut = '', len(head)
+        sep, cut = '', len(head) + (1 if len(words) > n else 0)
         e['flags'].add('eq_from_A')
     else:
         head, sep, rest, cut = '', '', text, 0
@@ -214,6 +217,7 @@ def split_entry(e):
     lead = len(rest) - len(rest.lstrip())
     d0 = cut + lead
     e['disputed'] = ';'.join(f'{max(s, d0) - d0}-{e_ - d0}' for s, e_ in e['spans'] if e_ > d0 and s < len(text))
+    e['italic'] = ';'.join(f'{max(s, d0) - d0}-{e_ - d0}' for s, e_ in e['ispans'] if e_ > d0 and s < len(text))
     if h and h.get('headword_source'):
         e['headword'] = h['headword'] or ''
         e['hw_source'] = 'manual' if h['headword_source'] == 'manual' else 'vision'
