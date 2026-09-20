@@ -199,6 +199,6 @@
   {"col":2,"para":7,"bbox":[1879,3055,2333,3149],"abbyy":"Академія","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[1873,3691,2379,3793],"abbyy":"Якл^истъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":915,"b_page":867,"c_page":[309],"chars":4067,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":145,"fixed":17,"odd":[]},
+ "witness": {"version":10,"d_page":915,"b_page":867,"c_page":[309],"chars":4067,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":145,"fixed":17,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (41 lines at the image edge); entry starts from position and text features"]
 }

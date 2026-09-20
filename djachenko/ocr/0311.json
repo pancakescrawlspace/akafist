@@ -207,6 +207,6 @@
   {"col":2,"para":17,"bbox":[2365,4653,2651,4743],"abbyy":"Коукнга","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2359,4757,3229,4853],"abbyy":"Куколь и кукуль","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":322,"b_page":274,"c_page":[320],"chars":3975,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":172,"fixed":15,"odd":[]},
+ "witness": {"version":10,"d_page":322,"b_page":274,"c_page":[320],"chars":3975,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":172,"fixed":15,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (19 lines end at the image edge); line ends of the right column missing"]
 }

@@ -168,6 +168,6 @@
   {"col":2,"para":10,"bbox":[2403,5671,2967,5763],"abbyy":"СочекЙчнын","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2403,5789,3507,5891],"abbyy":"Сочельникъ., сочкникъ","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":694,"b_page":646,"c_page":[88],"chars":4083,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":179,"fixed":13,"odd":[]},
+ "witness": {"version":10,"d_page":694,"b_page":646,"c_page":[88],"chars":4083,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":179,"fixed":13,"odd":[]},
  "warnings": ["side a: lines at the edge lack \"=\", taken as continuation lines","side a: no flush line (edge from prior)"]
 }

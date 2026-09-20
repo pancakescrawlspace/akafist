@@ -191,6 +191,6 @@
   {"col":2,"para":6,"bbox":[2249,3377,2619,3527],"abbyy":"Кочетъ","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[2241,6057,2807,6151],"abbyy":"Крещатикъ","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":318,"b_page":270,"c_page":[316],"chars":3882,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":129,"fixed":22,"odd":[]},
+ "witness": {"version":10,"d_page":318,"b_page":270,"c_page":[316],"chars":3882,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":129,"fixed":22,"odd":[]},
  "warnings": []
 }

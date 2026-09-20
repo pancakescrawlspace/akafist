@@ -179,6 +179,6 @@
   {"col":4,"para":5,"bbox":[2031,4913,2871,5043],"abbyy":"Царское сбацяніе","abbyy_conf":23,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":6,"bbox":[2027,6153,3029,6261],"abbyy":"ЦлрсткінныА книги","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":847,"b_page":799,"c_page":[241],"chars":3504,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":149,"fixed":18,"odd":[]},
+ "witness": {"version":10,"d_page":847,"b_page":799,"c_page":[241],"chars":3504,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":149,"fixed":18,"odd":[]},
  "warnings": []
 }

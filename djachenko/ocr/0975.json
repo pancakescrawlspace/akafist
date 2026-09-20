@@ -220,6 +220,6 @@
   {"col":2,"para":14,"bbox":[2329,4495,3539,4589],"abbyy":"Вытручати, вытрутити","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2329,4801,2595,4875],"abbyy":"Выть","abbyy_conf":82,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":986,"b_page":938,"c_page":[380],"chars":3761,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":122,"fixed":24,"odd":[]},
+ "witness": {"version":10,"d_page":986,"b_page":938,"c_page":[380],"chars":3761,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":122,"fixed":24,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (28 lines end at the image edge); line ends of the right column missing"]
 }

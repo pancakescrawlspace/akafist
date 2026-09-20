@@ -203,6 +203,6 @@
   {"col":2,"para":10,"bbox":[2299,4007,2745,4103],"abbyy":"Отступка","abbyy_conf":63,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2299,4613,2969,4727],"abbyy":"Отступникъ","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":446,"b_page":398,"c_page":[444],"chars":3708,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":171,"fixed":29,"odd":[]},
+ "witness": {"version":10,"d_page":446,"b_page":398,"c_page":[444],"chars":3708,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":171,"fixed":29,"odd":[]},
  "warnings": []
 }

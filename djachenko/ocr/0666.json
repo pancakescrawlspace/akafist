@@ -172,6 +172,6 @@
   {"col":1,"para":12,"bbox":[47,5613,409,5721],"abbyy":"СоБг[:сть","abbyy_conf":14,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2063,5427,2631,5531],"abbyy":"Соб'&тникъ","abbyy_conf":20,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":677,"b_page":629,"c_page":[71],"chars":3951,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":163,"fixed":8,"odd":[]},
+ "witness": {"version":10,"d_page":677,"b_page":629,"c_page":[71],"chars":3951,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":163,"fixed":8,"odd":[]},
  "warnings": []
 }

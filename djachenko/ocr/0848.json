@@ -152,6 +152,6 @@
   {"col":2,"para":3,"bbox":[1993,4269,2425,4363],"abbyy":"Чахорда","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[1981,5183,2223,5263],"abbyy":"ЧлшА","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":859,"b_page":811,"c_page":[253],"chars":4188,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":115,"fixed":13,"odd":[]},
+ "witness": {"version":10,"d_page":859,"b_page":811,"c_page":[253],"chars":4188,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":115,"fixed":13,"odd":[]},
  "warnings": ["side a: no flush line (edge from prior)"]
 }

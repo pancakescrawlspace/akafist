@@ -206,7 +206,8 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
 
 1. *Text.* — **DONE** (session 3; `dj_heads.py`, shared code in `dj_witness.py`; eval/RESULTS.md addendum).
    Per column side: D's reading order from its word boxes, aligned to A's text, cut at A's paragraph starts snapped
-   to D's line starts; per-character vote D/B/A with C as the check; per paragraph `text_d`, `text_merged`,
+   to D's line starts; per-character vote D/B/A with C as the check (the rules and their evidence: `VOTE.md`);
+   per paragraph `text_d`, `text_merged`,
    `disputed` spans, `fixed`, `d_cut`, `d_line`; per page a `witness` block. Definitions 1.0 % CER on the GT
    (D alone 1.5 %), 85 % of the remaining errors inside the disputed spans. All 1,119 pages done (62 s; resumable;
    `dj_abbyy.py` carries the texts over on regeneration).

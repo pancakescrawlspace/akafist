@@ -64,7 +64,9 @@ from dj_witness import (CORNELL, DJ, OCR, PDF_DPI, align, b_page, c_page, d_page
                         load_page, norm_char, norm_seq, page_text, side_texts)
 import dj_abbyy  # noqa: E402  (dump, iou)
 
-VERSION = 9            # of the witness block; bump to redo every page (9 = breaks: the printed lines as offsets in
+VERSION = 10           # of the witness block; bump to redo every page (10 = the FineReader pair may override a
+#                        Latin-script word of D, or an unaccented Greek run, only with a word of D's own lexicon —
+#                        see VOTE.md; 9 = breaks: the printed lines as offsets in
 #                        text_merged; 8 = norm_char folds accented Latin letters
 #                        like plain ones — dj_witness; 7 = A+B may fix Google's Greek look-alikes
 #                        inside a Cyrillic word; 6 = the printer's sheet signature is no longer read as text —
@@ -256,6 +258,50 @@ def break_positions(aln, paras, cuts, d_text, d_lines):
 
 GREEK = re.compile(r'[\u0370-\u03ff\u1f00-\u1fff]')
 CYRIL = re.compile(r'[\u0400-\u052f]')
+LATIN = re.compile(r'[A-Za-z]')
+NO_TWIN = set('bdfghjklmnqrstuvwzDFGJLNQRSUVWYZ')   # Latin letters without a Cyrillic look-alike (dj_witness.LOOKALIKE)
+LEXICON_FILE = CACHE / 'd_lexicon.json'
+LEXICON_MIN = 2                                     # a word D read in Cyrillic at least this often is a word of the book
+_lexicon = None
+
+
+def build_lexicon():
+    """The Cyrillic words witness D read anywhere in the book (text_d of ocr/*.json, letters only, lower case) with
+    their counts — the FineReader pair may override a Latin-script word of D only with one of these (VOTE.md).
+    Written to cache/d_lexicon.json for the worker processes."""
+    from collections import Counter
+    words = Counter()
+    for f in sorted(OCR.glob('[0-9][0-9][0-9][0-9].json')):
+        pg = json.loads(f.read_text(encoding='utf-8'))
+        if pg['section'] not in ('main', 'supplement'):
+            continue
+        for c in pg['columns']:
+            for par in c['paragraphs']:
+                for w in re.findall(r'[\u0400-\u052f]{2,}', par.get('text_d') or ''):
+                    words[w.lower()] += 1
+    lex = {w: n for w, n in words.items() if n >= LEXICON_MIN}
+    LEXICON_FILE.parent.mkdir(parents=True, exist_ok=True)
+    LEXICON_FILE.write_text(json.dumps(lex, ensure_ascii=False), encoding='utf-8')
+    return lex
+
+
+def lexicon():
+    """{word: count} of build_lexicon(), loaded once per process."""
+    global _lexicon
+    if _lexicon is None:
+        _lexicon = json.loads(LEXICON_FILE.read_text(encoding='utf-8')) if LEXICON_FILE.exists() else {}
+    return _lexicon
+
+
+def edits(a, b):
+    """Levenshtein distance of two short strings."""
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        for j, cb in enumerate(b, 1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb)))
+        prev = cur
+    return prev[-1]
 
 
 def letter_run(text, i):
@@ -279,7 +325,12 @@ def merge(d_text, b_text, a_text, c_text, a_tags=None):
     are both Google; two engines against two is a tie, and Google measured better (eval/RESULTS.md). Two exceptions
     where Google is systematically weak and the FineReader pair was right 19:0 and 9:3 on the ground truth: the "="
     after the headword (Google reads a third of them) and final ъ/ь. A third: a Greek letter of D inside a word
-    that is Cyrillic (see greek_fix_allowed) — Google's script confusion, which C shares."""
+    that is Cyrillic (see greek_fix_allowed) — Google's script confusion, which C shares. A fourth (VERSION 10):
+    a Latin-script word of D with a letter that has no Cyrillic twin (a Latin, Sanskrit, Polish … word of the
+    etymologies, or a Roman numeral) may be overridden only with a word of D's own lexicon — the FineReaders, set to
+    Russian, agree on the same transliteration garbage for every such word; and an unaccented Greek run of D may
+    be overridden by B's Cyrillic word when A's reading is within one edit of it (the italic "греч." that Google
+    reads as τρει.). The rules and their evidence: djachenko/VOTE.md."""
     d_seq, d_idx = norm_seq(d_text)
     n = len(d_seq)
 
@@ -299,8 +350,64 @@ def merge(d_text, b_text, a_text, c_text, a_tags=None):
         return norm, raw, ital
 
     rB, rawB, _ = readings_of(b_text)
-    rA, _, iA = readings_of(a_text, a_tags)
+    rA, rawA, iA = readings_of(a_text, a_tags)
     rC, _, _ = readings_of(c_text)
+    lex = lexicon()
+
+    def run_positions(a, b):
+        k0, k1 = bisect.bisect_left(d_idx, a), bisect.bisect_left(d_idx, b)
+        return [k for k in range(k0, k1) if d_seq[k].isalpha()]
+
+    def word_of(readings_, ks):
+        return ''.join(c for c in ''.join(readings_[k] for k in ks) if c.isalpha()).lower()
+
+    latin_ok = {}
+
+    def latin_fix_allowed(r):
+        """D's word at r is Latin script with a letter that has no Cyrillic twin, and the FineReader pair would
+        turn it Cyrillic: allowed only with a word the book is known to contain (D's lexicon), or when C reads the
+        same as B — three witnesses against one. A dispute that leaves the word Latin (a dash, a diacritic) is
+        not this rule's business."""
+        a, b = letter_run(d_text, r)
+        if a not in latin_ok:
+            w = d_text[a:b]
+            if all(LATIN.match(c) for c in w) and any(c in NO_TWIN for c in w):
+                ks = run_positions(a, b)
+                bw = word_of(rawB, ks)
+                latin_ok[a] = not CYRIL.search(bw) or bw in lex or word_of(rB, ks) == word_of(rC, ks)
+            else:
+                latin_ok[a] = True
+        return latin_ok[a]
+
+    soft = {}
+
+    def greek_soft(r):
+        """D's word at r is an unaccented Greek run of 3+ letters and B (or A) reads a Cyrillic word of the lexicon
+        for it — the italic abbreviation Google takes for Greek (τρει. for греч., Παρ. for Пар.): -> (run start,
+        the word to put in place of the whole run), or None. B's word is taken when A reads nearly the same (one
+        edit) or nothing of the lexicon (A's alignment slips beside a garbled headword); when A and B read two
+        different words of the lexicon, the one the book uses more often."""
+        a, b = letter_run(d_text, r)
+        if a not in soft:
+            w = d_text[a:b]
+            soft[a] = None
+            if all(GREEK.match(c) for c in w) and not any(unicodedata.combining(c)
+                                                           for c in unicodedata.normalize('NFD', w)):
+                ks = run_positions(a, b)
+                cands = []
+                for readings_, raw_ in ((rawB, rawB), (rawA, rawA)):
+                    word = word_of(readings_, ks)
+                    if len(word) >= 3 and all(CYRIL.match(c) for c in word) and word in lex:
+                        raw = ''.join(raw_[k] for k in ks).strip().strip('.,;:')
+                        cands.append((lex[word], word, raw if raw.lower() == word else word))
+                bw, aw = word_of(rawB, ks), word_of(rawA, ks)
+                if len(cands) == 2 and cands[0][1] != cands[1][1]:   # two lexicon words: the more frequent one
+                    soft[a] = (a, max(cands)[2])
+                elif cands and cands[0][1] == bw and (edits(aw, bw) <= 1 or aw not in lex):
+                    soft[a] = (a, cands[0][2])
+                elif cands and cands[0][1] == aw and not bw:  # B read nothing, A a word of the lexicon
+                    soft[a] = (a, cands[0][2])
+        return soft[a]
 
     # Script confusion. Google reads Cyrillic letters as Greek look-alikes ("чтο", "πρимѣру", and whole words of
     # the Old Church Slavonic citation type: "Γλι" for "гдь"), and C confirms D because both are Google — so the
@@ -335,10 +442,18 @@ def merge(d_text, b_text, a_text, c_text, a_tags=None):
             pos += 1
         piece_at[r] = len(pieces)
         dn, bn, an, cn = (''.join(x[k:k1]) for x in (d_seq, rB, rA, rC))
-        if bn == dn:
+        sr = greek_soft(r) if GREEK.match(dn) and bn != dn else None
+        if sr:                                        # the whole run, at its first character
+            if r == sr[0]:
+                flagged.append((len(pieces), True))
+                pieces.append(sr[1])
+            else:
+                pieces.append('')
+        elif bn == dn:
             pieces.append(d_text[r])
         elif bn == an and (cn != dn or ('=' in bn and '=' not in dn) or {bn, dn} == {'ъ', 'ь'}
-                           or (GREEK.match(dn) and CYRIL.match(bn) and greek_fix_allowed(r))):
+                           or (GREEK.match(dn) and CYRIL.match(bn) and greek_fix_allowed(r))) \
+                and latin_fix_allowed(r):
             flagged.append((len(pieces), True))
             pieces.append(''.join(rawB[k:k1]))
         else:
@@ -925,6 +1040,8 @@ def report():
 def cmd_text(a):
     leaves = pages_todo(a, key='text')
     print(f'{len(leaves)} pages to do')
+    lex = build_lexicon()
+    print(f'lexicon: {len(lex)} Cyrillic words D read at least {LEXICON_MIN} times ({LEXICON_FILE.relative_to(DJ)})')
     errors = 0
     with Pool(a.workers) as pool:
         for n, (leaf, msg) in enumerate(pool.imap_unordered(process, leaves), 1):

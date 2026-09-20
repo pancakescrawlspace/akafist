@@ -255,6 +255,6 @@
   {"col":2,"para":21,"bbox":[2131,5573,2923,5705],"abbyy":"Всеноціед^нстбУе","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":22,"bbox":[2133,5807,3035,5951],"abbyy":"Е се но ці Ное ед'Ігн’Ге","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":151,"b_page":103,"c_page":[149],"chars":3341,"cuts":{"line":43,"aligned":0,"forced":0},"disputed":200,"fixed":25,"odd":[]},
+ "witness": {"version":10,"d_page":151,"b_page":103,"c_page":[149],"chars":3341,"cuts":{"line":43,"aligned":0,"forced":0},"disputed":200,"fixed":25,"odd":[]},
  "warnings": []
 }

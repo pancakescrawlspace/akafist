@@ -212,6 +212,9 @@ starts; per-character vote). Scored as candidates `merged` and `text_d` (`dj_eva
 - Book-wide: 201,347 disputed places, 22,945 fixes; "=" within the first 80 characters of a hanging paragraph:
   A 88.9 %, merged 83.5 % (Phase 4 uses A's `eq` hint as well).
 
+- Session 5: two more exceptions (Latin-script words, whole abbreviations read as Greek) and D's lexicon; the
+  complete statement of the vote with its evidence has moved to `djachenko/VOTE.md`.
+
 ## Addendum (session 4): the ground truth extended from 6 to 12 pages
 
 The six pages of Phase 2 were chosen to cover the kinds of page; measuring them showed where the sample was too

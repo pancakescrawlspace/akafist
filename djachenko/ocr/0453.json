@@ -168,6 +168,6 @@
   {"col":2,"para":7,"bbox":[2313,3423,2789,3515],"abbyy":"Перекрой","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2329,4629,4093,4731],"abbyy":"Перелевть, Перелифть, Перелефтъ","abbyy_conf":78,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":464,"b_page":416,"c_page":[462],"chars":4027,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":125,"fixed":12,"odd":[]},
+ "witness": {"version":10,"d_page":464,"b_page":416,"c_page":[462],"chars":4027,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":125,"fixed":12,"odd":[]},
  "warnings": []
 }

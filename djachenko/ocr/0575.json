@@ -156,7 +156,7 @@
    {"bbox": [2315,3541,3825,3635], "hanging": true, "text_d": "Разквѣлнти = огорчить, обидѣть .", "text_merged": "Разквѣлнти = огорчить, обидѣть .", "disputed": [[7,8]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [2031,3162,3261,3210], "breaks": [[0,0]], "lines": [
     {"bbox":[2315,3541,3825,3635],"base":3611,"ind":0,"fs":11,"text":"Рд^ккълнтн = огорчить, обидѣть.","words":[["Рд^ккълнтн",2315,3543,2775,3633,53,"o?",11],["=",2817,3577,2917,3599,100,"o",11],["огорчить,",2957,3563,3375,3635,85,"od",11],["обидѣть.",3443,3541,3825,3625,94,"od",11]]}
    ]},
-   {"bbox": [2317,3645,3517,3735], "hanging": true, "text_d": "Pazuzenatica = разжечься", "text_merged": "Pazкzeнaтнca = разжечься", "disputed": [[2,5],[6,10],[11,12]], "italic": [], "fixed": 4, "d_cut": "line", "d_line": [2034,3252,3012,3298], "breaks": [[0,0]], "lines": [
+   {"bbox": [2317,3645,3517,3735], "hanging": true, "text_d": "Pazuzenatica = разжечься", "text_merged": "Pazuzenatica = разжечься", "disputed": [[2,5],[6,10],[11,12]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [2034,3252,3012,3298], "breaks": [[0,0]], "lines": [
     {"bbox":[2317,3645,3517,3735],"base":3712,"ind":0,"fs":11,"text":"Рд^к^енмтнсд = разжечься","words":[["Рд^к^енмтнсд",2317,3645,2873,3735,45,"o?",11],["=",2911,3677,3013,3701,100,"o",11],["разжечься",3055,3663,3517,3735,78,"od",11]]}
    ]},
    {"bbox": [2319,3771,4215,3987], "hanging": true, "text_d": "Разлакомитиса = пристраститься къ чему, получить пристрастіе. Пр. янв. 19 .", "text_merged": "Разлакомитиса = пристраститься къ чему, получить пристрастіе. Пр. янв. 19 .", "disputed": [[12,13],[28,29]], "italic": [[62,70]], "fixed": 0, "d_cut": "line", "d_line": [2034,3365,3648,3422], "breaks": [[0,1],[36,0]], "lines": [
@@ -237,6 +237,6 @@
   {"col":2,"para":21,"bbox":[2311,5067,2583,5157],"abbyy":"Рд^дон","abbyy_conf":37,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":22,"bbox":[2313,5145,2857,5277],"abbyy":"РлзлУчлти","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":586,"b_page":538,"c_page":[584],"chars":3705,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":141,"fixed":25,"odd":[]},
+ "witness": {"version":10,"d_page":586,"b_page":538,"c_page":[584],"chars":3705,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":141,"fixed":21,"odd":[]},
  "warnings": []
 }

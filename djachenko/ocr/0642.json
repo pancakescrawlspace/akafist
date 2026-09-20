@@ -148,6 +148,6 @@
   {"col":1,"para":3,"bbox":[139,2741,527,2819],"abbyy":"Скилленъ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":4,"bbox":[139,3185,449,3265],"abbyy":"Скнніа","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":653,"b_page":605,"c_page":[47],"chars":4118,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":135,"fixed":12,"odd":[]},
+ "witness": {"version":10,"d_page":653,"b_page":605,"c_page":[47],"chars":4118,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":135,"fixed":12,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)"]
 }

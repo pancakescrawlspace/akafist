@@ -224,6 +224,6 @@
   {"col":2,"para":18,"bbox":[2157,5873,2505,5967],"abbyy":"Отрокъ","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2159,6069,2569,6213],"abbyy":"Отмокъ","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":445,"b_page":397,"c_page":[443],"chars":3680,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":187,"fixed":22,"odd":[]},
+ "witness": {"version":10,"d_page":445,"b_page":397,"c_page":[443],"chars":3680,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":187,"fixed":22,"odd":[]},
  "warnings": []
 }

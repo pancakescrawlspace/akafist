@@ -221,6 +221,6 @@
   {"col":2,"para":13,"bbox":[2131,5871,2563,5961],"abbyy":"Удатный","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2129,5971,2419,6063],"abbyy":"Удача","abbyy_conf":79,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":797,"b_page":749,"c_page":[191],"chars":3833,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":199,"fixed":30,"odd":[]},
+ "witness": {"version":10,"d_page":797,"b_page":749,"c_page":[191],"chars":3833,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":199,"fixed":30,"odd":[]},
  "warnings": []
 }

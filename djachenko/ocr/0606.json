@@ -171,6 +171,6 @@
   {"col":2,"para":5,"bbox":[2135,3747,2495,3843],"abbyy":"Самдрдка","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2135,3857,2499,3993],"abbyy":"Сама^Та","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":617,"b_page":569,"c_page":[11],"chars":4049,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":104,"fixed":11,"odd":[]},
+ "witness": {"version":10,"d_page":617,"b_page":569,"c_page":[11],"chars":4049,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":104,"fixed":11,"odd":[]},
  "warnings": []
 }

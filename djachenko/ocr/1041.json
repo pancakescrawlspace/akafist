@@ -167,6 +167,6 @@
   {"col":2,"para":5,"bbox":[2215,4727,2575,4801],"abbyy":"Казань","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2217,6067,3605,6163],"abbyy":"Казенный дворъ, приказъ","abbyy_conf":45,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":1052,"b_page":1004,"c_page":[446],"chars":3779,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":112,"fixed":13,"odd":[]},
+ "witness": {"version":10,"d_page":1052,"b_page":1004,"c_page":[446],"chars":3779,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":112,"fixed":13,"odd":[]},
  "warnings": []
 }

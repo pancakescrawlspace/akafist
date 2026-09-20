@@ -276,6 +276,7 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `SOURCE.md` | the scan in use: URLs, checksums, leaf → printed page, scan defects |
 | `COPIES.md` | every copy or scan located, including those that could not be downloaded; the proof that the four witnesses are one setting |
 | `eval/RESULTS.md` | the Phase 2 measurements and the route they decided |
+| `VOTE.md` | how the text is decided between the four witnesses: every rule of the vote, its evidence, its known failures |
 | `eval/README.md` | the ground truth: conventions, the twelve pages and why they were chosen, what was checked |
 | `errata.tsv` | Дьяченко's errata table (pp. XXXIV–XXXVIII), transcribed row by row |
 | `FLAGS.md` | the validation report of the last `dj_parse.py` run |

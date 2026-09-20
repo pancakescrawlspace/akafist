@@ -198,6 +198,6 @@
   {"col":2,"para":5,"bbox":[2045,1769,2377,1885],"abbyy":"ОрѴж’Ге","abbyy_conf":37,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2051,2851,3229,2949],"abbyy":"Оружіе древне-русское","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":1119,"b_page":1071,"c_page":[513],"chars":3854,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":139,"fixed":11,"odd":[]},
+ "witness": {"version":10,"d_page":1119,"b_page":1071,"c_page":[513],"chars":3854,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":139,"fixed":11,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (9 lines at the image edge); entry starts from position and text features"]
 }

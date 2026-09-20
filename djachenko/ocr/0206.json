@@ -231,6 +231,6 @@
   {"col":2,"para":11,"bbox":[2121,4379,2963,4541],"abbyy":"6диносоп^Ѵжный","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2115,4645,2789,4737],"abbyy":"Едпностолпіе","abbyy_conf":63,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":217,"b_page":169,"c_page":[215],"chars":3507,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":197,"fixed":19,"odd":[]},
+ "witness": {"version":10,"d_page":217,"b_page":169,"c_page":[215],"chars":3507,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":197,"fixed":19,"odd":[]},
  "warnings": []
 }

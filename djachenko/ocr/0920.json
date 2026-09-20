@@ -199,6 +199,6 @@
   {"col":4,"para":7,"bbox":[1969,5413,3031,5507],"abbyy":"Бабогури, бабугури","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":8,"bbox":[1971,5615,2289,5705],"abbyy":"БяБоуші","abbyy_conf":27,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":931,"b_page":883,"c_page":[325],"chars":3550,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":153,"fixed":17,"odd":[]},
+ "witness": {"version":10,"d_page":931,"b_page":883,"c_page":[325],"chars":3550,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":153,"fixed":17,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (33 lines at the image edge); entry starts from position and text features"]
 }

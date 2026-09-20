@@ -232,6 +232,6 @@
   {"col":2,"para":22,"bbox":[2149,5755,2687,5853],"abbyy":"^аокоманііміі","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":23,"bbox":[2145,5961,2795,6047],"abbyy":"Злолытикый","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":251,"b_page":203,"c_page":[249],"chars":3492,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":202,"fixed":44,"odd":[]},
+ "witness": {"version":10,"d_page":251,"b_page":203,"c_page":[249],"chars":3492,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":202,"fixed":44,"odd":[]},
  "warnings": []
 }

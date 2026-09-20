@@ -71,7 +71,7 @@
    {"bbox": [1,5009,1793,5113], "hanging": true, "guessed": true, "text_d": "Ρογτη (древ.-слав .) = ревѣть; санскр.", "text_merged": "Ρογτ— (древ.-слав .) = ревѣть; санскр.", "disputed": [[0,5],[35,38]], "italic": [[6,17],[31,38]], "fixed": 1, "d_cut": "line", "d_line": [90,4468,1689,4522], "breaks": [[0,0]], "lines": [
     {"bbox":[1,5009,1793,5113],"base":5083,"ind":0,"fs":11,"text":"утн — (древ.-слав.} = ревѣть; санскр.","words":[["утн",1,5017,111,5085,51,"o?",10.5],["—",163,5049,257,5059,-1,"od",10.5],["(древ.",297,5009,541,5109,83,"id",11],["-слав.}",557,5011,865,5113,73,"id",11],["=",905,5049,1007,5073,66,"o",10.5],["ревѣть;",1067,5015,1393,5109,97,"od",10.5],["санскр.",1459,5033,1793,5109,65,"io",11]]}
    ]},
-   {"bbox": [15,5117,449,5189], "hanging": true, "guessed": true, "text_d": "ru выть .", "text_merged": "r— выть .", "disputed": [[0,2]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [172,4571,577,4594], "breaks": [[0,0]], "lines": [
+   {"bbox": [15,5117,449,5189], "hanging": true, "guessed": true, "text_d": "ru выть .", "text_merged": "ru выть .", "disputed": [[0,2]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [172,4571,577,4594], "breaks": [[0,0]], "lines": [
     {"bbox":[15,5117,449,5189],"base":5181,"ind":0,"fs":10.5,"text":"ги — выть.","words":[["ги",15,5117,91,5171,38,"o?",10.5],["—",117,5147,199,5159,-1,"od",10.5],["выть.",227,5135,449,5189,78,"od",10.5]]}
    ]},
    {"bbox": [7,5217,969,5307], "hanging": true, "guessed": true, "text_d": "Роутнє - рыканіе , евъ .", "text_merged": "Роутнє = рыканіе , евъ .", "disputed": [[2,5],[7,8],[14,15],[17,18]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [90,4660,1007,4708], "breaks": [[0,0]], "lines": [
@@ -183,6 +183,6 @@
   {"col":2,"para":6,"bbox":[1953,2091,2189,2185],"abbyy":"Ручь","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[1931,6047,2261,6137],"abbyy":"Роушніы","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":611,"b_page":563,"c_page":[609],"chars":4055,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":148,"fixed":19,"odd":[]},
+ "witness": {"version":10,"d_page":611,"b_page":563,"c_page":[609],"chars":4055,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":148,"fixed":18,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (5 lines at the image edge); entry starts from position and text features","paragraphs changed (1 witness texts lost, 17 paragraphs now, 17 before): run dj_heads.py --pages 600 --force"]
 }

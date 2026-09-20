@@ -212,6 +212,6 @@
   {"col":2,"para":9,"bbox":[2103,2155,2711,2249],"abbyy":"Радобатиса","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2099,3185,2593,3277],"abbyy":"Радоница","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":583,"b_page":535,"c_page":[581],"chars":3703,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":151,"fixed":26,"odd":[]},
+ "witness": {"version":10,"d_page":583,"b_page":535,"c_page":[581],"chars":3703,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":151,"fixed":26,"odd":[]},
  "warnings": []
 }

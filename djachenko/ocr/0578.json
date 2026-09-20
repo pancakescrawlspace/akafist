@@ -177,6 +177,6 @@
   {"col":2,"para":2,"bbox":[2179,3793,2403,3873],"abbyy":"Рака","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2187,5657,2409,5737],"abbyy":"Рака","abbyy_conf":17,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":589,"b_page":541,"c_page":[587],"chars":3992,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":142,"fixed":24,"odd":[]},
+ "witness": {"version":10,"d_page":589,"b_page":541,"c_page":[587],"chars":3992,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":142,"fixed":24,"odd":[]},
  "warnings": []
 }

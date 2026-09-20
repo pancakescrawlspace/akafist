@@ -228,6 +228,6 @@
   {"col":2,"para":9,"bbox":[2025,2905,2441,2999],"abbyy":"Потнути","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2023,3005,2385,3081],"abbyy":"Потокъ","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":515,"b_page":467,"c_page":[513],"chars":3774,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":180,"fixed":27,"odd":[]},
+ "witness": {"version":10,"d_page":515,"b_page":467,"c_page":[513],"chars":3774,"cuts":{"line":32,"aligned":0,"forced":0},"disputed":180,"fixed":27,"odd":[]},
  "warnings": []
 }

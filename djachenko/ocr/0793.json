@@ -203,6 +203,6 @@
   {"col":2,"para":15,"bbox":[2327,4809,3027,4941],"abbyy":"ОумыБЛЛЬНИі^д","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":16,"bbox":[2323,5031,2797,5105],"abbyy":"Умыканіе","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":804,"b_page":756,"c_page":[198],"chars":3748,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":173,"fixed":22,"odd":[]},
+ "witness": {"version":10,"d_page":804,"b_page":756,"c_page":[198],"chars":3748,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":173,"fixed":22,"odd":[]},
  "warnings": []
 }

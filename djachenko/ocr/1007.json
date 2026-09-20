@@ -173,6 +173,6 @@
   {"col":2,"para":4,"bbox":[2349,4759,2807,4861],"abbyy":"Думникъ","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2347,4963,3105,5063],"abbyy":"Думные дьяки","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":1018,"b_page":970,"c_page":[412],"chars":4072,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":144,"fixed":13,"odd":[]},
+ "witness": {"version":10,"d_page":1018,"b_page":970,"c_page":[412],"chars":4072,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":144,"fixed":13,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (48 lines end at the image edge); line ends of the right column missing"]
 }

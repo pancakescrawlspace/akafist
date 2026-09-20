@@ -340,7 +340,7 @@ lemma	pos	match	ids	headwords	parts
 нече́стие	n.n	exact	0390-1-16	Нечестїе	main
 низложе́ние	n.n	none			
 ни́щий	adj/n	exact	0392-1-16	Нищій	main
-но	conj	exact	0259-2-10;1020-2-15	но;Занежь и но	main;supplement
+но	conj	exact	1020-2-15	Занежь и но	supplement
 но́вый	adj	exact	1098-1-07	Новый	supplement
 новопросвеще́нный	adj	none			
 носи́ти	v	none			
@@ -354,7 +354,7 @@ lemma	pos	match	ids	headwords	parts
 оби́тель	n.f	none			
 облича́ти	v	verb	0401-1-19	Обличаю	main
 обличе́ние	n.n	none			
-о́браз	n.m	exact	1100-2-09	Образъ	supplement
+о́браз	n.m	exact	0403-2-07;1100-2-09	Образъ;Образъ	main;supplement
 обрести́	v	none			
 обстоя́ние	n.n	none			
 обтека́ти	v	none			

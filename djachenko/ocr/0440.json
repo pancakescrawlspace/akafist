@@ -201,6 +201,6 @@
   {"col":2,"para":10,"bbox":[1975,5411,2207,5489],"abbyy":"Паки","abbyy_conf":35,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[1975,5655,2473,5737],"abbyy":"Пакибытіе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":451,"b_page":403,"c_page":[449],"chars":3919,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":130,"fixed":10,"odd":[]},
+ "witness": {"version":10,"d_page":451,"b_page":403,"c_page":[449],"chars":3919,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":130,"fixed":10,"odd":[]},
  "warnings": []
 }

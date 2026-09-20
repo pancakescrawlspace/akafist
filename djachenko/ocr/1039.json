@@ -140,6 +140,6 @@
  ],
  "entries_hint": [
  ],
- "witness": {"version":9,"d_page":1050,"b_page":1002,"c_page":[444],"chars":4317,"cuts":{"line":2,"aligned":0,"forced":0},"disputed":107,"fixed":9,"odd":[]},
+ "witness": {"version":10,"d_page":1050,"b_page":1002,"c_page":[444],"chars":4317,"cuts":{"line":2,"aligned":0,"forced":0},"disputed":107,"fixed":9,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side b: right margin cut off in the scan (45 lines end at the image edge); line ends of the right column missing","side a: no flush line (edge from prior)"]
 }

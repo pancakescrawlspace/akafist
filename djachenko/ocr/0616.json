@@ -18,7 +18,7 @@
     {"bbox":[81,331,1815,447],"base":414,"ind":1,"fs":11,"text":"ся сестрою женѣ другого. Потреби,","words":[["ся",81,389,147,447,12,"?",11],["сестрою",209,363,527,441,64,"d",11],["женѣ",607,341,829,411,62,"od",11],["другого.",917,361,1277,433,86,"d",11],["Потреби,",1371,331,1815,437,53,"id",11.5]]},
     {"bbox":[87,445,595,551],"base":522,"ind":1,"fs":11.5,"text":"филар. 178.","words":[["филар.",87,463,355,551,54,"i",11.5],["178.",425,445,595,517,56,"?",11]]}
    ]},
-   {"bbox": [9,545,879,653], "hanging": true, "guessed": true, "text_d": "CROACH = свое мѣсто .", "text_merged": "CRоAсH = свое мѣсто .", "disputed": [[1,6]], "italic": [], "fixed": 2, "d_cut": "line", "d_line": [78,587,918,620], "breaks": [[0,0]], "lines": [
+   {"bbox": [9,545,879,653], "hanging": true, "guessed": true, "text_d": "CROACH = свое мѣсто .", "text_merged": "CROACH = свое мѣсто .", "disputed": [[1,6]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [78,587,918,620], "breaks": [[0,0]], "lines": [
     {"bbox":[9,545,879,653],"base":620,"ind":0,"fs":11,"text":"Скоісн = свое мѣсто.","words":[["Скоісн",9,565,201,653,27,"o?",11],["=",235,585,323,617,23,"",11],["свое",365,565,543,621,72,"d",11],["мѣсто.",599,545,879,615,84,"od",11]]}
    ]},
    {"bbox": [3,661,1363,753], "hanging": true, "guessed": true, "text_d": "Сколунна, скьсть = сестра жены.", "text_merged": "Сколунна, скьсть = сестра жены.", "disputed": [[1,2],[3,6],[11,13]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [90,684,1324,726], "breaks": [[0,0]], "lines": [
@@ -215,6 +215,6 @@
   {"col":2,"para":6,"bbox":[1979,4421,2759,4527],"abbyy":"СбгЬтильничныЙ","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[1979,4875,3275,4959],"abbyy":"СбѢтильничныа молитбы","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":627,"b_page":579,"c_page":[21],"chars":3633,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":144,"fixed":11,"odd":[]},
+ "witness": {"version":10,"d_page":627,"b_page":579,"c_page":[21],"chars":3633,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":144,"fixed":9,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (12 lines at the image edge); entry starts from position and text features"]
 }

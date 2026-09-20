@@ -482,6 +482,26 @@ See PLAN.md for the phases. Newest entry last.
   set indented without a head; the 143 real entries whose headword the OCR did not read keep the □ (the note
   says so). Condensed lines 509 → 415.
 
+- The vote, exceptions 4 and 5 (session 5, end; user's finds on pp. 12–13: "τρει." for the italic "греч.", and
+  "alta и ага" for "alta и ara"). Both were rules, not corrections. VERSION 10 of dj_heads.merge:
+  (4) a Latin-script word of D (a letter without a Cyrillic twin) may be turned Cyrillic by the FineReader pair
+  only with a word of D's own lexicon (36,247 Cyrillic words D read twice or more, cache/d_lexicon.json) or when
+  C reads the same as B — measured on every 8th page: of 102 such disputes the base rule decided against D, 95
+  had C disagreeing with B, and the pair had agreed on the same transliteration garbage ('зоііз' for solis,
+  'сгих' for crux, 'ХІѴ' for XIV): the vote was corrupting most Latin-script words of the etymologies;
+  (5) an unaccented Greek run of D (3+ letters) is replaced as a whole by B's Cyrillic lexicon word when A does
+  not contradict (one edit, or no lexicon word), two different lexicon words decided by frequency ('Пар' 224 :
+  'Дар' 3). Three slips of my own on the way: a per-position replacement left "гречч."; a guard demanding a
+  Cyrillic replacement blocked disputes about a dash after a Latin word ("jurny — похотливый" lost its dash);
+  B's error was preferred over A's correct "Пар." until the frequency rule went first. Whole book re-voted
+  (3 ×); GT: definitions 1.18 % → 1.17 % (−4 errors on p. 8, +1 each in unreadable garbage on pp. 246, 682);
+  book-wide 146 entries changed, "греч." 1,206 → 1,253 entries, "τρει."-type residue 46 → 10 (B wrong too),
+  66 Latin words keep their letters; links.tsv: но lost one entry (its provisional head changed), о́браз gained
+  one — 246 linked as before. entries.tsv, facsimile and flowing PDF rebuilt.
+  **djachenko/VOTE.md** written (the user asked whether the rules deserve a file of their own): every rule with
+  its evidence, the lexicon, the known failure modes (Latin word vs Google's italic n/u/m/r; look-alikes hidden
+  by the norm level, "Bce"; deletions), how to measure a change, the VERSION history.
+
 NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.

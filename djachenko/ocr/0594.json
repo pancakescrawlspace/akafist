@@ -150,6 +150,6 @@
   {"col":2,"para":4,"bbox":[2151,4175,2781,4249],"abbyy":"Ростяясаться","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2153,4379,2399,4459],"abbyy":"Рота","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":605,"b_page":557,"c_page":[603],"chars":4108,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":97,"fixed":16,"odd":[]},
+ "witness": {"version":10,"d_page":605,"b_page":557,"c_page":[603],"chars":4108,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":97,"fixed":16,"odd":[]},
  "warnings": ["side a: no flush line (edge from prior)"]
 }

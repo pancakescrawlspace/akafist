@@ -103,7 +103,7 @@
    ]}
   ]},
   {"n": 2, "side": "b", "band": 1, "bbox": [1927,247,4029,6067], "flush": 74, "indent": 112, "paragraphs": [
-   {"bbox": [2037,247,3993,463], "hanging": false, "text_d": "-(τρει βάθρα)=ступени (Канонъ Андрея критскаго) .", "text_merged": "-(τρει βάθρα)=ступени (Канонъ Андрея критскаго) .", "disputed": [[2,6],[44,46]], "italic": [[22,47]], "fixed": 0, "d_cut": "line", "d_line": [1842,395,3372,450], "breaks": [[0,1],[33,0]], "lines": [
+   {"bbox": [2037,247,3993,463], "hanging": false, "text_d": "-(τρει βάθρα)=ступени (Канонъ Андрея критскаго) .", "text_merged": "-(греч βάθρα)=ступени (Канонъ Андрея критскаго) .", "disputed": [[2,6],[44,46]], "italic": [[0,6],[22,47]], "fixed": 1, "d_cut": "line", "d_line": [1842,395,3372,450], "breaks": [[0,1],[33,0]], "lines": [
     {"bbox":[2049,247,3993,367],"base":329,"ind":1,"fs":11,"text":"—(греч (За-9'ра)=ступени (Канонъ Анд¬","words":[["—",2049,303,2149,313,-1,"iod",11.5],["(греч",2163,257,2405,359,91,"i",11.5],["(За-9'ра)=ступени",2465,255,3275,367,55,"o",11],["(Канонъ",3323,249,3717,351,69,"iod",11.5],["Анд¬",3751,247,3993,329,79,"iod",11.5]]},
     {"bbox":[2037,363,2847,463],"base":436,"ind":1,"fs":11.5,"text":"рея критскаго).","words":[["рея",2037,383,2207,463,81,"iod",11.5],["критскаго).",2265,363,2847,461,72,"iod",11.5]]}
    ]},
@@ -214,6 +214,6 @@
   {"col":2,"para":11,"bbox":[1963,4353,2475,4427],"abbyy":"Остояться","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[1965,4557,2379,4653],"abbyy":"Острогъ","abbyy_conf":55,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":1121,"b_page":1073,"c_page":[515],"chars":3860,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":178,"fixed":12,"odd":[]},
+ "witness": {"version":10,"d_page":1121,"b_page":1073,"c_page":[515],"chars":3860,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":175,"fixed":13,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (43 lines at the image edge); entry starts from position and text features"]
 }

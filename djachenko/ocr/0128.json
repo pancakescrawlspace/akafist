@@ -240,6 +240,6 @@
   {"col":2,"para":18,"bbox":[2167,5761,2685,5841],"abbyy":"Еолнитига","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2171,5973,2797,6107],"abbyy":"Еолноб^ный","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":139,"b_page":91,"c_page":[137],"chars":3639,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":166,"fixed":28,"odd":[]},
+ "witness": {"version":10,"d_page":139,"b_page":91,"c_page":[137],"chars":3639,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":166,"fixed":28,"odd":[]},
  "warnings": []
 }

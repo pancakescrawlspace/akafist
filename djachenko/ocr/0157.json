@@ -195,6 +195,6 @@
   {"col":2,"para":10,"bbox":[2299,4447,2947,4579],"abbyy":"Гаст^имлргіА","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2301,4671,2527,4745],"abbyy":"Гать","abbyy_conf":73,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":168,"b_page":120,"c_page":[166],"chars":3855,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":156,"fixed":17,"odd":[]},
+ "witness": {"version":10,"d_page":168,"b_page":120,"c_page":[166],"chars":3855,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":156,"fixed":17,"odd":[]},
  "warnings": []
 }

@@ -155,6 +155,6 @@
   {"col":2,"para":2,"bbox":[2391,651,2761,725],"abbyy":"Печьнѣ","abbyy_conf":75,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2389,955,2773,1029],"abbyy":"Пешито","abbyy_conf":79,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":470,"b_page":422,"c_page":[468],"chars":4074,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":119,"fixed":19,"odd":[]},
+ "witness": {"version":10,"d_page":470,"b_page":422,"c_page":[468],"chars":4074,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":119,"fixed":19,"odd":[]},
  "warnings": []
 }

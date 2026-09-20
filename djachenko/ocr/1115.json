@@ -217,6 +217,6 @@
   {"col":4,"para":3,"bbox":[2369,5607,2821,5703],"abbyy":"Палтусъ","abbyy_conf":79,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":4,"bbox":[2373,6221,2657,6295],"abbyy":"Палъ","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":1126,"b_page":1078,"c_page":[520],"chars":3592,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":161,"fixed":18,"odd":[]},
+ "witness": {"version":10,"d_page":1126,"b_page":1078,"c_page":[520],"chars":3592,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":161,"fixed":18,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (34 lines end at the image edge); line ends of the right column missing"]
 }

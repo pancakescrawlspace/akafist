@@ -186,6 +186,6 @@
   {"col":2,"para":2,"bbox":[2359,1121,2795,1233],"abbyy":"Софисты","abbyy_conf":41,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2359,1893,2987,1985],"abbyy":"Софіи храмъ","abbyy_conf":54,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":692,"b_page":644,"c_page":[86],"chars":3842,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":123,"fixed":12,"odd":[]},
+ "witness": {"version":10,"d_page":692,"b_page":644,"c_page":[86],"chars":3842,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":123,"fixed":12,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (23 lines end at the image edge); line ends of the right column missing"]
 }

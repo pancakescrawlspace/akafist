@@ -211,6 +211,6 @@
   {"col":3,"para":4,"bbox":[221,6119,753,6195],"abbyy":"Маетность","abbyy_conf":82,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":2,"bbox":[2387,5505,2881,5601],"abbyy":"Мазореты","abbyy_conf":72,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":1088,"b_page":1040,"c_page":[482],"chars":3561,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":171,"fixed":22,"odd":[]},
+ "witness": {"version":10,"d_page":1088,"b_page":1040,"c_page":[482],"chars":3561,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":171,"fixed":22,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (40 lines end at the image edge); line ends of the right column missing"]
 }

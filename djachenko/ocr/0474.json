@@ -277,6 +277,6 @@
   {"col":2,"para":19,"bbox":[2051,5853,2433,5949],"abbyy":"Поглон^","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":20,"bbox":[2051,6075,2585,6203],"abbyy":"Поглоці^нѴе","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":485,"b_page":437,"c_page":[483],"chars":3629,"cuts":{"line":49,"aligned":0,"forced":0},"disputed":204,"fixed":30,"odd":[]},
+ "witness": {"version":10,"d_page":485,"b_page":437,"c_page":[483],"chars":3629,"cuts":{"line":49,"aligned":0,"forced":0},"disputed":204,"fixed":30,"odd":[]},
  "warnings": []
 }

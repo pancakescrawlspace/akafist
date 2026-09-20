@@ -192,6 +192,6 @@
   {"col":2,"para":11,"bbox":[1841,5123,2113,5197],"abbyy":"Межа","abbyy_conf":83,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[1843,5327,2881,5421],"abbyy":"Между двухъ огней","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":1091,"b_page":1043,"c_page":[485],"chars":3949,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":136,"fixed":19,"odd":[]},
+ "witness": {"version":10,"d_page":1091,"b_page":1043,"c_page":[485],"chars":3949,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":136,"fixed":19,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (42 lines at the image edge); entry starts from position and text features"]
 }

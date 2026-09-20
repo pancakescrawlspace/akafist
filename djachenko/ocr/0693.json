@@ -211,6 +211,6 @@
   {"col":2,"para":11,"bbox":[2257,4619,3025,4711],"abbyy":"Ставенъ, стакѵнкъ","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2259,5139,2663,5237],"abbyy":"СтабЙао","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":704,"b_page":656,"c_page":[98],"chars":3658,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":257,"fixed":17,"odd":[]},
+ "witness": {"version":10,"d_page":704,"b_page":656,"c_page":[98],"chars":3658,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":257,"fixed":17,"odd":[]},
  "warnings": []
 }

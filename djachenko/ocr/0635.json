@@ -148,6 +148,6 @@
   {"col":2,"para":3,"bbox":[2419,4237,3465,4317],"abbyy":"Символическія книги","abbyy_conf":63,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2419,4767,2839,4843],"abbyy":"Символъ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":646,"b_page":598,"c_page":[40],"chars":4162,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":105,"fixed":7,"odd":[]},
+ "witness": {"version":10,"d_page":646,"b_page":598,"c_page":[40],"chars":4162,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":105,"fixed":7,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (41 lines end at the image edge); line ends of the right column missing"]
 }

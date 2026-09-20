@@ -221,6 +221,6 @@
   {"col":2,"para":13,"bbox":[2343,5633,2933,5753],"abbyy":"Прит'БЛ^АТИ","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2337,6061,2905,6193],"abbyy":"П^ИТКОрЕНІЕ","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":550,"b_page":502,"c_page":[548],"chars":3851,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":215,"fixed":18,"odd":[]},
+ "witness": {"version":10,"d_page":550,"b_page":502,"c_page":[548],"chars":3851,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":215,"fixed":18,"odd":[]},
  "warnings": []
 }

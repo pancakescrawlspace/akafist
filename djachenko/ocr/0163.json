@@ -231,6 +231,6 @@
   {"col":2,"para":19,"bbox":[2233,6055,2455,6125],"abbyy":"Гоидо","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":20,"bbox":[2231,6153,2563,6227],"abbyy":"Гоіііншъ","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":9,"d_page":174,"b_page":126,"c_page":[172],"chars":3877,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":173,"fixed":19,"odd":[]},
+ "witness": {"version":10,"d_page":174,"b_page":126,"c_page":[172],"chars":3877,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":173,"fixed":19,"odd":[]},
  "warnings": []
 }
