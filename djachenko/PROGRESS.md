@@ -348,13 +348,18 @@ See PLAN.md for the phases. Newest entry last.
   (ἀγνός → ἁγνός, χώριον → χωρίον, ὄροψος → ὄροφος), so the high zoom is not optional.
   Useful to know for the rest: in this face ѧ is the triangular shape and ѫ the ж-like one (p. 7
   съмѣреномѧдрье → съмѣреномѫдрье).
-  Left to do: leaves 33–36 (pp. XXXV–XXXVIII), about 190 more rows by the line counts; then the applier — each row
+  Leaf 33 (p. XXXV) done as well: 53 rows, dictionary pages 80–161; 96 rows in the file so far, and their page
+  numbers run monotonically, which is a useful check because the table is ordered by page. Seven cells are [?]:
+  mostly Church Slavonic words where only an accent moves, and three Greek breathings.
+  tools/dj_errata_bands.py now has the three modes the work needs: `--bands N` (full width, for the locators and
+  for pairing the halves), `--rows N N N` (those rows alone at 2000 px, for the marks) and `--right N`.
+  Left to do: leaves 34–36 (pp. XXXVI–XXXVIII), about 140 more rows; then the applier — each row
   names page, column and line counted from the top or the bottom, and A's geometry has exactly that, so the target
   line can be located, the entry found and "напечатано" replaced by "слѣдуетъ читать" with a flag. Matching on the
   printed string as well as on the line number guards against off-by-one counting. The corrections layer
   (corrections.tsv, QUOTES.md) should come first or alongside: dj_parse regenerates entries.tsv on every run.
 
-NEXT: (1) finish errata.tsv — leaves 33, 34, 35, 36 — with the scripts and the method in
+NEXT: (1) finish errata.tsv — leaves 34, 35, 36 — with tools/dj_errata_bands.py and the method in
   the entry above; then the applier and the corrections layer.
   (2) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
