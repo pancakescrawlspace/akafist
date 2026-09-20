@@ -293,14 +293,26 @@ See PLAN.md for the phases. Newest entry last.
   verified in this session ("ННОУЛДЫН ВМ. ЄдиноҮЛДЫН"). A page carrying it cannot be found by the flags alone;
   look for the uncial face on the image.
 
-NEXT: (1) finish the ground-truth extension — four pages left, in eval/README.md's table: 260 (the OCS citation
-  type), 146 (81 entries), and the two held-out random pages 283 and 696. Method that worked on 719:
+- Ground-truth extension finished (session 4, end): all six pages done — 719 (p. 682) and 801 (p. 764) for the
+  Greek, 260 (p. 223) for the Old Church Slavonic citation type, 146 (p. 109) with its 81 entries, and the two
+  held-out random pages 283 (p. 246) and 696 (p. 659). **12 pages, 325 headwords**; merged norm 2.3 % all, 1.2 %
+  definitions, 1.5 % Greek, 139/325 headwords exact. Numbers and the caveat about the hard pages: eval/RESULTS.md
+  (addendum), the table of pages and the held-out rule: eval/README.md.
+  Each page was checked as the old ones were (witness pairings, the stands-alone comparison, headword crops); the
+  check found one error in my own draft on nearly every page — {ꙗ} read as к (p. 682), прїимствовати and Оусъньнь
+  (p. 764), Иновольнаа (p. 223), карина (p. 246), γραΐδιον (p. 659) — which is the rate to expect from a first
+  transcription, and the reason the signals are worth running.
+  Segmentation on the new pages: p. 109 (81 entries) 100 % recall and precision, p. 246 likewise, p. 659 (cut
+  margin) 100 % / 94.7 %.
+
+NEXT: (1) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+  six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
   (`dj_witness.page_text('D', leaf)`), the headwords against `dj_heads.py sheet LEAF` at 600 ppi where a glyph is
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
-  (2) Then Phase 3b step 2 — the headword reading itself, once the user has chosen:
+  (2) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are

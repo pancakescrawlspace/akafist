@@ -211,3 +211,31 @@ starts; per-character vote). Scored as candidates `merged` and `text_d` (`dj_eva
   what is left; the unflagged remainder (~5 characters a page) are errors D and B share.
 - Book-wide: 201,347 disputed places, 22,945 fixes; "=" within the first 80 characters of a hanging paragraph:
   A 88.9 %, merged 83.5 % (Phase 4 uses A's `eq` hint as well).
+
+## Addendum (session 4): the ground truth extended from 6 to 12 pages
+
+The six pages of Phase 2 were chosen to cover the kinds of page; measuring them showed where the sample was too
+thin: the Greek rate rested on 4 errors in 266 characters, 132 headwords gave ±3.7 pp for scoring the coming
+vision pass, no page carried the Old Church Slavonic citation type, and none was dense in short entries. Six pages
+were added for those gaps (`eval/README.md` has the table): 719 and 801 (the two densest Greek pages), 260 (the
+citation type), 146 (81 entries, the densest page), and 283 and 696 drawn at random and **held out** — never to be
+used for tuning a rule.
+
+Now 12 pages, 325 headwords. Scores over the whole set (norm level):
+
+| candidate | CER all | headwords CER | headwords exact | definitions | Greek |
+|---|---:|---:|---:|---:|---:|
+| abbyy_A | 10.6 % | 51.6 % | 29/325 | 3.4 % | 120 % |
+| djvu_B | 4.6 % | 13.3 % | 154/325 | 3.7 % | 9.2 % |
+| google_D | 2.9 % | 17.0 % | 137/325 | 1.8 % | 1.5 % |
+| google_C | 3.1 % | 17.5 % | 129/325 | 2.0 % | 1.4 % |
+| **merged** | **2.3 %** | **15.9 %** | **139/325** | **1.2 %** | **1.5 %** |
+
+The definition rate is higher than the 0.9 % of the first six pages because four of the new pages were chosen to
+be hard; the headline figure for the book should stay on the six representative pages, and the new ones should be
+read per page. Segmentation on the new pages: p. 109 with its 81 entries came out at 100 % recall and 100 %
+precision, p. 246 likewise; p. 659 (margin cut) 100 % recall, 94.7 % precision.
+
+What the hard pages measure: on p. 223 and p. 109 nearly every disagreement between the witnesses and the ground
+truth is a confusion of the citation face (И/Н, в/к, и/н, л/ль), where the transcription itself can only read by
+sense — the places where it cannot are marked `[?]`. That is the class the vision pass will have to read.

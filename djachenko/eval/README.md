@@ -15,8 +15,7 @@ were chosen to cover the kinds of page the book has (PLAN.md Phase 2):
 
 **Extension (session 4, in progress).** The first six pages were chosen to cover the kinds of page; measuring them
 showed where the sample is too thin (PROGRESS.md): Greek rests on 266 characters over the six, the Old Church
-Slavonic citation type is absent, and no page is dense in short entries. Six pages are being added for those gaps,
-one done so far:
+Slavonic citation type is absent, and no page is dense in short entries. Six pages were added for those gaps (all done, 2026-09-20):
 
 | leaf | page | why | state |
 |---|---|---|---|
@@ -25,7 +24,7 @@ one done so far:
 | 260 | 223 | the Old Church Slavonic citation type, unmeasured so far (the page the user noticed it on) | **done** |
 | 146 | 109 | 81 entries, the densest page of the book: segmentation and headwords | **done** |
 | 283 | 246 | drawn at random (seed 2026) — **held out**: never to be used for tuning a rule | **done** |
-| 696 | 659 | drawn at random — **held out** | to do |
+| 696 | 659 | drawn at random — **held out** | **done** |
 
 The four targeted pages are stress pages, not a random sample: the headline error rate should stay on the six
 representative pages, and these should be read per page. The two random pages exist so that a change tuned on the
