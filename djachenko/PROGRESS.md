@@ -305,6 +305,32 @@ See PLAN.md for the phases. Newest entry last.
   Segmentation on the new pages: p. 109 (81 entries) 100 % recall and precision, p. 246 likewise, p. 659 (cut
   margin) 100 % / 94.7 %.
 
+- Headword crops consolidated (session 4, continued; user: crops of all the headwords from all four scans, saved
+  in the repo, with a file of their locations). tools/dj_crops.py:
+  - `index` → **djachenko/headwords.tsv** (101,448 rows = 25,362 entries × 4 witnesses, 7 MB): the headword box
+    in each witness's own pixels, the page inside that witness's source (leaf / DjVu page / PDF page / volume),
+    the strip it was cropped into and the rows it occupies there. Located: A 25,362, B 25,357, C 25,293, D 25,359
+    — essentially everything. A's box is ABBYY's Church Slavonic type run; D's comes from the entry's first line
+    recorded by step 1; B's and C's by aligning their column text to A's, as the vote does. The line is cut at the
+    separator ("Метехати = …", "Метненїе—…"), so the box is the headword, not the whole line.
+  - `crops` → **djachenko/crops/<W>/NNNN.png**, 4,452 strips, 134 MB (A 35, B 21, C 38, D 40): one image per page
+    and witness with that page's headwords stacked, at full 600 ppi, 1-bit PNG. One file per headword would have
+    been 101,448 files and ~1 GB; a strip per page keeps git workable and a single headword is still one crop
+    away — `Image.open(strip).crop((0, y0s, width, y1s))`, no scans needed.
+  Two things worth remembering: Pillow's `convert('1')` dithers, and dithered paper grain is noise that PNG cannot
+  compress (169 KB a page against 35 KB for a plain threshold at 165) — that one change decided whether this fits
+  in the repository at all. And the temporary 600 ppi page renders of B, C and D must be deleted as they are used,
+  or a full run leaves tens of gigabytes in cache/.
+  The crops are tracked with **Git LFS** (user's request), and the history was rewritten so that they are LFS
+  from the commit that introduced them: `git lfs migrate import --include="djachenko/crops/**/*.png"
+  --include-ref=refs/heads/master --exclude-ref=refs/remotes/origin/master`. The exclude-ref matters — without it
+  migrate rewrites all 44 commits, including those already on origin, and the push would need --force; with it
+  only the three unpushed commits changed and origin/master is still an ancestor, so the push is a fast-forward.
+  A clone now needs git-lfs (`git lfs pull`), and .gitattributes carries the pattern.
+  Checked: slicing five entries out of the strips with nothing but headwords.tsv gives the same headword from all
+  four copies side by side (Метати, Метехати, Метненїе). B's crops carry a sliver of the next line, because B's
+  line boxes are coarse; C's sometimes keep the "=".
+
 NEXT: (1) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),

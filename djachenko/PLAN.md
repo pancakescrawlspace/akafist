@@ -215,6 +215,12 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
    model's output, which the effort level governs — measure on the six GT pages at effort low and medium first)
    or interactive sessions (~1,700 sheets of 15).
 3. *Greek.* Greek runs come with D's text; where C disagrees on a Greek run, mark it `disputed`.
+3a. *The crops themselves* (added session 4, `tools/dj_crops.py`): before the reading pass, every headword is
+   located in all four witnesses and cropped once, into `djachenko/headwords.tsv` (the boxes, one row per entry
+   and witness) and `djachenko/crops/<W>/NNNN.png` (one strip per page and witness, the page's headwords stacked;
+   the index gives each headword's rows inside the strip). Both are committed, so the reading — by API or by hand
+   — and any later check work from the repository alone, and a headword can be compared across the four copies
+   without touching the scans.
 4. *The Old Church Slavonic citation type* (added session 4). Besides the civil text and the Church Slavonic
    headwords, the book has a third text class: quotations from Old Russian manuscripts set in a heavy uncial face
    (e.g. p. 223 "нноѹадыи вм. єдиноѹадыи", p. 1087). No OCR reads it: Google renders its letters as capitals

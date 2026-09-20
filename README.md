@@ -212,6 +212,11 @@ flowchart TD
     ENT --> BUILD["dj_build.py — Phase 6<br/>Typst in the original's layout"]
     BUILD --> PDF[("djachenko.typ + .pdf<br/>≈1,000 pages, git-ignored")]
 
+    OCRJ --> CROPS["dj_crops.py — every headword located<br/>and cropped in all four witnesses"]
+    SCAN --> CROPS
+    CROPS --> HW[("headwords.tsv · crops/A|B|C|D/NNNN.png")]
+    HW --> HEADS
+
     OCRJ --> INSP["dj_inspect.py — crops, overlays,<br/>the same line in all four witnesses, checks"]
     SCAN --> INSP
 ```
@@ -229,10 +234,14 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `tools/dj_parse.py` | 4 | `entries.tsv`, `FLAGS.md` |
 | `tools/dj_link.py` | 5 | `links.tsv` (akathist lemmas → entries) |
 | `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf` |
+| `tools/dj_crops.py` | 3b | `headwords.tsv` (every headword's box in all four witnesses; committed) and `crops/<W>/NNNN.png` (local) |
 | `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye |
 
 ### Where it stands
 
+- **Headword crops:** every headword of every entry is located in all four witnesses (`headwords.tsv`, 101,448
+  rows, committed); `dj_crops.py crops` turns those coordinates into one page strip per witness (`crops/`, 134 MB,
+  not committed), so a headword can be compared across the four copies without opening the scans.
 - **Text:** merged for all 1,119 dictionary pages; 25,362 entries (20,079 in the main sequence, 5,283 in the
   supplement) in `entries.tsv`, with the spans where the witnesses disagree and the italics marked per entry.
 - **Headwords:** 25 read so far; the other 25,337 carry witness D's provisional reading and are printed grey in the
@@ -257,7 +266,9 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 
 ### Rebuilding it
 
-The scans (≈6 GB) and the generated PDF are not in the repository; everything else is.
+The scans (≈6 GB), the generated PDF and the headword crops are not in the repository; everything else is.
+The crops are 134 MB of images that follow deterministically from the scans and from `headwords.tsv`, so the
+repository keeps the coordinates and the script, and `dj_crops.py crops` makes the images again (~30 min).
 
 ```sh
 python3 tools/dj_fetch.py --all     # witness A and the OCR layers, resumable (witnesses C and D by hand)
@@ -266,6 +277,7 @@ python3 tools/dj_heads.py text      # Phase 3b step 1: the merged text       (~8
 python3 tools/dj_parse.py           # Phase 4: entries.tsv + FLAGS.md        (~3 s)
 python3 tools/dj_link.py            # Phase 5: links.tsv
 python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)
+python3 tools/dj_crops.py crops     # the headword crops from headwords.tsv  (~30 min)
 python3 tools/dj_eval.py --refresh  # Phase 2: re-score everything against eval/gt/
 ```
 
