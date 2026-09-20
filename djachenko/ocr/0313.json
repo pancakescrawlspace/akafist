@@ -56,10 +56,12 @@
     {"bbox":[271,2749,2217,2891],"base":2857,"ind":0,"fs":11,"text":"К^пнопощ—(сгоріфаАХсо)=пою вмѣстѣ съ","words":[["К^пнопощ",271,2749,763,2857,56,"?",11],["—",791,2833,891,2843,-1,"d",11],["(сгоріфаАХсо)=пою",905,2779,1727,2891,40,"o",11],["вмѣстѣ",1767,2787,2079,2859,91,"od",11],["съ",2119,2807,2217,2861,97,"od",11]]},
     {"bbox":[375,2893,1431,2989],"base":2963,"ind":1,"fs":11,"text":"кѣмъ (Прол . с. 24, 2).","words":[["кѣмъ",375,2895,597,2965,71,"od",11],["(Прол",659,2893,915,2989,73,"o",11],[".",947,2949,963,2963,58,"o",11],["с.",997,2913,1063,2965,74,"od",11],["24,",1119,2893,1249,2975,100,"o",11],["2).",1319,2893,1431,2983,95,"o",11]]}
    ]},
-   {"bbox": [265,2973,2215,3437], "hanging": true, "text_d": "Копноракный — равный, одинаковый съ другимъ. Мин. мѣс. март. 12 . ΚπΗορεκμήτελε-(ὁμόζηλος)-соревнова- тель .", "text_merged": "Копноракный = равный, одинаковый съ другимъ. Мин. мѣс. март. 12 . ΚπΗορεκμήτελε-(ὁμόζηλος)-соревнова тель .", "disputed": [[1,2],[7,8],[12,13],[64,65],[66,83],[88,89],[90,91],[100,100],[106,107]], "italic": [[45,60]], "fixed": 2, "d_cut": "line", "d_line": [344,2820,1947,2889], "breaks": [[0,0],[36,0],[66,1],[101,0]], "lines": [
+   {"bbox": [265,2973,2215,3213], "hanging": true, "text_d": "Копноракный — равный, одинаковый съ другимъ. Мин. мѣс. март. 12 .", "text_merged": "Копноракный = равный, одинаковый съ другимъ. Мин. мѣс. март. 12 .", "disputed": [[1,2],[7,8],[12,13],[64,65]], "italic": [[45,60]], "fixed": 1, "d_cut": "line", "d_line": [344,2820,1947,2889], "breaks": [[0,0],[36,0]], "lines": [
     {"bbox":[265,2973,2215,3117],"base":3080,"ind":0,"fs":11,"text":"КУпнордБНЫЙ = равный, одинаковый съ","words":[["КУпнордБНЫЙ",265,2973,897,3117,40,"o?",11],["=",963,3047,1065,3073,100,"o",11],["равный,",1101,3015,1451,3109,76,"od",11],["одинаковый",1517,3013,2031,3093,62,"od",11],["съ",2115,3033,2215,3085,80,"od",11]]},
-    {"bbox":[367,3111,1907,3213],"base":3186,"ind":1,"fs":11.5,"text":"другимъ. Мин. діѣс. март. 12.","words":[["другимъ.",367,3141,753,3213,89,"od",11],["Мин.",821,3111,1071,3191,64,"id",11.5],["д",1137,3137,1185,3205,72,"o?",11],["іѣс",1183,3135,1321,3187,65,"io?",11.5],[".",1335,3173,1347,3187,100,"io",11.5],["март.",1411,3133,1707,3209,75,"id",11.5],["12.",1781,3117,1907,3185,88,"o",11]]},
-    {"bbox":[405,3247,2215,3381],"base":3325,"ind":1,"fs":11,"text":"пно^ЕЕНИТЕЛЬ — (б [лб‘(т]Ао <;)—соревнова-","words":[["пно^ЕЕНИТЕЛЬ",405,3269,1039,3381,58,"o?",11],["—",1065,3301,1161,3309,-1,"od",11],["(б",1175,3255,1243,3351,44,"d",11],["[лб‘(т]Ао",1255,3247,1573,3357,14,"o?",11],["<;)—",1585,3255,1737,3347,77,"o?",11],["соревнова-",1741,3275,2215,3349,82,"o",11]]},
+    {"bbox":[367,3111,1907,3213],"base":3186,"ind":1,"fs":11.5,"text":"другимъ. Мин. діѣс. март. 12.","words":[["другимъ.",367,3141,753,3213,89,"od",11],["Мин.",821,3111,1071,3191,64,"id",11.5],["д",1137,3137,1185,3205,72,"o?",11],["іѣс",1183,3135,1321,3187,65,"io?",11.5],[".",1335,3173,1347,3187,100,"io",11.5],["март.",1411,3133,1707,3209,75,"id",11.5],["12.",1781,3117,1907,3185,88,"o",11]]}
+   ]},
+   {"bbox": [367,3247,2215,3437], "hanging": true, "seg": "CD", "text_d": "ΚπΗορεκμήτελε-(ὁμόζηλος)-соревнова- тель .", "text_merged": "ΚπΗορεκμήτελε-(ὁμόζηλος)-соревнова тель .", "disputed": [[0,17],[22,23],[24,25],[34,34],[40,41]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [344,3079,1955,3172], "breaks": [[0,1],[35,0]], "lines": [
+    {"bbox":[405,3247,2215,3381],"base":3325,"ind":0,"fs":11,"text":"пно^ЕЕНИТЕЛЬ — (б [лб‘(т]Ао <;)—соревнова-","words":[["пно^ЕЕНИТЕЛЬ",405,3269,1039,3381,58,"o?",11],["—",1065,3301,1161,3309,-1,"od",11],["(б",1175,3255,1243,3351,44,"d",11],["[лб‘(т]Ао",1255,3247,1573,3357,14,"o?",11],["<;)—",1585,3255,1737,3347,77,"o?",11],["соревнова-",1741,3275,2215,3349,82,"o",11]]},
     {"bbox":[367,3385,577,3437],"base":3434,"ind":1,"fs":11,"text":"тель.","words":[["тель.",367,3385,577,3437,92,"o",11]]}
    ]},
    {"bbox": [261,3461,2207,3781], "hanging": true, "text_d": "Копнородный —происходящій отъ одного рода или племени. Прологъ мая 9-го дня.", "text_merged": "Копнородный —происходящій отъ одного рода или племени. Прологъ мая 9-го дня.", "disputed": [[1,2],[12,13],[40,41],[60,62]], "italic": [[55,76]], "fixed": 0, "d_cut": "line", "d_line": [346,3257,1944,3332], "breaks": [[0,0],[37,0],[72,0]], "lines": [
@@ -226,16 +228,17 @@
   {"col":1,"para":8,"bbox":[273,2415,973,2563],"abbyy":"КЬпнон^лбныЙ","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":9,"bbox":[271,2749,763,2857],"abbyy":"К^пнопощ","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":10,"bbox":[265,2973,897,3117],"abbyy":"КУпнордБНЫЙ","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":11,"bbox":[261,3461,927,3595],"abbyy":"К^рноаодный","abbyy_conf":42,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":12,"bbox":[259,3791,967,3897],"abbyy":"К^ПНОС^Л&НИК'Ь","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":13,"bbox":[257,4035,739,4143],"abbyy":"К^поклти","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":14,"bbox":[251,4281,631,4379],"abbyy":"Куполъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":15,"bbox":[249,4487,619,4583],"abbyy":"Купона","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":16,"bbox":[251,4589,589,4675],"abbyy":"Коупседь","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":17,"bbox":[249,4689,603,4779],"abbyy":"Коуноуръ","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":18,"bbox":[249,4777,559,4897],"abbyy":"КѴп#и","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":19,"bbox":[245,5139,603,5227],"abbyy":"Коуиътрт","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":20,"bbox":[245,5251,619,5345],"abbyy":"К& пъль","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":11,"bbox":[405,3269,1039,3381],"abbyy":"пно^ЕЕНИТЕЛЬ","abbyy_conf":58,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":12,"bbox":[261,3461,927,3595],"abbyy":"К^рноаодный","abbyy_conf":42,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":13,"bbox":[259,3791,967,3897],"abbyy":"К^ПНОС^Л&НИК'Ь","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":14,"bbox":[257,4035,739,4143],"abbyy":"К^поклти","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":15,"bbox":[251,4281,631,4379],"abbyy":"Куполъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":16,"bbox":[249,4487,619,4583],"abbyy":"Купона","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":17,"bbox":[251,4589,589,4675],"abbyy":"Коупседь","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":18,"bbox":[249,4689,603,4779],"abbyy":"Коуноуръ","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":19,"bbox":[249,4777,559,4897],"abbyy":"КѴп#и","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":20,"bbox":[245,5139,603,5227],"abbyy":"Коуиътрт","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":21,"bbox":[245,5251,619,5345],"abbyy":"К& пъль","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2395,1101,2865,1265],"abbyy":"К^дщоріл","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2371,1549,2627,1641],"abbyy":"Коуркд","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2363,1653,2713,1747],"abbyy":"Курева","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
@@ -261,6 +264,7 @@
   {"col":2,"para":24,"bbox":[2315,5885,2725,5973],"abbyy":"Коутмшкъ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":25,"bbox":[2307,5987,2733,6083],"abbyy":"Куфтерь","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":324,"b_page":276,"c_page":[322],"chars":3428,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":196,"fixed":37,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":324,"b_page":276,"c_page":[322],"chars":3428,"cuts":{"line":46,"aligned":0,"forced":0},"disputed":196,"fixed":37,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (13 lines end at the image edge); line ends of the right column missing"]
 }

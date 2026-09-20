@@ -21,9 +21,11 @@
     {"bbox":[445,703,2259,799],"base":775,"ind":1,"fs":11,"text":"археол. общ., т. У, вып, I, Спб. 1863 г.,","words":[["археол.",445,721,785,799,60,"io",11.5],["общ.,",851,705,1095,791,68,"id",11.5],["т.",1135,725,1203,775,100,"o",11],["У,",1237,703,1337,795,63,"od",11],["вып,",1367,727,1555,795,73,"o",11],["I,",1599,705,1661,795,82,"o?",11],["Спб.",1695,705,1877,779,63,"o",11],["1863",1919,707,2119,777,76,"o",11],["г.",2147,729,2215,777,70,"od",11],[",",2241,761,2259,795,55,"o",11]]},
     {"bbox":[495,805,869,897],"base":874,"ind":1,"fs":11,"text":"стр. 35).","words":[["стр.",495,825,661,897,54,"od",11],["35).",709,805,869,897,66,"o",11]]}
    ]},
-   {"bbox": [337,907,2257,1141], "hanging": true, "text_d": "Стреленый вергнутый изъ лука. Прол. anp. 13.", "text_merged": "Стреленый== вергнутый изъ лука. Прол. anp. 13.", "disputed": [[3,4],[8,11],[39,40],[43,45]], "italic": [[32,42]], "fixed": 1, "d_cut": "line", "d_line": [318,883,1912,946], "breaks": [[0,0],[0,0],[38,0]], "lines": [
-    {"bbox":[337,907,624,1039],"base":1009,"ind":0,"fs":11.5,"text":"С тр'К/","words":[["С",337,931,391,1007,23,"d",11.5],["тр'К/",399,907,624,1039,12,"i?",11.5]]},
-    {"bbox":[573,925,2257,1033],"base":1017,"ind":2,"fs":11,"text":"глжый==вергнутый изъ лука. Прол.","words":[["глжый==вергнутый",573,925,1425,1033,50,"o",11],["изъ",1483,967,1627,1019,69,"od",11],["лука.",1687,967,1913,1033,79,"od",11],["Прол.",1983,943,2257,1033,75,"io",11.5]]},
+   {"bbox": [337,907,624,1039], "hanging": true, "seg": "A", "text_d": "", "text_merged": "", "disputed": [], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [318,883,1912,946], "breaks": [[0,0]], "lines": [
+    {"bbox":[337,907,624,1039],"base":1009,"ind":0,"fs":11.5,"text":"С тр'К/","words":[["С",337,931,391,1007,23,"d",11.5],["тр'К/",399,907,624,1039,12,"i?",11.5]]}
+   ]},
+   {"bbox": [447,925,2257,1141], "hanging": true, "seg": "CD", "text_d": "Стреленый вергнутый изъ лука. Прол. anp. 13.", "text_merged": "Стреленый== вергнутый изъ лука. Прол. anp. 13.", "disputed": [[3,4],[8,11],[39,40],[43,45]], "italic": [[32,42]], "fixed": 1, "d_cut": "line", "d_line": [318,883,1912,946], "breaks": [[0,0],[38,0]], "lines": [
+    {"bbox":[573,925,2257,1033],"base":1017,"ind":0,"fs":11,"text":"глжый==вергнутый изъ лука. Прол.","words":[["глжый==вергнутый",573,925,1425,1033,50,"o",11],["изъ",1483,967,1627,1019,69,"od",11],["лука.",1687,967,1913,1033,79,"od",11],["Прол.",1983,943,2257,1033,75,"io",11.5]]},
     {"bbox":[447,1049,837,1141],"base":1117,"ind":1,"fs":11.5,"text":"стр. 13.","words":[["стр.",447,1067,639,1141,49,"iod",11.5],["13.",717,1049,837,1121,95,"o",11]]}
    ]},
    {"bbox": [341,1145,2259,1487], "hanging": true, "text_d": "Стркліе = разстояніе, которое можетъ Пролетѣть пущенная изъ лука стрѣла. Прол. нояб. 20 .", "text_merged": "Стркліе = разстояніе, которое можетъ Пролетѣть пущенная изъ лука стрѣла. Прол. нояб. 20 .", "disputed": [[3,4],[35,36],[37,38]], "italic": [[73,84]], "fixed": 0, "d_cut": "line", "d_line": [316,1094,1922,1160], "breaks": [[0,0],[37,0],[73,0]], "lines": [
@@ -162,12 +164,13 @@
   ]}
  ],
  "entries_hint": [
-  {"col":1,"para":2,"bbox":[337,931,391,1007],"abbyy":"С","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":3,"bbox":[341,1145,707,1305],"abbyy":"Стр'&ш","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":4,"bbox":[341,1491,745,1587],"abbyy":"Стрѣлка","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":5,"bbox":[347,2627,1393,2763],"abbyy":"Сщ^ЛАНИЦЛ^бойница","abbyy_conf":56,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":6,"bbox":[353,4211,481,4289],"abbyy":"Ст","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":7,"bbox":[353,4653,839,4747],"abbyy":"Стрѣльцы","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":2,"bbox":[337,931,391,1007],"abbyy":"С","abbyy_conf":23,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":3,"bbox":[573,925,861,1011],"abbyy":"глжый","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":4,"bbox":[341,1145,707,1305],"abbyy":"Стр'&ш","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":5,"bbox":[341,1491,745,1587],"abbyy":"Стрѣлка","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":6,"bbox":[347,2627,1393,2763],"abbyy":"Сщ^ЛАНИЦЛ^бойница","abbyy_conf":56,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":7,"bbox":[353,4211,481,4289],"abbyy":"Ст","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":8,"bbox":[353,4653,839,4747],"abbyy":"Стрѣльцы","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2399,1719,2887,1873],"abbyy":"Ст^ЛАШЕ","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2399,1983,2739,2077],"abbyy":"Стрѣта","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2399,2101,2671,2189],"abbyy":"Стритн","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
@@ -177,6 +180,7 @@
   {"col":2,"para":8,"bbox":[2403,3215,2741,3305],"abbyy":"Стръштн","abbyy_conf":29,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2405,3541,2871,3635],"abbyy":"Стрюцкій","abbyy_conf":52,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":726,"b_page":678,"c_page":[120],"chars":3799,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":158,"fixed":15,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":726,"b_page":678,"c_page":[120],"chars":3799,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":158,"fixed":15,"odd":[]},
  "warnings": []
 }

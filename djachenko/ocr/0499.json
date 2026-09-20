@@ -132,11 +132,9 @@
     {"bbox":[2411,2467,4209,2565],"base":2541,"ind":1,"fs":10.5,"text":"17, 17. 21, 6; Іов. 8, 21; ср. Псал.","words":[["17,",2411,2477,2537,2559,92,"o",10.5],["17.",2621,2477,2743,2547,95,"o",10.5],["21,",2817,2477,2949,2561,90,"o",10.5],["6;",3019,2473,3095,2557,90,"o",10.5],["Іов.",3161,2471,3321,2545,80,"o",10.5],["8,",3417,2471,3497,2561,85,"o",10.5],["21;",3589,2473,3727,2565,78,"o",10.5],["ср.",3811,2489,3929,2561,93,"o",10.5],["Псал.",3997,2467,4209,2541,70,"o",10.5]]},
     {"bbox":[2409,2573,3463,2667],"base":2644,"ind":1,"fs":10.5,"text":"125, 2 по евр текст ).","words":[["125,",2409,2579,2591,2665,88,"o",10.5],["2",2651,2579,2695,2647,100,"o",10.5],["по",2757,2595,2853,2647,59,"od",10.5],["евр",2917,2595,3059,2667,91,"o",10.5],["текст",3135,2593,3373,2645,96,"d",10.5],[").",3409,2573,3463,2663,100,"o",10.5]]}
    ]},
-   {"bbox": [2295,2677,4219,2815], "hanging": true, "text_d": "Homtatuca – (γελᾶν)= смѣяться, на", "text_merged": "Homtatuca – (γελᾶν)= смѣяться, на", "disputed": [[0,7],[8,9]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [1972,2431,3594,2494], "breaks": [[0,1]], "lines": [
-    {"bbox":[2295,2677,4219,2815],"base":2780,"ind":0,"fs":10.5,"text":"ПослнЬатиса — (уеЛаѵ)= смѣяться, на-","words":[["ПослнЬатиса",2295,2677,2929,2783,42,"so",10.5],["—",2993,2757,3087,2767,-1,"od",10.5],["(уеЛаѵ)=",3131,2713,3569,2815,38,"o?",10.5],["смѣяться,",3619,2715,4051,2795,68,"od",10.5],["на-",4111,2729,4219,2779,57,"o",10.5]]}
-   ]},
-   {"bbox": [2349,2807,4209,3011], "hanging": true, "text_d": "смѣхаться; радоваться, осмѣивать (Быт . XVII, 17) .", "text_merged": "смѣхаться; радоваться, осмѣивать (Быт . XVII, 17) .", "disputed": [[7,8],[18,19],[44,45]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [2070,2527,3583,2577], "breaks": [[0,0],[40,0]], "lines": [
-    {"bbox":[2349,2807,4209,2909],"base":2884,"ind":0,"fs":10.5,"text":"* смѣхаться; радоваться, осмѣивать (Быт.","words":[["*",2349,2851,2371,2871,52,"od",10.5],["смѣхаться;",2403,2825,2891,2905,60,"o",10.5],["радоваться,",2957,2835,3481,2909,86,"od",10.5],["осмѣивать",3515,2817,3969,2887,64,"od",10.5],["(Быт.",3997,2807,4209,2907,76,"d",10.5]]},
+   {"bbox": [2295,2677,4219,3011], "hanging": true, "text_d": "Homtatuca – (γελᾶν)= смѣяться, насмѣхаться; радоваться, осмѣивать (Быт . XVII, 17) .", "text_merged": "Homtatuca – (γελᾶν)= смѣяться, насмѣхаться; радоваться, осмѣивать (Быт . XVII, 17) .", "disputed": [[0,7],[8,9],[40,41],[51,52],[77,78]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [1972,2431,3594,2494], "breaks": [[0,1],[33,0],[73,0]], "lines": [
+    {"bbox":[2295,2677,4219,2815],"base":2780,"ind":0,"fs":10.5,"text":"ПослнЬатиса — (уеЛаѵ)= смѣяться, на-","words":[["ПослнЬатиса",2295,2677,2929,2783,42,"so",10.5],["—",2993,2757,3087,2767,-1,"od",10.5],["(уеЛаѵ)=",3131,2713,3569,2815,38,"o?",10.5],["смѣяться,",3619,2715,4051,2795,68,"od",10.5],["на-",4111,2729,4219,2779,57,"o",10.5]]},
+    {"bbox":[2349,2807,4209,2909],"base":2884,"ind":1,"fs":10.5,"text":"* смѣхаться; радоваться, осмѣивать (Быт.","words":[["*",2349,2851,2371,2871,52,"od",10.5],["смѣхаться;",2403,2825,2891,2905,60,"o",10.5],["радоваться,",2957,2835,3481,2909,86,"od",10.5],["осмѣивать",3515,2817,3969,2887,64,"od",10.5],["(Быт.",3997,2807,4209,2907,76,"d",10.5]]},
     {"bbox":[2399,2919,2887,3011],"base":2991,"ind":1,"fs":10.5,"text":"XVII, 17).","words":[["XVII,",2399,2919,2649,2995,48,"o",10.5],["17).",2725,2921,2887,3011,96,"o",10.5]]}
    ]},
    {"bbox": [2293,3029,3961,3127], "hanging": true, "text_d": "Посокїе = помощь , способствованіе .", "text_merged": "Посокїе = помощь , способствованіе .", "disputed": [[4,7]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [1972,2704,3350,2770], "breaks": [[0,0]], "lines": [
@@ -217,20 +215,20 @@
   {"col":2,"para":8,"bbox":[2293,2009,2849,2115],"abbyy":"ПосмгЬател","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2295,2233,3085,2339],"abbyy":"ПосмгЬательныЙ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2295,2677,2929,2783],"abbyy":"ПослнЬатиса","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":11,"bbox":[2349,2817,3969,2909],"abbyy":"* смѣхаться; радоваться, осмѣивать","abbyy_conf":70,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":12,"bbox":[2293,3029,2645,3107],"abbyy":"Пособіе","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":13,"bbox":[2293,3151,2815,3229],"abbyy":"Пособникъ","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":14,"bbox":[2311,3471,2879,3545],"abbyy":"Пособникъ","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":15,"bbox":[2321,3777,3075,3857],"abbyy":"Пособстбобдтн","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":16,"bbox":[2331,4403,2595,4471],"abbyy":"Носовы","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":17,"bbox":[2331,4505,2771,4573],"abbyy":"Нососьство","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":18,"bbox":[2329,4605,2743,4675],"abbyy":"Посодшікъ","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":19,"bbox":[2329,4809,2687,4877],"abbyy":"Посолонь","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":20,"bbox":[2327,5321,3121,5399],"abbyy":"Посоам:теобл,тги","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":21,"bbox":[2329,5645,2683,5763],"abbyy":"Посолъ","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":22,"bbox":[2331,5761,2697,5831],"abbyy":"Посоѵіітіі","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":23,"bbox":[2329,5951,2881,6047],"abbyy":"Посошнйкъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
+  {"col":2,"para":11,"bbox":[2293,3029,2645,3107],"abbyy":"Пособіе","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":12,"bbox":[2293,3151,2815,3229],"abbyy":"Пособникъ","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":13,"bbox":[2311,3471,2879,3545],"abbyy":"Пособникъ","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":14,"bbox":[2321,3777,3075,3857],"abbyy":"Пособстбобдтн","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":15,"bbox":[2331,4403,2595,4471],"abbyy":"Носовы","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":16,"bbox":[2331,4505,2771,4573],"abbyy":"Нососьство","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":17,"bbox":[2329,4605,2743,4675],"abbyy":"Посодшікъ","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":18,"bbox":[2329,4809,2687,4877],"abbyy":"Посолонь","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":19,"bbox":[2327,5321,3121,5399],"abbyy":"Посоам:теобл,тги","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":20,"bbox":[2329,5645,2683,5763],"abbyy":"Посолъ","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":21,"bbox":[2331,5761,2697,5831],"abbyy":"Посоѵіітіі","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":22,"bbox":[2329,5951,2881,6047],"abbyy":"Посошнйкъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":510,"b_page":462,"c_page":[508],"chars":3551,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":191,"fixed":25,"odd":[]},
+ "seg": {"continue":1},
+ "witness": {"version":10,"d_page":510,"b_page":462,"c_page":[508],"chars":3551,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":191,"fixed":25,"odd":[]},
  "warnings": []
 }

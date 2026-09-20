@@ -17,11 +17,9 @@
    {"bbox": [57,355,699,449], "hanging": true, "text_d": "Срака = сорока.", "text_merged": "Срака = сорока.", "disputed": [], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [156,419,740,466], "breaks": [[0,0]], "lines": [
     {"bbox":[57,355,699,449],"base":411,"ind":0,"fs":11,"text":"Срдкл = сорока.","words":[["Срдкл",57,361,215,449,24,"?",11],["=",241,373,337,403,23,"",11],["сорока.",367,355,699,429,64,"d",11]]}
    ]},
-   {"bbox": [61,453,1977,549], "hanging": true, "text_d": "Срамленъ— срамный, постыдный ( Канонъ", "text_merged": "Срамленъ= срамный, постыдный ( Канонъ", "disputed": [[8,9],[36,37]], "italic": [[31,37]], "fixed": 1, "d_cut": "line", "d_line": [166,513,1775,586], "breaks": [[0,0]], "lines": [
-    {"bbox":[61,453,1977,549],"base":526,"ind":0,"fs":11,"text":"Слллшнъ = срамный, постыдный (Канонъ","words":[["Слллшнъ",61,469,427,545,26,"?",11],["=",457,489,557,515,74,"",11],["срамный,",591,459,997,549,75,"",11],["постыдный",1065,459,1539,543,40,"d",11],["(",1599,461,1623,547,100,"",11],["Канонъ",1639,453,1977,533,44,"iod",11.5]]}
-   ]},
-   {"bbox": [97,553,1133,663], "hanging": true, "text_d": "Андрея Критскаго) .", "text_merged": "Андрея Критскаго) .", "disputed": [], "italic": [[0,17]], "fixed": 0, "d_cut": "line", "d_line": [233,611,1089,662], "breaks": [[0,0]], "lines": [
-    {"bbox":[97,553,1133,663],"base":632,"ind":0,"fs":11.5,"text":"'Андрея Критскаго).","words":[["'Андрея",97,561,441,663,45,"id",11.5],["Критскаго",507,553,1029,655,63,"iod",11.5],[")",1039,563,1085,651,100,"i",11.5],[".",1117,619,1133,629,100,"i",11.5]]}
+   {"bbox": [61,453,1977,663], "hanging": true, "text_d": "Срамленъ— срамный, постыдный ( Канонъ Андрея Критскаго) .", "text_merged": "Срамленъ= срамный, постыдный ( Канонъ Андрея Критскаго) .", "disputed": [[8,9],[36,37]], "italic": [[31,55]], "fixed": 1, "d_cut": "line", "d_line": [166,513,1775,586], "breaks": [[0,0],[38,0]], "lines": [
+    {"bbox":[61,453,1977,549],"base":526,"ind":0,"fs":11,"text":"Слллшнъ = срамный, постыдный (Канонъ","words":[["Слллшнъ",61,469,427,545,26,"?",11],["=",457,489,557,515,74,"",11],["срамный,",591,459,997,549,75,"",11],["постыдный",1065,459,1539,543,40,"d",11],["(",1599,461,1623,547,100,"",11],["Канонъ",1639,453,1977,533,44,"iod",11.5]]},
+    {"bbox":[97,553,1133,663],"base":632,"ind":1,"fs":11.5,"text":"'Андрея Критскаго).","words":[["'Андрея",97,561,441,663,45,"id",11.5],["Критскаго",507,553,1029,655,63,"iod",11.5],[")",1039,563,1085,651,100,"i",11.5],[".",1117,619,1133,629,100,"i",11.5]]}
    ]},
    {"bbox": [61,669,1977,1101], "hanging": true, "text_d": "Срамляю и солмош! – (ἐντρέπω) = посрамляю, пристыжаю ( 1 Корин. 4, 14). Срамлятися лица на судѣ имѣть лицепріятіе (Прит. 24 , 23) .", "text_merged": "Срамляю и солмош! – (ἐντρέπω) = посрамляю, пристыжаю ( 1 Корин. 4, 14). Срамлятися лица на судѣ — имѣть лицепріятіе (Прит. 24 , 23) .", "disputed": [[11,13],[15,17],[33,34],[94,97],[101,103],[114,115]], "italic": [[72,95]], "fixed": 1, "d_cut": "line", "d_line": [164,727,1778,800], "breaks": [[0,1],[34,0],[72,0],[104,0]], "lines": [
     {"bbox":[61,669,1977,807],"base":770,"ind":0,"fs":11,"text":"СйДМЛАЮ И СйЛМО цИ? — (еѵтреттш) = по¬","words":[["СйДМЛАЮ",61,709,409,787,39,"o?",11],["И",481,711,537,763,44,"d",11],["СйЛМО",609,709,863,767,27,"o?",11],["цИ?",875,669,1027,799,20,"?",11],["—",1069,743,1163,753,-1,"d",11],["(еѵтреттш)",1209,703,1639,807,34,"o?",11],["=",1681,737,1783,763,66,"",11],["по¬",1843,723,1977,775,77,"d",11]]},
@@ -33,11 +31,9 @@
     {"bbox":[49,1089,1969,1227],"base":1197,"ind":0,"fs":11,"text":"Олмопа'юк^тно — чрезъ срамное пріоб¬","words":[["Олмопа'юк^тно",49,1089,805,1227,32,"?",11],["—",833,1179,937,1189,-1,"d",11],["чрезъ",977,1149,1225,1223,87,"od",11],["срамное",1285,1149,1639,1223,76,"od",11],["пріоб¬",1697,1129,1969,1223,76,"od",11]]},
     {"bbox":[131,1227,1321,1337],"base":1304,"ind":1,"fs":11.5,"text":"рѣтеніе. Прол. февр. 12.","words":[["рѣтеніе.",131,1235,465,1337,62,"od",11],["Прол.",533,1227,803,1329,67,"io",11.5],["февр.",865,1227,1117,1329,75,"io",11.5],["12.",1193,1235,1321,1305,100,"o",11.5]]}
    ]},
-   {"bbox": [49,1353,1965,1449], "hanging": true, "text_d": "Срамота = срамные члены (Лев . 18, 7);", "text_merged": "Срамота = срамные члены (Лев  18, 7);", "disputed": [[16,17],[29,29],[36,37]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [156,1306,1765,1372], "breaks": [[0,0]], "lines": [
-    {"bbox":[49,1353,1965,1449],"base":1423,"ind":0,"fs":11,"text":"Садмотл = срамные члены (Лев 18, 7);","words":[["Садмотл",49,1359,405,1437,26,"?",11],["=",465,1389,567,1415,37,"o",11],["срамные",607,1373,975,1449,73,"od",11],["члены",1033,1373,1293,1427,63,"od",11],["(Лев",1355,1353,1545,1445,63,"d",11],["18,",1657,1355,1779,1445,90,"o",11],["7);",1851,1355,1965,1445,78,"o",11]]}
-   ]},
-   {"bbox": [93,1451,1959,1677], "hanging": true, "text_d": "(αἰσχύνη), стыдъ, срамъ (Пр. Д. 27, 1 к.).", "text_merged": "(αἰσχύνη), стыдъ, срамъ (Пр. Д. 27, 1 к.).", "disputed": [[13,14],[41,42]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [243,1407,1758,1463], "breaks": [[0,0],[36,0]], "lines": [
-    {"bbox":[93,1451,1959,1569],"base":1527,"ind":0,"fs":11,"text":"'(аісг^Оѵу)), стыдъ, срамъ (Пр. Д. 27,","words":[["'(аісг^Оѵу)),",93,1451,571,1569,38,"o",11],["стыдъ,",637,1477,929,1545,72,"od",11],["срамъ",999,1475,1261,1549,81,"od",11],["(Пр.",1341,1453,1523,1551,66,"",11],["Д.",1625,1457,1715,1547,77,"o",11],["27,",1829,1461,1959,1547,77,"o",11]]},
+   {"bbox": [49,1353,1965,1677], "hanging": true, "text_d": "Срамота = срамные члены (Лев . 18, 7); (αἰσχύνη), стыдъ, срамъ (Пр. Д. 27, 1 к.).", "text_merged": "Срамота = срамные члены (Лев  18, 7); (αἰσχύνη), стыдъ, срамъ (Пр. Д. 27, 1 к.).", "disputed": [[16,17],[29,29],[36,37],[51,52],[79,80]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [156,1306,1765,1372], "breaks": [[0,0],[38,0],[74,0]], "lines": [
+    {"bbox":[49,1353,1965,1449],"base":1423,"ind":0,"fs":11,"text":"Садмотл = срамные члены (Лев 18, 7);","words":[["Садмотл",49,1359,405,1437,26,"?",11],["=",465,1389,567,1415,37,"o",11],["срамные",607,1373,975,1449,73,"od",11],["члены",1033,1373,1293,1427,63,"od",11],["(Лев",1355,1353,1545,1445,63,"d",11],["18,",1657,1355,1779,1445,90,"o",11],["7);",1851,1355,1965,1445,78,"o",11]]},
+    {"bbox":[93,1451,1959,1569],"base":1527,"ind":1,"fs":11,"text":"'(аісг^Оѵу)), стыдъ, срамъ (Пр. Д. 27,","words":[["'(аісг^Оѵу)),",93,1451,571,1569,38,"o",11],["стыдъ,",637,1477,929,1545,72,"od",11],["срамъ",999,1475,1261,1549,81,"od",11],["(Пр.",1341,1453,1523,1551,66,"",11],["Д.",1625,1457,1715,1547,77,"o",11],["27,",1829,1461,1959,1547,77,"o",11]]},
     {"bbox":[135,1567,403,1677],"base":1635,"ind":1,"fs":11,"text":"1 к.).,","words":[["1",135,1571,165,1641,100,"o?",11],["к.).,",223,1567,403,1677,40,"d",11]]}
    ]},
    {"bbox": [49,1683,1961,1879], "hanging": true, "text_d": "Срамотити, посрамотити стыдить,выставлять на позоръ. Прол. янв. 21 .", "text_merged": "Срамотити, посрамотити= стыдить,выставлять на позоръ. Прол. янв. 21 .", "disputed": [[8,9],[19,20],[21,23],[26,27],[46,47]], "italic": [[54,64]], "fixed": 1, "d_cut": "line", "d_line": [158,1592,1768,1660], "breaks": [[0,1],[34,0]], "lines": [
@@ -180,28 +176,27 @@
  "entries_hint": [
   {"col":1,"para":1,"bbox":[57,361,215,449],"abbyy":"Срдкл","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":2,"bbox":[61,469,427,545],"abbyy":"Слллшнъ","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":3,"bbox":[97,561,441,663],"abbyy":"'Андрея","abbyy_conf":45,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":4,"bbox":[61,671,979,799],"abbyy":"СйДМЛАЮ И СйЛМО цИ","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":5,"bbox":[49,1089,805,1227],"abbyy":"Олмопа'юк^тно","abbyy_conf":32,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":6,"bbox":[49,1359,405,1437],"abbyy":"Садмотл","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":7,"bbox":[93,1451,109,1489],"abbyy":"'","abbyy_conf":-1,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":8,"bbox":[49,1683,1309,1799],"abbyy":"СйДМОТИТИо пос|ілмотити","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":9,"bbox":[51,1905,227,2027],"abbyy":"Срдм","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":10,"bbox":[53,2029,553,2133],"abbyy":"Срдмотнын","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":11,"bbox":[57,2249,229,2327],"abbyy":"СйДМ","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":12,"bbox":[59,2781,669,2857],"abbyy":"СйДЛІАЖДНКЫН","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":13,"bbox":[61,3083,1173,3229],"abbyy":"СрлсткорйксА несліанно","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":14,"bbox":[63,3435,457,3513],"abbyy":"Сйдшнно","abbyy_conf":28,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":15,"bbox":[65,3649,469,3757],"abbyy":"Срдшный","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":16,"bbox":[73,4485,503,4623],"abbyy":"Сцдтинлю","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":17,"bbox":[73,5015,605,5157],"abbyy":"Срдст&орнТЕ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":18,"bbox":[79,5341,577,5445],"abbyy":"СрдстБорАШ","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":19,"bbox":[77,5565,801,5681],"abbyy":"Срдстлтз'Блти-сА","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":20,"bbox":[85,5793,497,5937],"abbyy":"С^лет'&нТе","abbyy_conf":16,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":21,"bbox":[89,6029,409,6163],"abbyy":"^лчйцл","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":3,"bbox":[61,671,979,799],"abbyy":"СйДМЛАЮ И СйЛМО цИ","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":4,"bbox":[49,1089,805,1227],"abbyy":"Олмопа'юк^тно","abbyy_conf":32,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":5,"bbox":[49,1359,405,1437],"abbyy":"Садмотл","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":6,"bbox":[49,1683,1309,1799],"abbyy":"СйДМОТИТИо пос|ілмотити","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":7,"bbox":[51,1905,227,2027],"abbyy":"Срдм","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":8,"bbox":[53,2029,553,2133],"abbyy":"Срдмотнын","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":9,"bbox":[57,2249,229,2327],"abbyy":"СйДМ","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":10,"bbox":[59,2781,669,2857],"abbyy":"СйДЛІАЖДНКЫН","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":11,"bbox":[61,3083,1173,3229],"abbyy":"СрлсткорйксА несліанно","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":12,"bbox":[63,3435,457,3513],"abbyy":"Сйдшнно","abbyy_conf":28,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":13,"bbox":[65,3649,469,3757],"abbyy":"Срдшный","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":14,"bbox":[73,4485,503,4623],"abbyy":"Сцдтинлю","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":15,"bbox":[73,5015,605,5157],"abbyy":"Срдст&орнТЕ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":16,"bbox":[79,5341,577,5445],"abbyy":"СрдстБорАШ","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":17,"bbox":[77,5565,801,5681],"abbyy":"Срдстлтз'Блти-сА","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":18,"bbox":[85,5793,497,5937],"abbyy":"С^лет'&нТе","abbyy_conf":16,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":19,"bbox":[89,6029,409,6163],"abbyy":"^лчйцл","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2111,1875,2615,2011],"abbyy":"С{^К{>еникъ","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2129,5225,2421,5303],"abbyy":"СйЕКйо","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":701,"b_page":653,"c_page":[95],"chars":3793,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":199,"fixed":13,"odd":[]},
+ "seg": {"continue":2},
+ "witness": {"version":10,"d_page":701,"b_page":653,"c_page":[95],"chars":3793,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":199,"fixed":13,"odd":[]},
  "warnings": []
 }

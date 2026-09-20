@@ -460,10 +460,12 @@ def line_markup(text, a, b, regions, marks):
 def entry_lines(r, marks):
     """-> (text, regions, [(start, end, hyphen, last)], cont) of an entry: the text as HEAD + definition, the
     style regions, the printed lines as spans of the text (offsets of the `lines` column made absolute), and
-    cont = True for an "entry" that is really a continuation line the segmentation took for an entry start (no
-    headword, no separator — mostly on the pages whose left margin is cut off): set without a head, indented.
-    A real entry whose headword the OCR did not read gets a □ where the headword belongs."""
-    cont = not r['headword'] and not r['sep']
+    cont = True for an "entry" that is really a continuation line the segmentation took for an entry start: set
+    without a head, indented.  Only an entry whose start no witness could confirm qualifies (flag `guessed`: a
+    cut-margin page where A decided from text features alone) and that has neither headword nor separator.  Every
+    other entry begins an entry — witnesses C and D read the printed indentation, dj_seg.py — and a headword the
+    OCR did not read is printed as □ rather than made to disappear into the article above."""
+    cont = not r['headword'] and not r['sep'] and 'guessed' in r['flags'].split(';')
     hw_ = r['headword'] or ('' if cont else '□')
     sep = {'=': ' = ', '—': ' — ', '(': ' '}.get(r['sep'], ' ') if not cont else ''
     head = hw_ + sep

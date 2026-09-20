@@ -31,6 +31,11 @@ Page JSON (all coordinates in pixels of the 600 ppi leaf, as in the JP2 files; h
       paragraphs                         [{bbox, hanging, [guessed], lines}]: a new paragraph starts at every
                                          flush line; hanging = starts flush (an entry candidate); the first
                                          paragraph of a column with hanging=false continues the previous column;
+                                         where djachenko/segmentation.tsv (tools/dj_seg.py) has a line, witnesses
+                                         C and D decide instead of A's geometry — they have both margins, which A
+                                         has not on 551 pages, and see a flush line ABBYY read only half of;
+                                         seg = "CD" when the start is the witnesses' and not A's, "A" when no
+                                         witness reached the line and A decided alone (segmentation.tsv);
                                          guessed = the start was decided from text features (margin cut off in
                                          the scan, or a dropped first letter), not from the geometry
         lines                            {bbox, base, ind, fs, text, words}; ind 0 = flush, 1 = indented,
@@ -53,6 +58,7 @@ Page JSON (all coordinates in pixels of the 600 ppi leaf, as in the JP2 files; h
     warnings                             [str]
 """
 import argparse, csv, gzip, json, re, statistics
+from collections import Counter
 import xml.etree.ElementTree as ET
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
@@ -340,6 +346,27 @@ def flush_edge(rels, prior, slack=None, per_line=10):
     if flush:                                   # centre the edge on the flush lines themselves
         F += statistics.median(flush)
     return F, fit(F)[1]
+
+
+_SEG = None
+
+
+def segmentation():
+    """{(leaf, side, baseline): "start" | "continue"} — where witnesses C and D say a printed paragraph begins,
+    against A's own geometry (tools/dj_seg.py writes djachenko/segmentation.tsv; empty when it is not there)."""
+    global _SEG
+    if _SEG is None:
+        path = DJ / 'segmentation.tsv'
+        _SEG = {}
+        if path.exists():
+            with path.open(encoding='utf-8') as f:
+                head = next(f, '').rstrip('\n').split('\t')
+                col = {name: i for i, name in enumerate(head)}
+                for line in f:
+                    r = line.rstrip('\n').split('\t')
+                    if len(r) > max(col.values()) and r[col['verdict']] in ('start', 'continue'):
+                        _SEG[(int(r[col['leaf']]), r[col['side']], int(r[col['base']]))] = r[col['verdict']]
+    return _SEG
 
 
 def layout(leaf, pg, printed):
@@ -651,6 +678,8 @@ def layout(leaf, pg, printed):
             pt.endswith(('.', ')', '»', '“'))
 
     # -- paragraphs
+    seg = segmentation()
+    overrides = Counter()                       # lines where the witnesses' reading differs from A's geometry
     columns = []
     for (band, side) in sorted(groups):
         paras, prev = [], None
@@ -663,8 +692,17 @@ def layout(leaf, pg, printed):
             ind, guess = ind_of(ln, side, prev)
             if ind == 1 and edges[side]['mode'] == 'fit' and missed_start(ln, prev, side):
                 ind, guess = 0, True
+            said = seg.get((leaf, side, ln['base']))       # witnesses C and D, from segmentation.tsv (dj_seg.py)
+            was = ind
+            if said == 'start':
+                ind, guess = 0, False
+            elif said == 'continue' and ind == 0:
+                ind, guess = 1, False
+            if said and (ind == 0) != (was == 0):
+                overrides['start' if ind == 0 else 'continue'] += 1
             if ind == 0 or not paras:
-                paras.append(dict(bbox=None, hanging=ind == 0, guessed=guess and ind == 0, lines=[]))
+                paras.append(dict(bbox=None, hanging=ind == 0, guessed=guess and ind == 0, lines=[],
+                                  witness='CD' if (said == 'start' and was != 0) else (None if said else 'A')))
             paras[-1]['lines'].append((ln, ind))
             prev = ln
         pj = []
@@ -672,6 +710,10 @@ def layout(leaf, pg, printed):
             par = dict(bbox=union(ln['box'] for ln, _ in p['lines']), hanging=p['hanging'])
             if p['guessed']:
                 par['guessed'] = True
+            if p.get('witness'):
+                # CD: the paragraph begins here because C and D say so and A's geometry did not — one dj_seg.py
+                # added.  A: neither witness could be carried over to this line, so A decided it alone.
+                par['seg'] = p['witness']
             par.update(lines=[line_json(ln, ind) for ln, ind in p['lines']], _raw=p['lines'])
             pj.append(par)
         e = edges[side]
@@ -744,7 +786,7 @@ def layout(leaf, pg, printed):
                                               for ln in sorted(footer, key=lambda ln: ln['box'][0])),
                 footer_base=(min(ln['base'] for ln in (foot or footer)) if (foot or footer) else None),
                 headings=headings, figures=figures, columns=columns, noise=noise, entries_hint=hints,
-                warnings=warnings)
+                seg=dict(overrides), warnings=warnings)
 
 
 # ---------------------------------------------------------------- output
@@ -776,6 +818,8 @@ def dump(page):
             out.append(f' "{k}": [')
             out.extend('  ' + jd(h) + (',' if i < len(page[k]) - 1 else '') for i, h in enumerate(page[k]))
             out.append(' ],')
+    if page.get('seg'):
+        out.append(f' "seg": {jd(page["seg"])},')
     if 'witness' in page:
         out.append(f' "witness": {jd(page["witness"])},')
     out.append(f' "warnings": {jd(page["warnings"])}')
@@ -816,15 +860,20 @@ def carry_over(page, path):
         new_paras = [p for c in page['columns'] for p in c['paragraphs']]
         lost = 0
         for op in old_paras:
+            # the box must be the same one, not merely the nearest: a page where one paragraph is split and
+            # another merged keeps its count, and a laxer match would leave a paragraph holding the text of the
+            # box it used to be, with `breaks` for lines it no longer has
             best = max(new_paras, key=lambda n: iou(n['bbox'], op['bbox']), default=None)
-            if best is not None and iou(best['bbox'], op['bbox']) > 0.5 and 'text_merged' not in best:
+            if best is not None and iou(best['bbox'], op['bbox']) > 0.9 and 'text_merged' not in best:
                 for k in keys:
                     best[k] = op.get(k)
             else:
                 lost += 1
-        if lost or len(old_paras) != len(new_paras):
-            page['warnings'].append(f'paragraphs changed ({lost} witness texts lost, {len(new_paras)} paragraphs '
-                                    f'now, {len(old_paras)} before): run dj_heads.py --pages {page["idx"]} --force')
+        missing = sum(1 for n in new_paras if 'text_merged' not in n)
+        if lost or missing or len(old_paras) != len(new_paras):
+            page['warnings'].append(f'paragraphs changed ({lost} witness texts lost, {missing} paragraphs without '
+                                    f'one, {len(new_paras)} paragraphs now, {len(old_paras)} before): '
+                                    f'run dj_heads.py --pages {page["idx"]} --force')
         elif 'witness' in old:
             page['witness'] = old['witness']
 

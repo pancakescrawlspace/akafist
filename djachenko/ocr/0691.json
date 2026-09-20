@@ -23,11 +23,9 @@
     {"bbox":[253,871,2115,963],"base":942,"ind":1,"fs":11,"text":"— нечистое, съ сторонними примѣсями,","words":[["—",253,915,327,923,-1,"od",11],["нечистое,",355,893,773,959,72,"od",11],["съ",841,891,941,943,92,"od",11],["сторонними",1003,891,1511,963,76,"od",11],["примѣсями,",1599,871,2115,963,64,"od",11]]},
     {"bbox":[251,971,2113,1063],"base":1045,"ind":1,"fs":11,"text":"вообще низкаго достоинства (Ис. 1, 22).","words":[["вообще",251,977,573,1053,79,"od",11],["низкаго",631,993,971,1047,64,"od",11],["достоинства",1007,993,1557,1057,91,"od",11],["(Ис.",1599,971,1771,1063,70,"o",11],["1,",1829,975,1903,1061,78,"o?",11],["22).",1953,971,2113,1063,100,"o",11]]}
    ]},
-   {"bbox": [145,1079,2119,1197], "hanging": true, "text_d": "Среброданный– (ἀργυρολόγητος) = οσπο", "text_merged": "Среброданный– (ἀργυρολόγητος) = οσπο", "disputed": [[30,31],[32,36]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [266,1064,1875,1132], "breaks": [[0,1]], "lines": [
-    {"bbox":[145,1079,2119,1197],"base":1164,"ind":0,"fs":11,"text":"Сйскродднный — (аруироА.бу/]то<;) = обло-","words":[["Сйскродднный",145,1079,799,1187,30,"o?",11],["—",835,1137,929,1147,-1,"od",11],["(аруироА.бу/]то<;)",965,1087,1713,1197,39,"o?",11],["=",1745,1129,1849,1155,100,"o",11],["обло-",1889,1095,2119,1167,81,"o",11]]}
-   ]},
-   {"bbox": [199,1173,2121,1395], "hanging": true, "text_d": "женный данью , платящій дань серебромъ (2 Мак. 11 , 3) .", "text_merged": "женный данью , платящій дань серебромъ (2 Мак. 11 , 3) .", "disputed": [[19,21]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [355,1155,1877,1205], "breaks": [[0,0],[39,0]], "lines": [
-    {"bbox":[199,1173,2121,1291],"base":1268,"ind":0,"fs":11,"text":", женный данью, платящій дань серебромъ","words":[[",",199,1173,221,1221,54,"o?",11],["женный",249,1201,581,1273,54,"o",11],["данью,",625,1219,923,1287,68,"od",11],["платящій",957,1199,1375,1275,55,"od",11],["дань",1433,1217,1629,1281,89,"od",11],["серебромъ",1661,1197,2121,1291,94,"od",11]]},
+   {"bbox": [145,1079,2121,1395], "hanging": true, "text_d": "Среброданный– (ἀργυρολόγητος) = οσποженный данью , платящій дань серебромъ (2 Мак. 11 , 3) .", "text_merged": "Среброданный– (ἀργυρολόγητος) = блоοженный данью , платящій дань серебромъ (2 Мак. 11 , 3) .", "disputed": [[30,31],[32,36],[55,57]], "italic": [], "fixed": 3, "d_cut": "line", "d_line": [266,1064,1875,1132], "breaks": [[0,1],[36,0],[75,0]], "lines": [
+    {"bbox":[145,1079,2119,1197],"base":1164,"ind":0,"fs":11,"text":"Сйскродднный — (аруироА.бу/]то<;) = обло-","words":[["Сйскродднный",145,1079,799,1187,30,"o?",11],["—",835,1137,929,1147,-1,"od",11],["(аруироА.бу/]то<;)",965,1087,1713,1197,39,"o?",11],["=",1745,1129,1849,1155,100,"o",11],["обло-",1889,1095,2119,1167,81,"o",11]]},
+    {"bbox":[199,1173,2121,1291],"base":1268,"ind":1,"fs":11,"text":", женный данью, платящій дань серебромъ","words":[[",",199,1173,221,1221,54,"o?",11],["женный",249,1201,581,1273,54,"o",11],["данью,",625,1219,923,1287,68,"od",11],["платящій",957,1199,1375,1275,55,"od",11],["дань",1433,1217,1629,1281,89,"od",11],["серебромъ",1661,1197,2121,1291,94,"od",11]]},
     {"bbox":[253,1301,987,1395],"base":1372,"ind":1,"fs":11,"text":"(2 Мак. 11, 3).","words":[["(2",253,1301,333,1395,100,"o",11],["Мак.",395,1301,605,1375,91,"d",11],["11,",687,1303,819,1395,72,"o?",11],["3).",881,1301,987,1393,73,"o",11]]}
    ]},
    {"bbox": [151,1383,2123,1722], "hanging": true, "text_d": "Сосбродѣла, сребродѣль = художникъ, дѣлающій изъ серебра разныя вещи (Суд. 17, 4).", "text_merged": "Сосбродѣла, сребродѣль = художникъ, дѣлающій изъ серебра разныя вещи (Суд. 17, 4).", "disputed": [[1,3],[9,11],[15,16]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [272,1349,1873,1424], "breaks": [[0,0],[36,0],[69,0]], "lines": [
@@ -186,16 +184,15 @@
  ],
  "entries_hint": [
   {"col":1,"para":2,"bbox":[145,1079,799,1187],"abbyy":"Сйскродднный","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":3,"bbox":[199,1173,221,1221],"abbyy":",","abbyy_conf":54,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":4,"bbox":[151,1383,1351,1545],"abbyy":"СоЕБ|ЬОД'&ЛА.-> Г^ЕЕ^ОД'&ЛЬ","abbyy_conf":26,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":5,"bbox":[147,1739,1525,1873],"abbyy":"С^ЕЕ^ОКОЕЛМАл С^ЕБ|ІОК53НЕЦ","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":6,"bbox":[145,2039,1191,2201],"abbyy":"О^ЕЕроіч^знЙЕПЙи-чГн","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":7,"bbox":[147,2393,791,2527],"abbyy":"С р е Е ^ олѴат ель","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":8,"bbox":[145,2719,673,2853],"abbyy":"С^ЕБ|!юлк>ЕІЁ","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":9,"bbox":[157,3767,881,3899],"abbyy":"С^еероп^одлеец","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":10,"bbox":[161,3977,853,4095],"abbyy":"СбЕЕро^здный","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":11,"bbox":[145,4319,617,4453],"abbyy":"С^ЕКнитЕЛ","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":12,"bbox":[149,4545,401,4655],"abbyy":"СрЕдл","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":3,"bbox":[151,1383,1351,1545],"abbyy":"СоЕБ|ЬОД'&ЛА.-> Г^ЕЕ^ОД'&ЛЬ","abbyy_conf":26,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":4,"bbox":[147,1739,1525,1873],"abbyy":"С^ЕЕ^ОКОЕЛМАл С^ЕБ|ІОК53НЕЦ","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":5,"bbox":[145,2039,1191,2201],"abbyy":"О^ЕЕроіч^знЙЕПЙи-чГн","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":6,"bbox":[147,2393,791,2527],"abbyy":"С р е Е ^ олѴат ель","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":7,"bbox":[145,2719,673,2853],"abbyy":"С^ЕБ|!юлк>ЕІЁ","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":8,"bbox":[157,3767,881,3899],"abbyy":"С^еероп^одлеец","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":9,"bbox":[161,3977,853,4095],"abbyy":"СбЕЕро^здный","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":10,"bbox":[145,4319,617,4453],"abbyy":"С^ЕКнитЕЛ","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":11,"bbox":[149,4545,401,4655],"abbyy":"СрЕдл","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":1,"bbox":[2271,359,2965,453],"abbyy":"Средній день","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2273,551,3137,701],"abbyy":"С^днаа по^фй|іА","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2261,785,3601,879],"abbyy":"Средонодьствокдтн, сродокодътн","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
@@ -214,6 +211,7 @@
   {"col":2,"para":16,"bbox":[2257,5639,2679,5781],"abbyy":"СриціѴсА","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2257,5785,2603,5879],"abbyy":"Срогость","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":702,"b_page":654,"c_page":[96],"chars":3584,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":212,"fixed":27,"odd":[]},
+ "seg": {"continue":1},
+ "witness": {"version":10,"d_page":702,"b_page":654,"c_page":[96],"chars":3584,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":212,"fixed":30,"odd":[]},
  "warnings": []
 }

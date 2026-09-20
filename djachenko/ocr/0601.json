@@ -20,12 +20,10 @@
     {"bbox":[431,539,2271,641],"base":617,"ind":1,"fs":11.5,"text":"(А. С. Хомяковъ, см. ъМатер, для","words":[["(А.",431,541,569,641,92,"iod",11.5],["С.",645,543,737,623,50,"iod",11.5],["Хомяковъ,",819,543,1291,635,60,"iod",11.5],["см.",1377,565,1499,617,80,"od",11],["ъ",1595,595,1635,639,13,"io?",10],["Матер,",1653,539,2025,641,47,"id",11.5],["для",2117,541,2271,617,78,"iod",11.5]]},
     {"bbox":[429,639,2261,747],"base":718,"ind":1,"fs":11.5,"text":"срав. слов., „изд Акад. наукъ, т. II).","words":[["срав.",429,669,655,747,86,"io",11.5],["слов.,",721,667,973,737,83,"id",11.5],["„",1025,705,1055,737,45,"io",11.5],["изд",1069,643,1221,719,84,"io",11.5],["Акад.",1289,639,1565,719,71,"io",11.5],["наукъ",1629,665,1891,743,76,"iod",11.5],[",",1903,705,1921,733,59,"o",11],["т.",1989,667,2059,717,100,"o",11],["II).",2129,645,2261,739,99,"o",11]]}
    ]},
-   {"bbox": [319,741,2271,949], "hanging": true, "text_d": "Рушница = пищаль ручная. Объ осадѣ Троиц. мон.", "text_merged": "Рушница = пищаль ручная. Объ осадѣ Троиц. мон.", "disputed": [[42,43],[45,46]], "italic": [[25,46]], "fixed": 0, "d_cut": "line", "d_line": [280,768,1885,818], "breaks": [[0,0],[35,0]], "lines": [
+   {"bbox": [319,741,2271,1287], "hanging": true, "text_d": "Рушница = пищаль ручная. Объ осадѣ Троиц. мон. = благочестивая вдова-моавитянка , вышедшая замужъ за Вооза и бывшая въ числѣ предковъ Господа по плоти .", "text_merged": "Рушница = пищаль ручная. Объ осадѣ Троиц. мон. = благочестивая вдова-моавитянка , вышедшая замужъ за Вооза и бывшая въ числѣ предковъ Господа по плоти .", "disputed": [[42,43],[45,46],[85,86]], "italic": [[25,46]], "fixed": 0, "d_cut": "line", "d_line": [280,768,1885,818], "breaks": [[0,0],[35,0],[47,0],[82,0],[116,0]], "lines": [
     {"bbox":[319,741,2271,849],"base":819,"ind":0,"fs":11,"text":"Рушннца == пищаль ручная. Объ осадѣ","words":[["Рушннца",319,755,779,849,30,"o",11],["==",839,781,943,809,73,"o?",11],["пищаль",999,767,1323,829,62,"od",11],["ручная.",1383,765,1711,841,82,"od",11],["Объ",1795,741,1953,821,65,"iod",11.5],["осадѣ",2011,743,2271,821,90,"iod",11.5]]},
-    {"bbox":[443,849,1015,949],"base":922,"ind":1,"fs":11.5,"text":"Троиц, мои","words":[["Троиц,",443,849,773,949,59,"id",11.5],["мои",841,871,1015,923,37,"id",11.5]]}
-   ]},
-   {"bbox": [320,950,2269,1287], "hanging": true, "text_d": "= благочестивая вдова-моавитянка , вышедшая замужъ за Вооза и бывшая въ числѣ предковъ Господа по плоти .", "text_merged": "= благочестивая вдова-моавитянка , вышедшая замужъ за Вооза и бывшая въ числѣ предковъ Господа по плоти .", "disputed": [[38,39]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [530,981,1878,1018], "breaks": [[0,0],[35,0],[69,0]], "lines": [
-    {"bbox":[320,950,2261,1078],"base":1061,"ind":0,"fs":11,"text":"￼ ь = благочестивая вдова-моавитянка,","words":[["￼",320,950,544,1078,-1,"p",0],["ь",553,1003,595,1057,28,"io?",8],["=",631,1025,735,1051,100,"io?",8],["благочестивая",771,989,1399,1063,79,"od",11],["вдова-моавитянка,",1437,1009,2261,1073,86,"o",11]]},
+    {"bbox":[443,849,1015,949],"base":922,"ind":1,"fs":11.5,"text":"Троиц, мои","words":[["Троиц,",443,849,773,949,59,"id",11.5],["мои",841,871,1015,923,37,"id",11.5]]},
+    {"bbox":[320,950,2261,1078],"base":1061,"ind":1,"fs":11,"text":"￼ ь = благочестивая вдова-моавитянка,","words":[["￼",320,950,544,1078,-1,"p",0],["ь",553,1003,595,1057,28,"io?",8],["=",631,1025,735,1051,100,"io?",8],["благочестивая",771,989,1399,1063,79,"od",11],["вдова-моавитянка,",1437,1009,2261,1073,86,"o",11]]},
     {"bbox":[427,1091,2269,1185],"base":1162,"ind":1,"fs":11,"text":"вышедшая замужъ за Вооза и бывшая","words":[["вышедшая",427,1111,889,1177,60,"od",11],["замужъ",945,1111,1271,1185,88,"od",11],["за",1331,1111,1423,1165,80,"od",11],["Вооза",1481,1091,1739,1165,88,"o",11],["и",1821,1115,1867,1161,79,"od",11],["бывшая",1929,1091,2269,1165,82,"od",11]]},
     {"bbox":[425,1193,2207,1287],"base":1264,"ind":1,"fs":11,"text":"въ числѣ предковъ Господа по плоти.","words":[["въ",425,1217,529,1267,100,"od",11],["числѣ",587,1195,835,1267,66,"od",11],["предковъ",893,1213,1301,1287,68,"od",11],["Господа",1361,1193,1715,1277,84,"od",11],["по",1775,1215,1869,1265,71,"od",11],["плоти.",1933,1215,2207,1267,83,"od",11]]}
    ]},
@@ -138,10 +136,12 @@
     {"bbox":[2525,1599,4252,1707],"base":1672,"ind":1,"fs":11,"text":"овоща, и вѣроятно рѣдьки. Я]зод,","words":[["овоща,",2525,1617,2837,1685,93,"od",11],["и",2939,1619,2985,1667,69,"od",11],["вѣроятно",3099,1599,3507,1691,83,"od",11],["рѣдьки.",3619,1601,3951,1691,68,"od",11],["Я]зод,",4065,1603,4252,1707,35,"o?",11]]},
     {"bbox":[2525,1701,2901,1771],"base":1769,"ind":1,"fs":11.5,"text":"янв. 23.","words":[["янв.",2525,1719,2703,1771,82,"io",11.5],["23.",2773,1701,2901,1769,80,"o",11]]}
    ]},
-   {"bbox": [2419,1803,4247,2161], "hanging": true, "text_d": "Редкожды = рѣдко, нечасто. Прол. март. 25 . Ръза = насѣчка, нарѣзка (Миклош.) .", "text_merged": "Редкожды = рѣдко, нечасто. Прол. март. 25 . Ръза = насѣчка, нарѣзка (Миклош.) .", "disputed": [[1,2],[45,46],[75,77]], "italic": [[27,38],[68,77]], "fixed": 0, "d_cut": "line", "d_line": [2004,1710,3614,1786], "breaks": [[0,0],[33,0],[44,0]], "lines": [
+   {"bbox": [2419,1803,4247,2041], "hanging": true, "text_d": "Редкожды = рѣдко, нечасто. Прол. март. 25 .", "text_merged": "Редкожды = рѣдко, нечасто. Прол. март. 25 .", "disputed": [[1,2]], "italic": [[27,38]], "fixed": 0, "d_cut": "line", "d_line": [2004,1710,3614,1786], "breaks": [[0,0],[33,0]], "lines": [
     {"bbox":[2419,1803,4247,1951],"base":1913,"ind":0,"fs":11,"text":"Р'&дкожды = рѣдко, нечасто. Проз,","words":[["Р'&дкожды",2419,1803,2975,1921,37,"o",11],["=",3069,1877,3171,1901,60,"o?",11],["рѣдко,",3253,1843,3543,1935,90,"od",11],["нечасто.",3629,1861,3991,1917,95,"od",11],["Проз,",4079,1845,4247,1951,55,"id",11.5]]},
-    {"bbox":[2525,1945,3023,2041],"base":2015,"ind":1,"fs":11.5,"text":"март. 25.","words":[["март.",2525,1963,2819,2041,77,"id",11.5],["25.",2895,1945,3023,2015,89,"o",11]]},
-    {"bbox":[2639,2059,4141,2161],"base":2135,"ind":2,"fs":11,"text":"= насѣчка, нарѣзка (Миклош.).","words":[["=",2639,2099,2743,2125,63,"o?",11],["насѣчка,",2769,2065,3159,2159,74,"od",11],["нарѣзка",3219,2067,3579,2159,86,"od",11],["(Миклош.).",3643,2059,4141,2161,84,"io",11.5]]}
+    {"bbox":[2525,1945,3023,2041],"base":2015,"ind":1,"fs":11.5,"text":"март. 25.","words":[["март.",2525,1963,2819,2041,77,"id",11.5],["25.",2895,1945,3023,2015,89,"o",11]]}
+   ]},
+   {"bbox": [2639,2059,4141,2161], "hanging": true, "seg": "CD", "text_d": "Ръза = насѣчка, нарѣзка (Миклош.) .", "text_merged": "Ръза = насѣчка, нарѣзка (Миклош.) .", "disputed": [[1,2],[31,33]], "italic": [[24,33]], "fixed": 0, "d_cut": "line", "d_line": [2000,1932,3445,1978], "breaks": [[0,0]], "lines": [
+    {"bbox":[2639,2059,4141,2161],"base":2135,"ind":0,"fs":11,"text":"= насѣчка, нарѣзка (Миклош.).","words":[["=",2639,2099,2743,2125,63,"o?",11],["насѣчка,",2769,2065,3159,2159,74,"od",11],["нарѣзка",3219,2067,3579,2159,86,"od",11],["(Миклош.).",3643,2059,4141,2161,84,"io",11.5]]}
    ]},
    {"bbox": [2413,2171,4252,4287], "hanging": true, "text_d": "Рѣзанъ или рубанецъ = монета древней Руси. Это была единица кунной системы около 16 векшей цѣнности въ ХV в. , т. е. 311/15 Новгород. денегъ , около 14 к. на наши деньги ; рѣзанъ былъ самой мелкой монетой, такъ что въ ногатѣ (тоже мелкая монета) заключалось 8 рѣзаней („ Русск. правда\" , стр. 18) . Кругъ производить это названіе (рѣзанъ) отъ глагола рѣзать, такъ какъ въ древности монеты, представлявшія изъ себя извѣстное количество серебра , или какого-нибудь другого металла , были разрѣзываемы на части. Весьма вѣроятно, что рѣзанъ былъ общимъ названіемъ этихъ частей; когда же впослѣдствіи монеты стали чеканить, то одной изъ нихъ и оставили это названіе (рѣзанъ). (Кругъ, „ Критич. розыск. о древнихъ русскихъ монетахь \" , стр . 263 и 264) .", "text_merged": "Рѣзанъ или рубанецъ = монета древней Руси. Это была единица кунной системы около 16 векшей цѣнности въ ХV в. , т. е. 311/15 Новгород. денегъ , около 14 к. на наши деньги ; рѣзанъ былъ самой мелкой монетой, такъ что въ ногатѣ (тоже мелкая монета) заключалось 8 рѣзаней („ Русск. правда\" , стр. 18) . Кругъ производитъ это названіе (рѣзанъ) отъ глагола рѣзать, такъ какъ въ древности монеты, представлявшія изъ себя извѣстное количество серебра , или какого-нибудь другого металла , были разрѣзываемы на части. Весьма вѣроятно, что рѣзанъ былъ общимъ названіемъ этихъ частей; когда же впослѣдствіи монеты стали чеканить, то одной изъ нихъ и оставили это названіе (рѣзанъ). (Кругъ, „ Критич. розыск. о древнихъ русскихъ монетахь \" , стр . 263 и 264) .", "disputed": [[62,63],[118,120],[121,122],[124,125],[206,207],[284,285],[315,316],[317,318],[359,360],[392,393],[543,545],[648,649],[695,696],[724,725],[726,727],[728,729]], "italic": [[271,285],[288,292],[299,304],[671,678],[681,725],[730,733]], "fixed": 1, "d_cut": "line", "d_line": [2003,2023,3624,2065], "breaks": [[0,0],[37,0],[75,0],[111,0],[155,0],[190,0],[225,1],[262,0],[299,1],[333,0],[369,0],[405,0],[445,0],[486,1],[522,1],[554,1],[590,0],[628,1],[664,0],[699,0],[736,0]], "lines": [
     {"bbox":[2413,2171,4252,2263],"base":2241,"ind":0,"fs":11,"text":"Рѣзанъ или рубанецъ = монета древнеі","words":[["Рѣзанъ",2413,2171,2781,2245,46,"od",11],["или",2839,2189,2989,2237,57,"od",11],["рубанецъ",3045,2173,3509,2263,68,"o",11],["=",3537,2201,3639,2225,100,"o",11],["монета",3669,2187,3969,2239,92,"od",11],["древнеі",4021,2181,4252,2263,62,"o",11]]},
@@ -204,40 +204,41 @@
  "entries_hint": [
   {"col":1,"para":1,"bbox":[319,351,1153,443],"abbyy":"Рушить, рушать","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":2,"bbox":[319,755,779,849],"abbyy":"Рушннца","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":3,"bbox":[320,950,595,1078],"abbyy":"￼ ь","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":4,"bbox":[321,1303,531,1411],"abbyy":"Рцы","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":5,"bbox":[317,1421,1181,1507],"abbyy":"Ръклтннскдд болѣзнь","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":6,"bbox":[315,1623,599,1713],"abbyy":"Ръвні|д","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":7,"bbox":[319,1725,593,1795],"abbyy":"Ръкьѵк","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":8,"bbox":[321,1827,551,1897],"abbyy":"Ръгдъ","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":9,"bbox":[321,2029,697,2113],"abbyy":"Ръдѣтіісд","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":10,"bbox":[329,2537,575,2619],"abbyy":"Ръждд","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":11,"bbox":[331,2637,533,2709],"abbyy":"Ръиіь","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":12,"bbox":[331,2739,615,2827],"abbyy":"Ръ^атн","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":13,"bbox":[333,2943,789,3075],"abbyy":"РыЕЛ^ШЙ","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":14,"bbox":[333,3267,903,3361],"abbyy":"Рыбій зубъ","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":15,"bbox":[337,3355,1139,3477],"abbyy":"РыкоБрлжкйт'Ель","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":16,"bbox":[337,3697,971,3791],"abbyy":"Рыданослоые","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":17,"bbox":[347,4023,809,4115],"abbyy":"РЫДЛТЕЛЬ","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":18,"bbox":[347,4249,1005,4339],"abbyy":"Рыдательный","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":19,"bbox":[353,4555,663,4655],"abbyy":"Рь'іжій","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":20,"bbox":[353,4791,773,4883],"abbyy":"Рыкучій","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":21,"bbox":[357,4899,711,5007],"abbyy":"Рылецъ","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":22,"bbox":[355,5119,679,5207],"abbyy":"Рында","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":3,"bbox":[321,1303,531,1411],"abbyy":"Рцы","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":4,"bbox":[317,1421,1181,1507],"abbyy":"Ръклтннскдд болѣзнь","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":5,"bbox":[315,1623,599,1713],"abbyy":"Ръвні|д","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":6,"bbox":[319,1725,593,1795],"abbyy":"Ръкьѵк","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":7,"bbox":[321,1827,551,1897],"abbyy":"Ръгдъ","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":8,"bbox":[321,2029,697,2113],"abbyy":"Ръдѣтіісд","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":9,"bbox":[329,2537,575,2619],"abbyy":"Ръждд","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":10,"bbox":[331,2637,533,2709],"abbyy":"Ръиіь","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":11,"bbox":[331,2739,615,2827],"abbyy":"Ръ^атн","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":12,"bbox":[333,2943,789,3075],"abbyy":"РыЕЛ^ШЙ","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":13,"bbox":[333,3267,903,3361],"abbyy":"Рыбій зубъ","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":14,"bbox":[337,3355,1139,3477],"abbyy":"РыкоБрлжкйт'Ель","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":15,"bbox":[337,3697,971,3791],"abbyy":"Рыданослоые","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":16,"bbox":[347,4023,809,4115],"abbyy":"РЫДЛТЕЛЬ","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":17,"bbox":[347,4249,1005,4339],"abbyy":"Рыдательный","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":18,"bbox":[353,4555,663,4655],"abbyy":"Рь'іжій","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":19,"bbox":[353,4791,773,4883],"abbyy":"Рыкучій","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":20,"bbox":[357,4899,711,5007],"abbyy":"Рылецъ","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":21,"bbox":[355,5119,679,5207],"abbyy":"Рында","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2407,747,2877,843],"abbyy":"Рыскумій","abbyy_conf":73,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2409,841,2741,917],"abbyy":"Рькеіііііе","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2417,1457,2869,1577],"abbyy":"Р'&дкокъ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2419,1803,2975,1921],"abbyy":"Р'&дкожды","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":6,"bbox":[2413,2171,3509,2263],"abbyy":"Рѣзанъ или рубанецъ","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":7,"bbox":[2433,4299,2969,4391],"abbyy":"Рѣ?ательнні|д","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":8,"bbox":[2437,4401,2853,4531],"abbyy":"Р'&злти","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":9,"bbox":[2437,4669,2803,4759],"abbyy":"Рѣзецъ","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":10,"bbox":[2445,4851,3267,4979],"abbyy":"Разный окладъ","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":11,"bbox":[2451,5399,3037,5527],"abbyy":"Р'Ьзоилланіе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":12,"bbox":[2453,5641,3035,5777],"abbyy":"Р^ЗОИмецъ","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":13,"bbox":[2459,5885,2757,6013],"abbyy":"Р'&ЗЫ","abbyy_conf":75,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":14,"bbox":[2459,6127,2693,6197],"abbyy":"Ртліти","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null}
+  {"col":2,"para":6,"bbox":[2639,2065,3579,2159],"abbyy":"= насѣчка, нарѣзка","abbyy_conf":79,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":7,"bbox":[2413,2171,3509,2263],"abbyy":"Рѣзанъ или рубанецъ","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":8,"bbox":[2433,4299,2969,4391],"abbyy":"Рѣ?ательнні|д","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":9,"bbox":[2437,4401,2853,4531],"abbyy":"Р'&злти","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":10,"bbox":[2437,4669,2803,4759],"abbyy":"Рѣзецъ","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":11,"bbox":[2445,4851,3267,4979],"abbyy":"Разный окладъ","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":12,"bbox":[2451,5399,3037,5527],"abbyy":"Р'Ьзоилланіе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":13,"bbox":[2453,5641,3035,5777],"abbyy":"Р^ЗОИмецъ","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":14,"bbox":[2459,5885,2757,6013],"abbyy":"Р'&ЗЫ","abbyy_conf":75,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":15,"bbox":[2459,6127,2693,6197],"abbyy":"Ртліти","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
+ "seg": {"continue":1,"start":1},
  "witness": {"version":10,"d_page":612,"b_page":564,"c_page":[610],"chars":3650,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":200,"fixed":41,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (39 lines end at the image edge); line ends of the right column missing"]
 }

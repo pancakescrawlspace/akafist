@@ -139,11 +139,13 @@
    {"bbox": [2421,2435,3469,2529], "hanging": true, "text_d": "Нсколуєннє — растрата .", "text_merged": "Нсколуєнніє = растрата .", "disputed": [[5,6],[8,10],[12,13]], "italic": [], "fixed": 2, "d_cut": "line", "d_line": [2036,2151,2902,2195], "breaks": [[0,0]], "lines": [
     {"bbox":[2421,2435,3469,2529],"base":2505,"ind":0,"fs":11,"text":"ІІсколѵенніе = растрата.","words":[["ІІсколѵенніе",2421,2435,2887,2505,63,"o?",11],["=",2913,2469,3015,2495,68,"o",11],["растрата.",3043,2455,3469,2529,92,"od",11]]}
    ]},
-   {"bbox": [2419,2541,4252,2957], "hanging": true, "text_d": "Искони = съ начала, исперва, издавна, издревле (Матө. 19, 4): сотворивый искони мужескій полъ и женскій (2 AI Петр . 2, 3) .", "text_merged": "Искони = съ начала, исперва, издавна, издревле (Матө. 19, 4): сотворивый искони мужескій полъ и женскій (2 AI Петр . 2, 3) .", "disputed": [[51,52],[107,109]], "italic": [[62,103]], "fixed": 0, "d_cut": "line", "d_line": [2022,2226,3652,2284], "breaks": [[0,0],[38,0],[73,0],[107,0]], "lines": [
+   {"bbox": [2419,2541,4252,2861], "hanging": true, "text_d": "Искони = съ начала, исперва, издавна, издревле (Матө. 19, 4): сотворивый искони мужескій полъ и женскій (2", "text_merged": "Искони = съ начала, исперва, издавна, издревле (Матө. 19, 4): сотворивый искони мужескій полъ и женскій (2", "disputed": [[51,52]], "italic": [[62,103]], "fixed": 0, "d_cut": "line", "d_line": [2022,2226,3652,2284], "breaks": [[0,0],[38,0],[73,0]], "lines": [
     {"bbox":[2419,2541,4252,2651],"base":2625,"ind":0,"fs":11,"text":"Искони = съ начала, исперва, издаві","words":[["Искони",2419,2541,2753,2621,28,"od",11],["=",2825,2591,2927,2617,84,"o",11],["съ",2989,2579,3089,2629,100,"od",11],["начала,",3149,2577,3477,2647,66,"od",11],["исперва,",3543,2575,3919,2651,79,"o",11],["издаві",4009,2577,4252,2641,71,"o",11]]},
     {"bbox":[2527,2659,4252,2755],"base":2731,"ind":1,"fs":11,"text":"издревле (Матѳ. 19, 4): сотворивъ","words":[["издревле",2527,2681,2915,2753,56,"od",11],["(Матѳ.",3011,2659,3291,2753,81,"od",11],["19,",3401,2661,3523,2745,91,"o",11],["4):",3617,2659,3729,2751,93,"o",11],["сотворивъ",3831,2677,4252,2755,50,"iod",11]]},
-    {"bbox":[2525,2755,4217,2861],"base":2833,"ind":1,"fs":11,"text":"искони мужескій полъ и женскій","words":[["искони",2525,2779,2853,2833,55,"iod",11],["мужескій",2921,2757,3377,2861,52,"iod",11],["полъ",3455,2783,3659,2835,68,"iod",11],["и",3715,2781,3775,2833,57,"iod",11],["женскій",3831,2755,4217,2835,62,"iod",11]]},
-    {"bbox":[2525,2861,3095,2957],"base":2936,"ind":1,"fs":11,"text":"Петр. 2, 3).","words":[["Петр.",2525,2861,2775,2955,68,"d",11],["2,",2849,2865,2925,2953,100,"o",11],["3).",2995,2865,3095,2957,74,"o",11]]}
+    {"bbox":[2525,2755,4217,2861],"base":2833,"ind":1,"fs":11,"text":"искони мужескій полъ и женскій","words":[["искони",2525,2779,2853,2833,55,"iod",11],["мужескій",2921,2757,3377,2861,52,"iod",11],["полъ",3455,2783,3659,2835,68,"iod",11],["и",3715,2781,3775,2833,57,"iod",11],["женскій",3831,2755,4217,2835,62,"iod",11]]}
+   ]},
+   {"bbox": [2525,2861,3095,2957], "hanging": true, "seg": "CD", "text_d": "AI Петр . 2, 3) .", "text_merged": "AI Петр . 2, 3) .", "disputed": [[0,2]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [2036,2531,2594,2577], "breaks": [[0,0]], "lines": [
+    {"bbox":[2525,2861,3095,2957],"base":2936,"ind":0,"fs":11,"text":"Петр. 2, 3).","words":[["Петр.",2525,2861,2775,2955,68,"d",11],["2,",2849,2865,2925,2953,100,"o",11],["3).",2995,2865,3095,2957,74,"o",11]]}
    ]},
    {"bbox": [2417,2969,4252,3279], "hanging": true, "text_d": "Исконный которой искони, т. е. съ начала пребываетъ (1 Іоан. 2, 14): писахъ вамъ, отцы , яко познасте исконнаго.", "text_merged": "Исконный = которой искони, т. е. съ начала пребываетъ (1 Іоан. 2, 14): писахъ вамъ, отцы , яко познасте исконнаго.", "disputed": [[7,10],[52,53]], "italic": [[71,88],[91,114]], "fixed": 1, "d_cut": "line", "d_line": [2034,2628,3660,2684], "breaks": [[0,1],[38,0],[78,0]], "lines": [
     {"bbox":[2417,2969,4252,3081],"base":3053,"ind":0,"fs":11,"text":"Исконный =которой искони, т. е. съ і","words":[["Исконный",2417,2969,2883,3049,37,"od",11],["=которой",2915,2989,3377,3081,86,"o",11],["искони,",3433,3007,3763,3073,71,"od",11],["т.",3827,3007,3899,3055,100,"o",11],["е.",3969,3005,4039,3057,100,"o",11],["съ",4107,3005,4201,3057,91,"od",11],["і",4233,3007,4252,3055,24,"o?",11]]},
@@ -233,23 +235,25 @@
   {"col":2,"para":13,"bbox":[2427,2215,3005,2297],"abbyy":"Искоклтиса","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2421,2435,2887,2505],"abbyy":"ІІсколѵенніе","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2419,2541,2753,2621],"abbyy":"Искони","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":16,"bbox":[2417,2969,2883,3049],"abbyy":"Исконный","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":17,"bbox":[2411,3291,2951,3361],"abbyy":"Іісконьѵакатн","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":18,"bbox":[2413,3393,3041,3463],"abbyy":"Нсконьѵакдтнсд","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":19,"bbox":[2409,3501,2927,3581],"abbyy":"Ископоблю","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":20,"bbox":[2407,3623,2927,3755],"abbyy":"Искорененъ","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":21,"bbox":[2403,3847,3049,3979],"abbyy":"Искоренитель","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":22,"bbox":[2399,4071,2877,4205],"abbyy":"ИскорЕННО","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":23,"bbox":[2401,4295,3075,4431],"abbyy":"Искор енАТ исА","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":24,"bbox":[2399,4621,2905,4757],"abbyy":"ИскорЕНАЮ","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":25,"bbox":[2395,4945,2955,5041],"abbyy":"Искорникъ","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":26,"bbox":[2387,5249,2659,5319],"abbyy":"Лскосъ","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":27,"bbox":[2391,5351,2789,5443],"abbyy":"Искраѵндо","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":28,"bbox":[2395,5451,3269,5593],"abbyy":"Нскроисп^флюфТй","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":29,"bbox":[2387,5801,2897,5893],"abbyy":"ІІскрометміъ","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":30,"bbox":[2381,5995,3037,6145],"abbyy":"Искропленный","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":31,"bbox":[2385,6229,2923,6323],"abbyy":"ІІскроутнтнсд","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null}
+  {"col":2,"para":16,"bbox":[2525,2861,2745,2955],"abbyy":"Петр","abbyy_conf":66,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":17,"bbox":[2417,2969,2883,3049],"abbyy":"Исконный","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":18,"bbox":[2411,3291,2951,3361],"abbyy":"Іісконьѵакатн","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":19,"bbox":[2413,3393,3041,3463],"abbyy":"Нсконьѵакдтнсд","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":20,"bbox":[2409,3501,2927,3581],"abbyy":"Ископоблю","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":21,"bbox":[2407,3623,2927,3755],"abbyy":"Искорененъ","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":22,"bbox":[2403,3847,3049,3979],"abbyy":"Искоренитель","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":23,"bbox":[2399,4071,2877,4205],"abbyy":"ИскорЕННО","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":24,"bbox":[2401,4295,3075,4431],"abbyy":"Искор енАТ исА","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":25,"bbox":[2399,4621,2905,4757],"abbyy":"ИскорЕНАЮ","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":26,"bbox":[2395,4945,2955,5041],"abbyy":"Искорникъ","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":27,"bbox":[2387,5249,2659,5319],"abbyy":"Лскосъ","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":28,"bbox":[2391,5351,2789,5443],"abbyy":"Искраѵндо","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":29,"bbox":[2395,5451,3269,5593],"abbyy":"Нскроисп^флюфТй","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":30,"bbox":[2387,5801,2897,5893],"abbyy":"ІІскрометміъ","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":31,"bbox":[2381,5995,3037,6145],"abbyy":"Искропленный","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":32,"bbox":[2385,6229,2923,6323],"abbyy":"ІІскроутнтнсд","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":274,"b_page":226,"c_page":[272],"chars":3558,"cuts":{"line":40,"aligned":0,"forced":0},"disputed":170,"fixed":24,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":274,"b_page":226,"c_page":[272],"chars":3558,"cuts":{"line":41,"aligned":0,"forced":0},"disputed":170,"fixed":24,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (23 lines end at the image edge); line ends of the right column missing"]
 }

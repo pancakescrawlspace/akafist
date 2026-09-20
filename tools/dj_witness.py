@@ -7,6 +7,10 @@ dj_eval.py (Phase 2) and dj_heads.py (Phase 3b) both use. Not a command; import 
     C  the Indiana PDFs (Google Books): `pdftotext -bbox`
     D  the Cornell PDF (Google Books): `pdftotext -bbox`     <- the primary text since Phase 2 (eval/RESULTS.md)
 
+`indent_levels(page)` reads the printed paragraphs off a witness: which lines are flush (an entry begins) and
+which are of the hanging indent.  C and D have both margins on every page, where scan A has neither on 551 of
+them, so they — not A's geometry — say where the entries begin (PLAN.md Phase 3b step 1c).
+
 Everything is addressed by the LEAF number of scan A; printed page = leaf - 37. Page mapping into the witnesses
 (checked over the whole book, session 3): D's PDF page = printed page + 48; B's DjVu page = printed page; C: volume 1
 page = p + 46 up to p. 566, then volume 2 page = p - 558 (both volumes print p. 567 — v1's last page, whose text layer
@@ -20,7 +24,7 @@ the flat text plus the line and word spans in it, so that a position in the text
 (CS letters to civil ones, look-alikes, no diacritics, no whitespace) with a back-pointer to the raw index, and a
 Levenshtein alignment that charges every edit to a position of the first sequence.
 """
-import html, json, re, subprocess, unicodedata
+import bisect, cmath, html, json, math, re, statistics, subprocess, unicodedata
 from pathlib import Path
 
 import numpy as np
@@ -258,6 +262,66 @@ def side_texts(page):
             spans.append(dict(l, start=len(text), end=len(text) + len(t)))
             text += t
         out[side] = dict(text=text, lines=spans)
+    return out
+
+
+INDENT = 11.1      # points at W = 450: the hanging indent of the printed columns, measured over the book in C and D
+
+
+def indent_levels(page, side=None):
+    """The indentation level of every printed line of witness B, C or D: 0 for a flush line — the first line of a
+    printed paragraph, i.e. of an entry — 1 for a line of the hanging indent, more for a deeper one.
+
+    page: a page_text() result (its `lines` carry x0/y0 and its `words` the word boxes).  -> {(side, y0): level};
+    a side whose lines give no level structure is left out, as is a line of it.  The key survives side_texts(),
+    which copies the line dicts.
+
+    The columns of both Google scans are skewed, on some pages by more than a whole indent, so the levels cannot
+    be read off an absolute edge.  The skew is found by folding the left edges modulo the indent: at the right
+    skew the two levels fall on one peak, whatever their proportion (a column of one-line entries is nearly all
+    flush, a column inside a long article nearly all hanging).  A speck in the margin, which the OCR reads as a
+    word of its own, would make a hanging line look flush: where the first word is one character and the rest of
+    the line begins a whole indent further right, the line is measured without it.
+    """
+    starts = [w['start'] for w in page['words']]
+    u = page['W'] / 450.0
+    out = {}
+    for s in ('ab' if side is None else side):
+        lines = [l for l in page['lines'] if l['side'] == s]
+        if len(lines) < 6:
+            continue
+        xs = []
+        for l in lines:
+            x0 = l['x0']
+            i = bisect.bisect_left(starts, l['start'])
+            if i + 1 < len(page['words']):
+                w0, w1 = page['words'][i], page['words'][i + 1]
+                if (w0['start'] == l['start'] and w1['end'] <= l['end'] and w0['end'] - w0['start'] <= 1
+                        and w1['box'][0] - w0['box'][0] > 0.7 * INDENT * u):
+                    x0 = w1['box'][0]
+            xs.append(x0)
+        ys = [l['y0'] for l in lines]
+        y0 = statistics.median(ys)
+        I = INDENT * u
+        best = None
+        for step, lo, hi in ((4e-4, -2.4e-2, 2.4e-2), (2e-5, None, None)):
+            if lo is None:
+                lo, hi = best[1] - 4e-4, best[1] + 4e-4
+            b = lo
+            while b <= hi:
+                z = sum(cmath.exp(2j * math.pi * (x - b * (y - y0)) / I) for x, y in zip(xs, ys))
+                if best is None or abs(z) > best[0]:
+                    best = (abs(z), b)
+                b += step
+        conc, b = best
+        if conc / len(lines) < 0.55:                       # the left edges do not fall into levels: no verdict
+            continue
+        v = [x - b * (y - y0) for x, y in zip(xs, ys)]
+        c = cmath.phase(sum(cmath.exp(2j * math.pi * t / I) for t in v)) * I / (2 * math.pi)
+        k = [round((t - c) / I) for t in v]
+        lo = min(k)
+        for l, kk in zip(lines, k):
+            out[(l['side'], l['y0'])] = kk - lo
     return out
 
 

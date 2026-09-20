@@ -79,11 +79,9 @@
     {"bbox":[247,4249,2219,4355],"base":4326,"ind":0,"fs":11,"text":"Уреканіе = обида словомъ {Своди, лѣт.","words":[["Уреканіе",247,4261,691,4355,67,"o",11],["=",729,4289,831,4315,68,"o",11],["обида",871,4253,1121,4339,100,"od",11],["словомъ",1181,4275,1535,4327,72,"od",11],["{Своди,",1603,4249,1943,4347,80,"iod",11.5],["лѣт.",1987,4273,2219,4327,73,"io",11.5]]},
     {"bbox":[361,4353,1183,4449],"base":4429,"ind":1,"fs":11.5,"text":"Лейбовича, в. I).","words":[["Лейбовича,",361,4353,887,4445,66,"io",11.5],["в.",949,4379,1023,4429,80,"d",11],["I).",1091,4357,1183,4449,100,"o",11]]}
    ]},
-   {"bbox": [249,4451,2215,4557], "hanging": true, "text_d": "Уреченный -урочный, назначенный. (Др .", "text_merged": "Уреченный =урочный, назначенный. (Др .", "disputed": [[10,11]], "italic": [[33,36]], "fixed": 1, "d_cut": "line", "d_line": [241,3932,1843,3987], "breaks": [[0,0]], "lines": [
-    {"bbox":[249,4451,2215,4557],"base":4529,"ind":0,"fs":11,"text":"Уречецный=урочный, назначенный. {Др.","words":[["Уречецный=урочный,",249,4459,1315,4557,68,"o",11],["назначенный.",1379,4459,1965,4529,76,"od",11],["{Др.",2019,4451,2215,4555,57,"io",11.5]]}
-   ]},
-   {"bbox": [303,4555,1001,4657], "hanging": true, "text_d": "Русск. Ст.).", "text_merged": "Русск. Ст.).", "disputed": [[8,11]], "italic": [[0,12]], "fixed": 0, "d_cut": "line", "d_line": [325,4026,849,4077], "breaks": [[0,0]], "lines": [
-    {"bbox":[303,4555,1001,4657],"base":4636,"ind":0,"fs":11.5,"text":"ѵ Русск. Ст.).","words":[["ѵ",303,4571,329,4613,1,"io?",11.5],["Русск.",361,4555,669,4657,55,"io",11.5],["Ст.).",753,4555,1001,4653,71,"io",11.5]]}
+   {"bbox": [249,4451,2215,4657], "hanging": true, "text_d": "Уреченный -урочный, назначенный. (Др . Русск. Ст.).", "text_merged": "Уреченный =урочный, назначенный. (Др . Русск. Ст.).", "disputed": [[10,11],[47,50]], "italic": [[33,36],[39,51]], "fixed": 1, "d_cut": "line", "d_line": [241,3932,1843,3987], "breaks": [[0,0],[39,0]], "lines": [
+    {"bbox":[249,4451,2215,4557],"base":4529,"ind":0,"fs":11,"text":"Уречецный=урочный, назначенный. {Др.","words":[["Уречецный=урочный,",249,4459,1315,4557,68,"o",11],["назначенный.",1379,4459,1965,4529,76,"od",11],["{Др.",2019,4451,2215,4555,57,"io",11.5]]},
+    {"bbox":[303,4555,1001,4657],"base":4636,"ind":1,"fs":11.5,"text":"ѵ Русск. Ст.).","words":[["ѵ",303,4571,329,4613,1,"io?",11.5],["Русск.",361,4555,669,4657,55,"io",11.5],["Ст.).",753,4555,1001,4653,71,"io",11.5]]}
    ]},
    {"bbox": [245,4661,2225,4959], "hanging": true, "text_d": "Уречися = договариваться. „И они уркошася Псковичамъ быти на помочь\" (Пск. лѣт . , 1480 г. , стр. 157).", "text_merged": "Уречися = договариваться. „И они уркошася Псковичамъ быти на помочь\" (Пск. лѣт . , 1480 г. , стр. 157).", "disputed": [[30,31],[66,67],[70,71],[73,74]], "italic": [[33,41],[69,78]], "fixed": 0, "d_cut": "line", "d_line": [240,4120,1854,4168], "breaks": [[0,1],[37,0],[75,0]], "lines": [
     {"bbox":[245,4661,2225,4759],"base":4730,"ind":0,"fs":11,"text":"Уречися =договариваться. „И они урко-","words":[["Уречися",245,4667,651,4759,74,"o",11],["=договариваться.",679,4679,1519,4753,91,"o",11],["„И",1593,4661,1713,4753,71,"od",11],["они",1773,4681,1921,4733,51,"d",11],["урко-",1975,4681,2225,4757,72,"io",11.5]]},
@@ -229,10 +227,9 @@
   {"col":1,"para":13,"bbox":[249,4155,505,4247],"abbyy":"Оурдрь","abbyy_conf":19,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":14,"bbox":[247,4261,691,4355],"abbyy":"Уреканіе","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":15,"bbox":[249,4465,801,4557],"abbyy":"Уречецный","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":16,"bbox":[303,4571,329,4613],"abbyy":"ѵ","abbyy_conf":1,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":17,"bbox":[245,4667,651,4759],"abbyy":"Уречися","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":18,"bbox":[239,4943,1277,5105],"abbyy":"Оуаймъ и Ч’Ѵммймх","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":19,"bbox":[241,6105,743,6237],"abbyy":"Оурнгглн'й","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":16,"bbox":[245,4667,651,4759],"abbyy":"Уречися","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":17,"bbox":[239,4943,1277,5105],"abbyy":"Оуаймъ и Ч’Ѵммймх","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":18,"bbox":[241,6105,743,6237],"abbyy":"Оурнгглн'й","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":1,"bbox":[2391,453,2901,583],"abbyy":"Оуйис'гдти","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2399,665,2751,811],"abbyy":"Октилъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2397,897,2641,989],"abbyy":"Урна","abbyy_conf":90,"eq":true,"headword":null,"headword_source":null,"conf":null},
@@ -258,6 +255,7 @@
   {"col":2,"para":23,"bbox":[2355,5963,2945,6127],"abbyy":"Оус^дстБ#к","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":24,"bbox":[2357,6203,2731,6343],"abbyy":"Оус^АЗ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":808,"b_page":760,"c_page":[202],"chars":3678,"cuts":{"line":43,"aligned":0,"forced":0},"disputed":300,"fixed":23,"odd":[]},
+ "seg": {"continue":1},
+ "witness": {"version":10,"d_page":808,"b_page":760,"c_page":[202],"chars":3678,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":300,"fixed":23,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (30 lines end at the image edge); line ends of the right column missing"]
 }

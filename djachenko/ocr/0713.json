@@ -75,11 +75,13 @@
    ]}
   ]},
   {"n": 2, "side": "b", "band": 1, "bbox": [2417,409,4252,6175], "flush": 60, "indent": 110, "paragraphs": [
-   {"bbox": [2527,409,4241,879], "hanging": false, "text_d": "поэтомъ въ насмѣшливомъ очеркѣ (Зап. отд рус. и слав . археологіи 1882 гл . т. ІІІ, стр. 235) . струж8-(ξέω)=строгаю, скоблю, тешу.", "text_merged": "поэтомъ въ насмѣшливомъ очеркѣ (Зап. отд рус. и слав . археологіи 1882 гл . т. ІІІ, стр. 235) . струж8-(ξέω)=строгаю, скоблю, тешу.", "disputed": [[31,32],[53,54],[62,64],[79,81],[96,97],[101,102],[103,107]], "italic": [[31,52],[55,65]], "fixed": 0, "d_cut": "line", "d_line": [2090,382,3616,428], "breaks": [[0,0],[37,0],[76,0],[96,0]], "lines": [
+   {"bbox": [2527,409,4241,705], "hanging": false, "text_d": "поэтомъ въ насмѣшливомъ очеркѣ (Зап. отд рус. и слав . археологіи 1882 гл . т. ІІІ, стр. 235) .", "text_merged": "поэтомъ въ насмѣшливомъ очеркѣ (Зап. отд рус. и слав . археологіи 1882 гл . т. ІІІ, стр. 235) .", "disputed": [[31,32],[53,54],[62,64],[79,81]], "italic": [[31,52],[55,65]], "fixed": 0, "d_cut": "line", "d_line": [2090,382,3616,428], "breaks": [[0,0],[37,0],[76,0]], "lines": [
     {"bbox":[2529,409,4241,523],"base":486,"ind":1,"fs":11,"text":"поэтомъ въ насмѣшливомъ очеркѣ (Зап","words":[["поэтомъ",2529,429,2879,481,71,"od",11],["въ",2937,429,3041,479,86,"od",11],["насмѣшливомъ",3077,409,3723,483,65,"od",11],["очеркѣ",3761,425,4039,511,46,"od",11],["(Зап",4083,431,4241,523,41,"io",11]]},
     {"bbox":[2527,503,4239,609],"base":589,"ind":1,"fs":11,"text":"отд рус. и слав, археологіи 1882 гл","words":[["отд",2527,503,2707,583,66,"io",11],["рус.",2793,529,2973,605,68,"id",11],["и",3041,529,3099,583,0,"iod",11],["слав,",3153,529,3373,583,61,"id",11],["археологіи",3439,511,3927,605,57,"iod",11],["1882",3981,527,4145,605,78,"o",11],["гл",4175,567,4239,609,30,"od?",11]]},
-    {"bbox":[2527,609,3311,705],"base":680,"ind":1,"fs":11,"text":"т. III, стр. 235).","words":[["т.",2527,633,2597,681,88,"o",11],["III,",2663,609,2799,697,66,"o",11],["стр.",2865,631,3035,705,90,"od",11],["235).",3089,609,3311,705,78,"o",11]]},
-    {"bbox":[2919,739,4239,879],"base":827,"ind":2,"fs":11,"text":"(^го))=строгаю, скоблю, тешу","words":[["(^го))=строгаю,",2919,739,3633,845,74,"o",11],["скоблю,",3699,757,4017,853,83,"od",11],["тешу",4075,793,4239,879,31,"od",11]]}
+    {"bbox":[2527,609,3311,705],"base":680,"ind":1,"fs":11,"text":"т. III, стр. 235).","words":[["т.",2527,633,2597,681,88,"o",11],["III,",2663,609,2799,697,66,"o",11],["стр.",2865,631,3035,705,90,"od",11],["235).",3089,609,3311,705,78,"o",11]]}
+   ]},
+   {"bbox": [2919,739,4239,879], "hanging": true, "seg": "CD", "text_d": "струж8-(ξέω)=строгаю, скоблю, тешу.", "text_merged": "струж8-(ξέω)=строгаю, скоблю, тешу.", "disputed": [[0,1],[5,6],[7,11]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [1992,673,3616,751], "breaks": [[0,0]], "lines": [
+    {"bbox":[2919,739,4239,879],"base":827,"ind":0,"fs":11,"text":"(^го))=строгаю, скоблю, тешу","words":[["(^го))=строгаю,",2919,739,3633,845,74,"o",11],["скоблю,",3699,757,4017,853,83,"od",11],["тешу",4075,793,4239,879,31,"od",11]]}
    ]},
    {"bbox": [2421,841,4252,1067], "hanging": true, "text_d": "струити = изливать струями. Прологъ март . 17.", "text_merged": "струити = изливать струями. Прологъ март . 17.", "disputed": [[0,1]], "italic": [[28,40]], "fixed": 0, "d_cut": "line", "d_line": [2002,786,3618,848], "breaks": [[0,0],[36,0]], "lines": [
     {"bbox":[2421,841,4252,993],"base":949,"ind":0,"fs":11,"text":"Отойти = изливать струями. Прологх","words":[["Отойти",2421,841,2851,993,24,"od?",11],["=",2915,907,3017,931,80,"o",11],["изливать",3073,891,3455,945,61,"od",11],["струями.",3537,893,3911,967,62,"od",11],["Прологх",3979,881,4252,985,33,"i?",11]]},
@@ -153,16 +155,18 @@
   ]}
  ],
  "entries_hint": [
-  {"col":2,"para":2,"bbox":[2421,841,2851,993],"abbyy":"Отойти","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":3,"bbox":[2419,1071,2783,1235],"abbyy":"Ст^Ѵпи","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":4,"bbox":[2417,1325,2787,1455],"abbyy":"Стлалъ","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":5,"bbox":[2419,1643,2967,1735],"abbyy":"Струпъ плоти","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":6,"bbox":[2425,2149,2729,2241],"abbyy":"Строусъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":7,"bbox":[2425,2253,3137,2347],"abbyy":"Струфокамялъ","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":8,"bbox":[2435,4455,3455,4599],"abbyy":"Стй^чЦъ,, строчокъ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":9,"bbox":[2439,4783,2743,4925],"abbyy":"Стр^А","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":10,"bbox":[2455,5931,3479,6069],"abbyy":"Стб^^Тон'А/, стьЧ&ъ","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null}
+  {"col":2,"para":2,"bbox":[2919,739,3081,845],"abbyy":"(^го","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":3,"bbox":[2421,841,2851,993],"abbyy":"Отойти","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":4,"bbox":[2419,1071,2783,1235],"abbyy":"Ст^Ѵпи","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":5,"bbox":[2417,1325,2787,1455],"abbyy":"Стлалъ","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":6,"bbox":[2419,1643,2967,1735],"abbyy":"Струпъ плоти","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":7,"bbox":[2425,2149,2729,2241],"abbyy":"Строусъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":8,"bbox":[2425,2253,3137,2347],"abbyy":"Струфокамялъ","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":9,"bbox":[2435,4455,3455,4599],"abbyy":"Стй^чЦъ,, строчокъ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":10,"bbox":[2439,4783,2743,4925],"abbyy":"Стр^А","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":11,"bbox":[2455,5931,3479,6069],"abbyy":"Стб^^Тон'А/, стьЧ&ъ","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":724,"b_page":676,"c_page":[118],"chars":4036,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":183,"fixed":14,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":724,"b_page":676,"c_page":[118],"chars":4036,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":183,"fixed":14,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (39 lines end at the image edge); line ends of the right column missing","side a: no flush line (edge from prior)"]
 }

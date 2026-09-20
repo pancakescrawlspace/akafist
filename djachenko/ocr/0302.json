@@ -64,11 +64,9 @@
    {"bbox": [85,3185,1247,3279], "hanging": true, "text_d": "Корочна = корона, вѣнецъ .", "text_merged": "Короуна = корона, вѣнецъ .", "disputed": [[4,5],[10,11],[23,24]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [84,2876,1090,2927], "breaks": [[0,0]], "lines": [
     {"bbox":[85,3185,1247,3279],"base":3255,"ind":0,"fs":11,"text":"Короунд = корона, вѣнецъ.","words":[["Короунд",85,3185,353,3275,32,"",11],["=",379,3219,479,3243,81,"o",11],["корона,",511,3207,839,3279,71,"od",11],["вѣнецъ.",905,3189,1247,3269,66,"od",11]]}
    ]},
-   {"bbox": [85,3289,1987,3409], "hanging": true, "text_d": "Κορτάσα– (κεράμιον)= кружка (для вина)", "text_merged": "Κορτάσα– (κεράμιον)= кружка (для вина)", "disputed": [[0,7],[14,16]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [84,2978,1706,3041], "breaks": [[0,0]], "lines": [
-    {"bbox":[85,3289,1987,3409],"base":3377,"ind":0,"fs":11,"text":"Корчлгъ- (хграриоѵ)= кружка (для вина)","words":[["Корчлгъ-",85,3289,513,3387,28,"",11],["(хграриоѵ)=",555,3309,1117,3409,53,"o",11],["кружка",1145,3329,1471,3403,100,"od",11],["(для",1529,3313,1703,3403,81,"od",11],["вина)",1763,3311,1987,3401,80,"od",11]]}
-   ]},
-   {"bbox": [73,3407,709,3501], "hanging": true, "text_d": "(Iep. 35, 5).", "text_merged": "(Iep. 35, 5).", "disputed": [], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [155,3074,643,3125], "breaks": [[0,0]], "lines": [
-    {"bbox":[73,3407,709,3501],"base":3479,"ind":0,"fs":11,"text":"і* (Іер. 35, 5).","words":[["і*",73,3413,115,3463,51,"o?",11],["(Іер.",163,3407,337,3501,90,"o",11],["35,",407,3409,535,3495,97,"o",11],["5).",605,3409,709,3501,70,"o",11]]}
+   {"bbox": [73,3289,1987,3501], "hanging": true, "text_d": "Κορτάσα– (κεράμιον)= кружка (для вина) (Iep. 35, 5).", "text_merged": "Κορτάσα– (κεράμιον)= кружка (для вина) (Iep. 35, 5).", "disputed": [[0,7],[14,16]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [84,2978,1706,3041], "breaks": [[0,0],[39,0]], "lines": [
+    {"bbox":[85,3289,1987,3409],"base":3377,"ind":0,"fs":11,"text":"Корчлгъ- (хграриоѵ)= кружка (для вина)","words":[["Корчлгъ-",85,3289,513,3387,28,"",11],["(хграриоѵ)=",555,3309,1117,3409,53,"o",11],["кружка",1145,3329,1471,3403,100,"od",11],["(для",1529,3313,1703,3403,81,"od",11],["вина)",1763,3311,1987,3401,80,"od",11]]},
+    {"bbox":[73,3407,709,3501],"base":3479,"ind":1,"fs":11,"text":"і* (Іер. 35, 5).","words":[["і*",73,3413,115,3463,51,"o?",11],["(Іер.",163,3407,337,3501,90,"o",11],["35,",407,3409,535,3495,97,"o",11],["5).",605,3409,709,3501,70,"o",11]]}
    ]},
    {"bbox": [81,3511,1989,3729], "hanging": true, "text_d": "Κορчемникъ-(κάπηλος)-корчмарь, сидѣлецъ, продавецъ вина (Исаіи 1, 22) .", "text_merged": "Корчемникъ-(κάπηλος)=корчмарь, сидѣлецъ, продавецъ вина (Исаіи 1, 22) .", "disputed": [[0,3],[20,29],[49,50]], "italic": [], "fixed": 4, "d_cut": "line", "d_line": [78,3177,1705,3248], "breaks": [[0,1],[35,0]], "lines": [
     {"bbox":[81,3511,1989,3647],"base":3601,"ind":0,"fs":11,"text":"КорчЕлзникъ—(хаігт)Ао<;)=корчмарь, сидѣ¬","words":[["КорчЕлзникъ",81,3511,603,3647,48,"o",11],["—",617,3571,703,3579,-1,"od",11],["(хаігт)Ао<;)=корчмарь,",723,3523,1709,3629,70,"o",11],["сидѣ¬",1751,3535,1989,3617,84,"od",11]]},
@@ -241,18 +239,17 @@
   {"col":1,"para":10,"bbox":[93,2883,987,2977],"abbyy":"Кортель и кортли","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":11,"bbox":[85,3185,353,3275],"abbyy":"Короунд","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":12,"bbox":[85,3289,437,3387],"abbyy":"Корчлгъ","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":13,"bbox":[73,3413,85,3463],"abbyy":"і","abbyy_conf":77,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":14,"bbox":[81,3511,603,3647],"abbyy":"КорчЕлзникъ","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":15,"bbox":[83,3733,617,3859],"abbyy":"Корчемница","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":16,"bbox":[87,4037,687,4187],"abbyy":"Ко^чЫстбУю","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":17,"bbox":[93,4379,403,4515],"abbyy":"Корли","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":18,"bbox":[91,4601,541,4693],"abbyy":"Коачлзитн","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":19,"bbox":[97,4821,247,4915],"abbyy":"Корт","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":20,"bbox":[85,5025,285,5163],"abbyy":"Кор","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":21,"bbox":[99,5445,339,5539],"abbyy":"Коръда","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":22,"bbox":[99,5545,441,5639],"abbyy":"Ко|)ъманъ","abbyy_conf":16,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":23,"bbox":[101,5645,643,5739],"abbyy":"Корыстокатнсд","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":24,"bbox":[99,5747,459,5865],"abbyy":"Корысть","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":13,"bbox":[81,3511,603,3647],"abbyy":"КорчЕлзникъ","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":14,"bbox":[83,3733,617,3859],"abbyy":"Корчемница","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":15,"bbox":[87,4037,687,4187],"abbyy":"Ко^чЫстбУю","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":16,"bbox":[93,4379,403,4515],"abbyy":"Корли","abbyy_conf":21,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":17,"bbox":[91,4601,541,4693],"abbyy":"Коачлзитн","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":18,"bbox":[97,4821,247,4915],"abbyy":"Корт","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":19,"bbox":[85,5025,285,5163],"abbyy":"Кор","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":20,"bbox":[99,5445,339,5539],"abbyy":"Коръда","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":21,"bbox":[99,5545,441,5639],"abbyy":"Ко|)ъманъ","abbyy_conf":16,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":22,"bbox":[101,5645,643,5739],"abbyy":"Корыстокатнсд","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":23,"bbox":[99,5747,459,5865],"abbyy":"Корысть","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":1,"bbox":[2139,405,2423,495],"abbyy":"Корыто","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2137,607,2311,699],"abbyy":"Корь","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2137,709,2505,799],"abbyy":"Коръпъкъ","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
@@ -280,6 +277,7 @@
   {"col":2,"para":25,"bbox":[2147,5757,2705,5855],"abbyy":"Кост^льный","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":26,"bbox":[2141,6197,2615,6265],"abbyy":"Костоголока","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":313,"b_page":265,"c_page":[311],"chars":3485,"cuts":{"line":50,"aligned":0,"forced":0},"disputed":244,"fixed":26,"odd":[]},
+ "seg": {"continue":1},
+ "witness": {"version":10,"d_page":313,"b_page":265,"c_page":[311],"chars":3485,"cuts":{"line":49,"aligned":0,"forced":0},"disputed":244,"fixed":26,"odd":[]},
  "warnings": []
 }

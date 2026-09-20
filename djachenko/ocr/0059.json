@@ -36,9 +36,11 @@
     {"bbox":[409,1639,2193,1745],"base":1720,"ind":1,"fs":11.5,"text":"ходно {Указ, о винахъ арх. Ѳеодос.","words":[["ходно",409,1673,653,1733,79,"od",11],["{Указ,",713,1647,989,1745,66,"id",11.5],["о",1073,1671,1117,1723,41,"iod",11.5],["винахъ",1191,1667,1497,1723,53,"iod",11.5],["арх.",1577,1665,1769,1745,72,"io",11.5],["Ѳеодос.",1871,1639,2193,1721,95,"io",11.5]]},
     {"bbox":[417,1755,807,1845],"base":1824,"ind":1,"fs":11,"text":"1725 г.).","words":[["1725",417,1755,613,1827,74,"o",11],["г.).",675,1755,807,1845,82,"od",11]]}
    ]},
-   {"bbox": [307,1849,2193,2135], "hanging": true, "text_d": "Аригъ, гаригъ — др. р. — вретище. Арина, гарина - др . рус. — шерсть овечья, бѣлая волна .", "text_merged": "Аригъ, гаригъ — др. р. — вретище. Арина, гарина - др . рус. — шерсть овечья, бѣлая волна .", "disputed": [[2,3],[7,9],[11,12],[37,39],[41,43],[44,46],[60,61],[62,63],[78,79]], "italic": [[16,22],[50,52],[55,59]], "fixed": 0, "d_cut": "line", "d_line": [300,1642,1544,1692], "breaks": [[0,0],[34,0],[77,0]], "lines": [
-    {"bbox":[307,1849,1773,1953],"base":1924,"ind":0,"fs":11,"text":"і\\{шп., мрнгъ — -др. р. == вретище.","words":[["і\\{шп.,",307,1857,551,1947,38,"o?",11],["мрнгъ",613,1879,833,1947,29,"o?",11],["—",865,1897,947,1907,-1,"od",11],["-др.",941,1849,1105,1953,82,"io?",11.5],["р.",1143,1873,1231,1951,51,"io",11.5],["==",1259,1885,1361,1913,100,"o?",11],["вретище.",1387,1871,1773,1945,55,"od",11]]},
-    {"bbox":[613,1951,2193,2053],"base":2024,"ind":2,"fs":11,"text":"и()іііы — др. рус. = шерсть овечья,","words":[["и()іііы",613,1979,831,2051,40,"so?",11],["—",859,1997,955,2007,-1,"od",11],["др.",979,1951,1107,2053,62,"io",11.5],["рус.",1157,1973,1349,2053,58,"id",11.5],["=",1383,1987,1481,2013,71,"o",11],["шерсть",1513,1973,1811,2047,70,"od",11],["овечья,",1881,1969,2193,2037,82,"od",11]]},
+   {"bbox": [307,1849,1773,1953], "hanging": true, "text_d": "Аригъ, гаригъ — др. р. — вретище.", "text_merged": "Аригъ, гаригъ — др. р. — вретище.", "disputed": [[2,3],[7,9],[11,12]], "italic": [[16,22]], "fixed": 0, "d_cut": "line", "d_line": [300,1642,1544,1692], "breaks": [[0,0]], "lines": [
+    {"bbox":[307,1849,1773,1953],"base":1924,"ind":0,"fs":11,"text":"і\\{шп., мрнгъ — -др. р. == вретище.","words":[["і\\{шп.,",307,1857,551,1947,38,"o?",11],["мрнгъ",613,1879,833,1947,29,"o?",11],["—",865,1897,947,1907,-1,"od",11],["-др.",941,1849,1105,1953,82,"io?",11.5],["р.",1143,1873,1231,1951,51,"io",11.5],["==",1259,1885,1361,1913,100,"o?",11],["вретище.",1387,1871,1773,1945,55,"od",11]]}
+   ]},
+   {"bbox": [417,1951,2193,2135], "hanging": true, "seg": "CD", "text_d": "Арина, гарина - др . рус. — шерсть овечья, бѣлая волна .", "text_merged": "Арина, гарина - др . рус. — шерсть овечья, бѣлая волна .", "disputed": [[3,5],[7,9],[10,12],[26,27],[28,29],[44,45]], "italic": [[16,18],[21,25]], "fixed": 0, "d_cut": "line", "d_line": [298,1732,1905,1780], "breaks": [[0,0],[43,0]], "lines": [
+    {"bbox":[613,1951,2193,2053],"base":2024,"ind":0,"fs":11,"text":"и()іііы — др. рус. = шерсть овечья,","words":[["и()іііы",613,1979,831,2051,40,"so?",11],["—",859,1997,955,2007,-1,"od",11],["др.",979,1951,1107,2053,62,"io",11.5],["рус.",1157,1973,1349,2053,58,"id",11.5],["=",1383,1987,1481,2013,71,"o",11],["шерсть",1513,1973,1811,2047,70,"od",11],["овечья,",1881,1969,2193,2037,82,"od",11]]},
     {"bbox":[417,2063,979,2135],"base":2128,"ind":1,"fs":11,"text":"бѣлая волна.","words":[["бѣлая",417,2063,669,2131,69,"od",11],["волна.",713,2077,979,2135,84,"od",11]]}
    ]},
    {"bbox": [309,2181,2213,2783], "hanging": true, "text_d": "Аристотелевы врата главы, или статьи, на, которыя раздѣлено его ученіе вь \" Тайная тайныхъ “ ; гадательныя книжки , по которымь угадывали будущіе случаи человѣч. жизни ( Стоглав. 17 вопр.: во Аристотелевы врата смотрять) .", "text_merged": "Аристотелевы врата= главы, или статьи, на, которыя раздѣлено его ученіе вь \" Тайная тайныхъ “ ; гадательныя книжки , по которымь угадывали будущіе случаи человѣч. жизни ( Стоглав. 17 вопр.: во Аристотелевы врата смотрятъ) .", "disputed": [[17,19],[68,69],[92,93],[127,128],[219,220]], "italic": [[77,91],[171,179],[183,189]], "fixed": 2, "d_cut": "line", "d_line": [304,1928,1908,1976], "breaks": [[0,0],[39,0],[75,1],[112,1],[150,0],[190,0]], "lines": [
@@ -189,13 +191,14 @@
   {"col":1,"para":3,"bbox":[305,1305,721,1447],"abbyy":"Щюпагъ","abbyy_conf":19,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":4,"bbox":[305,1553,641,1647],"abbyy":"Арестъ","abbyy_conf":47,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":5,"bbox":[307,1857,833,1947],"abbyy":"і\\{шп., мрнгъ","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":6,"bbox":[309,2181,1287,2277],"abbyy":"Аристотелевы врата","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":7,"bbox":[317,2811,867,2907],"abbyy":"Аристотель","abbyy_conf":84,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":8,"bbox":[329,3935,607,4069],"abbyy":"Я|ЙАНЕ","abbyy_conf":11,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":9,"bbox":[345,4977,407,5055],"abbyy":"Я","abbyy_conf":0,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":10,"bbox":[367,5197,815,5277],"abbyy":"'оіевъ ледъ","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":11,"bbox":[351,5811,1477,5895],"abbyy":"ЯйѴк левъ Божій","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":12,"bbox":[351,6135,1437,6219],"abbyy":"Я'й’/ИДвысоты","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":6,"bbox":[613,1981,665,2027],"abbyy":"и","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":7,"bbox":[309,2181,1287,2277],"abbyy":"Аристотелевы врата","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":8,"bbox":[317,2811,867,2907],"abbyy":"Аристотель","abbyy_conf":84,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":9,"bbox":[329,3935,607,4069],"abbyy":"Я|ЙАНЕ","abbyy_conf":11,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":10,"bbox":[345,4977,407,5055],"abbyy":"Я","abbyy_conf":0,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":11,"bbox":[367,5197,815,5277],"abbyy":"'оіевъ ледъ","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":12,"bbox":[351,5811,1477,5895],"abbyy":"ЯйѴк левъ Божій","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":13,"bbox":[351,6135,1437,6219],"abbyy":"Я'й’/ИДвысоты","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2339,957,3223,1091],"abbyy":"Я^Усо^ъ газыкоБЪ","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2343,2115,2707,2249],"abbyy":"Ямисто б","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2345,2439,2681,2559],"abbyy":"Яркомъ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
@@ -211,6 +214,7 @@
   {"col":2,"para":14,"bbox":[2371,5207,3073,5321],"abbyy":"ЯрмЕЛ -{др.рус","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2377,5531,2883,5627],"abbyy":"Армпніане","abbyy_conf":57,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":70,"b_page":22,"c_page":[68],"chars":3831,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":256,"fixed":44,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":70,"b_page":22,"c_page":[68],"chars":3831,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":256,"fixed":44,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (23 lines end at the image edge); line ends of the right column missing"]
 }

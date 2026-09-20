@@ -48,9 +48,11 @@
     {"bbox":[171,2935,2129,3075],"base":3050,"ind":0,"fs":11,"text":"Распутный = отпускной, разводный","words":[["Распутный",171,2935,761,3045,43,"sd?",11],["=",857,3013,959,3039,23,"?",11],["отпускной,",1045,2983,1521,3075,68,"d",11],["разводный",1661,2985,2129,3075,73,"d",11]]},
     {"bbox":[303,3079,971,3173],"base":3150,"ind":1,"fs":11,"text":"(Марк. 10, 4).","words":[["(Марк.",303,3079,597,3173,89,"d",11],["10,",675,3085,801,3171,81,"",11],["4).",869,3081,971,3173,100,"",11]]}
    ]},
-   {"bbox": [169,3177,2133,3421], "hanging": true, "text_d": "Распуста=распущеніе, разрѣшеніе, или разварка. Степ . кн. 2 , стр. 158 .", "text_merged": "Распуста=распущеніе, разрѣшеніе, или разварка. Степ . кн. 2 , стр. 158 .", "disputed": [[7,8],[40,41],[71,72]], "italic": [[47,51]], "fixed": 0, "d_cut": "line", "d_line": [252,2983,1855,3051], "breaks": [[0,0],[0,0],[37,0]], "lines": [
-    {"bbox":[169,3177,793,3296],"base":3286,"ind":0,"fs":11,"text":"Рлсп^стъ =і","words":[["Рлсп^стъ",169,3177,633,3287,33,"o?",11],["=і",659,3247,793,3296,72,"o?",11]]},
-    {"bbox":[745,3227,2133,3321],"base":3298,"ind":2,"fs":11,"text":"фаспущеніе, разрѣшеніе, или","words":[["фаспущеніе,",745,3227,1311,3317,56,"o",11],["разрѣшеніе,",1379,3229,1923,3321,82,"od",11],["или",1985,3249,2133,3299,44,"d",11]]},
+   {"bbox": [169,3177,793,3296], "hanging": true, "seg": "A", "text_d": "", "text_merged": "", "disputed": [], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [252,2983,1855,3051], "breaks": [[0,0]], "lines": [
+    {"bbox":[169,3177,793,3296],"base":3286,"ind":0,"fs":11,"text":"Рлсп^стъ =і","words":[["Рлсп^стъ",169,3177,633,3287,33,"o?",11],["=і",659,3247,793,3296,72,"o?",11]]}
+   ]},
+   {"bbox": [279,3227,2133,3421], "hanging": true, "seg": "CD", "text_d": "Распуста=распущеніе, разрѣшеніе, или разварка. Степ . кн. 2 , стр. 158 .", "text_merged": "Распуста=распущеніе, разрѣшеніе, или разварка. Степ . кн. 2 , стр. 158 .", "disputed": [[7,8],[40,41],[71,72]], "italic": [[47,51]], "fixed": 0, "d_cut": "line", "d_line": [252,2983,1855,3051], "breaks": [[0,0],[37,0]], "lines": [
+    {"bbox":[745,3227,2133,3321],"base":3298,"ind":0,"fs":11,"text":"фаспущеніе, разрѣшеніе, или","words":[["фаспущеніе,",745,3227,1311,3317,56,"o",11],["разрѣшеніе,",1379,3229,1923,3321,82,"od",11],["или",1985,3249,2133,3299,44,"d",11]]},
     {"bbox":[279,3321,1909,3421],"base":3390,"ind":1,"fs":11,"text":"разварка. Степ. кн. 2, стр. 158.","words":[["раз",279,3343,421,3415,82,"d?",11],["варка.",431,3343,711,3417,63,"d",11],["Степ.",793,3321,1077,3399,56,"id",11.5],["кн.",1141,3349,1269,3399,78,"",11],["2,",1341,3331,1419,3419,84,"",11],["стр.",1483,3349,1653,3421,100,"od",11],["158.",1729,3329,1909,3399,96,"",11]]}
    ]},
    {"bbox": [167,3401,2133,3845], "hanging": true, "text_d": "Ραιπότε– (ἄμφοδος) = широкая улица, перекрестокъ, откуда дороги идутъ въ разныя стороны (Матө. 12 , 19; Лук. 14, 21).", "text_merged": "аспπтїе– (ἄμφοδος) = широкая улица, перекрестокъ, откуда дороги идутъ въ разныя стороны (Матө. 12 , 19; Лук. 14, 21).", "disputed": [[0,7],[11,12],[14,15],[30,31],[92,93],[98,99]], "italic": [], "fixed": 6, "d_cut": "line", "d_line": [244,3189,1853,3253], "breaks": [[0,0],[36,0],[73,0],[109,0]], "lines": [
@@ -184,15 +186,16 @@
   {"col":1,"para":2,"bbox":[183,471,1101,577],"abbyy":"РлспѴстнла книга","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":3,"bbox":[171,2935,761,3045],"abbyy":"Распутный","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":4,"bbox":[169,3177,633,3287],"abbyy":"Рлсп^стъ","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":5,"bbox":[167,3401,599,3511],"abbyy":"Распитіе","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":6,"bbox":[163,3847,637,3919],"abbyy":"Расііжѵсішк","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":7,"bbox":[163,3929,715,4069],"abbyy":"РаспѴціати","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":8,"bbox":[161,4375,583,4469],"abbyy":"Распы|>нтн","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":9,"bbox":[159,4477,687,4549],"abbyy":"Распмтыіпкъ","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":10,"bbox":[163,4585,743,4717],"abbyy":"Распы^аюса","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":11,"bbox":[163,5005,645,5099],"abbyy":"Расльрятіісд","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":12,"bbox":[165,5107,475,5179],"abbyy":"Расіідпо","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":13,"bbox":[169,5213,595,5295],"abbyy":"Распатіе","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":5,"bbox":[745,3227,1283,3317],"abbyy":"фаспущеніе","abbyy_conf":55,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":6,"bbox":[167,3401,599,3511],"abbyy":"Распитіе","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":7,"bbox":[163,3847,637,3919],"abbyy":"Расііжѵсішк","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":8,"bbox":[163,3929,715,4069],"abbyy":"РаспѴціати","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":9,"bbox":[161,4375,583,4469],"abbyy":"Распы|>нтн","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":10,"bbox":[159,4477,687,4549],"abbyy":"Распмтыіпкъ","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":11,"bbox":[163,4585,743,4717],"abbyy":"Распы^аюса","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":12,"bbox":[163,5005,645,5099],"abbyy":"Расльрятіісд","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":13,"bbox":[165,5107,475,5179],"abbyy":"Расіідпо","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":14,"bbox":[169,5213,595,5295],"abbyy":"Распатіе","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2279,1885,3945,1977],"abbyy":"Рдсръд’ь прихлебатель, блюдолизъ","abbyy_conf":57,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2277,2115,2905,2195],"abbyy":"Раггаакаюса","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2277,2235,2759,2315],"abbyy":"Растаати","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
@@ -204,6 +207,7 @@
   {"col":2,"para":10,"bbox":[2265,4487,2627,4569],"abbyy":"РлетЕсъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2263,4711,2549,4791],"abbyy":"Расти","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":592,"b_page":544,"c_page":[590],"chars":3884,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":214,"fixed":30,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":592,"b_page":544,"c_page":[590],"chars":3884,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":214,"fixed":30,"odd":[]},
  "warnings": []
 }

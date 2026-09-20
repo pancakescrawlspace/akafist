@@ -45,8 +45,14 @@ definitions contain quotation marks):
                    that dj_build.py can put each on the page at its measured baseline
     status         raw (Phase 5 sets checked)
     flags          ;-separated: hw_provisional, hw_disputed (step 2 reading confirmed by no witness), hw_missing,
-                   guessed (entry start decided from text features, cut-margin page), no_sep (no separator found),
-                   eq_from_A (D dropped the "=" A saw; the head cut after as many words as ABBYY read), empty,
+                   guessed (entry start decided from text features on a cut-margin page, with no witness to
+                   confirm it — the only entries whose start is not certain), seg (the entry begins here because
+                   witnesses C and D say so and A's geometry did not: djachenko/segmentation.tsv, tools/dj_seg.py),
+                   no_sep (neither a separator nor an ABBYY reading of the headword: the whole text is the
+                   definition and the entry has no headword at all), unconfirmed (neither witness could be
+                   carried over to the entry's first line, so only A's geometry says an entry begins there),
+                   eq_from_A (no separator, but A saw an "="; the head cut after as many words as ABBYY read),
+                   hw_from_A (no separator and no "=" either; the head cut the same way), empty,
                    joined_null (a hanging paragraph that step 2 called "not an entry" was joined to this entry),
                    no_eq (A saw no "=" in the first two lines), order (headword out of alphabetical order: not in
                    the longest non-decreasing subsequence of its part), parens (unbalanced parentheses in the
@@ -310,6 +316,10 @@ def build_entries(pgs):
                                lhyph=[], hint=h, flags=set(), leaf=pg['idx'], errata=[])
                     if p.get('guessed'):
                         cur['flags'].add('guessed')
+                    if p.get('seg') == 'CD':
+                        cur['flags'].add('seg')
+                    elif p.get('seg') == 'A':
+                        cur['flags'].add('unconfirmed')
                     if h and not h['eq']:
                         cur['flags'].add('no_eq')
                     entries.append(cur)
@@ -380,13 +390,16 @@ def split_entry(e):
         mm = re.match(r'\s*(=|—|–|--|-)\s*', text[hend:])
         sep, cut = (mm.group(1) if mm else ''), hend + (mm.end() if mm else 0)
         e['flags'].add('hw_cut')
-    elif h and h['eq'] and h['abbyy']:
-        # D dropped the "=" that A saw: the head has as many words as ABBYY's reading of it
+    elif h and h['abbyy']:
+        # No separator in the text: D dropped the "=" A saw, or read the dash as a hyphen, or ran the headword
+        # into the gloss.  ABBYY read the headword region of the line whatever it made of the letters, so the
+        # head is given as many words as it read there — a provisional headword like every other (grey in the
+        # rendition), rather than none at all, which would leave the lemma unheaded in the text of its own entry.
         n = min(4, max(1, len(h['abbyy'].split())))
         words = text.split(' ', n)
         sep, hend = '', len(' '.join(words[:n]))
         cut = hend + (1 if len(words) > n else 0)
-        e['flags'].add('eq_from_A')
+        e['flags'].add('eq_from_A' if h['eq'] else 'hw_from_A')
     else:
         sep, hend, cut = '', 0, 0
         e['flags'].add('no_sep')

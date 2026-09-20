@@ -129,12 +129,10 @@
    {"bbox": [2043,2455,3691,2557], "hanging": true, "text_d": "Ожъ=ежъ (Дан. Заточн. в.з.", "text_merged": "Ожъ=ежъ (Дан. Заточн. в.і.", "disputed": [[19,21],[24,25]], "italic": [[8,21]], "fixed": 1, "d_cut": "line", "d_line": [1798,2284,3188,2330], "breaks": [[0,0]], "lines": [
     {"bbox":[2043,2455,3691,2557],"base":2530,"ind":0,"fs":11,"text":"Ожъ=ежъ (Дан. Заточи. ХУ в. і.","words":[["Ожъ=ежъ",2043,2459,2529,2537,61,"o",11],["(Дан.",2591,2455,2831,2557,52,"id",11],["Заточи.",2909,2455,3289,2535,59,"iod",11],["ХУ",3351,2459,3493,2533,39,"od",11],["в.",3551,2485,3617,2531,62,"d",11],["і.",3653,2485,3691,2533,58,"o?",11]]}
    ]},
-   {"bbox": [2043,2559,3951,2753], "hanging": true, "text_d": "Ожажелити наложить обручъ, который обхватываетъ шею , надѣть ошейникъ", "text_merged": "Ожажелити наложить обручъ, который обхватываетъ шею , надѣть ошейникъ", "disputed": [[2,3],[6,7],[8,9],[49,50],[68,69]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [1802,2377,3407,2422], "breaks": [[0,1],[37,0]], "lines": [
+   {"bbox": [2043,2559,3951,2855], "hanging": true, "text_d": "Ожажелити наложить обручъ, который обхватываетъ шею , надѣть ошейникъ (Миклош ).", "text_merged": "Ожажелити наложить обручъ, который обхватываетъ шею , надѣть ошейникъ (Миклош ).", "disputed": [[2,3],[6,7],[8,9],[49,50],[68,69]], "italic": [[70,77]], "fixed": 0, "d_cut": "line", "d_line": [1802,2377,3407,2422], "breaks": [[0,1],[37,0],[70,0]], "lines": [
     {"bbox":[2043,2559,3951,2657],"base":2632,"ind":0,"fs":11,"text":"Ожд:келнтіі=наложить обручъ, который об¬","words":[["Ожд:келнтіі=наложить",2043,2559,2989,2633,67,"o",11],["обручъ,",3049,2563,3377,2657,76,"od",11],["который",3429,2563,3789,2657,80,"od",11],["об¬",3823,2561,3951,2635,83,"od",11]]},
-    {"bbox":[2149,2665,3949,2753],"base":2734,"ind":1,"fs":11,"text":"хватываетъ шею, надѣть ошейникъ","words":[["хватываетъ",2149,2681,2653,2735,86,"od",11],["шею",2769,2683,2949,2737,72,"od",11],[",",2981,2719,3001,2753,55,"o",11],["надѣть",3117,2665,3413,2747,62,"od",11],["ошейникъ",3527,2665,3949,2737,82,"od",11]]}
-   ]},
-   {"bbox": [2089,2757,2667,2855], "hanging": true, "text_d": "(Миклош ).", "text_merged": "(Миклош ).", "disputed": [], "italic": [[0,7]], "fixed": 0, "d_cut": "line", "d_line": [1874,2548,2325,2594], "breaks": [[0,0]], "lines": [
-    {"bbox":[2089,2757,2667,2855],"base":2834,"ind":0,"fs":11.5,"text":"„ (Миклош).","words":[["„",2089,2825,2115,2849,23,"o?",11],["(Миклош",2155,2757,2581,2855,69,"io",11.5],[").",2615,2765,2667,2855,98,"o",11]]}
+    {"bbox":[2149,2665,3949,2753],"base":2734,"ind":1,"fs":11,"text":"хватываетъ шею, надѣть ошейникъ","words":[["хватываетъ",2149,2681,2653,2735,86,"od",11],["шею",2769,2683,2949,2737,72,"od",11],[",",2981,2719,3001,2753,55,"o",11],["надѣть",3117,2665,3413,2747,62,"od",11],["ошейникъ",3527,2665,3949,2737,82,"od",11]]},
+    {"bbox":[2089,2757,2667,2855],"base":2834,"ind":1,"fs":11.5,"text":"„ (Миклош).","words":[["„",2089,2825,2115,2849,23,"o?",11],["(Миклош",2155,2757,2581,2855,69,"io",11.5],[").",2615,2765,2667,2855,98,"o",11]]}
    ]},
    {"bbox": [2043,2857,3951,3075], "hanging": true, "text_d": "Оза левить, погибшій при перенесеніи ковчега завѣта Давидомъ.", "text_merged": "Оза левить, погибшій при перенесеніи ковчега завѣта Давидомъ.", "disputed": [[1,3],[4,5],[7,8],[30,31],[34,36],[54,55]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [1794,2637,3407,2704], "breaks": [[0,0],[37,0]], "lines": [
     {"bbox":[2043,2857,3951,2981],"base":2955,"ind":0,"fs":11,"text":"03 д =левитъ, погибшій при перенесеніи","words":[["03",2043,2857,2229,2973,58,"o",13],["д",2241,2893,2279,2947,100,"o?",13],["=",2287,2919,2387,2945,100,"o",11],["левитъ,",2409,2905,2733,2973,71,"od",11],["погибшій",2799,2885,3185,2957,78,"od",11],["при",3245,2909,3393,2979,64,"od",11],["перенесеніи",3449,2887,3951,2981,77,"od",11]]},
@@ -219,24 +217,24 @@
   {"col":2,"para":7,"bbox":[2041,2357,2367,2447],"abbyy":"Ожуднтн","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2043,2459,2247,2537],"abbyy":"Ожъ","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2043,2559,2471,2631],"abbyy":"Ожд:келнтіі","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":10,"bbox":[2089,2825,2115,2849],"abbyy":"„","abbyy_conf":23,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":11,"bbox":[2043,2857,2279,2973],"abbyy":"03 д","abbyy_conf":72,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":12,"bbox":[2043,3087,2373,3179],"abbyy":"О^ддъкъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":13,"bbox":[2045,3195,2403,3311],"abbyy":"ОздрАГС","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":14,"bbox":[2041,3415,2781,3511],"abbyy":"Озбякъ, Азвякъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":15,"bbox":[2043,3497,2741,3625],"abbyy":"Озб'Б'Зденный","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":16,"bbox":[2043,3743,2411,3849],"abbyy":"Оздднъ","abbyy_conf":51,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":17,"bbox":[2043,3859,2315,3951],"abbyy":"Оедокд","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":18,"bbox":[2041,3967,2679,4101],"abbyy":"Озд^ДБНТИСА","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":19,"bbox":[2041,4191,2623,4325],"abbyy":"Озд^ДБЛАТ,и","abbyy_conf":70,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":20,"bbox":[2041,4415,2483,4519],"abbyy":"0зЕЛЕНАЮ","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":21,"bbox":[2043,4537,2623,4641],"abbyy":"О3ЕЛШИИТИ","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":22,"bbox":[2043,4757,2683,4833],"abbyy":"Оземствовати","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":23,"bbox":[2041,5163,2777,5253],"abbyy":"Ог;іімііі|д, о^нмы|ь","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":24,"bbox":[2047,5245,2559,5375],"abbyy":"ОзилцЬбдю","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":25,"bbox":[2047,5495,2521,5593],"abbyy":"ОзИіѴіжніе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":26,"bbox":[2047,5705,2343,5803],"abbyy":"ОЗіА","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
+  {"col":2,"para":10,"bbox":[2043,2857,2279,2973],"abbyy":"03 д","abbyy_conf":72,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":11,"bbox":[2043,3087,2373,3179],"abbyy":"О^ддъкъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":12,"bbox":[2045,3195,2403,3311],"abbyy":"ОздрАГС","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":13,"bbox":[2041,3415,2781,3511],"abbyy":"Озбякъ, Азвякъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":14,"bbox":[2043,3497,2741,3625],"abbyy":"Озб'Б'Зденный","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":15,"bbox":[2043,3743,2411,3849],"abbyy":"Оздднъ","abbyy_conf":51,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":16,"bbox":[2043,3859,2315,3951],"abbyy":"Оедокд","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":17,"bbox":[2041,3967,2679,4101],"abbyy":"Озд^ДБНТИСА","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":18,"bbox":[2041,4191,2623,4325],"abbyy":"Озд^ДБЛАТ,и","abbyy_conf":70,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":19,"bbox":[2041,4415,2483,4519],"abbyy":"0зЕЛЕНАЮ","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":20,"bbox":[2043,4537,2623,4641],"abbyy":"О3ЕЛШИИТИ","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":21,"bbox":[2043,4757,2683,4833],"abbyy":"Оземствовати","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":22,"bbox":[2041,5163,2777,5253],"abbyy":"Ог;іімііі|д, о^нмы|ь","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":23,"bbox":[2047,5245,2559,5375],"abbyy":"ОзилцЬбдю","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":24,"bbox":[2047,5495,2521,5593],"abbyy":"ОзИіѴіжніе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":25,"bbox":[2047,5705,2343,5803],"abbyy":"ОЗіА","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":425,"b_page":377,"c_page":[423],"chars":3638,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":264,"fixed":31,"odd":[]},
+ "seg": {"continue":1},
+ "witness": {"version":10,"d_page":425,"b_page":377,"c_page":[423],"chars":3638,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":264,"fixed":31,"odd":[]},
  "warnings": []
 }

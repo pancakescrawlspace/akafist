@@ -135,9 +135,11 @@
     {"bbox":[2233,1665,4083,1765],"base":1741,"ind":1,"fs":11,"text":"отъ горы, осѣненной чащею. Кан. въ","words":[["отъ",2233,1693,2387,1745,84,"od",11],["горы,",2449,1693,2689,1765,86,"od",11],["осѣненной",2779,1671,3231,1743,81,"od",11],["чащею.",3309,1689,3627,1751,76,"od",11],["Кан.",3707,1665,3931,1745,64,"io?",11],["въ",3997,1689,4083,1741,47,"iod",11]]},
     {"bbox":[2229,1769,3149,1861],"base":1843,"ind":1,"fs":11,"text":"нед. Ваій, пѣс. 4.","words":[["нед.",2229,1769,2407,1847,83,"io",11],["Ваій,",2479,1769,2745,1861,71,"iod",11],["пѣс.",2807,1793,3005,1843,74,"io",11],["4.",3071,1773,3149,1843,83,"o",11]]}
    ]},
-   {"bbox": [2119,1865,4075,2215], "hanging": true, "text_d": "Пріужахнуться ужаснуться (Был. яз.). Прівказа = примѣръ, образецъ . Прол. март. 17 .", "text_merged": "Пріужахнуться= ужаснуться (Был. яз.). Прівказа = примѣръ, образецъ . Прол. март. 17 .", "disputed": [[0,1],[12,14],[41,42],[45,46]], "italic": [[26,37],[69,80]], "fixed": 1, "d_cut": "line", "d_line": [1850,1746,3460,1797], "breaks": [[0,0],[38,0],[75,0]], "lines": [
-    {"bbox":[2119,1865,4075,1971],"base":1943,"ind":0,"fs":11,"text":"Иріужахнуться=ужаснуться (Был. яз.).","words":[["Иріужахнуться=ужаснуться",2119,1877,3531,1971,66,"o",11],["(Был.",3573,1865,3843,1967,72,"id",11],["яз.).",3883,1871,4075,1961,83,"io",11]]},
-    {"bbox":[2367,2007,4071,2109],"base":2082,"ind":2,"fs":11,"text":"»ДЗ* = примѣръ, образецъ. Прол.","words":[["»ДЗ*",2367,2025,2577,2103,38,"o?",11],["=",2639,2049,2741,2073,71,"o",11],["примѣръ,",2799,2011,3213,2107,59,"od",11],["образецъ.",3279,2011,3713,2105,84,"od",11],["Прол.",3791,2007,4071,2109,74,"io",11]]},
+   {"bbox": [2119,1865,4075,1971], "hanging": true, "text_d": "Пріужахнуться ужаснуться (Был. яз.).", "text_merged": "Пріужахнуться= ужаснуться (Был. яз.).", "disputed": [[0,1],[12,14]], "italic": [[26,37]], "fixed": 1, "d_cut": "line", "d_line": [1850,1746,3460,1797], "breaks": [[0,0]], "lines": [
+    {"bbox":[2119,1865,4075,1971],"base":1943,"ind":0,"fs":11,"text":"Иріужахнуться=ужаснуться (Был. яз.).","words":[["Иріужахнуться=ужаснуться",2119,1877,3531,1971,66,"o",11],["(Был.",3573,1865,3843,1967,72,"id",11],["яз.).",3883,1871,4075,1961,83,"io",11]]}
+   ]},
+   {"bbox": [2233,2007,4071,2215], "hanging": true, "seg": "CD", "text_d": "Прівказа = примѣръ, образецъ . Прол. март. 17 .", "text_merged": "Прівказа = примѣръ, образецъ . Прол. март. 17 .", "disputed": [[3,4],[7,8]], "italic": [[31,42]], "fixed": 0, "d_cut": "line", "d_line": [1853,1853,3457,1924], "breaks": [[0,0],[37,0]], "lines": [
+    {"bbox":[2367,2007,4071,2109],"base":2082,"ind":0,"fs":11,"text":"»ДЗ* = примѣръ, образецъ. Прол.","words":[["»ДЗ*",2367,2025,2577,2103,38,"o?",11],["=",2639,2049,2741,2073,71,"o",11],["примѣръ,",2799,2011,3213,2107,59,"od",11],["образецъ.",3279,2011,3713,2105,84,"od",11],["Прол.",3791,2007,4071,2109,74,"io",11]]},
     {"bbox":[2233,2119,2727,2215],"base":2189,"ind":1,"fs":11,"text":"март. 17.","words":[["март.",2233,2137,2525,2215,62,"id",11],["17.",2601,2119,2727,2189,85,"o",11]]}
    ]},
    {"bbox": [2117,2197,4071,2437], "hanging": true, "text_d": "Прівподобити = сравнить , уподобить . Прав. исп . вѣр. 15.", "text_merged": "Прівподобити = сравнить , уподобить . Прав. исп . вѣр. 15.", "disputed": [[3,4],[36,37],[50,52]], "italic": [[38,47],[50,54]], "fixed": 0, "d_cut": "line", "d_line": [1833,2047,3454,2114], "breaks": [[0,0],[38,0]], "lines": [
@@ -229,18 +231,20 @@
   {"col":2,"para":5,"bbox":[2123,1205,2777,1327],"abbyy":"ШТс скУд'Ігти","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2123,1431,2711,1537],"abbyy":"ШѴос^нати","abbyy_conf":19,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[2119,1877,2895,1971],"abbyy":"Иріужахнуться","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":8,"bbox":[2117,2197,2823,2319],"abbyy":"ПйіѴподоБИТИ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":9,"bbox":[2117,2439,2685,2547],"abbyy":"Ш’і^скса'ги","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":10,"bbox":[2113,2679,2733,2843],"abbyy":"П^іѴазблен’іе","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":11,"bbox":[2111,2927,2349,3021],"abbyy":"Прія","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":12,"bbox":[2111,3735,2703,3871],"abbyy":"П|ПАЗНМБЫЙ","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":13,"bbox":[2111,3959,2921,4095],"abbyy":"ПрУАЗнстБокдтн","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":14,"bbox":[2113,4279,2413,4369],"abbyy":"ІІріА^нь","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":15,"bbox":[2109,4487,2663,4621],"abbyy":"П^іАТЕЛИфЕ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":16,"bbox":[2111,4811,2751,4945],"abbyy":"П^іАТЕЛЬСтко","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":17,"bbox":[2123,4927,2457,5019],"abbyy":"ПрТ-га-тн","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":18,"bbox":[2113,5843,2465,5979],"abbyy":"П|Й’атТё","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
+  {"col":2,"para":8,"bbox":[2367,2025,2513,2103],"abbyy":"»ДЗ","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":9,"bbox":[2117,2197,2823,2319],"abbyy":"ПйіѴподоБИТИ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":10,"bbox":[2117,2439,2685,2547],"abbyy":"Ш’і^скса'ги","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":11,"bbox":[2113,2679,2733,2843],"abbyy":"П^іѴазблен’іе","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":12,"bbox":[2111,2927,2349,3021],"abbyy":"Прія","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":13,"bbox":[2111,3735,2703,3871],"abbyy":"П|ПАЗНМБЫЙ","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":14,"bbox":[2111,3959,2921,4095],"abbyy":"ПрУАЗнстБокдтн","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":15,"bbox":[2113,4279,2413,4369],"abbyy":"ІІріА^нь","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":16,"bbox":[2109,4487,2663,4621],"abbyy":"П^іАТЕЛИфЕ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":17,"bbox":[2111,4811,2751,4945],"abbyy":"П^іАТЕЛЬСтко","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":18,"bbox":[2123,4927,2457,5019],"abbyy":"ПрТ-га-тн","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":19,"bbox":[2113,5843,2465,5979],"abbyy":"П|Й’атТё","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":553,"b_page":505,"c_page":[551],"chars":3453,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":252,"fixed":25,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":553,"b_page":505,"c_page":[551],"chars":3453,"cuts":{"line":39,"aligned":0,"forced":0},"disputed":252,"fixed":25,"odd":[]},
  "warnings": []
 }

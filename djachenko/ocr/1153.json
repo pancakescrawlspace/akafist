@@ -61,10 +61,12 @@
    ]}
   ]},
   {"n": 2, "side": "b", "band": 1, "bbox": [2179,387,4187,2875], "flush": 66, "indent": 108, "paragraphs": [
-   {"bbox": [2313,387,4187,1093], "hanging": false, "text_d": "А. Горск. и К. Невостр., отд. 2-й, пис. св . отц. , стр. 394). Џованъ - (Римл. 16, 9). Св. Димитрій Ростовскій говорить, что онъ св. апостоломъ Андреемъ былъ поставленъ епископомъ для Македоніи, гдѣ мученически скончался", "text_merged": "А. Горск. и К. Невостр., отд. 2-й, пис. св . отц. , стр. 394). ованъ - (Римл. 16, 9). Св. Димитрій Ростовскій говоритъ, что онъ св. апостоломъ Андреемъ былъ поставленъ епископомъ для Македоніи, гдѣ мученически скончался", "disputed": [[3,4],[6,9],[41,42],[46,48],[63,68],[117,118]], "italic": [[0,24],[35,42],[45,49]], "fixed": 2, "d_cut": "line", "d_line": [2010,388,3563,438], "breaks": [[0,0],[35,0],[63,0],[99,1],[135,0],[168,1],[204,0]], "lines": [
+   {"bbox": [2315,387,4183,587], "hanging": false, "text_d": "А. Горск. и К. Невостр., отд. 2-й, пис. св . отц. , стр. 394).", "text_merged": "А. Горск. и К. Невостр., отд. 2-й, пис. св . отц. , стр. 394).", "disputed": [[3,4],[6,9],[41,42],[46,48]], "italic": [[0,24],[35,42],[45,49]], "fixed": 0, "d_cut": "line", "d_line": [2010,388,3563,438], "breaks": [[0,0],[35,0]], "lines": [
     {"bbox":[2315,387,4183,495],"base":468,"ind":1,"fs":11.5,"text":"А. Горек, и К. Невостр., отд. 2-й,","words":[["А.",2315,393,2429,469,54,"iod",11.5],["Горек,",2497,391,2813,491,62,"id",11.5],["и",2881,413,2943,465,58,"iod",11.5],["К.",3005,387,3111,467,86,"id",11.5],["Невостр.,",3201,389,3691,493,51,"io",11.5],["отд.",3777,419,3947,481,69,"o",11],["2-й,",4019,407,4183,495,52,"o",11]]},
-    {"bbox":[2315,495,3565,587],"base":565,"ind":1,"fs":11.5,"text":"пис. св. отц., стр. 394).","words":[["пис.",2315,517,2509,569,62,"io?",11.5],["св.",2575,515,2693,571,89,"io",11.5],["отц.,",2761,513,3023,581,58,"io",11.5],["стр.",3099,513,3271,585,78,"od",11],["394).",3345,495,3565,587,78,"o",11]]},
-    {"bbox":[2619,613,4187,715],"base":687,"ind":2,"fs":11,"text":"— (Римл. 16, 9). Св. Димитрій","words":[["—",2619,657,2725,667,-1,"od",11],["(Римл.",2789,613,3065,707,68,"od",11],["16,",3139,615,3269,699,65,"o",11],["9).",3339,615,3447,705,82,"o",11],["Св.",3543,615,3681,691,60,"o",11],["Димитрій",3781,619,4187,715,72,"od",11]]},
+    {"bbox":[2315,495,3565,587],"base":565,"ind":1,"fs":11.5,"text":"пис. св. отц., стр. 394).","words":[["пис.",2315,517,2509,569,62,"io?",11.5],["св.",2575,515,2693,571,89,"io",11.5],["отц.,",2761,513,3023,581,58,"io",11.5],["стр.",3099,513,3271,585,78,"od",11],["394).",3345,495,3565,587,78,"o",11]]}
+   ]},
+   {"bbox": [2313,613,4187,1093], "hanging": true, "seg": "CD", "text_d": "Џованъ - (Римл. 16, 9). Св. Димитрій Ростовскій говорить, что онъ св. апостоломъ Андреемъ былъ поставленъ епископомъ для Македоніи, гдѣ мученически скончался", "text_merged": "ованъ - (Римл. 16, 9). Св. Димитрій Ростовскій говоритъ, что онъ св. апостоломъ Андреемъ былъ поставленъ епископомъ для Македоніи, гдѣ мученически скончался", "disputed": [[0,5],[54,55]], "italic": [], "fixed": 2, "d_cut": "line", "d_line": [1920,584,3573,638], "breaks": [[0,0],[36,1],[72,0],[105,1],[141,0]], "lines": [
+    {"bbox":[2619,613,4187,715],"base":687,"ind":0,"fs":11,"text":"— (Римл. 16, 9). Св. Димитрій","words":[["—",2619,657,2725,667,-1,"od",11],["(Римл.",2789,613,3065,707,68,"od",11],["16,",3139,615,3269,699,65,"o",11],["9).",3339,615,3447,705,82,"o",11],["Св.",3543,615,3681,691,60,"o",11],["Димитрій",3781,619,4187,715,72,"od",11]]},
     {"bbox":[2313,717,4185,807],"base":788,"ind":1,"fs":11,"text":"Ростовскій говоритъ, что онъ св. апо¬","words":[["Ростовскій",2313,717,2801,791,73,"od",11],["говоритъ,",2861,735,3301,807,82,"od",11],["что",3369,737,3511,789,92,"od",11],["онъ",3595,739,3753,791,78,"od",11],["св.",3815,741,3931,795,100,"o",11],["апо¬",4001,743,4185,799,71,"od",11]]},
     {"bbox":[2317,815,4183,909],"base":889,"ind":1,"fs":11,"text":"столомъ Андреемъ былъ поставленъ","words":[["столомъ",2317,839,2675,893,73,"od",11],["Андреемъ",2789,815,3227,909,82,"od",11],["былъ",3347,817,3567,889,67,"od",11],["поставленъ",3683,841,4183,897,73,"od",11]]},
     {"bbox":[2315,915,4179,1017],"base":990,"ind":1,"fs":11,"text":"епископомъ для Македоніи, гдѣ мучени¬","words":[["епископомъ",2315,939,2827,993,84,"od",11],["для",2885,939,3037,999,41,"od",11],["Македоніи,",3095,915,3591,1009,76,"od",11],["гдѣ",3635,921,3785,1005,100,"od",11],["мучени¬",3845,945,4179,1017,81,"od",11]]},
@@ -190,21 +192,23 @@
   {"col":1,"para":9,"bbox":[93,2233,419,2329],"abbyy":"Оупрт.тн","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":10,"bbox":[99,2353,537,2443],"abbyy":"Оуіш,татн","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":11,"bbox":[93,2577,461,2667],"abbyy":"Оурд^нтн","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":2,"bbox":[2203,1127,2591,1219],"abbyy":"Урубить","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":3,"bbox":[2203,1323,2579,1413],"abbyy":"Оурлтнтн","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":4,"bbox":[2191,1643,2557,1735],"abbyy":"Оусдхл^ь","abbyy_conf":22,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":5,"bbox":[2189,1851,2541,1925],"abbyy":"Услѣти","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":6,"bbox":[2191,2055,2697,2183],"abbyy":"ОугкклшіЕ","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":7,"bbox":[2189,2171,2579,2261],"abbyy":"Оутннъкъ","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":8,"bbox":[2185,2373,2603,2467],"abbyy":"Оутрыіитн","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":9,"bbox":[2185,2475,2681,2565],"abbyy":"Оутъргноутн","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":10,"bbox":[2183,2575,2585,2669],"abbyy":"Оутырнтн","abbyy_conf":28,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":11,"bbox":[2179,2783,2725,2873],"abbyy":"Ущекотати","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":2,"bbox":[2138,657,2618,683],"abbyy":"","abbyy_conf":-1,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":3,"bbox":[2203,1127,2591,1219],"abbyy":"Урубить","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":4,"bbox":[2203,1323,2579,1413],"abbyy":"Оурлтнтн","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":5,"bbox":[2191,1643,2557,1735],"abbyy":"Оусдхл^ь","abbyy_conf":22,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":6,"bbox":[2189,1851,2541,1925],"abbyy":"Услѣти","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":7,"bbox":[2191,2055,2697,2183],"abbyy":"ОугкклшіЕ","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":8,"bbox":[2189,2171,2579,2261],"abbyy":"Оутннъкъ","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":9,"bbox":[2185,2373,2603,2467],"abbyy":"Оутрыіитн","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":10,"bbox":[2185,2475,2681,2565],"abbyy":"Оутъргноутн","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":11,"bbox":[2183,2575,2585,2669],"abbyy":"Оутырнтн","abbyy_conf":28,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":12,"bbox":[2179,2783,2725,2873],"abbyy":"Ущекотати","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":3,"para":1,"bbox":[81,3429,453,3523],"abbyy":"Фабула","abbyy_conf":53,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":3,"para":2,"bbox":[81,3649,469,3745],"abbyy":"флльндкъ","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":3,"para":3,"bbox":[73,4175,629,4269],"abbyy":"Фаревникъ","abbyy_conf":79,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":3,"para":4,"bbox":[91,4319,893,4441],"abbyy":"Фелонл крлтклА","abbyy_conf":35,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":1164,"b_page":1116,"c_page":[558],"chars":3399,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":132,"fixed":17,"odd":[]},
+ "seg": {"start":1},
+ "witness": {"version":10,"d_page":1164,"b_page":1116,"c_page":[558],"chars":3399,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":132,"fixed":17,"odd":[]},
  "warnings": []
 }

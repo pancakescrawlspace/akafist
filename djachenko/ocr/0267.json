@@ -34,7 +34,7 @@
     {"bbox":[409,1183,2241,1281],"base":1253,"ind":1,"fs":11,"text":"вѣтчикъ; 3) сторона въ юридическихъ","words":[["вѣтчикъ;",409,1185,795,1273,78,"o",11],["3)",869,1183,951,1281,52,"?",11],["сторона",1013,1205,1355,1279,83,"d",11],["въ",1433,1205,1537,1255,94,"od",11],["юридическихъ",1617,1201,2241,1275,70,"od",11]]},
     {"bbox":[409,1287,997,1359],"base":1358,"ind":1,"fs":11,"text":"отношеніяхъ.","words":[["отношеніяхъ.",409,1287,997,1359,66,"od",11]]}
    ]},
-   {"bbox": [301,1391,2241,1607], "hanging": true, "text_d": "Ηστειψή– (ἐκρεῖν) = вытекать , утекать , „ истекать; ускользать (Вт. 28, 40).", "text_merged": "Ηστειψή– (ἐκρεῖν) = вытекать , утекать ,  истекать; ускользать (Вт. 28, 40).", "disputed": [[0,7],[10,16],[41,41],[46,47]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [326,1259,1926,1330], "breaks": [[0,0],[41,0]], "lines": [
+   {"bbox": [301,1391,2241,1607], "hanging": true, "seg": "A", "text_d": "Ηστειψή– (ἐκρεῖν) = вытекать , утекать , „ истекать; ускользать (Вт. 28, 40).", "text_merged": "Ηστειψή– (ἐκρεῖν) = вытекать , утекать ,  истекать; ускользать (Вт. 28, 40).", "disputed": [[0,7],[10,16],[41,41],[46,47]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [326,1259,1926,1330], "breaks": [[0,0],[41,0]], "lines": [
     {"bbox":[301,1391,2241,1515],"base":1478,"ind":0,"fs":11,"text":"Нстецж — (ёхреіѵ) = вытекать, утекать,","words":[["Нстецж",301,1391,663,1503,47,"s",11],["—",695,1453,791,1463,-1,"d",11],["(ёхреіѵ)",825,1407,1149,1515,45,"o",11],["=",1189,1445,1289,1471,100,"",11],["вытекать,",1327,1431,1755,1493,95,"d",11],["утекать,",1873,1425,2241,1501,75,"d",11]]},
     {"bbox":[407,1505,2019,1607],"base":1581,"ind":1,"fs":11,"text":"истекать; ускользать (Вт. 28, 40).","words":[["истекать;",407,1529,827,1599,86,"d",11],["ускользать",889,1533,1369,1607,95,"d",11],["(Вт.",1429,1511,1599,1607,80,"d",11],["28,",1649,1511,1779,1601,100,"",11],["40).",1845,1505,2019,1607,77,"",11]]}
    ]},
@@ -112,12 +112,10 @@
    ]}
   ]},
   {"n": 2, "side": "b", "band": 1, "bbox": [2377,355,4252,6251], "flush": 64, "indent": 111, "paragraphs": [
-   {"bbox": [2377,355,4252,575], "hanging": true, "text_d": "| Истоє – (тὸ κεφάλαιον) = caмое главное, самое основное, основаніе, сущность, ре", "text_merged": "| Истоє – (тὸ κεφάλαιον) = caмое главное, самое основное, основаніе, сущность, ре", "disputed": [[0,1],[12,13],[55,56],[80,81]], "italic": [], "fixed": 0, "d_cut": "line", "d_line": [1970,352,3646,410], "breaks": [[0,0],[42,1]], "lines": [
+   {"bbox": [2377,355,4252,669], "hanging": true, "text_d": "| Истоє – (тὸ κεφάλαιον) = caмое главное, самое основное, основаніе, сущность, результать , итогъ (Лев . 6 , 5) .", "text_merged": "| Истоє – (тὸ κεφάλαιον) = caмое главное, самое основное, основаніе, сущность, результатъ , итогъ (Лев . 6 , 5) .", "disputed": [[0,1],[12,13],[55,56],[80,81],[88,89],[110,111]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [1970,352,3646,410], "breaks": [[0,0],[42,1],[81,0]], "lines": [
     {"bbox":[2377,355,4239,469],"base":439,"ind":0,"fs":11,"text":"Истое — (то хг<раХаюѵ) = самое главное","words":[["Истое",2377,355,2653,433,52,"sod",9],["—",2699,411,2775,419,-1,"od",11],["(то",2815,369,2933,461,41,"od",11],["хг<раХаюѵ)",2995,359,3481,469,47,"o",11],["=",3523,399,3623,423,57,"o?",11],["самое",3653,385,3897,439,89,"d",11],["главное",3955,389,4239,459,79,"od",11]]},
-    {"bbox":[2487,467,4252,575],"base":543,"ind":1,"fs":11,"text":"самое основное, основаніе, сущность, ре¬","words":[["самое",2487,491,2731,545,76,"od",11],["основное,",2769,489,3185,557,86,"od",11],["основаніе,",3227,467,3673,555,77,"od",11],["сущность,",3717,487,4133,563,82,"od",11],["ре¬",4171,505,4252,575,38,"od",11]]}
-   ]},
-   {"bbox": [2385,565,3843,669], "hanging": true, "text_d": "зультать , итогъ (Лев . 6 , 5) .", "text_merged": "зультатъ , итогъ (Лев . 6 , 5) .", "disputed": [[7,8],[29,30]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [2119,538,3236,584], "breaks": [[0,0]], "lines": [
-    {"bbox":[2385,565,3843,669],"base":639,"ind":0,"fs":11,"text":"зультатъ, итогъ (Лев. 6, 5).","words":[["зультатъ,",2385,591,2907,669,98,"od",11],["итогъ",2971,591,3217,641,100,"od",11],["(Лев.",3279,565,3505,663,65,"d",11],["6,",3575,569,3661,663,83,"o",11],["5).",3725,569,3843,655,49,"o?",11]]}
+    {"bbox":[2487,467,4252,575],"base":543,"ind":1,"fs":11,"text":"самое основное, основаніе, сущность, ре¬","words":[["самое",2487,491,2731,545,76,"od",11],["основное,",2769,489,3185,557,86,"od",11],["основаніе,",3227,467,3673,555,77,"od",11],["сущность,",3717,487,4133,563,82,"od",11],["ре¬",4171,505,4252,575,38,"od",11]]},
+    {"bbox":[2385,565,3843,669],"base":639,"ind":1,"fs":11,"text":"зультатъ, итогъ (Лев. 6, 5).","words":[["зультатъ,",2385,591,2907,669,98,"od",11],["итогъ",2971,591,3217,641,100,"od",11],["(Лев.",3279,565,3505,663,65,"d",11],["6,",3575,569,3661,663,83,"o",11],["5).",3725,569,3843,655,49,"o?",11]]}
    ]},
    {"bbox": [2379,679,4252,867], "hanging": true, "text_d": "Исто точно, существенно. Кан. Пасхи, пѣс. 9 .", "text_merged": "Исто= точно, существенно. Кан. Пасхи, пѣс. 9 .", "disputed": [[3,5],[35,36],[38,41]], "italic": [[26,42]], "fixed": 1, "d_cut": "line", "d_line": [2032,638,3644,692], "breaks": [[0,0],[38,0]], "lines": [
     {"bbox":[2379,679,4252,799],"base":765,"ind":0,"fs":11,"text":"Исто=точно, существенно. Кан. Пасхи,","words":[["Исто=точно,",2379,679,3005,783,62,"o",11],["существенно.",3071,709,3655,785,81,"od",11],["Кан.",3693,683,3909,763,100,"io",11.5],["Пасхи,",3977,687,4252,799,51,"iod",11.5]]},
@@ -237,29 +235,29 @@
   {"col":1,"para":20,"bbox":[325,5687,779,5791],"abbyy":"Истлити","abbyy_conf":100,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":21,"bbox":[329,6037,767,6117],"abbyy":"Истнити","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":1,"bbox":[2377,355,2653,433],"abbyy":"Истое","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":2,"bbox":[2385,591,3217,669],"abbyy":"зультатъ, итогъ","abbyy_conf":99,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":3,"bbox":[2379,679,2621,759],"abbyy":"Исто","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":4,"bbox":[2381,897,2565,969],"abbyy":"Нсто","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":5,"bbox":[2379,1009,2729,1089],"abbyy":"Истобо","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":6,"bbox":[2383,1221,2717,1297],"abbyy":"Нстокыіі","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":7,"bbox":[2381,1735,2747,1809],"abbyy":"Истокъ","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":8,"bbox":[2387,1941,2841,2021],"abbyy":"Истоаста","abbyy_conf":80,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":9,"bbox":[2387,2161,2747,2235],"abbyy":"Истома","abbyy_conf":75,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":10,"bbox":[2391,2369,3033,2447],"abbyy":"ИстончАБАТИ","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":11,"bbox":[2399,2689,2827,2757],"abbyy":"ІІстопеіініе","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":12,"bbox":[2399,2789,2859,2859],"abbyy":"Нстопнтнсд","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":13,"bbox":[2399,2885,2717,2961],"abbyy":"Нст6пкд","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":14,"bbox":[2393,3097,2749,3189],"abbyy":"Истора","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":15,"bbox":[2397,3325,2999,3403],"abbyy":"ИсТОйГАТЕЛЬ","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":16,"bbox":[2401,3569,2855,3681],"abbyy":"Исторгаю","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":17,"bbox":[2403,3789,2833,3925],"abbyy":"Исто|>гій","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":18,"bbox":[2405,3909,3051,4023],"abbyy":"Исторідл&ный","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":19,"bbox":[2403,4263,3063,4389],"abbyy":"ИсторУогДАфг","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":20,"bbox":[2411,4589,2955,4681],"abbyy":"ІІстороіінтнсА","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":21,"bbox":[2413,4691,2677,4781],"abbyy":"ІІсторк","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":22,"bbox":[2409,4899,2831,4981],"abbyy":"ИстомАЮ","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":2,"para":23,"bbox":[2409,5429,2943,5509],"abbyy":"Источника","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null}
+  {"col":2,"para":2,"bbox":[2379,679,2621,759],"abbyy":"Исто","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":3,"bbox":[2381,897,2565,969],"abbyy":"Нсто","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":4,"bbox":[2379,1009,2729,1089],"abbyy":"Истобо","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":5,"bbox":[2383,1221,2717,1297],"abbyy":"Нстокыіі","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":6,"bbox":[2381,1735,2747,1809],"abbyy":"Истокъ","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":7,"bbox":[2387,1941,2841,2021],"abbyy":"Истоаста","abbyy_conf":80,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":8,"bbox":[2387,2161,2747,2235],"abbyy":"Истома","abbyy_conf":75,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":9,"bbox":[2391,2369,3033,2447],"abbyy":"ИстончАБАТИ","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":10,"bbox":[2399,2689,2827,2757],"abbyy":"ІІстопеіініе","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":11,"bbox":[2399,2789,2859,2859],"abbyy":"Нстопнтнсд","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":12,"bbox":[2399,2885,2717,2961],"abbyy":"Нст6пкд","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":13,"bbox":[2393,3097,2749,3189],"abbyy":"Истора","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":14,"bbox":[2397,3325,2999,3403],"abbyy":"ИсТОйГАТЕЛЬ","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":15,"bbox":[2401,3569,2855,3681],"abbyy":"Исторгаю","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":16,"bbox":[2403,3789,2833,3925],"abbyy":"Исто|>гій","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":17,"bbox":[2405,3909,3051,4023],"abbyy":"Исторідл&ный","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":18,"bbox":[2403,4263,3063,4389],"abbyy":"ИсторУогДАфг","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":19,"bbox":[2411,4589,2955,4681],"abbyy":"ІІстороіінтнсА","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":20,"bbox":[2413,4691,2677,4781],"abbyy":"ІІсторк","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":21,"bbox":[2409,4899,2831,4981],"abbyy":"ИстомАЮ","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":2,"para":22,"bbox":[2409,5429,2943,5509],"abbyy":"Источника","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":278,"b_page":230,"c_page":[276],"chars":3613,"cuts":{"line":44,"aligned":0,"forced":0},"disputed":247,"fixed":26,"odd":[]},
+ "seg": {"continue":1},
+ "witness": {"version":10,"d_page":278,"b_page":230,"c_page":[276],"chars":3613,"cuts":{"line":43,"aligned":0,"forced":0},"disputed":247,"fixed":26,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (27 lines end at the image edge); line ends of the right column missing"]
 }

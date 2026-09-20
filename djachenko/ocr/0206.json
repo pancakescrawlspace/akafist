@@ -14,12 +14,10 @@
  "noise": [{"bbox":[61,1757,89,1787],"text":"я"},{"bbox":[61,3031,89,3063],"text":"п"},{"bbox":[57,3255,85,3285],"text":"п"},{"bbox":[61,3477,89,3509],"text":"п"},{"bbox":[59,3699,91,3731],"text":"п"},{"bbox":[81,5377,109,5407],"text":"„"},{"bbox":[2135,2371,2171,2401],"text":"п"},{"bbox":[2140,3351,2174,3379],"text":"п"},{"bbox":[2135,3573,2171,3605],"text":"п"}],
  "columns": [
   {"n": 1, "side": "a", "band": 1, "bbox": [47,379,1981,6179], "flush": -1993, "indent": 80, "paragraphs": [
-   {"bbox": [135,379,1971,569], "hanging": false, "text_d": "либо одинаково , согласно съ однимъ и тѣмъ же ученіемъ вѣры. Мин . мѣс.", "text_merged": "либо одинаково , согласно съ однимъ и тѣмъ же ученіемъ вѣры. Мин . мѣс.", "disputed": [[48,49],[51,52],[61,62],[63,64],[65,66],[67,68]], "italic": [[61,64],[67,71]], "fixed": 0, "d_cut": "line", "d_line": [194,417,1724,454], "breaks": [[0,0],[38,0]], "lines": [
+   {"bbox": [67,379,1971,697], "hanging": false, "text_d": "либо одинаково , согласно съ однимъ и тѣмъ же ученіемъ вѣры. Мин . мѣс. февр. 12.", "text_merged": "либо одинаково , согласно съ однимъ и тѣмъ же ученіемъ вѣры. Мин . мѣс. февр. 12.", "disputed": [[48,49],[51,52],[61,62],[63,64],[65,66],[67,68]], "italic": [[61,64],[67,77]], "fixed": 0, "d_cut": "line", "d_line": [194,417,1724,454], "breaks": [[0,0],[38,0],[72,0]], "lines": [
     {"bbox":[137,379,1971,459],"base":446,"ind":1,"fs":11,"text":"либо одинаково, согласно съ однимъ и","words":[["либо",137,379,315,457,61,"d",11],["одинаково,",373,393,853,459,84,"d",11],["согласно",925,395,1309,447,59,"d",11],["съ",1369,397,1469,447,100,"od",11],["однимъ",1531,397,1841,457,67,"od",11],["и",1927,397,1971,445,35,"d",11]]},
-    {"bbox":[135,471,1967,569],"base":547,"ind":1,"fs":11,"text":"тѣмъ же ученіемъ вѣры. Мин. мѣс.","words":[["тѣмъ",135,485,337,557,69,"od",11],["же",425,495,537,545,50,"d",11],["ученіемъ",631,477,1017,569,91,"od",11],["вѣры.",1109,477,1361,569,74,"od",11],["Мин.",1429,471,1679,551,100,"id",11.5],["мѣс.",1751,495,1967,551,98,"io",11.5]]}
-   ]},
-   {"bbox": [67,577,563,697], "hanging": true, "text_d": "февр. 12.", "text_merged": "февр. 12.", "disputed": [], "italic": [[0,5]], "fixed": 0, "d_cut": "line", "d_line": [190,602,574,643], "breaks": [[0,0]], "lines": [
-    {"bbox":[67,577,563,697],"base":656,"ind":0,"fs":14,"text":"„ февр. 12.","words":[["„",67,667,93,697,27,"?",15],["февр.",135,585,365,681,24,"i?",14],["12.",437,577,563,647,88,"",11.5]]}
+    {"bbox":[135,471,1967,569],"base":547,"ind":1,"fs":11,"text":"тѣмъ же ученіемъ вѣры. Мин. мѣс.","words":[["тѣмъ",135,485,337,557,69,"od",11],["же",425,495,537,545,50,"d",11],["ученіемъ",631,477,1017,569,91,"od",11],["вѣры.",1109,477,1361,569,74,"od",11],["Мин.",1429,471,1679,551,100,"id",11.5],["мѣс.",1751,495,1967,551,98,"io",11.5]]},
+    {"bbox":[67,577,563,697],"base":656,"ind":1,"fs":14,"text":"„ февр. 12.","words":[["„",67,667,93,697,27,"?",15],["февр.",135,585,365,681,24,"i?",14],["12.",437,577,563,647,88,"",11.5]]}
    ]},
    {"bbox": [59,677,1973,897], "hanging": true, "text_d": "Єдиномудренно умствуя съ кѣмъ либо одинаково. Ирм . гл. 2 пѣс. 9 .", "text_merged": "Єдиномудренно умствуя съ кѣмъ либо одинаково. Ирм . гл. 2 пѣс. 9 .", "disputed": [[0,1],[2,3],[6,7],[12,13],[52,54],[58,61]], "italic": [[46,49],[52,55],[58,62]], "fixed": 0, "d_cut": "line", "d_line": [128,689,1725,760], "breaks": [[0,0],[35,0]], "lines": [
     {"bbox":[59,677,1973,817],"base":770,"ind":0,"fs":11,"text":"@диномйд^жно=умствуя съ кѣмъ либо","words":[["@диномйд^жно=умствуя",59,677,1247,817,47,"",11],["съ",1311,721,1409,773,100,"od?",11],["кѣмъ",1469,703,1697,773,65,"od",11],["либо",1777,701,1973,773,83,"d",11]]},
@@ -96,11 +94,9 @@
     {"bbox":[155,5203,1971,5315],"base":5290,"ind":1,"fs":11.5,"text":"Маргарит. 167 на обор. Мин мѣс.","words":[["Маргарит.",155,5203,667,5313,61,"id",11.5],["167",739,5219,889,5291,90,"o",11],["на",949,5239,1061,5293,66,"iod",11.5],["обор.",1123,5217,1353,5315,75,"id",11.5],["Мин",1425,5215,1657,5293,83,"id",11.5],["мѣс.",1757,5239,1971,5295,78,"io",11.5]]},
     {"bbox":[155,5303,915,5407],"base":5386,"ind":1,"fs":11.5,"text":"іюл. 11, дек. 28.","words":[["іюл.",155,5303,315,5385,58,"io",11.5],["11,",383,5317,505,5407,85,"o",11],["дек.",571,5315,733,5393,84,"iod",11.5],["28.",785,5321,915,5393,100,"o",11]]}
    ]},
-   {"bbox": [73,5409,1971,5553], "hanging": true, "text_d": "Єдинорекнитель = соревнователь. Мин.", "text_merged": "Єдинорекнитель = соревнователь. Мин.", "disputed": [[0,1],[7,8]], "italic": [[32,36]], "fixed": 0, "d_cut": "line", "d_line": [102,4842,1712,4914], "breaks": [[0,0]], "lines": [
-    {"bbox":[73,5409,1971,5553],"base":5510,"ind":0,"fs":11,"text":"бдино^ЕБНитЕЛь = соревнователь. Мин.","words":[["бдино^ЕБНитЕЛь",73,5409,771,5553,45,"o?",11],["=",821,5477,923,5503,45,"o",11],["соревнователь.",985,5463,1645,5535,74,"od",11],["Мин.",1715,5441,1971,5519,79,"id",11.5]]}
-   ]},
-   {"bbox": [89,5545,761,5627], "hanging": true, "text_d": "мѣс. мая 28 .", "text_merged": "мѣс. мая 28 .", "disputed": [], "italic": [[0,8]], "fixed": 0, "d_cut": "line", "d_line": [182,4937,730,4970], "breaks": [[0,0]], "lines": [
-    {"bbox":[89,5545,761,5627],"base":5610,"ind":0,"fs":11.5,"text":"„ мѣс. мая 28.","words":[["„",89,5597,115,5627,28,"o?",11.5],["мѣс.",157,5551,341,5607,47,"io",11.5],["мая",403,5561,573,5613,64,"iod",11.5],["28.",633,5545,761,5617,100,"o",11]]}
+   {"bbox": [73,5409,1971,5627], "hanging": true, "text_d": "Єдинорекнитель = соревнователь. Мин. мѣс. мая 28 .", "text_merged": "Єдинорекнитель = соревнователь. Мин. мѣс. мая 28 .", "disputed": [[0,1],[7,8]], "italic": [[32,45]], "fixed": 0, "d_cut": "line", "d_line": [102,4842,1712,4914], "breaks": [[0,0],[37,0]], "lines": [
+    {"bbox":[73,5409,1971,5553],"base":5510,"ind":0,"fs":11,"text":"бдино^ЕБНитЕЛь = соревнователь. Мин.","words":[["бдино^ЕБНитЕЛь",73,5409,771,5553,45,"o?",11],["=",821,5477,923,5503,45,"o",11],["соревнователь.",985,5463,1645,5535,74,"od",11],["Мин.",1715,5441,1971,5519,79,"id",11.5]]},
+    {"bbox":[89,5545,761,5627],"base":5610,"ind":1,"fs":11.5,"text":"„ мѣс. мая 28.","words":[["„",89,5597,115,5627,28,"o?",11.5],["мѣс.",157,5551,341,5607,47,"io",11.5],["мая",403,5561,573,5613,64,"iod",11.5],["28.",633,5545,761,5617,100,"o",11]]}
    ]},
    {"bbox": [83,5623,1969,5849], "hanging": true, "text_d": "Єдиноризїе = неимѣніе многихъ одеждъ , но одно одѣяніе. Еванг. толков .", "text_merged": "Єдиноризїе = неимѣніе многихъ одеждъ , но одно одѣяніе. Еванг. толков .", "disputed": [[0,1],[8,9]], "italic": [[56,69]], "fixed": 0, "d_cut": "line", "d_line": [98,5037,1717,5100], "breaks": [[0,0],[39,0]], "lines": [
     {"bbox":[83,5623,1969,5761],"base":5735,"ind":0,"fs":11,"text":"^диноризіЕ '== неимѣніе многихъ одеждъ,","words":[["^диноризіЕ",83,5623,557,5761,45,"o?",11],["'==",593,5673,701,5725,100,"o",11],["неимѣніе",735,5667,1127,5739,84,"od",11],["многихъ",1191,5689,1557,5741,44,"od",11],["одеждъ,",1617,5691,1969,5761,64,"od",11]]},
@@ -197,28 +193,26 @@
   ]}
  ],
  "entries_hint": [
-  {"col":1,"para":2,"bbox":[67,667,93,697],"abbyy":"„","abbyy_conf":27,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":3,"bbox":[59,677,775,817],"abbyy":"@диномйд^жно","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":4,"bbox":[55,885,515,1013],"abbyy":"§ДИНОМ^Д","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":5,"bbox":[51,1245,1025,1337],"abbyy":"ОдиномйдрствоБдти","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":6,"bbox":[49,1435,1451,1559],"abbyy":"§диномьил'йл единомышленТе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":7,"bbox":[53,1791,645,1885],"abbyy":"(>динонлчлліЕ","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":8,"bbox":[53,2513,827,2613],"abbyy":"(/Динондчлл&ный","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":9,"bbox":[57,2815,1051,2931],"abbyy":"6динонлчлл&стбеннгЬ","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":10,"bbox":[53,3065,591,3175],"abbyy":"бдннонрдыЕ","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":11,"bbox":[47,3283,711,3421],"abbyy":"§ДИНОН|>ЛВНЫЙ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":12,"bbox":[49,3501,519,3605],"abbyy":"0диноокТй","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":13,"bbox":[51,3731,731,3827],"abbyy":"6диноотемный","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":14,"bbox":[51,3949,633,4037],"abbyy":"Ібдішопнііітміъ","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":15,"bbox":[47,4081,763,4151],"abbyy":"одинопоАсникх","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":16,"bbox":[47,4279,889,4433],"abbyy":"Одиноп^ед'Ігл&ньій","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":17,"bbox":[59,4541,907,4669],"abbyy":"6диноп^Естол&ный","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":18,"bbox":[63,4885,651,4981],"abbyy":"^дино&лкный","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":19,"bbox":[73,5409,771,5553],"abbyy":"бдино^ЕБНитЕЛь","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":20,"bbox":[89,5597,115,5627],"abbyy":"„","abbyy_conf":28,"eq":false,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":21,"bbox":[83,5623,601,5761],"abbyy":"^диноризіЕ '","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":22,"bbox":[79,5845,545,5955],"abbyy":"Единорогъ","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
-  {"col":1,"para":23,"bbox":[87,6043,461,6149],"abbyy":"Иідішорбгъ","abbyy_conf":36,"eq":false,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":2,"bbox":[59,677,775,817],"abbyy":"@диномйд^жно","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":3,"bbox":[55,885,515,1013],"abbyy":"§ДИНОМ^Д","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":4,"bbox":[51,1245,1025,1337],"abbyy":"ОдиномйдрствоБдти","abbyy_conf":23,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":5,"bbox":[49,1435,1451,1559],"abbyy":"§диномьил'йл единомышленТе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":6,"bbox":[53,1791,645,1885],"abbyy":"(>динонлчлліЕ","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":7,"bbox":[53,2513,827,2613],"abbyy":"(/Динондчлл&ный","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":8,"bbox":[57,2815,1051,2931],"abbyy":"6динонлчлл&стбеннгЬ","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":9,"bbox":[53,3065,591,3175],"abbyy":"бдннонрдыЕ","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":10,"bbox":[47,3283,711,3421],"abbyy":"§ДИНОН|>ЛВНЫЙ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":11,"bbox":[49,3501,519,3605],"abbyy":"0диноокТй","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":12,"bbox":[51,3731,731,3827],"abbyy":"6диноотемный","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":13,"bbox":[51,3949,633,4037],"abbyy":"Ібдішопнііітміъ","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":14,"bbox":[47,4081,763,4151],"abbyy":"одинопоАсникх","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":15,"bbox":[47,4279,889,4433],"abbyy":"Одиноп^ед'Ігл&ньій","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":16,"bbox":[59,4541,907,4669],"abbyy":"6диноп^Естол&ный","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":17,"bbox":[63,4885,651,4981],"abbyy":"^дино&лкный","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":18,"bbox":[73,5409,771,5553],"abbyy":"бдино^ЕБНитЕЛь","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":19,"bbox":[83,5623,601,5761],"abbyy":"^диноризіЕ '","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":20,"bbox":[79,5845,545,5955],"abbyy":"Единорогъ","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
+  {"col":1,"para":21,"bbox":[87,6043,461,6149],"abbyy":"Иідішорбгъ","abbyy_conf":36,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2123,2405,2785,2541],"abbyy":"6днно^одный","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2121,2723,2567,2823],"abbyy":"К>днпородъ","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2121,2825,2573,2923],"abbyy":"Нідннорбжь","abbyy_conf":38,"eq":false,"headword":null,"headword_source":null,"conf":null},
@@ -231,6 +225,7 @@
   {"col":2,"para":11,"bbox":[2121,4379,2963,4541],"abbyy":"6диносоп^Ѵжный","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2115,4645,2789,4737],"abbyy":"Едпностолпіе","abbyy_conf":63,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":217,"b_page":169,"c_page":[215],"chars":3507,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":197,"fixed":19,"odd":[]},
+ "seg": {"continue":2},
+ "witness": {"version":10,"d_page":217,"b_page":169,"c_page":[215],"chars":3507,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":197,"fixed":19,"odd":[]},
  "warnings": []
 }
