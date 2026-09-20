@@ -359,14 +359,24 @@ See PLAN.md for the phases. Newest entry last.
   Leaf 35 (p. XXXVII) too: 51 rows, pp. 284–677; 197 rows, monotonic. Two of its rows correct a page NUMBER in
   the print (356: "страница 256 → 356"), not text. Row 47 is a nice cross-check: p. 623 {мꙋгленый} → {Смꙋгленый}
   is exactly the misprint the ground truth of that page records as printed.
-  Left to do: leaf 36 (p. XXXVIII), about 40 rows; then the applier — each row
+  **Leaf 36 (p. XXXVIII) done — the errata table is fully transcribed: 234 rows, pp. 5–1119, monotonic by page**
+  (32: 43, 33: 53, 34: 50, 35: 51, 36: 37); 126 in the left column, 103 in the right, 5 with no column. 18 cells
+  carry [?] and want a re-read at maximum zoom — nearly all Church Slavonic words where only an accent moves, and
+  a few Greek breathings. 13 rows are not substitutions in an entry: guide words at the head of a page
+  ({Сал—} → {Сак—}), page numbers in the running head (2050 → 1050, "страница 256 → 356") and two instructions
+  ("одно о лишнее", "4 раза встрѣчается υψος вмѣсто ὕψος"); the applier must skip or special-case them.
+  Left to do: then the applier — each row
   names page, column and line counted from the top or the bottom, and A's geometry has exactly that, so the target
   line can be located, the entry found and "напечатано" replaced by "слѣдуетъ читать" with a flag. Matching on the
   printed string as well as on the line number guards against off-by-one counting. The corrections layer
   (corrections.tsv, QUOTES.md) should come first or alongside: dj_parse regenerates entries.tsv on every run.
 
-NEXT: (1) finish errata.tsv — leaves 34, 35, 36 — with tools/dj_errata_bands.py and the method in
-  the entry above; then the applier and the corrections layer.
+NEXT: (1) the errata applier: for each row of errata.tsv find the line it names (page + column + line counted
+  from the top or the bottom — A's geometry has all three), find the entry that holds it, and replace `printed`
+  by `read`, flagging the entry; match on the printed string as well as on the line number, since the line count
+  may be off by one where a paragraph breaks. Skip the 13 rows that are not entry text (see the entry above) and
+  the 18 [?] cells until they are re-read. It needs the corrections layer (corrections.tsv, QUOTES.md) or an
+  equivalent, because dj_parse regenerates entries.tsv on every run.
   (2) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
