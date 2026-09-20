@@ -371,12 +371,30 @@ See PLAN.md for the phases. Newest entry last.
   printed string as well as on the line number guards against off-by-one counting. The corrections layer
   (corrections.tsv, QUOTES.md) should come first or alongside: dj_parse regenerates entries.tsv on every run.
 
-NEXT: (1) the errata applier: for each row of errata.tsv find the line it names (page + column + line counted
-  from the top or the bottom — A's geometry has all three), find the entry that holds it, and replace `printed`
-  by `read`, flagging the entry; match on the printed string as well as on the line number, since the line count
-  may be off by one where a paragraph breaks. Skip the 13 rows that are not entry text (see the entry above) and
-  the 18 [?] cells until they are re-read. It needs the corrections layer (corrections.tsv, QUOTES.md) or an
-  equivalent, because dj_parse regenerates entries.tsv on every run.
+- Errata applied (session 4, end; user: "try it"). tools/dj_errata.py + a step in dj_parse.build_entries /
+  split_entry, so the corrections are made while entries.tsv is built and survive every regeneration.
+  How a row finds its place: the page's columns of the named side give the printed lines, so "19 сверху" or
+  "4 снизу" picks a line and with it a paragraph and an entry; then the STRING decides — `напечатано` is looked
+  for exactly, then folded to the norm level of dj_witness, then folded to letters and digits alone (the OCR
+  drops and adds full stops: "Панд . Акт" for "Панд. Акт."), first in that paragraph, then anywhere on the page
+  if exactly one place holds it. A substitution changes the length, so the disputed and italic spans are moved
+  with it (dj_errata.apply_to takes the span lists, as tidy and fix_quotes do).
+  Numbers: of 234 rows, 202 are substitutions we can apply (18 are [?] readings, 12 are not entry text, 2 have no
+  usable locator); 200 locate, and the printed string is found for 166 → **165 entries flagged `errata`**, 34
+  rows flagged `errata_missed` and listed in FLAGS.md with their strings.
+  The 34 misses are not a bug and cannot be fixed by better matching: Дьяченко corrects what the BOOK prints,
+  while our text is the OCR's reading of it, and where the OCR already misread the word there is nothing to
+  replace — they are mostly Church Slavonic words ({Ѩꙁы́къ}, {Трѣлостоѧ́тельница}), Greek the OCR renders
+  differently (σομπλήρωμα, λιθοστρωτόν) and a few references. They need the page image, so they are listed for
+  the proofreading pass.
+  Checked: p. 623 {мꙋгленый} → {Смꙋгленый} (the errata corrects a HEADWORD, and it is the misprint our ground
+  truth of that page records), p. 889 "Панд . Акт" → "Панд. Ант."; no span of any entry is out of range after
+  the substitutions; links.tsv unchanged.
+
+NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+  is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
+  since they have to be made by hand against the image.
+
   (2) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),

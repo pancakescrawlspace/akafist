@@ -48,9 +48,16 @@ definitions contain quotation marks):
                    letter was misread as « or »), hw_cut (a step-2 headword with no separator after it: the text
                    was cut after the headword's words), caps (a word mostly in capitals that is not a Roman
                    numeral) and script (a word mixing Greek and Cyrillic letters) — both are usually the Old
-                   Church Slavonic citation type, which no OCR reads; they await a reading pass
+                   Church Slavonic citation type, which no OCR reads; they await a reading pass —, errata (a row
+                   of Дьяченко's own errata table was applied here) and errata_missed (a row points at this entry
+                   but its `напечатано` string is not in our text; listed in FLAGS.md)
 
-FLAGS.md: counts per flag and the entries flagged order/parens/no_sep/quotes. (A check of pages with an unusual
+Дьяченко's own errata (leaves 32–36, `djachenko/errata.tsv`) is applied here, through `dj_errata.py`: each row
+names a page, a column and a line, which locates the entry, and the substitution is made on the entry's text
+before it is split. Applying it during the build is what makes it survive a regeneration.
+
+FLAGS.md: counts per flag, the errata rows that could not be applied, and the entries flagged
+order/parens/no_sep/quotes. (A check of pages with an unusual
 number of entries was tried and dropped: a page of 81 short Въз- entries and a page of one long article are both
 normal.)
 """
@@ -59,6 +66,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import dj_errata  # noqa: E402
 from dj_witness import DJ, LOOKALIKE, OCR, join_lines  # noqa: E402
 
 ENTRIES = DJ / 'entries.tsv'
@@ -266,8 +274,10 @@ def append_text(entry, text, disputed, italic):
 
 def build_entries(pgs):
     entries, cur = [], None
+    errata = dj_errata.load()
     for pg in pgs:
         hints = {(h['col'], h['para']): h for h in pg['entries_hint']}
+        by_para = {}
         odd = {(pg['columns'][c]['n'], p + 1) for c, p, _ in pg.get('witness', {}).get('odd', [])}
         for col in pg['columns']:
             for pi, p in enumerate(col['paragraphs'], 1):
@@ -277,7 +287,7 @@ def build_entries(pgs):
                 if start or cur is None:
                     cur = dict(id=f"{pg['idx']:04d}-{col['n']}-{pi:02d}", part=pg['section'],
                                page=pg['printed_page'], col=col['side'], text='', spans=[], ispans=[], hint=h,
-                               flags=set(), leaf=pg['idx'])
+                               flags=set(), leaf=pg['idx'], errata=[])
                     if p.get('guessed'):
                         cur['flags'].add('guessed')
                     if h and not h['eq']:
@@ -287,7 +297,13 @@ def build_entries(pgs):
                     cur['flags'].add('joined_null')
                 if (col['n'], pi) in odd:
                     cur['flags'].add('odd_len')
+                by_para[(col['n'], pi)] = cur
                 append_text(cur, para_text(p), p.get('disputed') or [], p.get('italic') or [])
+        # Дьяченко's own errata: hang each row on the entry that holds the line it names (dj_errata)
+        for row in dj_errata.for_page(errata, pg['printed_page']):
+            where = dj_errata.locate(pg, row)
+            entry = by_para.get(where) if where else None
+            (entry or (entries[-1] if entries else cur))['errata'].append(row)
     return entries
 
 
@@ -315,6 +331,15 @@ def split_entry(e):
     """Head text / separator / definition; the headword from step 2 or provisionally from D's head text."""
     e['text'], e['spans'], e['ispans'] = tidy(e['text'], e['spans'], e['ispans'])
     text = e['text']
+    if e.get('errata'):                    # Дьяченко's own corrections, before the text is split
+        text, e['spans'], e['ispans'], done, missed = dj_errata.apply_to(
+            text, e['errata'], e['spans'], e['ispans'])
+        e['text'] = text
+        if done:
+            e['flags'].add('errata')
+        if missed:
+            e['flags'].add('errata_missed')
+        e['errata_done'], e['errata_missed'] = done, missed
     h = e['hint']
     # where to look for the separator: right after a headword read in step 2, else in the first 80 characters
     hw_read = (h.get('headword') or '') if h and h.get('headword_source') else ''
@@ -444,6 +469,13 @@ def report(entries, write):
         lines += ['', f'Entries with a step-2 headword: {len(read)}; of them out of order: '
                       f'{sum("order" in e["flags"] for e in read)}, hw_disputed: '
                       f'{sum("hw_disputed" in e["flags"] for e in read)}.']
+    missed = [(e, r) for e in entries for r in e.get('errata_missed', [])]
+    if missed:
+        lines += ['', f'## errata not applied ({len(missed)})', '',
+                  "Rows of Дьяченко's own errata table whose `напечатано` string is not in our text — the OCR "
+                  'read that place differently, so there is nothing to replace. To be done by hand.', '']
+        lines += [f"- `{e['id']}` p. {e['page']}{e['col']} (errata {r['leaf']}/{r['row']}, {r['col']} "
+                  f"{r['line']} {r['where']}): {r['printed']} → {r['read']}" for e, r in missed]
     for flag in ('no_sep', 'parens', 'quotes', 'caps', 'script', 'hw_cut', 'order'):
         sel = [e for e in entries if flag in e['flags'] and (flag != 'order' or e['hw_source'] != 'D')]
         title = f'## {flag} ({len(sel)}' + (', step-2 headwords only' if flag == 'order' else '') + ')'
