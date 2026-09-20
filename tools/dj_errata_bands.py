@@ -13,8 +13,12 @@ any row whose correction is not obvious at that size with `--rows`, because a la
 marks — ἀγνός → ἁγνός, χώριον → χωρίον, ὄροψος → ὄροφος, ἠγεμών → ἡγεμών — which simply cannot be seen in a band.
 In this face ѧ is the triangular shape and ѫ the ж-like one (p. 7: съмѣреномѧдрье → съмѣреномѫдрье).
 
-Rows are numbered as in errata.tsv: the header is row 0, the first correction row 1. Images go to --out
-(default: the current directory).
+`--rows` counts PRINTED rows of the table, header = 0, and that is not the same as the row number in errata.tsv
+once a page carries a multi-line row: an instruction like "со слова … одно о лишнее" runs over two or three
+printed rows but is one row in the file, and every row after it is shifted. Read a band first and count from the
+band's first row, or check by the text that comes back.
+
+Images go to --out (default: the current directory).
 """
 import argparse, json, sys
 from pathlib import Path
