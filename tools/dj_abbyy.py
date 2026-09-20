@@ -16,8 +16,11 @@ Page JSON (all coordinates in pixels of the 600 ppi leaf, as in the JP2 files; h
     idx, printed_page, section           leaf number, printed page (from manifest.tsv), front|main|blank|supplement|back
     size, dpi, source                    [4252, 6520], 600, "abbyy"
     rule                                 column rule x = rule[0] + rule[1]·y, or null (no two-column layout found)
-    header                               {page_number, running_title, guide_words: [left, right]} — raw OCR text
+    header                               {page_number, running_title, guide_words: [left, right], base, guide_base}
+                                         — raw OCR text; base = baseline (y) of the page number, guide_base of
+                                         the guide words (null when not read): the anchors of the page furniture
     footer                               signature line(s) at the foot of the page, raw text
+    footer_base                          baseline (y) of the signature line, or null (Rev. 6: for the facsimile)
     headings                             [{bbox, kind: text|picture, text, before_col}] big letter initials, titles;
                                          before_col = n of the first column below it (null: none follows)
     figures                              [bbox] other picture blocks (ornaments, stains)
@@ -36,9 +39,10 @@ Page JSON (all coordinates in pixels of the 600 ppi leaf, as in the JP2 files; h
           words                          [text, l, t, r, b, conf, flags, fs]; conf = mean ABBYY char confidence
                                          (0–100, -1 unknown); flags: i italic, b bold, s smallcaps,
                                          o lang=RussianOldSpelling, d word in ABBYY's dictionary, ? mostly suspicious
-          (Phase 3b, dj_heads.py)        text_d, text_merged, disputed, fixed, d_cut, d_line — the paragraph's text
-                                         from witness D and after the D/B/A vote (see dj_heads.py); kept across
-                                         re-runs of this script as long as the paragraph box is the same
+          (Phase 3b, dj_heads.py)        text_d, text_merged, disputed, italic, fixed, d_cut, d_line, breaks — the
+                                         paragraph's text from witness D and after the D/B/A vote, and its printed
+                                         lines as offsets in text_merged (see dj_heads.py); kept across re-runs of
+                                         this script as long as the paragraph box is the same
     noise                                [{bbox, text}] tiny fragments left out of the columns
     entries_hint                         one per hanging paragraph in main/supplement pages:
                                          {col, para, bbox, abbyy, abbyy_conf, eq, headword, headword_source, conf}
@@ -93,6 +97,7 @@ CLIPPED = 4                     # a line starting at x <= 4 touches the image ed
 FOOT_RE = re.compile(r'Ц[еѳ]рк\W{0,3}сла|словарь,?\s*свящ', re.I)
 FOOT_TAIL = re.compile(r'^\W*Дь[яа]ч')
 HW_END = re.compile(r'=|—|–|\(|\s-\s|\s-$')
+SIG_LIKE = re.compile(r'[^.)]{1,4}')            # "8*", "15*", "13’", "ь*" — never "ный." or "22)."
 
 
 def section_of(leaf):
@@ -385,6 +390,18 @@ def layout(leaf, pg, printed):
                   (ln['base'] >= fb and (len(nonspace(ln['chars'])) <= 6 or FOOT_TAIL.search(text_of(ln['chars']))))]
         fids = {id(ln) for ln in footer}
         rest = [ln for ln in rest if id(ln) not in fids]
+    # the printer's asterisked sheet signature ("8*", "15*") at the foot of the right column on the third page of
+    # every sheet, and the bare number on its first page when the running title was not read (Rev. 6, session 5:
+    # ABBYY had kept 49 of them as the last text line of the column): a short line in the bottom zone of the right
+    # column on such a page, without the full stop or bracket a real short last line ends in
+    if sec in ('main', 'supplement') and printed and printed.isdigit() and int(printed) % 16 in (1, 3):
+        right = [ln for ln in rest if ln['box'][1] > 0.9 * H and ln['box'][0] > centre_x(ln['base'])]
+        sig = [ln for ln in right if SIG_LIKE.fullmatch(text_of(ln['chars']).strip())
+               and ln['base'] >= max(o['base'] for o in right)]
+        if sig:
+            footer = footer + sig
+            sids = {id(ln) for ln in sig}
+            rest = [ln for ln in rest if id(ln) not in sids]
     header_bottom = max((ln['box'][3] for ln in header), default=0)
 
     # -- headings: big type (letter initials, the supplement's title), and pictures across the column rule (letter
@@ -696,23 +713,27 @@ def layout(leaf, pg, printed):
                 groups_h[-1][1].append(w)
             else:
                 groups_h.append((ln, [w]))
-    groups_h = [g for _, g in groups_h]
-    hdr = dict(page_number='', running_title='', guide_words=['', ''])
+    hdr = dict(page_number='', running_title='', guide_words=['', ''], base=None, guide_base=None)
     centre = gx(0) if rule else W / 2
-    centred = []
-    for g in groups_h:
+    centred, guide_bases = [], []
+    for ln, g in groups_h:
         l, r = min(w[1] for w in g), max(w[3] for w in g)
         txt = ' '.join(w[0] for w in g)
         if l < centre - 300 and r < centre - 200:
             hdr['guide_words'][0] = (hdr['guide_words'][0] + ' ' + txt).strip()
+            guide_bases.append(ln['base'])
         elif l > centre + 200:
             hdr['guide_words'][1] = (hdr['guide_words'][1] + ' ' + txt).strip()
+            guide_bases.append(ln['base'])
         else:
-            centred.append((min(w[2] for w in g), txt))
+            centred.append((min(w[2] for w in g), txt, ln['base']))
     centred.sort()
     if centred:
         hdr['page_number'] = centred[0][1]
-        hdr['running_title'] = ' '.join(t for _, t in centred[1:])
+        hdr['running_title'] = ' '.join(t for _, t, _ in centred[1:])
+        hdr['base'] = centred[0][2]                 # baseline of the page number: the page furniture's anchor
+    if guide_bases:
+        hdr['guide_base'] = int(statistics.median(guide_bases))
     pn = re.sub(r'\D', '', hdr['page_number'])
     if sec in ('main', 'supplement') and pn and printed and len(pn) == len(printed) and \
             sum(a != b for a, b in zip(pn, printed)) > 1:          # single-digit confusions (3/8, 5/8) are common
@@ -721,6 +742,7 @@ def layout(leaf, pg, printed):
     return dict(idx=leaf, printed_page=printed, section=sec, size=[W, H], dpi=600, source='abbyy', rule=rule,
                 header=hdr, footer=' / '.join(text_of(ln['chars']).strip()
                                               for ln in sorted(footer, key=lambda ln: ln['box'][0])),
+                footer_base=(min(ln['base'] for ln in (foot or footer)) if (foot or footer) else None),
                 headings=headings, figures=figures, columns=columns, noise=noise, entries_hint=hints,
                 warnings=warnings)
 
@@ -734,8 +756,8 @@ def jd(x):
 def dump(page):
     """One JSON object; one text line per OCR line / hint, so that diffs stay readable."""
     out = ['{']
-    for k in ('idx', 'printed_page', 'section', 'size', 'dpi', 'source', 'rule', 'header', 'footer', 'headings',
-              'figures', 'noise'):
+    for k in ('idx', 'printed_page', 'section', 'size', 'dpi', 'source', 'rule', 'header', 'footer', 'footer_base',
+              'headings', 'figures', 'noise'):
         out.append(f' "{k}": {jd(page[k])},')
     out.append(' "columns": [')
     for ci, col in enumerate(page['columns']):
@@ -788,7 +810,7 @@ def carry_over(page, path):
         page['orphan_hints'] = orphans
         page['warnings'].append(f'{len(orphans)} filled headword(s) no longer match a paragraph: see orphan_hints')
     # the witness text of Phase 3b step 1 (dj_heads.py), per paragraph, by paragraph box
-    keys = ('text_d', 'text_merged', 'disputed', 'italic', 'fixed', 'd_cut', 'd_line')
+    keys = ('text_d', 'text_merged', 'disputed', 'italic', 'fixed', 'd_cut', 'd_line', 'breaks')
     old_paras = [p for c in old.get('columns', []) for p in c['paragraphs'] if 'text_merged' in p]
     if old_paras:
         new_paras = [p for c in page['columns'] for p in c['paragraphs']]

@@ -36,6 +36,13 @@ definitions contain quotation marks):
     disputed       spans "start-end;…" in `definition` where witnesses D and B disagree (from step 1)
     italic         spans "start-end;…" in `definition` printed in italics (sources, quotations; from ABBYY's word
                    flags on A, carried over in step 1 — incomplete: ABBYY misses part of the italics)
+    lines          the printed lines of the entry (Phase 6 Rev. 6, from step 1's `breaks`): one item per line,
+                   ";"-separated, in reading order — the offset in `definition` where the line begins, with "h"
+                   appended when the line ends with a hyphen that the joined text no longer shows. The first
+                   item is the line that carries the headword; an offset is negative when the line begins inside
+                   the head (a headword phrase broken over two lines: -k = k characters before the definition).
+                   The items are the lines of the entry's paragraphs in ocr/*.json, in order, one per line, so
+                   that dj_build.py can put each on the page at its measured baseline
     status         raw (Phase 5 sets checked)
     flags          ;-separated: hw_provisional, hw_disputed (step 2 reading confirmed by no witness), hw_missing,
                    guessed (entry start decided from text features, cut-margin page), no_sep (no separator found),
@@ -72,7 +79,7 @@ from dj_witness import DJ, LOOKALIKE, OCR, join_lines  # noqa: E402
 ENTRIES = DJ / 'entries.tsv'
 FLAGS = DJ / 'FLAGS.md'
 COLUMNS = ['id', 'part', 'page', 'col', 'headword', 'headword_civil', 'headword_key', 'hw_source', 'sep', 'gram',
-           'definition', 'disputed', 'italic', 'status', 'flags']
+           'definition', 'disputed', 'italic', 'lines', 'status', 'flags']
 
 # the book's letter order (from its table of contents; ѕ and ѡ have no sections of their own)
 COLLATION = 'абвгдежзиіклмнопрстуфхцчшщъыьѣэюяѥѫѩѭѯѱѳѵ'
@@ -254,14 +261,21 @@ def fix_quotes(text, start, end, *span_lists):
                                    for spans in span_lists) + (bad,)
 
 
-def append_text(entry, text, disputed, italic):
-    """Join a paragraph's text to the entry; the spans are shifted into the entry's coordinates."""
+def append_text(entry, text, disputed, italic, breaks):
+    """Join a paragraph's text to the entry; the spans are shifted into the entry's coordinates. breaks = step 1's
+    printed lines of the paragraph ([offset, hyphen] each, offsets in `text`): they become the entry's line spans
+    (lspans, [start, end] pairs that the remapping functions move like the other spans) and hyphen flags (lhyph).
+    A paragraph without step-1 lines counts as one line."""
     if not text:
+        entry['lspans'].extend([len(entry['text']), len(entry['text'])] for _ in (breaks or []))
+        entry['lhyph'].extend(h for _, h in (breaks or []))
         return
     base = entry['text']
     if base and base.endswith(('-', '¬')) and not base.endswith(' -'):
         base = base[:-1]
         off = len(base)
+        for sp in entry['lspans']:
+            sp[1] = min(sp[1], off)
     elif base:
         base += ' '
         off = len(base)
@@ -270,6 +284,12 @@ def append_text(entry, text, disputed, italic):
     entry['text'] = base + text
     entry['spans'].extend([s + off, e + off] for s, e in disputed)
     entry['ispans'].extend([s + off, e + off] for s, e in italic)
+    rows = breaks or [[0, int(text.endswith(('-', '¬')) and not text.endswith(' -'))]]
+    starts = [min(o, len(text)) for o, _ in rows]
+    for k, ((_, h), st) in enumerate(zip(rows, starts)):
+        en = starts[k + 1] if k + 1 < len(starts) else len(text)
+        entry['lspans'].append([st + off, max(st, en) + off])
+        entry['lhyph'].append(h)
 
 
 def build_entries(pgs):
@@ -286,8 +306,8 @@ def build_entries(pgs):
                 start = p['hanging'] and not (read and h['headword'] is None)
                 if start or cur is None:
                     cur = dict(id=f"{pg['idx']:04d}-{col['n']}-{pi:02d}", part=pg['section'],
-                               page=pg['printed_page'], col=col['side'], text='', spans=[], ispans=[], hint=h,
-                               flags=set(), leaf=pg['idx'], errata=[])
+                               page=pg['printed_page'], col=col['side'], text='', spans=[], ispans=[], lspans=[],
+                               lhyph=[], hint=h, flags=set(), leaf=pg['idx'], errata=[])
                     if p.get('guessed'):
                         cur['flags'].add('guessed')
                     if h and not h['eq']:
@@ -298,7 +318,7 @@ def build_entries(pgs):
                 if (col['n'], pi) in odd:
                     cur['flags'].add('odd_len')
                 by_para[(col['n'], pi)] = cur
-                append_text(cur, para_text(p), p.get('disputed') or [], p.get('italic') or [])
+                append_text(cur, para_text(p), p.get('disputed') or [], p.get('italic') or [], p.get('breaks'))
         # Дьяченко's own errata: hang each row on the entry that holds the line it names (dj_errata)
         for row in dj_errata.for_page(errata, pg['printed_page']):
             where = dj_errata.locate(pg, row)
@@ -329,11 +349,11 @@ def word_bounds(text, k):
 
 def split_entry(e):
     """Head text / separator / definition; the headword from step 2 or provisionally from D's head text."""
-    e['text'], e['spans'], e['ispans'] = tidy(e['text'], e['spans'], e['ispans'])
+    e['text'], e['spans'], e['ispans'], e['lspans'] = tidy(e['text'], e['spans'], e['ispans'], e['lspans'])
     text = e['text']
     if e.get('errata'):                    # Дьяченко's own corrections, before the text is split
-        text, e['spans'], e['ispans'], done, missed = dj_errata.apply_to(
-            text, e['errata'], e['spans'], e['ispans'])
+        text, e['spans'], e['ispans'], e['lspans'], done, missed = dj_errata.apply_to(
+            text, e['errata'], e['spans'], e['ispans'], e['lspans'])
         e['text'] = text
         if done:
             e['flags'].add('errata')
@@ -372,8 +392,10 @@ def split_entry(e):
         e['flags'].add('no_sep')
     # quotation marks: the definition, then D's head text on its own (its quotes are often noise, so they must not
     # upset the definition's pairing); the flag is the definition's
-    text, e['spans'], e['ispans'], unbalanced = fix_quotes(text, cut, len(text), e['spans'], e['ispans'])
-    text, e['spans'], e['ispans'], [[hend, cut]], _ = fix_quotes(text, 0, hend, e['spans'], e['ispans'], [[hend, cut]])
+    text, e['spans'], e['ispans'], e['lspans'], unbalanced = fix_quotes(text, cut, len(text), e['spans'],
+                                                                         e['ispans'], e['lspans'])
+    text, e['spans'], e['ispans'], e['lspans'], [[hend, cut]], _ = fix_quotes(text, 0, hend, e['spans'], e['ispans'],
+                                                                              e['lspans'], [[hend, cut]])
     e['text'], head, rest = text, text[:hend], text[cut:]
     if unbalanced:
         e['flags'].add('quotes')
@@ -385,6 +407,7 @@ def split_entry(e):
     d0 = cut + lead
     e['disputed'] = ';'.join(f'{max(s, d0) - d0}-{e_ - d0}' for s, e_ in e['spans'] if e_ > d0 and s < len(text))
     e['italic'] = ';'.join(f'{max(s, d0) - d0}-{e_ - d0}' for s, e_ in e['ispans'] if e_ > d0 and s < len(text))
+    e['lines'] = ';'.join(f'{s - d0}{"h" if h else ""}' for (s, _), h in zip(e['lspans'], e['lhyph']))
     if h and h.get('headword_source'):
         e['headword'] = h['headword'] or ''
         e['hw_source'] = 'manual' if h['headword_source'] == 'manual' else 'vision'

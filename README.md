@@ -211,6 +211,8 @@ flowchart TD
 
     ENT --> BUILD["dj_build.py — Phase 6<br/>Typst in the original's layout"]
     BUILD --> PDF[("djachenko.typ + .pdf<br/>≈1,000 pages, git-ignored")]
+    OCRJ --> BUILD
+    BUILD --> FAC[("facsimile.typ + .pdf (--facsimile)<br/>1,120 pages, line for line as the book")]
 
     OCRJ --> CROPS["dj_crops.py — every headword located<br/>and cropped in all four witnesses"]
     SCAN --> CROPS
@@ -233,7 +235,7 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `tools/dj_eval.py` | 2 | `eval/results.tsv`; the numbers behind every routing decision |
 | `tools/dj_parse.py` | 4 | `entries.tsv`, `FLAGS.md` |
 | `tools/dj_link.py` | 5 | `links.tsv` (akathist lemmas → entries) |
-| `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf` |
+| `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf`; with `--facsimile` the book line for line, `facsimile.typ`, `facsimile.pdf` |
 | `tools/dj_crops.py` | 3b | `headwords.tsv` (every headword's box in all four witnesses; committed) and `crops/<W>/NNNN.png` (local) |
 | `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye |
 
@@ -277,6 +279,7 @@ python3 tools/dj_heads.py text      # Phase 3b step 1: the merged text       (~8
 python3 tools/dj_parse.py           # Phase 4: entries.tsv + FLAGS.md        (~3 s)
 python3 tools/dj_link.py            # Phase 5: links.tsv
 python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)
+python3 tools/dj_build.py --facsimile  # the same text, every line/column/page as in the book (~20 s)
 python3 tools/dj_crops.py crops     # the headword crops from headwords.tsv  (~30 min)
 python3 tools/dj_eval.py --refresh  # Phase 2: re-score everything against eval/gt/
 ```

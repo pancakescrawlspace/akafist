@@ -428,9 +428,46 @@ See PLAN.md for the phases. Newest entry last.
   Lesson: `dj_crops.py index --pages` writes ONLY those pages' rows (it would truncate headwords.tsv); re-index
   the whole book (37 s).
 
-NEXT: (0) if the facsimile is wanted next: PLAN.md Phase 6 Rev. 6, steps (1)–(3) — step-1 line spans (VERSION 9,
-  needs D on disk), the `lines` column in entries.tsv, `dj_build.py --facsimile`; ~one session.
-  (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+- **The facsimile built** (session 5, continued; user: "go ahead with the facsimile"). PLAN.md Phase 6 Rev. 6
+  now describes what exists. `python3 tools/dj_build.py --facsimile` → djachenko/facsimile.typ + .pdf
+  (git-ignored; 16 s for the book): **1,120 dictionary pages** (1,119 + the blank p. 864) after two front pages,
+  124,435 lines placed, page 215 × 315 mm at 12 pt / scale 1.08; **509 lines condensed** (0.4 %): 347 by < 6 %,
+  128 by 6–20 % (Greek-heavy lines, D's word-order slips), 35 by more — alignment/OCR defects (`odd_len`
+  entries, the 9 `aligned` cuts), listed in facsimile_over.tsv (git-ignored). Spot-checked against the scan:
+  pp. 1, 31, 113, 115, 166, 536, 865, 994, 1087 — the same lines, initials, number, guide words, signatures.
+  The three steps as built:
+  1. dj_heads.py VERSION 9: per paragraph `breaks` = [offset in text_merged, hyphen] per printed line, one per
+     line of A's paragraph (A's line starts through the alignment, snapped to D's line starts within 4
+     characters; the hyphen is A's where A's line end is in the image, else D's — a D line joined without a
+     space). Whole book re-run (80 s): 124,497 lines, every paragraph's count equal to A's, 34,793 hyphenated
+     ends (A alone showed 32,807 — the right-cut pages' hyphens came from D). Text unchanged.
+     dj_abbyy.py: `header.base`, `header.guide_base`, `footer_base` (the furniture's baselines; needed a full
+     regeneration — key order of the carried-over paragraph fields changed too, semantically identical, checked
+     on 9 pages) and the printer's sheet signature "N*" set aside as footer (SIG_LIKE; it had been the last text
+     line of column b on 49 of the 70 p ≡ 3 (mod 16) pages, plus a bare number on 2 p ≡ 1 pages; 51 lines
+     fewer, 3 definitions changed — "дождева 68," → "дождева,").
+  2. dj_parse.py: `lines` column (offset in the definition, negative in the head, "h" = hyphenated end), the
+     line spans remapped by tidy/fix_quotes/errata like the other spans; 124,497 items, every entry's count equal
+     to the A lines of its paragraphs.
+  3. dj_build.py --facsimile: no column flow — every line `place`d at its measured baseline and x (deskewed on
+     the rule; column width 1927 px; the nominal first baseline = the first line's, or the page number's + 240 px
+     on the pages that open with a title), justified to the column with a forced break (the entry's last line
+     ragged), condensed in Typst (`measure` + `scale(reflow)`) when wider than the column and reported through
+     `<over>` metadata; number over its double rule 240 px above, guide words 125 px above (from the page's first
+     and last entry), "Прибавленіе." on supplement pages, signature line / "N*" below the last line, initials and
+     titles fitted into their scan boxes (Ponomar for the letters, the letter from the TOC tables), a paragraph
+     ABBYY stored as a picture (no lines in A) flowed at the pitch. p. 1 gets no number (the print has none;
+     ABBYY's "number" there is bleed-through) — the rule: a number where the OCR read digits or nothing stands
+     above the first line.
+  Measurements behind the defaults: printed x-height 6.2 pt, cap height 8.9 pt, widths ≈ Old Standard 12.7 pt on
+  a 12.24 pt pitch; at 12 pt / 1.08 the natural line is 93 % of the column (table in PLAN.md). Fonts unchanged.
+  Not in the facsimile: the book's front matter (lines in ocr/, no voted text), CS type inside entries, italics
+  beyond ABBYY's; and the text defects the flowing rendition has too.
+  Lesson: Typst's `measure` inside `context` ignores a `set text` in the same block — wrap the content in
+  `text(...)` instead; a `box(width: 0pt, align(center, …))` wraps multi-word content at width 0 (use
+  `move(dx: -w/2)` with an explicit width).
+
+NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
