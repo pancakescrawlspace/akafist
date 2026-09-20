@@ -88,6 +88,11 @@ Page/image mapping: "p" = printed page of the dictionary proper (1–1120).
    p. 1087), per session 1 from the 2004 reprint. The damaged letters on p. 1087 are identical to 5, so it is witness
    B again, scanned separately. robots.txt allows .png (disallows .djvu, .txt, .epub). Not downloaded (only p. 1087).
    Its preface text is a ready transcription of the front matter, useful when the preface is needed.
+   Checked again 2026-09-20 (session 5): the user saved the page of letter А by hand (30 PNGs, pp. 1–30,
+   1132×1755 px palette images ≈ 160 ppi at page size, no text layer). Same setting as everything else; at that
+   resolution nothing tells it from B or D on p. 20, and the p. 1087 comparison of session 1 (damaged letters
+   identical to the 1993 reprint) stands: witness B's copy. Lower resolution than B's DjVu (≈ 237 ppi) and a
+   quarter of A's and D's — no new witness and no better image; the rest of the letters were not downloaded.
 10. **dhonorare.ru, <https://dhonorare.ru/dict/dyachenko/>** — page images 816×1156 (session 1). Lineage not
     checked; the page size equals 8, so probably witness B. Not downloaded.
 
