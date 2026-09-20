@@ -368,17 +368,23 @@ is page 113 of the book, line for line — `python3 tools/dj_build.py --facsimil
 
 How it is built (session 5): (1) `dj_heads.py text` VERSION 9 stores per paragraph `breaks` — the printed lines as
 [offset, hyphen] in `text_merged`, one per line of A's paragraph: A's line starts carried through the alignment
-and snapped to D's line starts (LINE_TOL 4), the hyphen A's where A's line end is in the image, else D's (a D line
-joined without a space; so the right-cut pages get theirs) — and `dj_abbyy.py` carries the key over. Also in 3a:
+and snapped to D's line starts (LINE_TOL 4), or D's k-th line start where A's cannot be carried over and D has as
+many lines as A; the hyphen A's where A's line end is in the image, else D's (a D line joined without a space; so
+the right-cut pages get theirs) — and `dj_abbyy.py` carries the key over. Also in 3a:
 the page number's, guide words' and signature line's baselines (`header.base`, `header.guide_base`,
 `footer_base`), and the printer's sheet signature "N*" at the foot of column b (p ≡ 3 mod 16), which ABBYY had
 kept as a text line on 49 pages, is page furniture now. (2) `dj_parse.py` carries the lines into `entries.tsv` as
 the `lines` column (offset in the definition, negative inside the head, "h" for a hyphenated end), remapped through
 tidy/fix_quotes/errata like the italic and disputed spans; every entry's count equals the lines of its paragraphs.
 (3) `dj_build.py --facsimile` sets the book page by page from `entries.tsv` and `ocr/*.json`: no Typst column
-flow — each line is `place`d at its measured baseline and column position (deskewed on the column rule, x from the
-column's flush edge and indent, the nominal first baseline from the page number's baseline), justified to the
-column width (1927 px) with a forced break, the entry's last line ragged; page number over its double rule, guide
+flow — each line is `place`d at its measured baseline and column position (deskewed on the column rule; the
+columns' flush edges at book-wide constants from the rule, −2001 and +66 px, since the per-page fits vary with the
+page's curl and fail on the left-cut pages; x from the flush edge and the hanging indent — ABBYY's "deeper" lines
+are mostly lines it began late, so only a short one keeps its own position; the nominal first baseline is the
+first line's, or the page number's + 240 px on a page that opens with a title), justified to the column width
+(1927 px) with a forced break, the entry's last line ragged; an "entry" without headword and separator (a
+continuation line the cut-margin segmentation took for a start) set indented without a head, a real entry
+whose headword the OCR did not read with a □; page number over its double rule, guide
 words (from the first and last entry of the page), "Прибавленіе." on the supplement's pages, the signature line and
 the "N*", letter initials and titles fitted into their measured boxes (Ponomar for the letters); a line whose
 natural width exceeds the column is condensed to fit and reported (`<over>` metadata → `facsimile_over.tsv`, the
