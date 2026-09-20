@@ -336,7 +336,27 @@ See PLAN.md for the phases. Newest entry last.
   four copies side by side (Метати, Метехати, Метненїе). B's crops carry a sliver of the next line, because B's
   line boxes are coarse; C's sometimes keep the "=".
 
-NEXT: (1) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+- Errata transcription started (session 4, end; user: hold the headword scan, do the errata meanwhile).
+  **djachenko/errata.tsv**, leaf 32 (p. XXXIV) done: 43 rows, dictionary pages 5–79. Columns: leaf, row, page,
+  line, where (сверху/снизу), col (лѣвый/правый), printed, read, note. The table's repeat marks ("—", "„") are
+  resolved to explicit values; three cells in Church Slavonic type are marked [?] and need a second look
+  ({Боукари}, {вѣлило}, {Великооувенъ}); row 17 is an instruction, not a substitution ("одно о лишнее").
+  Method (the table is a five-column layout that ABBYY reads as a jumble, and the Greek it garbles entirely):
+  scratch scripts crop the page at 600 ppi — full-width bands of ~10 table rows to read the locators and pair the
+  two halves, then the Напечатано | Слѣдуетъ читать block alone at ~1600 px for six rows, and single rows at
+  ~2000 px where a diacritic decides the correction. Many corrections ARE a single accent or breathing
+  (ἀγνός → ἁγνός, χώριον → χωρίον, ὄροψος → ὄροφος), so the high zoom is not optional.
+  Useful to know for the rest: in this face ѧ is the triangular shape and ѫ the ж-like one (p. 7
+  съмѣреномѧдрье → съмѣреномѫдрье).
+  Left to do: leaves 33–36 (pp. XXXV–XXXVIII), about 190 more rows by the line counts; then the applier — each row
+  names page, column and line counted from the top or the bottom, and A's geometry has exactly that, so the target
+  line can be located, the entry found and "напечатано" replaced by "слѣдуетъ читать" with a flag. Matching on the
+  printed string as well as on the line number guards against off-by-one counting. The corrections layer
+  (corrections.tsv, QUOTES.md) should come first or alongside: dj_parse regenerates entries.tsv on every run.
+
+NEXT: (1) finish errata.tsv — leaves 33, 34, 35, 36 — with the scripts and the method in
+  the entry above; then the applier and the corrections layer.
+  (2) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D

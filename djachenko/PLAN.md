@@ -281,7 +281,7 @@ id  headword_civil  headword_key  gram  definition  page  column  status  flags
 - Rev. 3: apply Дьяченко's own errata table (front matter pp. XXXIV–XXXVIII, leaves 32–36; columns: page, line
   counted from the top or bottom, column left/right, "напечатано", "слѣдуетъ читать"; a few hundred rows, much of it
   Greek) — transcribe it once into `djachenko/errata.tsv` and apply it to `entries.tsv`, flagging each corrected
-  entry.
+  entry. **In progress** (session 4): leaf 32 transcribed, 43 rows, pp. 5–79; leaves 33–36 to go, ~190 rows.
 
 *Definition of done:* `entries.tsv` covers all OCR'd pages; the validation report is in `PROGRESS.md`; flagged entries
 listed in `djachenko/FLAGS.md` (regenerated each run).
