@@ -152,12 +152,13 @@ standard works against which entries should be checked.
 и выраженій)*, Москва: Типографія Вильде, 1900 — XXXVIII + 1,120 pages in two columns, about 30,000 entries. It is
 still the first place to look up a Church Slavonic word, and it is in the public domain (author †1903). Scans of it
 are everywhere; **a transcribed edition does not exist**. This project makes one: a structured, machine-readable
-`entries.tsv`, and from it a rendition set like the original.
+`entries.tsv`, and from it two renditions — one set in the original's style with the text flowing, one a
+**facsimile**, every line, column and page as in the book.
 
 The text is not taken from one scan. Four copies of the 1900 printing — "witnesses", recorded with everything that
-was checked about them in `COPIES.md` — were located, and their OCR layers were scored against six pages transcribed
-by hand (`eval/`). Each kind of content then comes from whichever witness reads it best, and the rest is voted
-character by character:
+was checked about them in `COPIES.md` — were located, and their OCR layers were scored against twelve pages
+transcribed by hand (`eval/`). Each kind of content then comes from whichever witness reads it best, and the rest is
+voted character by character:
 
 | | Physical copy | Scan | What it contributes |
 |---|---|---|---|
@@ -166,10 +167,14 @@ character by character:
 | **C** | Indiana University (a photo-offset reprint) | Google Books PDF, 600 ppi, 2 vols | third opinion |
 | **D** | Cornell University (an original of 1900) | Google Books PDF, 600 ppi | the **primary text**: 1.5 % character error against the ground truth, and it has the margins and the Greek that A lost |
 
-Measured on the six ground-truth pages (`eval/RESULTS.md`): definition text ≈1 % character error after the vote,
-Greek 1.5 %, entry segmentation 99 % recall and 100 % precision on ordinary pages. The Church Slavonic headwords are
-the one thing no OCR reads (about 48 % exact in every layer), so they are read from 400 ppi crops of the page images
-by a vision model — the step still outstanding.
+The four copies are one setting of type: verified line for line over all 1,119 pages (`dj_inspect.py linecheck`,
+`eval/linecheck.tsv`), which is what makes the facsimile possible — the line structure of any witness is the line
+structure of the book. Measured on the twelve ground-truth pages (`eval/RESULTS.md`): definition text 1.2 %
+character error after the vote (≈1 % on ordinary pages; the twelve include the hardest of the book), Greek 1.5 %,
+entry segmentation 99 % recall and 100 % precision on ordinary pages. The Church Slavonic headwords are the one
+thing no OCR reads (about 48 % exact in every layer), so they are read from 400 ppi crops of the page images by a
+vision model — the step still outstanding. Дьяченко's own errata table (234 corrections, transcribed from the front
+matter into `errata.tsv`) is applied while the entries are built.
 
 ### The toolchain
 
@@ -188,20 +193,22 @@ flowchart TD
     WD -- "by hand from Google Books" --> SCAN
     FETCH --> SCAN[("scan/ · pages/ · manifest.tsv<br/>≈6 GB, git-ignored")]
 
-    SCAN --> ABBYY["dj_abbyy.py — Phase 3a<br/>ABBYY XML → layout: columns, bands,<br/>paragraphs, entry starts, italics, headword boxes"]
+    SCAN --> ABBYY["dj_abbyy.py — Phase 3a<br/>ABBYY XML → layout: columns, bands, paragraphs,<br/>lines and baselines, entry starts, italics, page furniture"]
     ABBYY --> OCRJ[("ocr/NNNN.json — one file per leaf<br/>the faithful record, committed")]
 
     SCAN --> WITLIB["dj_witness.py — shared library<br/>word boxes of B, C, D · reading order · page furniture<br/>normalisation · alignment"]
 
-    WITLIB --> HEADS["dj_heads.py — Phase 3b<br/>step 1: D's text on A's segmentation, voted with B, C, A<br/>step 2: headwords read from crops by a vision model"]
+    WITLIB --> HEADS["dj_heads.py — Phase 3b<br/>step 1: D's text on A's segmentation, voted with B, C, A,<br/>cut into the printed lines · step 2: headwords read from crops"]
     OCRJ --> HEADS
-    HEADS -- "text_merged · disputed · italic · headwords" --> OCRJ
+    HEADS -- "text_merged · disputed · italic · breaks · headwords" --> OCRJ
 
     WITLIB --> EVAL["dj_eval.py — Phase 2<br/>character error per zone, segmentation,<br/>headword vote, suspect ground truth"]
-    GT[("eval/gt/*.txt<br/>6 pages transcribed by hand")] --> EVAL
+    GT[("eval/gt/*.txt<br/>12 pages transcribed by hand")] --> EVAL
     EVAL --> RES[("eval/RESULTS.md · results.tsv")]
 
-    OCRJ --> PARSE["dj_parse.py — Phase 4<br/>entries, typography, quotation marks,<br/>headword forms and keys, validation"]
+    OCRJ --> PARSE["dj_parse.py — Phase 4<br/>entries, typography, quotation marks, the printed lines,<br/>headword forms and keys, validation"]
+    ERR[("errata.tsv — Дьяченко's own<br/>234 corrections, transcribed")] --> ERRATA["dj_errata.py<br/>locate each row's page, column, line"]
+    ERRATA --> PARSE
     PARSE --> ENT[("entries.tsv — 25,362 entries")]
     PARSE --> FLG[("FLAGS.md — what needs checking")]
 
@@ -219,7 +226,7 @@ flowchart TD
     CROPS --> HW[("headwords.tsv · crops/A|B|C|D/NNNN.png")]
     HW --> HEADS
 
-    OCRJ --> INSP["dj_inspect.py — crops, overlays,<br/>the same line in all four witnesses, checks"]
+    OCRJ --> INSP["dj_inspect.py — crops, overlays, the same line<br/>in all four witnesses, checks, the line-break agreement"]
     SCAN --> INSP
 ```
 
@@ -229,15 +236,17 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | Script | Phase | Output |
 |---|---|---|
 | `tools/dj_fetch.py` | 1 | `scan/` (MD5-verified originals), `pages/` (600 ppi JP2 + 300 ppi JPEG), `manifest.tsv` |
-| `tools/dj_abbyy.py` | 3a | `ocr/NNNN.json`: the page's layout and ABBYY's reading |
+| `tools/dj_abbyy.py` | 3a | `ocr/NNNN.json`: the page's layout (down to every line's baseline), its furniture and ABBYY's reading |
 | `tools/dj_witness.py` | — | shared access to B, C, D and the text machinery (used by 3b and 2) |
-| `tools/dj_heads.py` | 3b | the merged text and the headwords, written back into `ocr/NNNN.json` |
+| `tools/dj_heads.py` | 3b | the merged text, its printed lines and the headwords, written back into `ocr/NNNN.json` |
 | `tools/dj_eval.py` | 2 | `eval/results.tsv`; the numbers behind every routing decision |
 | `tools/dj_parse.py` | 4 | `entries.tsv`, `FLAGS.md` |
+| `tools/dj_errata.py` | 4 | applies `errata.tsv` while `dj_parse.py` builds the entries; `report` says which rows locate and match |
+| `tools/dj_errata_bands.py` | 4 | crops of the errata table's rows at 600 ppi, for transcribing it |
 | `tools/dj_link.py` | 5 | `links.tsv` (akathist lemmas → entries) |
 | `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf`; with `--facsimile` the book line for line, `facsimile.typ`, `facsimile.pdf` |
 | `tools/dj_crops.py` | 3b | `headwords.tsv` (every headword's box in all four witnesses; committed) and `crops/<W>/NNNN.png` (local) |
-| `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye |
+| `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye; `linecheck` — do the witnesses break their lines alike |
 
 ### Where it stands
 
@@ -245,12 +254,16 @@ an interrupted run can simply be repeated. What each of them does in detail is i
   rows, committed); `dj_crops.py crops` turns those coordinates into one page strip per witness (`crops/`, 134 MB,
   not committed), so a headword can be compared across the four copies without opening the scans.
 - **Text:** merged for all 1,119 dictionary pages; 25,362 entries (20,079 in the main sequence, 5,283 in the
-  supplement) in `entries.tsv`, with the spans where the witnesses disagree and the italics marked per entry.
+  supplement) in `entries.tsv`, with the spans where the witnesses disagree, the italics and every printed line
+  (124,497 of them) marked per entry; Дьяченко's own errata applied to 165 entries (34 rows point at text the OCR
+  misread, listed in `FLAGS.md`).
 - **Headwords:** 25 read so far; the other 25,337 carry witness D's provisional reading and are printed grey in the
-  PDF. Reading them is the next step.
-- **Cross-reference:** 243 of the 703 akathist lemmas are linked — a lower bound until the headwords are read.
-- **Rendition:** the whole book in the original's layout, about 1,000 A4 pages.
-- **Proofreading:** not started. `FLAGS.md` lists what to look at first.
+  PDFs. Reading them is the next step.
+- **Cross-reference:** 246 of the 703 akathist lemmas are linked — a lower bound until the headwords are read.
+- **Renditions:** the whole book in the original's style, about 1,000 A4 pages; and the facsimile — 1,120 pages
+  of 215 × 315 mm, each line at its measured position, page 113 being page 113 of the book.
+- **Proofreading:** not started. `FLAGS.md` lists what to look at first; a corrections layer that survives
+  regeneration is the next piece of plumbing (`QUOTES.md`).
 
 ### Documentation
 
@@ -261,14 +274,16 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `PROGRESS.md` | the running log; **its `NEXT:` line is where to start** |
 | `PLAN.md` | the phases, each with a definition of done and a resume paragraph |
 | `SOURCE.md` | the scan in use: URLs, checksums, leaf → printed page, scan defects |
-| `COPIES.md` | every copy or scan located, including those that could not be downloaded |
+| `COPIES.md` | every copy or scan located, including those that could not be downloaded; the proof that the four witnesses are one setting |
 | `eval/RESULTS.md` | the Phase 2 measurements and the route they decided |
+| `eval/README.md` | the ground truth: conventions, the twelve pages and why they were chosen, what was checked |
+| `errata.tsv` | Дьяченко's errata table (pp. XXXIV–XXXVIII), transcribed row by row |
 | `FLAGS.md` | the validation report of the last `dj_parse.py` run |
 | `QUOTES.md` | a worked example of one defect (floating quotation marks): measurement, rules, verification |
 
 ### Rebuilding it
 
-The scans (≈6 GB), the generated PDF and the headword crops are not in the repository; everything else is.
+The scans (≈6 GB), the generated PDFs and the headword crops are not in the repository; everything else is.
 The crops are 134 MB of images that follow deterministically from the scans and from `headwords.tsv`, so the
 repository keeps the coordinates and the script, and `dj_crops.py crops` makes the images again (~30 min).
 
@@ -280,6 +295,7 @@ python3 tools/dj_parse.py           # Phase 4: entries.tsv + FLAGS.md        (~3
 python3 tools/dj_link.py            # Phase 5: links.tsv
 python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)
 python3 tools/dj_build.py --facsimile  # the same text, every line/column/page as in the book (~20 s)
+python3 tools/dj_errata.py report   # which errata rows locate and match
 python3 tools/dj_crops.py crops     # the headword crops from headwords.tsv  (~30 min)
 python3 tools/dj_eval.py --refresh  # Phase 2: re-score everything against eval/gt/
 ```
