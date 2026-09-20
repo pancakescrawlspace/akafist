@@ -356,7 +356,10 @@ See PLAN.md for the phases. Newest entry last.
   Leaf 34 (p. XXXVI) too: 50 rows, pp. 170–273; 146 rows in the file, still monotonic by page, 14 cells [?].
   Two of its rows are guide words at the head of a page ({Жат—} → {Жаж—}), not text in an entry, and one locator
   is a single brace over three printed rows ("194 … 195 … и др."), which the applier will have to allow for.
-  Left to do: leaves 35–36 (pp. XXXVII–XXXVIII), about 90 more rows; then the applier — each row
+  Leaf 35 (p. XXXVII) too: 51 rows, pp. 284–677; 197 rows, monotonic. Two of its rows correct a page NUMBER in
+  the print (356: "страница 256 → 356"), not text. Row 47 is a nice cross-check: p. 623 {мꙋгленый} → {Смꙋгленый}
+  is exactly the misprint the ground truth of that page records as printed.
+  Left to do: leaf 36 (p. XXXVIII), about 40 rows; then the applier — each row
   names page, column and line counted from the top or the bottom, and A's geometry has exactly that, so the target
   line can be located, the entry found and "напечатано" replaced by "слѣдуетъ читать" with a flag. Matching on the
   printed string as well as on the line number guards against off-by-one counting. The corrections layer
