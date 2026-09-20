@@ -502,5 +502,5 @@ NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now 
   Either way, then Phase 4 (dj_parse.py: entries.tsv from text_merged + headwords, headword_civil mapping,
   alphabetical validation, the "=" from A's eq hint where the merged text lost it). The five draft GT files still
   await the user's check (not blocking).
-  Note: djachenko.pdf is git-ignored and now stale (entries.tsv changed after the last build); rebuild with
-  `python3 tools/dj_build.py` (~4 min) when a rendition is wanted.
+  Note: djachenko.pdf and facsimile.pdf are git-ignored; both rebuilt 2026-09-20 from the current entries.tsv
+  (flowing: 1,002 A4 pages, 4 min; facsimile: 1,120 pages, 16 s). Rebuild after any change to entries.tsv.
