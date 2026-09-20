@@ -467,6 +467,21 @@ See PLAN.md for the phases. Newest entry last.
   `text(...)` instead; a `box(width: 0pt, align(center, …))` wraps multi-word content at width 0 (use
   `move(dx: -w/2)` with an explicit width).
 
+- Facsimile, three defects the user found on pp. 20 and 53 (session 5, end): (1) Апокрифы's lines set deep in
+  the column and unevenly — ABBYY had read only the right part of those lines (boxes starting mid-column, `ind`
+  2), and the build placed such lines at their box; now every continuation line sits at the hanging indent, a
+  line keeps its own deeper position only when it is short (≤ 20 characters: a verse, a formula). Also, since
+  A's line starts were wrong there, the breaks fell mid-line: step 1 now takes D's k-th line start where A's
+  cannot be carried over and D has as many lines as A (measured: 99.6 % of A's line starts snap onto D's; of the
+  0.4 % that do not, four in five sit in such paragraphs). Whole book re-run; Апокрифы's eight lines are now the
+  printed ones (Аполинъ merged into it stays an A segmentation slip, flagged odd_len). (2) Богородичны's lines
+  ran into the rule: p. 53 is a left-cut page, where the fitted flush edge of column a was 80 px too far right;
+  the columns' edges now come from the rule with book-wide constants (FLUSH_A −2001, FLUSH_B 66 px). (3) The □
+  marks: the placeholder for an entry without a headword (874); 731 of these have no separator either — they
+  are continuation lines the segmentation took for entry starts, mostly on the cut-margin pages — and are now
+  set indented without a head; the 143 real entries whose headword the OCR did not read keep the □ (the note
+  says so). Condensed lines 509 → 415.
+
 NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.

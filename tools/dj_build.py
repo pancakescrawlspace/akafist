@@ -323,6 +323,9 @@ def compile_pdf():
 
 PX = 25.4 / 600                       # mm per pixel of scan A
 COLW = 1927                           # printed column width, px (median of the justified lines of the book)
+FLUSH_A, FLUSH_B = -2001, 66          # the columns' flush edges relative to the rule, px (book-wide medians: the
+#                                       per-page fits vary with the page's curl in the scan and are unusable on the
+#                                       242 pages whose left margin is cut off)
 HEAD_DY, GUIDE_DY, FOOT_DY = 240, 125, 187   # page number, guide words above / signature line below the text, px
 BLOCK_H = 5892                        # nominal first baseline -> lowest last baseline over the book, px
 BLOCK_W = 3969                        # left flush edge of column a -> right edge of column b, px
@@ -404,7 +407,9 @@ read by two OCR engines and voted (see the flowing edition's note); nothing has 
 wider than Old Standard TT, the free revival used here. The type is therefore set at %(size)s pt and the whole
 page enlarged %(pct)s (the original's text block is 169 × 249 mm). A line that Old Standard still cannot fit into
 the original's measure is condensed slightly: %(over)s such lines in this build. Church Slavonic headwords are in
-Ponomar Unicode; a headword not yet read from the images is printed grey.%(marks_note)s
+Ponomar Unicode; a headword not yet read from the images is printed grey, and a □ stands where the OCR read no
+headword at all. On the pages whose left margin the scan cuts off, some continuation lines were taken for entry
+starts; they are set indented and without a head, and a few real entries there begin flush that should not.%(marks_note)s
 
 *Status* (%(date)s): %(n_entries)s entries on %(n_pages)s pages; %(n_read)s headwords read from the images;
 italics as far as the OCR flagged them; Church Slavonic type inside the entries not yet marked; the front matter
@@ -453,10 +458,14 @@ def line_markup(text, a, b, regions, marks):
 
 
 def entry_lines(r, marks):
-    """-> (text, regions, [(start, end, hyphen, last)]) of an entry: the text as HEAD + definition, the style
-    regions, and the printed lines as spans of the text (offsets of the `lines` column made absolute)."""
-    hw_ = r['headword'] or '□'
-    sep = {'=': ' = ', '—': ' — ', '(': ' '}.get(r['sep'], ' ')
+    """-> (text, regions, [(start, end, hyphen, last)], cont) of an entry: the text as HEAD + definition, the
+    style regions, the printed lines as spans of the text (offsets of the `lines` column made absolute), and
+    cont = True for an "entry" that is really a continuation line the segmentation took for an entry start (no
+    headword, no separator — mostly on the pages whose left margin is cut off): set without a head, indented.
+    A real entry whose headword the OCR did not read gets a □ where the headword belongs."""
+    cont = not r['headword'] and not r['sep']
+    hw_ = r['headword'] or ('' if cont else '□')
+    sep = {'=': ' = ', '—': ' — ', '(': ' '}.get(r['sep'], ' ') if not cont else ''
     head = hw_ + sep
     text = head + r['definition']
     d0 = len(head)
@@ -472,7 +481,7 @@ def entry_lines(r, marks):
         s = starts[k]
         e = starts[k + 1] if k + 1 < len(items) else len(text)
         lines.append((s, max(s, e), x.endswith('h'), k == len(items) - 1))
-    return text, regions, lines
+    return text, regions, lines, cont
 
 
 def build_facsimile(rows, marks, size, scale, hwsize, leaves):
@@ -493,9 +502,7 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
         rule0, rule1 = pg['rule'] or (pg['size'][0] / 2, 0)
         gx = lambda y: rule0 + rule1 * y                        # noqa: E731 — x of the column rule at height y
         cols = pg['columns']
-        flush = {c['side']: c['flush'] for c in cols}
-        flush.setdefault('a', -1977)
-        flush.setdefault('b', 62)
+        flush = {'a': FLUSH_A, 'b': FLUSH_B}
         # the nominal first baseline of the text block: the first line's, since every column starts at the block
         # top — unless a heading stands above it (p. 1, p. 865 …), then the page number's baseline + HEAD_DY when
         # the number was read (a speck or a guide word can pass for one: the digits are the check), else a guess
@@ -566,11 +573,11 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
                 eid = f"{pg['idx']:04d}-{c['n']}-{pi:02d}"
                 if eid in by_id:
                     r = by_id[eid]
-                    text, regions, lines = entry_lines(r, marks)
-                    cur = [r, lines, text, regions, 0]
+                    text, regions, lines, cont = entry_lines(r, marks)
+                    cur = [r, lines, text, regions, 0, cont]
                 if cur is None:
                     continue
-                r, lines, text, regions, at = cur
+                r, lines, text, regions, at, cont = cur
                 picture = all(ln['text'].strip() in ('', '\ufffc') for ln in par['lines'])
                 for ln in par['lines']:
                     if at >= len(lines):
@@ -581,6 +588,8 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
                     if not seg:
                         continue
                     ind = ln['ind']
+                    if at == 1 and cont:                       # a continuation line taken for an entry start
+                        ind = max(ind, 1)
                     if picture and len(seg) > 50:              # the whole paragraph in one placeholder line
                         x = col_x[side] + ind * c['indent'] * k
                         body = line_markup(text, s, e, regions, marks)
@@ -588,10 +597,11 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
                                      f'{102 * k:.3f}mm, [{body}])')
                         n_lines += 1
                         continue
-                    if ind >= 2:
-                        rel = max(0, ln['bbox'][0] - gx(ln['base']) - flush[side])
-                    else:
-                        rel = ind * c['indent']
+                    # ind 2 ("deeper") is mostly ABBYY starting a line late (an unread headword, a stain): only a
+                    # short line set well inside the column keeps its own position (a verse, a formula)
+                    rel = min(ind, 1) * c['indent']
+                    if ind >= 2 and len(seg) <= 20:
+                        rel = max(rel, min(ln['bbox'][0] - gx(ln['base']) - flush[side], COLW - 300))
                     x = col_x[side] + rel * k
                     w = (COLW - rel) * k
                     body = line_markup(text, s, e, regions, marks)

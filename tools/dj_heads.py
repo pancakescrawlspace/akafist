@@ -35,7 +35,8 @@ Step 1, per page (leaf of scan A, main and supplement only):
      one [offset, hyphen] per printed line of the paragraph — the same lines as A's `lines`, in the same order —
      where offset is where the line begins in text_merged and hyphen 1 means the line ends with a hyphen that the
      joined text no longer shows; the line starts are A's, carried through the alignment and snapped to D's line
-     starts, the hyphen is A's where A's line end is in the image, else D's — a D line joined without a space);
+     starts, or D's k-th line start where A's cannot be carried over and D has as many lines as A; the hyphen
+     is A's where A's line end is in the image, else D's — a D line joined without a space);
      and per page: witness {version, d_page, b_page,
      c_page, chars, cuts, disputed, fixed, odd = [col, para, length ratio] of paragraphs whose D text is much
      shorter or longer than A's}. dj_abbyy.py carries all of this over when it regenerates a page.
@@ -217,6 +218,9 @@ def break_positions(aln, paras, cuts, d_text, d_lines):
     for i, p in enumerate(paras):
         raw0, raw_end = cuts[i][0], cuts[i + 1][0] if i + 1 < len(cuts) else len(d_text)
         offs, hyph = p['line_offs'], p['line_hyph']
+        # D's own lines inside the paragraph: when there are as many as A has, D's k-th line start is the answer
+        # wherever A's cannot be carried over (ABBYY read only part of the line: p. 20 Апокрифы)
+        d_in = [ls for ls in line_starts if raw0 < ls < raw_end]
         rows, prev = [], raw0
         for k in range(len(offs)):
             if k == 0:
@@ -229,6 +233,8 @@ def break_positions(aln, paras, cuts, d_text, d_lines):
                 near = [ls for ls in line_starts[max(0, j - 1):j + 1] if abs(ls - r) <= LINE_TOL]
                 if near:
                     r, snapped = min(near, key=lambda ls: (abs(ls - r), ls > r)), True
+                elif len(d_in) == len(offs) - 1:
+                    r, snapped = d_in[k - 1], True
                 else:
                     snapped = False
                     while 0 < r < len(d_text) and not d_text[r - 1].isspace():
