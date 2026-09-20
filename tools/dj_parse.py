@@ -87,7 +87,9 @@ QUOTES = '"„“”«»'                    # double quotation marks as the OCR
 LETTERS = re.compile(r'[\u0370-\u03ff\u1f00-\u1fff\u0400-\u052fA-Za-z\u0300-\u036f]+')
 GREEK_L = re.compile(r'[\u0370-\u03ff\u1f00-\u1fff]')
 CYRIL_L = re.compile(r'[\u0400-\u052f]')
-ROMAN = re.compile(r'^[IVXLCDMІѴХ]+$')
+# Roman numerals, including the OCR's Cyrillic look-alikes and its ligature readings (ХП = XII, ХШ = XIII)
+ROMAN_MAP = str.maketrans({'Х': 'X', 'І': 'I', 'Ѵ': 'V', 'С': 'C', 'М': 'M', 'Д': 'D', 'П': 'II', 'Ш': 'III'})
+ROMAN = re.compile(r'^[IVXLCDM]+$')
 
 
 # ---------------------------------------------------------------- headword forms
@@ -381,7 +383,7 @@ def split_entry(e):
         if len(letters) < 2:
             continue
         up = sum(c.isupper() for c in letters)
-        if up >= 2 and up >= 0.7 * len(letters) and not ROMAN.match(m.group(0)):
+        if up >= 2 and up >= 0.7 * len(letters) and not ROMAN.match(m.group(0).translate(ROMAN_MAP)):
             e['flags'].add('caps')
         if GREEK_L.search(w) and CYRIL_L.search(w):
             e['flags'].add('script')

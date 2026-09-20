@@ -282,8 +282,19 @@ See PLAN.md for the phases. Newest entry last.
   distinguish ѧ from а at 600 ppi (triangle with splayed legs vs round bowl), confirmed by the alphabetical run
   Стѧгъ → Стѧкльство. Now 7 GT pages, 142 headwords; merged norm 1.6 % all, 0.9 % definitions, 1.3 % Greek.
 
-NEXT: (1) finish the ground-truth extension — five pages left, in eval/README.md's table: 801 (Greek), 1104 (the
-  OCS citation type), 146 (81 entries), and the two held-out random pages 283 and 696. Method that worked on 719:
+- gt/0801.txt (p. 764) done, the second Greek-dense page: 8 GT pages, 168 headwords; merged norm 1.9 % all,
+  0.9 % definitions, 1.1 % Greek. Two corrections to my draft came from the witness check ({Оустраннопрїимствовати},
+  {Оусъньнь}); one place where the witnesses agree against the file was kept — the book prints "зависгливо" with г
+  and both OCRs normalise it away.
+- The `caps` flag over-counted: garbled Roman numerals (ХП for XII, ХШ for XIII, ХѴП for XVII) looked like
+  capitalised words. dj_parse now maps the Cyrillic look-alikes and the ligature readings before the numeral test;
+  caps 184 → 159 entries, on 150 pages. That also killed the reason for choosing leaf 1104 as the citation-type
+  page — its flags were all numerals — so the GT list now uses **leaf 260 (p. 223)**, where the type was seen and
+  verified in this session ("ННОУЛДЫН ВМ. ЄдиноҮЛДЫН"). A page carrying it cannot be found by the flags alone;
+  look for the uncial face on the image.
+
+NEXT: (1) finish the ground-truth extension — four pages left, in eval/README.md's table: 260 (the OCS citation
+  type), 146 (81 entries), and the two held-out random pages 283 and 696. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
   (`dj_witness.page_text('D', leaf)`), the headwords against `dj_heads.py sheet LEAF` at 600 ppi where a glyph is
