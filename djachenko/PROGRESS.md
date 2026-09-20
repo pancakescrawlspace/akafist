@@ -516,25 +516,101 @@ See PLAN.md for the phases. Newest entry last.
   risks. Either is worth having as a second, free witness beside the vision pass (25/25 on a page, ~$17–35 for
   the book), which stays the cheaper sole reader.
 
-NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+## 2026-09-21
+
+- Session 6 (bug-hunt from the PDF; the user was reading facsimile.pdf and flagged two pages). **Two defects, both
+  present since the first entries.tsv** (checked out all twelve commits that touched the file — not a regression
+  of the recent facsimile/vote work):
+  1. *p. 20 `Аполинъ` inside `Апокрифы`.* A faded patch over the left of column a; ABBYY read only the right half
+     of six lines there, so the flush line `Аполинъ` measured as indented (x0 1161 instead of ~280) and
+     `dj_abbyy.py` began no paragraph. The same page swallowed `Аξіосъ` into `Анѳѵпатъ`.
+  2. *p. 21 `Япрілій` inside `Япракосъ`.* The segmentation was right — it was its own paragraph — but D read
+     `Апрілій—` as `Япрілій-` and `др.` is not in dj_parse's ABBR list, so no separator matched, headword and
+     separator both came out empty, and `dj_build.entry_lines` had `cont = not headword and not sep`, which sets
+     such an entry indented and without a head. A real lemma printed as a continuation line of the article above.
+
+- **A new witness check: `tools/dj_seg.py` (PLAN.md Rev. 7, Phase 3b step 1c).** Measured first: witness C's
+  narrowest outer margin over the book is 27.5 pt and *no* line of it touches an image edge; D's minimum is 0.1 pt,
+  148 sides have a line at the edge, and D's disagreement rate with A rises from 2.9 % to 10.5 % as its margin
+  narrows (the user asked whether D has cut margins — it does, C does not). So C is the better geometric witness
+  and the two are voted. Per column side: step 1's voted text aligned to the witness, A's printed lines (`breaks`)
+  carried over and snapped to the witness's line starts, the indentation level read off the new
+  `dj_witness.indent_levels`. Three things had to be got right, each found by a wrong answer first:
+  - *Deskew.* The Google columns drift by up to 13 pt down a page — more than the 11.1 pt hanging indent — so no
+    absolute edge works (leaf 145: flush lines at 37 and 40.6, hanging ones at 41.5 at the top of the same
+    column). The skew is found by folding the left edges modulo the indent and maximising the concentration: both
+    levels then fall on one peak, whatever their proportion. Without it the check reported 5,107 missed starts.
+  - *Which level is the flush one.* Geometry cannot say: a column may lie wholly inside one long article (no
+    flush line at all) or hold nothing but one-line entries (almost nothing else). Anchoring on the justified
+    right edge failed (ragged columns), and on the column pitch too (it is itself bimodal, contaminated by the
+    same ambiguity). A settles it instead — one yes/no per column decided by ~50 lines that A reads right 99 % of
+    the time — and the witnesses decide the individual line.
+  - *One line of A per line of the witness.* Where ABBYY's reading is destroyed, two of A's lines reach for the
+    same witness line; the verdict then depended on the segmentation it was meant to correct and the pipeline
+    oscillated (p. 167 `Євшанъ`). Requiring the match to be injective settled it. A line with fewer than four
+    letters is a speck, not a line, and gets no verdict (those had produced empty entries).
+  Result: 124,497 printed lines, 96 % carried over to both witnesses, **C and D agreeing on 99.8 %** of those —
+  the same order as the 99.7 % of `linecheck`, and independent evidence for the one-typesetting finding.
+  `djachenko/segmentation.tsv` (119,461 rows, 2.3 MB) holds the verdict for every such line and is **committed**:
+  it is the witnesses' reading, not a diff against A, so the scripts may be re-run in either order and a rebuild
+  without the Google PDFs still gets the entry boundaries right. `dj_abbyy.py` reads it when it groups lines into
+  paragraphs (keyed by the line's baseline, which no re-run changes), counts how often it overruled A (page key
+  `seg`), and marks each paragraph `seg: "CD"` (the witnesses' start, not A's) or `seg: "A"` (no witness reached
+  the line). Against A's own geometry: **232 entry starts added, 636 withdrawn.**
+
+- Also fixed, all three found while doing the above:
+  - `dj_abbyy.carry_over` kept the Phase 3b text of a page whose paragraph *count* was unchanged even when the
+    boxes had moved, so a page with one split and one merge kept `breaks` for lines it no longer had. It now
+    requires the box to be the same one (IoU > 0.9) and that every new paragraph got a text; this was what stopped
+    the pipeline reaching a fixed point.
+  - `dj_parse.split_entry`: when no separator is found at all, the head is now cut after as many words as ABBYY
+    read of the headword region (flag `hw_from_A`), as it already did when A had seen an "=" (`eq_from_A`). A
+    missing separator is exactly what leaves the headword inside its own definition.
+  - `dj_build.entry_lines`: `cont` now also requires the flag `guessed` — only an entry whose start no witness
+    could confirm is set as a continuation line.
+  New flags in entries.tsv: `seg` (235, the entries the witnesses added), `unconfirmed` (653, no witness reached
+  the start), `hw_from_A` (456). Gone: `no_sep` (was 726).
+
+- Rebuilt end to end (dj_abbyy → dj_heads text → dj_seg → dj_abbyy → dj_heads text → dj_parse → dj_link →
+  dj_crops index → both renditions), and the loop verified to reach a fixed point (two iterations with nothing
+  left to correct). **24,959 entries** (was 25,362). FLAGS.md: `guessed` 3,197 → 244, `hw_missing` 874 → 132,
+  `parens` 723 → 422, `quotes` 272 → 262, `order` 7,977 → 8,086 (more entries now have a headword to sort).
+  `headwords.tsv` rebuilt (99,836 rows, all 24,959 located in A). links.tsv: 252 lemmas matched, was 247.
+  Both PDFs rebuilt; pp. 22 and 23 checked by eye — `Аполинъ` and `Япрілій` now stand as their own lemmas.
+
+- Written up: PLAN.md Rev. 7 (Phase 3a, 3b step 1c, 3b resume, Phase 6), README.md (the Mermaid diagram, the
+  tools and files tables, the rebuild recipe), this file.
+
+NEXT: (1) **the headword crops are stale.** `crops/<W>/NNNN.png` were cut from the old `headwords.tsv`, whose
+  entry ids the re-segmentation changed; the index is rebuilt but the images are not (they are git-ignored).
+  Run `python3 tools/dj_crops.py crops` (~30 min) before Phase 3b step 2, or `dj_heads.py crops` will read the
+  wrong strips.
+
+  (2) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
-  (2) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+  (3) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
+  carried over to their first line, so only A's geometry says an entry begins there. They are where a spurious
+  lemma can still hide (p. 21 `два евангелія…`, printed with `дка` as its provisional headword). A pass over them
+  — or a third geometric witness (B's DjVu boxes are coarse but its margins are intact) — would close it.
+
+  (4) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
   (`dj_witness.page_text('D', leaf)`), the headwords against `dj_heads.py sheet LEAF` at 600 ppi where a glyph is
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
-  (2) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+
+  (5) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
       misread; then `read --batch` for the rest (records batch ids; `collect` later, resumable), then `check`.
   (B) By hand: `sheet LEAF` → read → `enter LEAF FILE`, ~15 entries a sheet, in batches with commits.
-  Either way, then Phase 4 (dj_parse.py: entries.tsv from text_merged + headwords, headword_civil mapping,
-  alphabetical validation, the "=" from A's eq hint where the merged text lost it). The five draft GT files still
-  await the user's check (not blocking).
-  Note: djachenko.pdf and facsimile.pdf are git-ignored; both rebuilt 2026-09-20 from the current entries.tsv
-  (flowing: 1,002 A4 pages, 4 min; facsimile: 1,120 pages, 16 s). Rebuild after any change to entries.tsv.
+
+  Note: djachenko.pdf and facsimile.pdf are git-ignored; both rebuilt 2026-09-21 from the current entries.tsv
+  (flowing: 4 min; facsimile: 1,120 pages, 15 s). Rebuild after any change to entries.tsv.
+  The pipeline order is now dj_abbyy → dj_heads text → **dj_seg** → dj_abbyy → dj_heads text → dj_parse (README
+  has it with timings): dj_seg.py needs step 1's text, and dj_abbyy.py needs dj_seg.py's file.

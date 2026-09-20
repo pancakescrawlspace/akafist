@@ -190,3 +190,19 @@ C3. **Google Books `AWFOAQAAMAAJ` (А–Р, 616 pages) and `euDar5UjPEsC` (С–
 - Witness D (Cornell, original, 600 ppi bilevel, complete) is the best second witness for headwords and for pages
   cut in A; C (Indiana, a reprint) and B are further readings where A and D disagree or are unclear. HathiTrust single
   pages (12) only if something is still missing.
+- **Margins, measured over all 1,119 dictionary pages** (2026-09-21, session 6; the distance from the page image's
+  edge to the outer column, scaled to a 450 pt page width, and how many column sides have a printed line touching
+  the edge). It decides which copy can be trusted for *geometry* — where a paragraph begins — as distinct from
+  text:
+
+  | witness | outer margin: min / 5th pct / median | sides with a line at the image edge |
+  |---|---|---:|
+  | C (Indiana) | 26.3 / 33.7 / 41 pt | **0** |
+  | B (1993 reprint) | 0.8 / 6.0 / 8.6 pt | 2 |
+  | D (Cornell) | −1.7 / 3.4 / 22 pt | 355 |
+  | A (РГБ) | cut outright on 551 of the 1,119 pages (242 left, 313 right) | — |
+
+  So **C, not D, is the copy with intact margins**: Google's Cornell scan is cropped tight on many pages, and its
+  disagreement with A about where entries begin rises from 2.9 % to 10.5 % as its margin narrows. `tools/dj_seg.py`
+  therefore votes C and D against each other rather than trusting either (they agree on 99.8 % of the printed
+  lines they both reach — a further, independent confirmation that the four are one typesetting).

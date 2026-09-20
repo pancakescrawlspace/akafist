@@ -6,7 +6,7 @@ nothing else.
 | Folder | Project |
 |---|---|
 | `akathist/` | **Akathist to the Theotokos before the Kazan icon** — the text and a 703-entry dictionary of it, as groundwork for a Dutch translation. Built by `tools/build.py`. |
-| `djachenko/` | **A digital edition of Дьяченко's dictionary of 1900** — the whole of Г. Дьяченко's *Полный церковнославянский словарь*, 25,362 entries, made from four scanned copies. Built by `tools/dj_*.py`. |
+| `djachenko/` | **A digital edition of Дьяченко's dictionary of 1900** — the whole of Г. Дьяченко's *Полный церковнославянский словарь*, 24,959 entries, made from four scanned copies. Built by `tools/dj_*.py`. |
 
 The Дьяченко project started as a reference work for the akathist dictionary, but it is its own undertaking: it
 digitises the entire book, not the part the akathist needs, and it can be read, run and used without the akathist
@@ -202,6 +202,11 @@ flowchart TD
     OCRJ --> HEADS
     HEADS -- "text_merged · disputed · italic · breaks · headwords" --> OCRJ
 
+    WITLIB --> SEG["dj_seg.py — Phase 3b step 1c<br/>the printed indentation of C and D, line by line:<br/>where an entry begins, where one runs on"]
+    OCRJ --> SEG
+    SEG --> SEGF[("segmentation.tsv — the two witnesses' verdict<br/>on 119,461 printed lines, committed")]
+    SEGF -- "entry starts A cannot see:<br/>cut margins, a stain over a line" --> ABBYY
+
     WITLIB --> EVAL["dj_eval.py — Phase 2<br/>character error per zone, segmentation,<br/>headword vote, suspect ground truth"]
     GT[("eval/gt/*.txt<br/>12 pages transcribed by hand")] --> EVAL
     EVAL --> RES[("eval/RESULTS.md · results.tsv")]
@@ -209,7 +214,7 @@ flowchart TD
     OCRJ --> PARSE["dj_parse.py — Phase 4<br/>entries, typography, quotation marks, the printed lines,<br/>headword forms and keys, validation"]
     ERR[("errata.tsv — Дьяченко's own<br/>234 corrections, transcribed")] --> ERRATA["dj_errata.py<br/>locate each row's page, column, line"]
     ERRATA --> PARSE
-    PARSE --> ENT[("entries.tsv — 25,362 entries")]
+    PARSE --> ENT[("entries.tsv — 24,959 entries")]
     PARSE --> FLG[("FLAGS.md — what needs checking")]
 
     PSV[("akathist/dictionary/dictionary.psv<br/>703 akathist lemmas")] --> LINK["dj_link.py — Phase 5<br/>lemma → entry, with fallbacks"]
@@ -239,6 +244,7 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `tools/dj_abbyy.py` | 3a | `ocr/NNNN.json`: the page's layout (down to every line's baseline), its furniture and ABBYY's reading |
 | `tools/dj_witness.py` | — | shared access to B, C, D and the text machinery (used by 3b and 2) |
 | `tools/dj_heads.py` | 3b | the merged text, its printed lines and the headwords, written back into `ocr/NNNN.json` |
+| `tools/dj_seg.py` | 3b | `segmentation.tsv`: where witnesses C and D see an entry begin — the authority on it, since A's margins are cut on 551 pages; `dj_abbyy.py` reads it back |
 | `tools/dj_eval.py` | 2 | `eval/results.tsv`; the numbers behind every routing decision |
 | `tools/dj_parse.py` | 4 | `entries.tsv`, `FLAGS.md` |
 | `tools/dj_errata.py` | 4 | applies `errata.tsv` while `dj_parse.py` builds the entries; `report` says which rows locate and match |
@@ -250,16 +256,20 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 
 ### Where it stands
 
-- **Headword crops:** every headword of every entry is located in all four witnesses (`headwords.tsv`, 101,448
+- **Headword crops:** every headword of every entry is located in all four witnesses (`headwords.tsv`, 99,836
   rows, committed); `dj_crops.py crops` turns those coordinates into one page strip per witness (`crops/`, 134 MB,
   not committed), so a headword can be compared across the four copies without opening the scans.
-- **Text:** merged for all 1,119 dictionary pages; 25,362 entries (20,079 in the main sequence, 5,283 in the
+- **Where the entries begin:** read off the printed indentation of witnesses C and D, line by line
+  (`segmentation.tsv`, `dj_seg.py`): they reach 96 % of the 124,497 printed lines and agree on 99.8 % of those.
+  Against scan A's own geometry — whose margins are cut on 551 pages — that adds 232 entry starts and withdraws
+  636. 653 entries (2.6 %) rest on A alone and are flagged `unconfirmed`.
+- **Text:** merged for all 1,119 dictionary pages; 24,959 entries (20,023 in the main sequence, 4,936 in the
   supplement) in `entries.tsv`, with the spans where the witnesses disagree, the italics and every printed line
   (124,497 of them) marked per entry; Дьяченко's own errata applied to 165 entries (34 rows point at text the OCR
   misread, listed in `FLAGS.md`).
-- **Headwords:** 25 read so far; the other 25,337 carry witness D's provisional reading and are printed grey in the
-  PDFs. Reading them is the next step.
-- **Cross-reference:** 246 of the 703 akathist lemmas are linked — a lower bound until the headwords are read.
+- **Headwords:** 25 read so far; the other 24,934 carry the witnesses' provisional reading and are printed grey in
+  the PDFs. Reading them is the next step.
+- **Cross-reference:** 251 of the 703 akathist lemmas are linked — a lower bound until the headwords are read.
 - **Renditions:** the whole book in the original's style, about 1,000 A4 pages; and the facsimile — 1,120 pages
   of 215 × 315 mm, each line at its measured position, page 113 being page 113 of the book.
 - **Proofreading:** not started. `FLAGS.md` lists what to look at first; a corrections layer that survives
@@ -280,18 +290,23 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `eval/README.md` | the ground truth: conventions, the twelve pages and why they were chosen, what was checked |
 | `errata.tsv` | Дьяченко's errata table (pp. XXXIV–XXXVIII), transcribed row by row |
 | `FLAGS.md` | the validation report of the last `dj_parse.py` run |
+| `segmentation.tsv` | where the entries begin, read off the printed indentation of witnesses C and D (`dj_seg.py`) |
 | `QUOTES.md` | a worked example of one defect (floating quotation marks): measurement, rules, verification |
 
 ### Rebuilding it
 
-The scans (≈6 GB), the generated PDFs and the headword crops are not in the repository; everything else is.
+The scans (≈6 GB), the generated PDFs and the headword crops are not in the repository; everything else is —
+including `segmentation.tsv`, so that `dj_abbyy.py` reproduces the entry boundaries without witnesses C and D.
 The crops are 134 MB of images that follow deterministically from the scans and from `headwords.tsv`, so the
 repository keeps the coordinates and the script, and `dj_crops.py crops` makes the images again (~30 min).
 
 ```sh
 python3 tools/dj_fetch.py --all     # witness A and the OCR layers, resumable (witnesses C and D by hand)
-python3 tools/dj_abbyy.py           # Phase 3a: layout → ocr/*.json          (~6 s)
+python3 tools/dj_abbyy.py           # Phase 3a: layout → ocr/*.json          (~7 s)
 python3 tools/dj_heads.py text      # Phase 3b step 1: the merged text       (~80 s)
+python3 tools/dj_seg.py             # 3b step 1c: where the entries begin    (~30 s, needs C and D)
+python3 tools/dj_abbyy.py           # again, to apply segmentation.tsv; then dj_heads.py text once more
+python3 tools/dj_heads.py text      #   (only the pages whose paragraphs moved)
 python3 tools/dj_parse.py           # Phase 4: entries.tsv + FLAGS.md        (~3 s)
 python3 tools/dj_link.py            # Phase 5: links.tsv
 python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)

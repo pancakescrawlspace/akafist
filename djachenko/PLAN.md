@@ -22,6 +22,15 @@ witnesses are one typesetting (verified line for line over the whole book, `dj_i
 and the line structure is in the repository (`ocr/*.json`); what is missing is the mapping of the voted text onto
 the lines, and the type is bigger than the 10 pt now used. Phase 6 amended (marked "Rev. 6").
 
+Revision 7 (2026-09-21, session 6): **the entry segmentation is no longer A's alone.** A lemma was found missing
+from the rendition (`Аполинъ` inside `Апокрифы`, p. 20): ABBYY had read only the right half of six lines under a
+stain, so the flush line measured as indented and no entry began there. Witnesses C and D have both margins on
+every page — C's narrowest outer margin is 27 pt, and no line of it touches an image edge, where A's margin is cut
+on 551 pages — and the four are one typesetting, so their printed indentation says where the entries begin. A new
+step, **Phase 3b step 1c, `tools/dj_seg.py`**, reads it line by line and writes `segmentation.tsv`, which
+`dj_abbyy.py` applies; 232 entry starts were added and 636 withdrawn, and `guessed` paragraphs fell from 3,197 to
+244. Phases 3a, 3b and 6 amended (marked "Rev. 7").
+
 This plan is written to be executed over several sessions. Every phase has a *Definition of done* and a *Resume*
 paragraph; all state lives in files under `djachenko/` so that a new session can read `PROGRESS.md`, the manifest and
 this plan and continue without any conversational memory.
@@ -76,6 +85,8 @@ djachenko/
   cache/           rendered D pages, entry crops, contact sheets (Phase 3b step 2; git-ignored, rebuilt on demand)
   heads_batches.tsv  Message Batches submitted by `dj_heads.py read --batch`, with their status (committed)
   djachenko.typ, djachenko.pdf   Typst rendition (Phase 6; generated, 9 + 20 MB — git-ignored, rebuilt with dj_build.py)
+  segmentation.tsv where every printed line begins an entry or continues one, read off witnesses C and D
+                   (Phase 3b step 1c Rev. 7, `dj_seg.py`; committed — `dj_abbyy.py` needs it, the scans it does not)
   facsimile.typ, facsimile.pdf   the line-for-line facsimile (Phase 6 Rev. 6; `dj_build.py --facsimile`; git-ignored),
                    facsimile_over.tsv the lines it had to condense
   fonts/           Ponomar Unicode, Old Standard TT (OFL; fetched by dj_build.py; git-ignored)
@@ -85,7 +96,10 @@ tools/
   dj_heads.py      Phase 3b (Rev. 5): `text` — per page, align witness D's text to A's segmentation, vote with B, A
                    and C (exists, run); `crops`/`read`/`collect`/`sheet`/`enter`/`check` — the headwords from
                    crops, by the API or by hand (exists, not yet run); idempotent and resumable throughout
-  dj_witness.py    shared: witness word boxes and page mapping, reading order, normalisation, alignment (exists)
+  dj_seg.py        Phase 3b step 1c (Rev. 7): the printed indentation of C and D, line by line → segmentation.tsv,
+                   which dj_abbyy.py applies — the authority on where an entry begins (exists, run)
+  dj_witness.py    shared: witness word boxes and page mapping, reading order, normalisation, alignment,
+                   `indent_levels` — a witness's indentation levels, deskewed (Rev. 7) (exists)
   dj_eval.py       Phase 2: CER of the OCR candidates against the ground truth, per zone; triangulation (exists)
   dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
                    sanity checks of the ground truth and of the entry starts; `linecheck` — do the witnesses break
@@ -196,10 +210,14 @@ initials (big type or pictures on the rule, or a 250–900 px gap across both co
 specks (gutter, margin dust read as "п", ",", "„") are set aside; flush vs. indented is fitted per side relative to
 the rule with a strong prior (right column: text starts 62 px right of the rule), checked against the text (entry
 starts contain "=" in 82 % of cases, continuation lines in 2 %); on pages whose left margin is cut off, position and
-text features are combined (naive Bayes) and the paragraphs marked `guessed`. Result: 25,362 entry candidates in
-main + supplement (22,542 with "=" in their first two lines; 3,197 guessed, on 261 pages); `manifest.tsv` has section
-and letters; `ocr/report.tsv` the per-page statistics and warnings. The book's "~30,000 entries" is a round figure:
-the "=" count (24,483) and the candidates agree on ~25,000.
+text features are combined (naive Bayes) and the paragraphs marked `guessed`. **Rev. 7:** where
+`segmentation.tsv` has a line, that decision is overruled by witnesses C and D (step 1c below); `dj_abbyy.py`
+reads the file and records per page how often it did so (`seg`), and per paragraph whether the start is the
+witnesses' and not A's (`seg: "CD"`) or one no witness could reach (`seg: "A"`). Result: 24,959 entry candidates
+in main + supplement (22,575 with "=" in their first two lines; 232 starts added and 636 withdrawn against A's own
+geometry; `guessed` down from 3,197 to 244, since a witness now decides most of the cut-margin pages);
+`manifest.tsv` has section and letters; `ocr/report.tsv` the per-page statistics and warnings. The book's
+"~30,000 entries" is a round figure: the "=" count (24,483) and the candidates agree on ~25,000.
 
 **3b. `tools/dj_heads.py --pages A-B`** (Rev. 5, after Phase 2) builds the page text from the witnesses on top of
 A's segmentation, in three steps per page, each idempotent and each recorded in the page JSON:
@@ -211,6 +229,27 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
    `disputed` spans, `fixed`, `d_cut`, `d_line`; per page a `witness` block. Definitions 1.0 % CER on the GT
    (D alone 1.5 %), 85 % of the remaining errors inside the disputed spans. All 1,119 pages done (62 s; resumable;
    `dj_abbyy.py` carries the texts over on regeneration).
+1c. *Where the entries begin* (Rev. 7, session 6; `tools/dj_seg.py`). An entry begins at a flush line and runs on
+   at the hanging indent, so the segmentation is a matter of geometry — but of A's geometry it cannot be, because
+   A's left margin is cut on 242 pages, its right on 313, and even on an intact page ABBYY drops the left half of
+   a line under a stain and the flush line measures as indented (p. 20: `Аполинъ` vanished into `Апокрифы`, which
+   is what sent this session looking). Measured over the book: witness C's narrowest outer margin is 27 pt and no
+   line of it touches an image edge; D's is 0.1 pt and 148 sides have a line at the edge, and D's flag rate rises
+   from 2.9 % to 10.5 % as its margin narrows — so C is the better geometric witness and the two are voted.
+   Per column side: the voted text of step 1 is aligned to the witness, every printed line of A (`breaks`) carried
+   over and snapped to a line start of the witness, and that line's indentation level read off
+   `dj_witness.indent_levels` — which deskews the column by folding the left edges modulo the hanging indent,
+   since the Google columns drift by up to 13 pt, more than the 11 pt indent itself. Which of a column's two
+   levels is the flush one is the one thing the geometry cannot say (a column may lie wholly inside one long
+   article, or hold nothing but one-line entries): A settles that, one yes/no per column decided by ~50 lines it
+   reads right 99 % of the time. C and D then vote line by line. Coverage 96 % of the 124,497 printed lines, the
+   two agreeing on 99.8 % of those; the result is `segmentation.tsv`, and `dj_abbyy.py` applies it.
+   Committed, because the file is the witnesses' reading and not a diff: it does not depend on what A made of the
+   page, so the two scripts can be re-run in either order, and a rebuild without the Google PDFs (git does not
+   hold them) still gets the entry boundaries right. Run it after `dj_heads.py text` (it needs `text_merged` and
+   `breaks`), then `dj_abbyy.py` and `dj_heads.py text` again for the pages whose paragraphs moved; one pass
+   reaches the fixed point.
+
 2. *Headwords.* — pipeline **built** (session 3), reading not yet run. For every `entries_hint` a crop of the start of
    the entry's first line, from A's 600 ppi image or from D's rendered page on the 242 left-cut pages (via `d_line`),
    at 400 ppi (`cache/crops/`). `dj_heads.py read` sends one request per page with the crops as separate images
@@ -258,8 +297,8 @@ Per-page JSON schema (engine-independent):
 ```
 
 *Definition of done:* every manifest row has status ≥ `ocr` (3a done for all, 3b done for all).
-*Resume:* run `dj_abbyy.py` (fast, idempotent) then `dj_heads.py` with the full range; `PROGRESS.md` says which
-batch is next.
+*Resume:* run `dj_abbyy.py` (fast, idempotent), then `dj_heads.py text`, then `dj_seg.py`, then those two again
+(Rev. 7 — the order is in step 1c and in the README's rebuild recipe); `PROGRESS.md` says which batch is next.
 
 ## Phase 4 — Structure into entries (one session to write, then re-run after every batch)
 
@@ -383,9 +422,14 @@ columns' flush edges at book-wide constants from the rule, −2001 and +66 px, s
 page's curl and fail on the left-cut pages; x from the flush edge and the hanging indent — ABBYY's "deeper" lines
 are mostly lines it began late, so only a short one keeps its own position; the nominal first baseline is the
 first line's, or the page number's + 240 px on a page that opens with a title), justified to the column width
-(1927 px) with a forced break, the entry's last line ragged; an "entry" without headword and separator (a
-continuation line the cut-margin segmentation took for a start) set indented without a head, a real entry
-whose headword the OCR did not read with a □; page number over its double rule, guide
+(1927 px) with a forced break, the entry's last line ragged; **Rev. 7:** an entry is set indented and without a
+head only when its start is A's unconfirmed guess (flag `guessed`) *and* it has neither headword nor separator —
+before, every entry without both was, which hid 307 real lemmas inside the article above them (`Япрілій` on p. 21
+among them; the segmentation of step 1c removed most of the continuation lines that the rule was meant for). A
+real entry whose headword the OCR did not read is printed with a □; and since a missing separator is what
+swallows the headword, `dj_parse.py` now cuts the head after as many words as ABBYY read of the headword region
+whenever no separator is found at all (flag `hw_from_A`, 456 entries), which leaves 132 entries with no headword
+instead of 874; page number over its double rule, guide
 words (from the first and last entry of the page), "Прибавленіе." on the supplement's pages, the signature line and
 the "N*", letter initials and titles fitted into their measured boxes (Ponomar for the letters); a line whose
 natural width exceeds the column is condensed to fit and reported (`<over>` metadata → `facsimile_over.tsv`, the
