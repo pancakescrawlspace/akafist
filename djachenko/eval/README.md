@@ -11,6 +11,25 @@ were chosen to cover the kinds of page the book has (PLAN.md Phase 2):
 | `gt/0660.txt` | 660 | 623 | the lowest OCR confidence in the main part: poor print (С) |
 | `gt/0893.txt` | 893 | 856 | the rare letters Ѫ and Ѩ with an initial in mid-page; the most etymologies (Greek, Hebrew) |
 | `gt/1124.txt` | 1124 | 1087 | supplement; the left margin is cut off in scan A — the missing letters are read in another copy |
+| `gt/0719.txt` | 719 | 682 | **added session 4**: the densest Greek page of the book (395 Greek characters) |
+
+**Extension (session 4, in progress).** The first six pages were chosen to cover the kinds of page; measuring them
+showed where the sample is too thin (PROGRESS.md): Greek rests on 266 characters over the six, the Old Church
+Slavonic citation type is absent, and no page is dense in short entries. Six pages are being added for those gaps,
+one done so far:
+
+| leaf | page | why | state |
+|---|---|---|---|
+| 719 | 682 | Greek-densest page (395 Greek characters) | **done** |
+| 801 | 764 | second Greek-dense page (314) | to do |
+| 1104 | 1067 | the most entries flagged `caps` — the OCS citation type, unmeasured so far | to do |
+| 146 | 109 | 81 entries, the densest page of the book: segmentation and headwords | to do |
+| 283 | 246 | drawn at random (seed 2026) — **held out**: never to be used for tuning a rule | to do |
+| 696 | 659 | drawn at random — **held out** | to do |
+
+The four targeted pages are stress pages, not a random sample: the headline error rate should stay on the six
+representative pages, and these should be read per page. The two random pages exist so that a change tuned on the
+others can be tested on something it has never seen.
 
 Page images: `djachenko/pages/NNNN.jpg` (300 ppi; 600 ppi originals in `pages/jp2/`). For leaf 1124 also witness B
 (`scan/reprint1993/`, DjVu page 1087) and D (`scan/google/google_cornell.pdf`, PDF page 1135); see COPIES.md.

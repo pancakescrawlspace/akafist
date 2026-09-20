@@ -258,7 +258,38 @@ See PLAN.md for the phases. Newest entry last.
   (The user read `Γλι` as "Где"; the scan shows `гдⷭь` with a titlo, i.e. Господь — the quotation is Ps 67:7,
   "Господь вселяет единомысленныя въ домъ", so A's and B's `гдь` is the right reading.)
 
-NEXT: Phase 3b step 2 — the headword reading itself, once the user has chosen:
+- Ground truth: checked, then extended (session 4, end; user: "First check the drafts, then do the six new pages").
+  Checking pass, all six files: the three witness pairings never used before (C+A, C+B, D+A) on top of D+B — 73
+  places in all, 38 of them new; every position where a file stands alone against all four witnesses (75); and
+  every headword of every page against a 400 ppi contact sheet (`dj_heads.py sheet LEAF`). The decidable places
+  were read at 600 ppi. **No error found**; two scares were my own misreadings of the sheets, settled at higher
+  zoom (p. 623 "Смрѣча" is ч; p. 1087 really prints "Синод." once and "Сѵнод." four times). The remaining
+  disagreements are OCR errors or the documented и/н, а/ѧ ambiguity of the small CS type. Recorded in each file's
+  header and in eval/README.md; it does not replace the user's own reading, which stays open for five files.
+  Found while checking: `norm_char` folded look-alikes before stripping diacritics, so an accented Latin letter
+  (á in the Sanskrit etymologies) stayed Latin while a plain one became Cyrillic — every candidate that read it
+  plain was charged an error. Fixed (diacritics first); VERSION 8, step 1 re-run. GT scores: merged definitions
+  0.98 % → 0.90 % CER, overall 1.75 % → 1.70 %.
+  Why extend at all (measured, in case the plan is revisited): the definition CER of 0.98 % had a 95 % CI of
+  0.4–1.5 % (per-page 0.33–1.66 %, sd 0.67); the Greek rate rested on **4 errors in 266 characters**; 132
+  headwords give ±3.7 pp for scoring the vision pass; and the OCS citation type appeared on no page at all.
+  Doubling similar pages would only shrink the CI by √2, so the six new pages are chosen for coverage
+  (eval/README.md has the table and the held-out rule).
+  **gt/0719.txt (p. 682) done** — the Greek-densest page. Transcribed from 600 ppi crops in 10–14 line chunks, each
+  line against ABBYY, the Greek against D; then the same checking signals as above. One correction to my own draft
+  came out of the "stands alone" signal: "есть собственно {ꙗ}" (the letter discussed, printed in CS type as the
+  І+А ligature) where I had first read "к" — all four witnesses are wrong there too. The headword type does
+  distinguish ѧ from а at 600 ppi (triangle with splayed legs vs round bowl), confirmed by the alphabetical run
+  Стѧгъ → Стѧкльство. Now 7 GT pages, 142 headwords; merged norm 1.6 % all, 0.9 % definitions, 1.3 % Greek.
+
+NEXT: (1) finish the ground-truth extension — five pages left, in eval/README.md's table: 801 (Greek), 1104 (the
+  OCS citation type), 146 (81 entries), and the two held-out random pages 283 and 696. Method that worked on 719:
+  `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
+  read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
+  (`dj_witness.page_text('D', leaf)`), the headwords against `dj_heads.py sheet LEAF` at 600 ppi where a glyph is
+  doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
+  four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
+  (2) Then Phase 3b step 2 — the headword reading itself, once the user has chosen: — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
