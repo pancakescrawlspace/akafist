@@ -24,7 +24,7 @@ one done so far:
 | 801 | 764 | second Greek-dense page (314) | **done** |
 | 260 | 223 | the Old Church Slavonic citation type, unmeasured so far (the page the user noticed it on) | **done** |
 | 146 | 109 | 81 entries, the densest page of the book: segmentation and headwords | **done** |
-| 283 | 246 | drawn at random (seed 2026) — **held out**: never to be used for tuning a rule | to do |
+| 283 | 246 | drawn at random (seed 2026) — **held out**: never to be used for tuning a rule | **done** |
 | 696 | 659 | drawn at random — **held out** | to do |
 
 The four targeted pages are stress pages, not a random sample: the headline error rate should stay on the six
