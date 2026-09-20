@@ -502,6 +502,20 @@ See PLAN.md for the phases. Newest entry last.
   its evidence, the lexicon, the known failure modes (Latin word vs Google's italic n/u/m/r; look-alikes hidden
   by the norm level, "Bce"; deletions), how to measure a change, the VERSION history.
 
+- Exploratory (session 5, end; user's question): a hand-made OCR for the Church Slavonic headwords from the
+  crops, glyph templates from a CS font. Looked at p. 480's headwords in A and D beside Ponomar Unicode at the
+  print's size: the same Synodal design, letter for letter (ѧ, ꙋ, ї, ж, т), the print a heavier cut — usable
+  after emboldening, better still with templates averaged from the ~350 labelled headwords (12 GT pages + 25
+  read). Kinds of headword: ABBYY's `?` flag on the first word separates the CS-type ones (~40 % of a sample of
+  first words) from the civil bold ones of the supplement, which the OCRs already read; Greek/Hebrew heads are a
+  handful. Estimate given to the user (no decision): (a) analysis-by-synthesis — candidates from D's reading and
+  the known confusion pairs (и/н, а/ѧ, в/к, ъ/ь, о/ѡ, у/ꙋ, е/є, і/ї), each rendered and scored against the crops of
+  all four witnesses with a width-tolerant match, plus the alphabetical-order prior: 1–2 sessions, 85–95 % words
+  expected, no segmentation; (b) a segmenting template OCR with self-trained templates and a Viterbi decode over
+  D's reading and the sort order: 3–5 sessions, ~90–95 % words, diacritics/superscripts/touching letters the
+  risks. Either is worth having as a second, free witness beside the vision pass (25/25 on a page, ~$17–35 for
+  the book), which stays the cheaper sole reader.
+
 NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
