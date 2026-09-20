@@ -289,7 +289,7 @@ NEXT: (1) finish the ground-truth extension — five pages left, in eval/README.
   (`dj_witness.page_text('D', leaf)`), the headwords against `dj_heads.py sheet LEAF` at 600 ppi where a glyph is
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
-  (2) Then Phase 3b step 2 — the headword reading itself, once the user has chosen: — the headword reading itself, once the user has chosen:
+  (2) Then Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
@@ -298,3 +298,5 @@ NEXT: (1) finish the ground-truth extension — five pages left, in eval/README.
   Either way, then Phase 4 (dj_parse.py: entries.tsv from text_merged + headwords, headword_civil mapping,
   alphabetical validation, the "=" from A's eq hint where the merged text lost it). The five draft GT files still
   await the user's check (not blocking).
+  Note: djachenko.pdf is git-ignored and now stale (entries.tsv changed after the last build); rebuild with
+  `python3 tools/dj_build.py` (~4 min) when a rendition is wanted.
