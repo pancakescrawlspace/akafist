@@ -596,6 +596,44 @@ See PLAN.md for the phases. Newest entry last.
   (faint under the patch, but legible) and `Апокрифы, т. е. книги` instead of ABBYY's `4 фтг книги`.
   `dj_seg.py --jobs` renamed `--workers`, as everywhere else in tools/.
 
+- The head/definition split revised (session 6, same day; the user, reading the PDF: "some of the headword
+  sections contain definition text: see even the very first lemma, `Я-первая`"). The logic dated from the first
+  dj_parse.py (b27af76) and had never been revised.
+
+  What it did: take the first separator (`=`, a dash, `(`, ` - `, or a hyphen before a known abbreviation) in the
+  first 80 characters. What goes wrong: the print's dash after the headword reaches the voted text as a bare
+  hyphen or not at all, and then a *later* separator wins and the head swallows a clause of the definition.
+  The first entry of the book is the plainest case — A reads `Я=первая`, B `Я—первая`, C `Я = первая`, D
+  `1-первая`, and D's hyphen won the vote, so the head came out `Я-первая`. Measured: 311 heads held an internal
+  hyphen, 690 were four words or longer, 2,963 had been cut at a `(`.
+
+  What it does now: **the head is the shorter of two bounds — up to the first separator, and as far as ABBYY
+  measured the headword's own type run** (`entries_hint[].abbyy`, which dj_abbyy.py cuts at its own HW_END on
+  A's line). It can never be the longer, because that run is the headword. Where the first separator lies past
+  that bound the real one was lost by the OCR: the head is cut at the bound instead and a dash left at the cut
+  taken as the separator (flag `sep_lost`, 1,307 entries). Two refinements, both found by a wrong answer:
+  the count starts at the first word that has letters in it (the voted text sometimes opens with a speck read as
+  `|`, which had made 156 heads empty), and the bound is not trusted when it comes out under 0.6 of the length
+  of ABBYY's own reading — there the voted text has split a word ABBYY read whole (`Смꙋдрствовати` as
+  `Сму дрствовати`), and the word count is not the headword's. Over the book that ratio sits at 1.0 with a long
+  tail upwards; under 0.6 lie 233 entries, 0.9 %.
+  A hyphen inside the head that ABBYY did *not* read also ends it: 200 of the 311 are of that kind (`Абстиненты-
+  воздержники`, `Алой-ст. слав.`), while the other 111 are the book's own hyphenated headwords (`Баба-Яга`,
+  `Воспріємника-ца`), whose hyphen is inside the run ABBYY measured, so it reads it.
+  Last, a definition that began with a *second* separator (342 entries) has one of the two from the OCR — D adds
+  a dash where the page has only `=` (p. 246 `Карачъ — = татарскій` for `Карачъ=татарскій`, confirmed against the
+  ground truth) — so it is absorbed, keeping `=`, the book's mark for the gloss (flag `sep_double`).
+
+  Measured on the twelve ground-truth pages, which transcribe the separators faithfully: our cut is aligned to
+  the GT of the same entry (anchored on the definition, which is read at ~1 % CER — the provisional head is
+  Church Slavonic type and too garbled to place its own last character) and we look at what the GT has there.
+  **Real failures 18 of ~250 decidable entries (7.2 %) → 3 (1.2 %)**: the twelve that had skipped an earlier
+  separator are all gone; of the three left, one is a page where the OCR glued the headword to the first word of
+  the definition and one a phrase headword ABBYY read only the first word of. 1,412 heads changed over the book,
+  all but 34 shorter; the 34 longer are numbered sub-senses that now carry their term (`1) Богородиченъ`) instead
+  of the bare number. `hw_missing` 132 → 126, condensed lines in the facsimile 412 → 338. The printed-line
+  invariant holds (124,497 line items = 124,497 printed lines).
+
 NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.

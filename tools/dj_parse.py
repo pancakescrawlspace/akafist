@@ -52,7 +52,10 @@ definitions contain quotation marks):
                    definition and the entry has no headword at all), unconfirmed (neither witness could be
                    carried over to the entry's first line, so only A's geometry says an entry begins there),
                    eq_from_A (no separator, but A saw an "="; the head cut after as many words as ABBYY read),
-                   hw_from_A (no separator and no "=" either; the head cut the same way), empty,
+                   hw_from_A (no separator and no "=" either; the head cut the same way), sep_lost (the first
+                   separator in the text lies past where ABBYY measured the headword, so it is not this entry's:
+                   the real one was dropped by the OCR and the head was cut at ABBYY's bound instead),
+                   sep_double (the definition began with a second separator, which the OCR added), empty,
                    joined_null (a hanging paragraph that step 2 called "not an entry" was joined to this entry),
                    no_eq (A saw no "=" in the first two lines), order (headword out of alphabetical order: not in
                    the longest non-decreasing subsequence of its part), parens (unbalanced parentheses in the
@@ -350,11 +353,44 @@ def paren_balance(text):
     return depth, stray
 
 
+INNER_HYPHEN = re.compile(r'(?<=\S)-(?=\S)')
+
+
 def word_bounds(text, k):
     """(start, end) of the k-th word of `text` (single spaces after tidy; k clamped to the words there are)."""
     parts = text.split(' ')
     k = max(1, min(k, len(parts)))
     return len(' '.join(parts[:k - 1])) + (1 if k > 1 else 0), len(' '.join(parts[:k]))
+
+
+def abbyy_bound(text, abbyy):
+    """Where ABBYY's reading of the headword ends in `text` — the far end of the head, whatever the separator
+    search makes of the rest, because that reading is of the headword's own type run.
+
+    As many words as ABBYY read there (at most four: beyond that it has run into the definition), counted from
+    the first word that has letters in it, since the merged text sometimes opens with a speck the OCR read as
+    "|" or ",". A hyphen ABBYY did not read ends the head too: the print has a dash after the headword and the
+    OCR read it as a hyphen with nothing around it ("Я-первая" is "А" — "первая буква…"). The book hyphenates
+    headwords as well ("Баба-Яга", "Воспріємника-ца"), but that hyphen is inside the run ABBYY measured, so it
+    reads it; a reading that begins with a dash is one where ABBYY missed the headword, and says nothing.
+
+    -> (end, trusted). Not trusted when the bound comes out much shorter than ABBYY's own reading of the head:
+    the merged text has then split a word ABBYY read whole ("Смꙋдрствовати" as "Сму дрствовати", so one word
+    of it is three letters against ABBYY's fourteen) and the word count is not the headword's. Measured over the
+    book the ratio sits at 1.0 with a long tail upwards (D glues words more often than it splits them); below
+    0.6 lie 233 entries, 0.9 %, which are the split ones."""
+    parts = text.split(' ')
+    lead = 0
+    while lead < min(2, len(parts) - 1) and not LETTERS.search(parts[lead]):
+        lead += 1
+    n = min(4, max(1, len(abbyy.split())))
+    start = len(' '.join(parts[:lead])) + (1 if lead else 0)
+    end = len(' '.join(parts[:min(lead + n, len(parts))]))
+    if not INNER_HYPHEN.search(abbyy.lstrip('—–- ')):
+        m = INNER_HYPHEN.search(text, start, end)
+        if m:
+            end = m.start()
+    return end, (end - start) >= 0.6 * len(abbyy.strip())
 
 
 def split_entry(e):
@@ -371,14 +407,25 @@ def split_entry(e):
             e['flags'].add('errata_missed')
         e['errata_done'], e['errata_missed'] = done, missed
     h = e['hint']
-    # where to look for the separator: right after a headword read in step 2, else in the first 80 characters
+    # Where the head ends.  The head is the shorter of two bounds: up to the first separator, and as far as
+    # ABBYY measured the headword's own type run.  It can never be the longer, because that run IS the headword;
+    # where the first separator lies beyond it, the real one was lost by the OCR (D drops the "=" or reads the
+    # dash as a hyphen) and a later "(" or "=" was taken for it, which used to pull a clause of the definition
+    # into the head — the first entry of the book read `Я-первая` for `А — первая буква…`.
     hw_read = (h.get('headword') or '') if h and h.get('headword_source') else ''
-    if hw_read:
+    abbyy = (h.get('abbyy') or '').strip() if h else ''
+    hend_a, trusted = None, False                     # ABBYY's bound on the head, and whether it can be relied on
+    if hw_read:                                       # a headword read in step 2: look right after it
         lo, hi = word_bounds(text, len(hw_read.split()))
         window = (lo, min(len(text), hi + 3))
     else:
         window = (0, min(len(text), 80))
+        if abbyy:
+            hend_a, trusted = abbyy_bound(text, abbyy)
     m = SEP_RE.search(text, *window)
+    if m and trusted and m.start() > hend_a + 3:
+        m = None                                      # past ABBYY's headword: not the separator of this entry
+        e['flags'].add('sep_lost')
     # the head ends at hend, the definition starts at cut
     if m:
         sep = m.group(0).strip()
@@ -390,19 +437,26 @@ def split_entry(e):
         mm = re.match(r'\s*(=|—|–|--|-)\s*', text[hend:])
         sep, cut = (mm.group(1) if mm else ''), hend + (mm.end() if mm else 0)
         e['flags'].add('hw_cut')
-    elif h and h['abbyy']:
-        # No separator in the text: D dropped the "=" A saw, or read the dash as a hyphen, or ran the headword
-        # into the gloss.  ABBYY read the headword region of the line whatever it made of the letters, so the
-        # head is given as many words as it read there — a provisional headword like every other (grey in the
-        # rendition), rather than none at all, which would leave the lemma unheaded in the text of its own entry.
-        n = min(4, max(1, len(h['abbyy'].split())))
-        words = text.split(' ', n)
-        sep, hend = '', len(' '.join(words[:n]))
-        cut = hend + (1 if len(words) > n else 0)
+    elif hend_a is not None:
+        # No separator where one belongs.  ABBYY read the headword region of the line whatever it made of the
+        # letters, so the head is cut at its bound — a provisional headword like every other (grey in the
+        # rendition) — and a dash left over at the cut is taken as the separator.
+        hend = hend_a
+        mm = re.match(r'\s*(=|—|–|--|-)\s*', text[hend:])
+        sep, cut = (mm.group(1) if mm else ''), hend + (mm.end() if mm else 0)
         e['flags'].add('eq_from_A' if h['eq'] else 'hw_from_A')
     else:
         sep, hend, cut = '', 0, 0
         e['flags'].add('no_sep')
+    # A definition that begins with a second separator has one of the two from the OCR, not from the print:
+    # D adds a dash where the page has only "=" (p. 246 reads "Карачъ — = татарскій" for "Карачъ=татарскій").
+    # Absorb it, and keep "=" of the two, since that is the book's mark for the gloss itself.
+    if sep and sep != '(':
+        mm = re.match(r'\s*(=|—|–|--|-)\s*(?=\S)', text[cut:])
+        if mm:
+            sep = '=' if '=' in (sep, mm.group(1)) else sep
+            cut += mm.end()
+            e['flags'].add('sep_double')
     # quotation marks: the definition, then D's head text on its own (its quotes are often noise, so they must not
     # upset the definition's pairing); the flag is the definition's
     text, e['spans'], e['ispans'], e['lspans'], unbalanced = fix_quotes(text, cut, len(text), e['spans'],
