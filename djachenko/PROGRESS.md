@@ -663,22 +663,56 @@ See PLAN.md for the phases. Newest entry last.
   The witnesses now measure the levels properly, so `segmentation.tsv` could carry the level instead of just
   start/continue and the facsimile could set all of them — see the NEXT line.
 
-NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+- The headword crops remade again after the re-segmentation (4,452 strips, 131 MB, 14 workers ~33 min — the
+  machine has 16 cores and the pool is CPU-bound, so 14 is worth passing; 8 took ~100 min). Every located
+  headword is in a strip: A 24,841, B 24,836, C 24,838, D 24,838.
+
+- ⚠ OPEN DEFECT (found by the user inspecting djachenko/crops/): **the crops of B are cut from the wrong part of
+  the page, and those of C and D take in too much.** A's are good (the user's judgement and ours). Diagnosed but
+  NOT fixed — see the NEXT line.
+  1. *B: the y-flip uses the wrong page height.* `dj_witness.djvu_words` reads the page rectangle from
+     `djvused print-txt`, which is **the text layer's bounding box, not the page**: on B's p. 1 it is
+     `(page 31 21 1608 1906)`, so the code takes H = 1906 + 21 = 1927 where `djvused … size` says the page is
+     1647 × **2637**. Every word box is then flipped about the wrong axis and sits 710 px too high; the crop of
+     the first lemma shows a line from the middle of the article. The error is `2637 − (y0+y1)` and so varies
+     with how much of the page the text covers, which is why leaf 38 (the letter initial, a short first column)
+     is the worst and most pages are only somewhat wrong. B's *text* is unaffected — reading order and the vote
+     use relative positions — which is why nothing else has shown it.
+     Ripple, measured on 200 pages: with the true height the extracted text is identical on 189; the 11 that
+     differ all have a text bbox within ~60 px of the page height, where the footer zone (`y0 > 0.85 H`) moves
+     across a line. So the fix needs dj_heads step 1 re-run and the vote re-checked, not only the crops.
+  2. *C and D: the box within the line is too generous.* Their boxes come from `dj_crops.head_box`, which cuts
+     at its own HW_END or, failing that, after four words — so the crop runs into the definition. Measured over
+     the book at 600 ppi: median box width A 454 px, C 593, D 600 (~32 % wider), and boxes more than twice the
+     median width are 6.9 % in A against 23.1 % in C and 23.2 % in D. A is right because its box is ABBYY's
+     Church Slavonic type run, which is the headword itself.
+     The user's proposal, and it is the right one now that the head/definition split is fixed: take the head we
+     already have in `entries.tsv`, estimate its width from its character count against the line's own text and
+     box, and cut there — we know the line, so we know the coordinates to within a few per cent.
+
+NEXT: (1) **the crops of B, C and D** (the open defect above; the user will look at more pages meanwhile).
+  B: take the page size from `djvused -e 'select N; size'` instead of the `print-txt` rectangle in
+  `dj_witness.djvu_words`, re-run `dj_heads.py text` for all pages, check the vote did not move (dj_eval
+  --refresh against the twelve GT pages, and a diff of entries.tsv), then `dj_crops.py index` + `crops
+  --witness B --force`. C and D: cut the box from the head's character count against the line, as above, then
+  `crops --witness CD --force`. A's crops need nothing.
+
+  (2) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
-  (2) **the second indent.** The book sets the body of a numbered sense two indents in, and the facsimile sets
+  (3) **the second indent.** The book sets the body of a numbered sense two indents in, and the facsimile sets
   it at one: A's `ind_of` collapses the two levels and `dj_build` renders `min(ind, 1)` anyway. `dj_seg.py`
   already measures the true level of every line in C and D (`dj_witness.indent_levels`), so `segmentation.tsv`
   could carry it — one more column — and both `dj_abbyy.py` (which would store it as the line's `ind`) and the
   facsimile could use it. It would also give `dj_parse.py` a way to tell a numbered sense from a lemma.
 
-  (3) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
+  (4) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
   carried over to their first line, so only A's geometry says an entry begins there. They are where a spurious
   lemma can still hide (p. 21 `два евангелія…`, printed with `дка` as its provisional headword). A pass over them
   — or a third geometric witness (B's DjVu boxes are coarse but its margins are intact) — would close it.
 
-  (4) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+  (5) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
@@ -686,7 +720,7 @@ NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now 
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
 
-  (5) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+  (6) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
