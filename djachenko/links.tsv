@@ -4,7 +4,7 @@ lemma	pos	match	ids	headwords	parts
 ами́нь	interj	none			
 а́нгел	n.m	none			
 а́нгельский	adj	none			
-апо́стол	n.m	none			
+апо́стол	n.m	exact	0057-2-11	Апостолъ	main
 Арсе́ний	n.prop	none			
 арха́нгел	n.m	exact	0917-2-07	Архангелъ	supplement
 арха́нгельский	adj	none			
@@ -12,7 +12,7 @@ lemma	pos	match	ids	headwords	parts
 ба́ня	n.f	none			
 беда́	n.f	exact	0100-2-08	Бѣда	main
 без	prep	soft	0102-2-05	Бадь или безь	main
-безгла́сный	adj	none			
+безгла́сный	adj	exact	0071-2-06	Безгласный	main
 бе́здна	n.f	exact	0071-2-17	Бездна	main
 безме́здный	adj	exact	0924-2-05	Безмездный	supplement
 бесну́ющийся	part/n	none			
@@ -27,7 +27,7 @@ lemma	pos	match	ids	headwords	parts
 благодари́ти	v	none			
 благода́ть	n.f	exact	0078-1-04;0930-1-03	Благодать;Благодать	main;supplement
 благода́тный	adj	none			
-благослове́нный	adj	none			
+благослове́нный	adj	exact	0081-2-03	Благословенный	main
 бла́гость	n.f	none			
 благоутро́бный	adj	none			
 благоуха́ти	v	none			
@@ -37,7 +37,7 @@ lemma	pos	match	ids	headwords	parts
 блаже́нный	adj	exact	0083-2-13	Блаженный	main
 блужда́ти	v	none			
 бо	conj	exact	0086-1-07	Бо	main
-Бог	n.m	exact	0091-1-11;0934-1-08;0970-1-14	Бoгъ;Богъ;бог	main;supplement;supplement
+Бог	n.m	exact	0091-1-11;0091-2-03;0934-1-08	Бoгъ;Богъ;Богъ	main;main;supplement
 Богоизбра́нный	adj	none			
 Богома́ти	n.f	none			
 Богома́терний	adj	none			
@@ -57,14 +57,14 @@ lemma	pos	match	ids	headwords	parts
 быва́ти	v	none			
 бы́ти	v	exact	0946-1-05	Быти	supplement
 бы́стрый	adj	none			
-в, во	prep	exact	0121-1-07;0962-2-10;0965-2-08	Bo;Во;Во	main;supplement;supplement
+в, во	prep	exact	0119-2-08;0121-1-07;0146-1-38;0962-2-10;0965-2-08;0973-2-06	Во дни, и въ;Bo;Въ;Во;Во;Въ	main;main;main;supplement;supplement;supplement
 вдова́	n.f	exact	0105-2-18	Вдова	main
 ве́дати, ве́дети	v	none			
 век	n.m	exact	0977-1-04	Вѣкъ	supplement
 вели́кий	adj	exact	0953-1-13	Великій	supplement
 великоле́пый	adj	exact	0107-2-11	Великолепый	main
 велича́ние	n.n	exact	0108-1-07;0953-2-06	Величаніє;Величаніе	main;supplement
-велича́ти	v	none			
+велича́ти	v	exact	0953-2-07	Величати	supplement
 вели́чие	n.n	none			
 вене́ц	n.m	exact	0151-1-03	Вѣнецъ	main
 ве́ра	n.f	none			
@@ -76,10 +76,10 @@ lemma	pos	match	ids	headwords	parts
 ве́чный	adj	exact	0154-1-12	Вѣчный	main
 взира́ти	v	exact	0112-2-02	Взирати	main
 взя́ти	v	none			
-ви́дети	v	exact	0958-1-05	Видѣти	supplement
+ви́дети	v	exact	0113-2-03;0958-1-05	Видѣти;Видѣти	main;supplement
 вити́я	n.m	none			
 Влады́чица	n.f	exact	0116-2-14	Владычица	main
-власть	n.f	none			
+власть	n.f	exact	0117-1-04	Власть	main
 вмести́ти	v	none			
 вмести́лище	n.n	none			
 вожделе́нный	adj	none			
@@ -121,7 +121,7 @@ lemma	pos	match	ids	headwords	parts
 вы́шший	adj.comp	none			
 глад	n.m	exact	0982-2-04	Гладъ	supplement
 глас	n.m	exact	0160-2-11	Гласъ	main
-глубина́	n.f	none			
+глубина́	n.f	exact	0161-2-02	Глубина	main
 глубо́кий	adj	none			
 гне́вный	adj	none			
 горды́ня	n.f	none			
@@ -130,12 +130,12 @@ lemma	pos	match	ids	headwords	parts
 Госпо́день	adj	none			
 Госпожа́	n.f	none			
 гото́вый	adj	none			
-град	n.m	exact	0168-1-01;0989-2-06	Градъ;Градъ	main;supplement
+град	n.m	exact	0168-1-01;0168-1-02;0989-2-06	Градъ;Градъ;Градъ	main;main;supplement
 грех	n.m	none			
 грехо́вный	adj	none			
 гре́шный	adj/n	none			
 гро́зный	adj	none			
-да	conj/part	exact	0994-3-01	Да	supplement
+да	conj/part	exact	0994-3-01;0994-3-02	Да;Да	supplement;supplement
 да́ти, дая́ти	v	exact	0173-2-10	Дати	main
 дар	n.m	exact	0173-2-07	Даръ	main
 дарова́ти	v	none			
@@ -163,7 +163,7 @@ lemma	pos	match	ids	headwords	parts
 дре́вний	adj	none			
 дух	n.m	none			
 душе́вно	adv	none			
-душе́вный	adj	exact	1008-1-09	Душевный	supplement
+душе́вный	adj	exact	0197-1-02;1008-1-09	Душевный;Душевный	main;supplement
 душевре́дный	adj	none			
 душепа́губный	adj	exact	0197-1-06	Душепагубный	main
 душеполе́зный	adj	none			
@@ -233,7 +233,7 @@ lemma	pos	match	ids	headwords	parts
 исправле́ние	n.n	none			
 истека́ти	v	none			
 и́стинный	adj	exact	0267-1-11	Истинный	main
-источа́ти, источи́ти	v	verb	1037-1-09	Источаю	supplement
+источа́ти, источи́ти	v	verb	0267-2-21;1037-1-09	Источаю;Источаю	main;supplement
 исто́чник	n.m	exact	0267-2-22	Источникъ	main
 исхи́тити	v	none			
 исцеле́ние	n.n	none			
@@ -340,7 +340,7 @@ lemma	pos	match	ids	headwords	parts
 нече́стие	n.n	exact	0390-1-15	Нечестїе	main
 низложе́ние	n.n	none			
 ни́щий	adj/n	exact	0392-1-15	Нищій	main
-но	conj	exact	1020-2-15	Занежь и но	supplement
+но	conj	none			
 но́вый	adj	exact	1098-1-06	Новый	supplement
 новопросвеще́нный	adj	none			
 носи́ти	v	none			
@@ -353,7 +353,7 @@ lemma	pos	match	ids	headwords	parts
 оби́димый	part/n	none			
 оби́тель	n.f	none			
 облича́ти	v	verb	0401-1-19	Обличаю	main
-обличе́ние	n.n	none			
+обличе́ние	n.n	exact	0401-1-20	Обличеніе	main
 о́браз	n.m	exact	0403-2-07;1100-2-09	Образъ;Образъ	main;supplement
 обрести́	v	none			
 обстоя́ние	n.n	none			
@@ -392,7 +392,7 @@ lemma	pos	match	ids	headwords	parts
 отча́янный	adj/n	exact	1114-1-12	Отчаянный	supplement
 очище́ние	n.n	none			
 паде́ние	n.n	exact	0440-1-12	Паденіє	main
-пала́та	n.f	none			
+пала́та	n.f	exact	0441-1-14	Палата	main
 па́мятовати	v	none			
 паучи́на	n.f	none			
 пе́ти	v	none			
@@ -407,7 +407,7 @@ lemma	pos	match	ids	headwords	parts
 плод	n.m	exact	0469-2-18;1120-2-13	Плодъ;Плодъ	main;supplement
 плодоно́сие	n.n	none			
 плоть	n.f	none			
-по	prep	exact	1058-1-06	По	supplement
+по	prep	exact	0495-1-15;1058-1-06	По роду и по;По	main;supplement
 победи́ти	v	none			
 побе́дный	adj/n	none			
 пове́дати	v	none			
@@ -447,7 +447,7 @@ lemma	pos	match	ids	headwords	parts
 предваря́ти	v	none			
 Предве́чный	adj	none			
 предгра́дие	n.n	none			
-предста́тель	n.m	none			
+предста́тель	n.m	soft	0519-2-20	Предстател	main
 Предста́тельница	n.f	none			
 предста́тельство	n.n	none			
 предстоя́ти	v	none			
@@ -491,14 +491,14 @@ lemma	pos	match	ids	headwords	parts
 просвеще́ние	n.n	none			
 просла́вити, прославля́ти	v	exact	0551-2-09	Прославити	main
 простре́ти	v	none			
-проси́ти	v	none			
+проси́ти	v	exact	1132-1-09	Просити	supplement
 проше́ние	n.n	exact	0557-1-22	Прошеніе	main
 Путеводи́тельница	n.f	none			
 путь	n.m	exact	0563-1-15;0563-2-02;0564-1-02	Путь;Путь;Путь	main;main;main
 раб, раба́	n	exact	0570-3-02;0570-4-02;1137-2-02	Ралкъ или рабъ;Раба;Рабъ	main;main;supplement
 ра́ди	postp	exact	0572-2-06	Ради	main
 ра́дование	n.n	exact	0572-2-07	Радованіє	main
-ра́дость	n.f	exact	1134-3-05	Радость	supplement
+ра́дость	n.f	exact	1134-3-03	Радость	supplement
 ра́достно	adv	exact	0573-1-02	Радостно	main
 ра́доватися	v	exact	0572-2-09	Радоватися	main
 ра́зве	prep/conj	none			
@@ -527,7 +527,7 @@ lemma	pos	match	ids	headwords	parts
 рыда́ти	v	none			
 с, со	prep	exact	0689-1-07;0728-1-14;1033-2-14	C;C;Ико или со	main;main;supplement
 сад	n.m	none			
-сам	pron	exact	0609-2-12;0906-1-09	Самъ;Самъ	main;supplement
+сам	pron	exact	0609-2-12	Самъ	main
 сбытие́	n.n	none			
 свеи	n.pl	none			
 свети́льник	n.m	none			
@@ -551,7 +551,7 @@ lemma	pos	match	ids	headwords	parts
 си́льный	adj	none			
 сирота́	n.f/m	none			
 си́рый	adj/n	none			
-си́це	adv	none			
+си́це	adv	exact	0639-1-02	Сице	main
 ско́рый	adj	none			
 скорбь	n.f	none			
 ско́рбный	adj	none			
@@ -562,7 +562,7 @@ lemma	pos	match	ids	headwords	parts
 слеза́	n.f	none			
 сле́зно	adv	none			
 слепы́й	adj/n	none			
-Сло́во	n.n	exact	0654-1-02	Слово и дѣло	main
+Сло́во	n.n	exact	0654-1-02;0944-1-05	Слово и дѣло;слово	main;supplement
 слу́шати	v	verb	0656-2-02	СЛУшАю	main
 слы́шати	v	none			
 слы́шание	n.n	exact	0657-1-03	Слышаніє	main
@@ -594,7 +594,7 @@ lemma	pos	match	ids	headwords	parts
 спосо́бствовати	v	verb	0688-1-12	Способствую	main
 спребыва́ти	v	none			
 сравне́ние	n.n	none			
-ста́рец	n.m	none			
+ста́рец	n.m	exact	0696-1-04	Старецъ	main
 стена́	n.f	exact	0718-1-14	Стена	main
 сто́льный	adj	exact	1146-2-03	Стольный	supplement
 страна́	n.f	exact	0707-1-02	Страна	main
@@ -607,7 +607,7 @@ lemma	pos	match	ids	headwords	parts
 сумни́тельный	adj	none			
 супоста́т	n.m	exact	0727-2-10	Супостатъ	main
 Сын	n.m	exact	0733-2-03	Cын	main
-той, та	pron	none			
+той, та	pron	exact	0769-2-09	Тои	main
 та́йна	n.f	none			
 таковы́й	pron/adj	none			
 та́мо	adv	none			
@@ -698,7 +698,7 @@ lemma	pos	match	ids	headwords	parts
 явле́ние	n.n	none			
 явля́ти	v	none			
 я́зва	n.f	none			
-язы́к	n.m	none			
+язы́к	n.m	exact	0886-2-11	Языкъ	main
 я́ко	conj	none			
 я́коже	conj	none			
 он, она, они	pron	exact	1034-1-02	Иліополь или Онъ	supplement

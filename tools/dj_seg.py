@@ -145,21 +145,36 @@ def flush_level(levels, a_starts):
     itself: a column may show both levels, or only the hanging one (it lies inside one long article), or only the
     flush one (a column of one-line entries), and a speck read as a word can push a flush line below the level.
 
-    A settles it.  Its segmentation is right on ~99 % of the lines, and this is one yes/no per column decided by
-    ~50 of them, so the majority is safe even on the cut-margin pages, where A guesses and is right on ~81 %.
+    A settles it, within the constraint above.  Its segmentation is right on ~99 % of the lines, and this is one
+    yes/no per column decided by ~50 of them, so the majority is safe even on the cut-margin pages, where A
+    guesses and is right on ~81 %.
     -> the level at or below which a line is flush, or None when A and the witness do not agree well enough to
     tell (F1 under 0.5); flush levels are compared as "level <= f".
     """
     if not levels:
         return None
+    n0 = sum(1 for lv, _ in levels.values() if lv == 0)
+    # The lowest level a column shows is its flush edge unless only a speck or two sit there: the indent is a
+    # constant of the book, and nothing in the body is set a whole indent to the LEFT of where the entries begin.
+    # The guard matters where a column carries numbered senses, whose bodies take a second indent (p. 53
+    # `Богородичны`): there A's own indent estimate is stretched by that deeper level and it calls the ordinary
+    # hanging lines flush, so A cannot break the tie — it makes the same mistake.
+    allowed = (-1, 0, 1) if n0 <= max(2, 0.05 * len(levels)) else (-1, 0)
     best = None
-    for f in (-1, 0, 1):
+    for f in allowed:
         pred = {b for b, (lv, _) in levels.items() if lv <= f}
         hit = len(pred & a_starts)
         f1 = 2 * hit / (len(pred) + len(a_starts)) if (pred or a_starts) else 1.0
         if best is None or f1 > best[0]:
-            best = (f1, f)
-    return best[1] if best[0] >= 0.5 else None
+            best = (f1, f, pred, hit)
+    _, f, pred, hit = best
+    # Accept on PRECISION, not on agreement: the lines the witness calls flush must be starts in A, but A may
+    # well have starts the witness does not — that is the correction this file exists to make, and on a page of
+    # numbered senses it is most of the column. Low precision instead means the levels or the alignment are
+    # wrong, and then the side is left to A.
+    if not pred:
+        return f if not a_starts else None          # "no entry begins in this column" needs A to agree
+    return f if (hit / len(pred) >= 0.5 if len(pred) >= 3 else hit == len(pred)) else None
 
 
 def verdicts(pg, side, name):

@@ -89,7 +89,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 87	50	main	2	111	23	22	22	24	0	1	
 88	51	main	2	105	42	41	40	43	0	0	side a: margin cut off in the scan (9 lines at the image edge); entry starts from position and text features
 89	52	main	2	109	37	36	35	37	0	0	
-90	53	main	2	110	50	50	26	27	0	7	
+90	53	main	2	110	30	29	23	27	0	7	
 91	54	main	2	112	28	27	25	30	0	0	side b: right margin cut off in the scan (33 lines end at the image edge); line ends of the right column missing
 92	55	main	2	112	26	24	20	24	0	4	
 93	56	main	2	110	38	37	32	37	0	0	
@@ -355,7 +355,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 353	316	main	2	113	22	20	17	18	0	0	
 354	317	main	2	113	22	21	19	19	0	4	
 355	318	main	2	112	37	36	30	32	0	0	
-356	319	main	2	109	37	36	33	36	0	0	
+356	319	main	2	109	36	35	32	36	0	0	
 357	320	main	2	112	33	32	30	31	0	4	
 358	321	main	2	111	26	25	23	24	0	3	side a: margin cut off in the scan (7 lines at the image edge); entry starts from position and text features
 359	322	main	2	112	29	27	26	27	0	2	side b: right margin cut off in the scan (34 lines end at the image edge); line ends of the right column missing
@@ -506,7 +506,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 504	467	main	2	113	32	31	28	28	0	0	
 505	468	main	2	111	22	20	17	17	0	1	side b: right margin cut off in the scan (26 lines end at the image edge); line ends of the right column missing
 506	469	main	2	110	36	35	32	33	0	1	side a: margin cut off in the scan (13 lines at the image edge); entry starts from position and text features
-507	470	main	2	110	37	36	36	38	0	4	side b: right margin cut off in the scan (33 lines end at the image edge); line ends of the right column missing
+507	470	main	2	110	36	35	35	38	0	4	side b: right margin cut off in the scan (33 lines end at the image edge); line ends of the right column missing
 508	471	main	2	113	28	27	26	28	0	6	side a: margin cut off in the scan (5 lines at the image edge); entry starts from position and text features
 509	472	main	2	108	28	27	22	27	0	0	
 510	473	main	2	113	21	19	17	17	0	5	
@@ -905,7 +905,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 903	866	supplement	2	114	22	20	16	21	0	2	side b: right margin cut off in the scan (29 lines end at the image edge); line ends of the right column missing
 904	867	supplement	2	114	16	15	13	14	0	0	side a: margin cut off in the scan (41 lines at the image edge); entry starts from position and text features
 905	868	supplement	2	114	15	14	13	13	0	4	side b: right margin cut off in the scan (44 lines end at the image edge); line ends of the right column missing
-906	869	supplement	2	116	17	15	7	7	0	1	side a: margin cut off in the scan (34 lines at the image edge); entry starts from position and text features
+906	869	supplement	2	116	9	7	6	7	0	1	side a: margin cut off in the scan (34 lines at the image edge); entry starts from position and text features
 907	870	supplement	2	113	12	10	8	8	0	0	side b: right margin cut off in the scan (51 lines end at the image edge); line ends of the right column missing
 908	871	supplement	2	115	11	9	6	8	0	4	side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features
 909	872	supplement	2	115	16	14	11	13	0	5	
@@ -969,7 +969,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 967	930	supplement	2	112	22	20	20	20	0	0	side b: right margin cut off in the scan (49 lines end at the image edge); line ends of the right column missing
 968	931	supplement	2	111	19	17	16	16	0	0	side a: margin cut off in the scan (48 lines at the image edge); entry starts from position and text features
 969	932	supplement	2	114	22	21	19	20	0	12	side b: right margin cut off in the scan (41 lines end at the image edge); line ends of the right column missing
-970	933	supplement	2	114	26	25	16	19	0	4	side a: margin cut off in the scan (46 lines at the image edge); entry starts from position and text features
+970	933	supplement	2	114	18	16	15	19	0	4	side a: margin cut off in the scan (46 lines at the image edge); entry starts from position and text features
 971	934	supplement	2	116	21	19	19	26	0	0	side b: right margin cut off in the scan (44 lines end at the image edge); line ends of the right column missing
 972	935	supplement	2	111	31	31	31	31	0	0	side a: margin cut off in the scan (16 lines at the image edge); entry starts from position and text features
 973	936	supplement	2	115	42	41	38	39	0	0	side b: right margin cut off in the scan (35 lines end at the image edge); line ends of the right column missing
@@ -1079,7 +1079,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 1077	1040	supplement	4	104	28	27	24	25	1	5	side b: right margin cut off in the scan (40 lines end at the image edge); line ends of the right column missing
 1078	1041	supplement	2	115	15	13	11	11	0	1	side a: margin cut off in the scan (48 lines at the image edge); entry starts from position and text features
 1079	1042	supplement	2	116	13	13	11	11	0	6	side b: right margin cut off in the scan (45 lines end at the image edge); line ends of the right column missing
-1080	1043	supplement	2	113	20	19	11	13	0	2	side a: margin cut off in the scan (42 lines at the image edge); entry starts from position and text features
+1080	1043	supplement	2	113	17	15	11	13	0	2	side a: margin cut off in the scan (42 lines at the image edge); entry starts from position and text features
 1081	1044	supplement	2	114	22	20	18	19	0	0	side b: right margin cut off in the scan (30 lines end at the image edge); line ends of the right column missing
 1082	1045	supplement	2	112	20	18	16	19	0	0	side a: margin cut off in the scan (46 lines at the image edge); entry starts from position and text features
 1083	1046	supplement	2	112	35	33	33	37	0	10	side b: right margin cut off in the scan (37 lines end at the image edge); line ends of the right column missing
@@ -1098,7 +1098,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 1096	1059	supplement	2	110	41	39	36	38	0	0	side a: margin cut off in the scan (45 lines at the image edge); entry starts from position and text features
 1097	1060	supplement	2	115	23	21	19	20	0	8	side b: right margin cut off in the scan (42 lines end at the image edge); line ends of the right column missing
 1098	1061	supplement	2	111	22	21	14	16	0	1	side a: margin cut off in the scan (43 lines at the image edge); entry starts from position and text features
-1099	1062	supplement	4	103	31	31	26	29	1	5	side b: right margin cut off in the scan (35 lines end at the image edge); line ends of the right column missing
+1099	1062	supplement	4	103	18	18	15	29	1	5	side b: right margin cut off in the scan (35 lines end at the image edge); line ends of the right column missing
 1100	1063	supplement	2	112	28	26	22	24	0	6	side a: margin cut off in the scan (35 lines at the image edge); entry starts from position and text features
 1101	1064	supplement	2	112	14	12	11	11	0	8	side b: no flush line (edge from prior); side b: right margin cut off in the scan (47 lines end at the image edge); line ends of the right column missing
 1102	1065	supplement	2	112	26	25	24	25	0	0	side a: margin cut off in the scan (13 lines at the image edge); entry starts from position and text features
@@ -1133,7 +1133,7 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 1131	1094	supplement	2	112	34	33	30	31	0	5	side b: right margin cut off in the scan (26 lines end at the image edge); line ends of the right column missing
 1132	1095	supplement	2	113	29	28	25	27	0	0	side a: margin cut off in the scan (50 lines at the image edge); entry starts from position and text features
 1133	1096	supplement	2	114	27	25	22	25	0	2	side b: right margin cut off in the scan (41 lines end at the image edge); line ends of the right column missing
-1134	1097	supplement	4	106	57	55	14	15	1	4	side a: margin cut off in the scan (36 lines at the image edge); entry starts from position and text features
+1134	1097	supplement	4	106	18	15	12	15	1	4	side a: margin cut off in the scan (36 lines at the image edge); entry starts from position and text features
 1135	1098	supplement	2	114	18	16	13	14	0	0	side b: right margin cut off in the scan (42 lines end at the image edge); line ends of the right column missing
 1136	1099	supplement	2	114	31	29	26	28	0	0	side a: margin cut off in the scan (31 lines at the image edge); entry starts from position and text features
 1137	1100	supplement	2	113	27	26	24	27	0	0	side b: right margin cut off in the scan (41 lines end at the image edge); line ends of the right column missing
@@ -1156,5 +1156,5 @@ idx	printed_page	section	columns	lines	paragraphs	hints	hints_eq	eq_signs	headin
 1154	1117	supplement	4	96	22	19	15	15	1	12	side a: margin cut off in the scan (29 lines at the image edge); entry starts from position and text features
 1155	1118	supplement	4	92	18	16	12	12	2	4	
 1156	1119	supplement	6	95	31	29	25	25	2	0	side a: margin cut off in the scan (11 lines at the image edge); entry starts from position and text features
-1157	1120	supplement	5	66	39	37	15	18	3	7	side b: right margin cut off in the scan (21 lines end at the image edge); line ends of the right column missing
+1157	1120	supplement	5	66	18	16	15	18	3	7	side b: right margin cut off in the scan (21 lines end at the image edge); line ends of the right column missing
 1158		back	0	0	0	0	0	0	1	0	

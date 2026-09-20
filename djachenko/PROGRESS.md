@@ -634,16 +634,51 @@ See PLAN.md for the phases. Newest entry last.
   of the bare number. `hw_missing` 132 → 126, condensed lines in the facsimile 412 → 338. The printed-line
   invariant holds (124,497 line items = 124,497 printed lines).
 
+- The flush level on a column with numbered senses (session 6, same day; found while answering the user's
+  question about `1) Богородиченъ` on p. 53, and fixed with the user's own observation that the indent is a
+  constant of the book). The book sets a numbered sense as its own paragraph, one indent in, with its body a
+  *second* indent in, so such a column has three levels, not two — 2,613 of the 4,480 column sides have three
+  or more. `dj_seg.flush_level` chose which level is flush by agreement with A, and on those columns A is wrong
+  in the same way (its own indent estimate is stretched by the deeper level, so it calls the ordinary hanging
+  lines flush) and could not break the tie: `Богородичны = пѣснопѣнія въ честь Бо|жіей Матери` was cut in half
+  mid-word and each of the seven numbered senses became an entry of its own, printed with its term in Church
+  Slavonic type as though it were a lemma — which, as the user pointed out, it is not: the print has it in
+  italic civil type.
+
+  Two changes, both following from the indent being constant:
+  1. The lowest level a column shows is its flush edge unless only a speck or two sit there (`n0 <= max(2, 5 %)`),
+     since nothing in the body is set a whole indent to the LEFT of where the entries begin. A may then choose
+     only between "the lowest level is flush" and "nothing in this column is".
+  2. The verdict is accepted on **precision**, not on agreement: the lines the witness calls flush must be starts
+     in A, but A may have starts the witness does not — that is the correction the file exists to make, and on a
+     page of numbered senses it is most of the column. Low precision instead means the levels or the alignment
+     are wrong, and the side is left to A. (The old F1 ≥ 0.5 test could not tell "A is wrong" from "the mapping
+     is broken", and abstained on exactly the pages that needed correcting.)
+  118 printed lines changed their verdict; **24,959 → 24,841 entries**; the pipeline reaches its fixed point
+  again in one pass. p. 53 is now one `Богородичны` article with its senses inside it and `Божіей` joined across
+  the line break. The ground-truth head measurement is unchanged by this (1.2 % failures), and the printed-line
+  invariant holds.
+  Not done: the facsimile still sets that second indent at the first one — A's `ind_of` collapses levels 1 and 2
+  (its threshold is `indent + 110` px, and the second indent is 186 px), and `dj_build` renders `min(ind, 1)`.
+  The witnesses now measure the levels properly, so `segmentation.tsv` could carry the level instead of just
+  start/continue and the facsimile could set all of them — see the NEXT line.
+
 NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
-  (2) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
+  (2) **the second indent.** The book sets the body of a numbered sense two indents in, and the facsimile sets
+  it at one: A's `ind_of` collapses the two levels and `dj_build` renders `min(ind, 1)` anyway. `dj_seg.py`
+  already measures the true level of every line in C and D (`dj_witness.indent_levels`), so `segmentation.tsv`
+  could carry it — one more column — and both `dj_abbyy.py` (which would store it as the line's `ind`) and the
+  facsimile could use it. It would also give `dj_parse.py` a way to tell a numbered sense from a lemma.
+
+  (3) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
   carried over to their first line, so only A's geometry says an entry begins there. They are where a spurious
   lemma can still hide (p. 21 `два евангелія…`, printed with `дка` as its provisional headword). A pass over them
   — or a third geometric witness (B's DjVu boxes are coarse but its margins are intact) — would close it.
 
-  (3) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+  (4) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
@@ -651,7 +686,7 @@ NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now 
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
 
-  (4) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+  (5) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
