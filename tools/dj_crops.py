@@ -16,7 +16,9 @@ then a crop of the strip, with no need for the scans:
 
 Where the boxes come from:
     A  the Church Slavonic type run that ABBYY marks at the start of the entry (`entries_hint[].bbox`), which is
-       the headword itself — the same box Phase 3b step 2 crops from.
+       the headword itself — the same box Phase 3b step 2 crops from — with its left edge pulled out to the
+       column's flush edge, since ABBYY's box begins at the first character it managed to read and the headword
+       begins at the flush edge (it matters on the entries only witnesses C and D could see: PLAN.md Rev. 7).
     D  the entry's first line in D (`paragraphs[].d_line`, written by dj_heads step 1), cut at the "=" when the
        separator stands on that line, else the first four words.
     B, C  the same, after aligning that witness's column text to A's (dj_witness.align, as in dj_heads.merge):
@@ -125,8 +127,22 @@ def boxes_for(leaf, pg, witness):
     """-> {(col, para): (box at PDF_DPI-equivalent px, how)} for one witness."""
     out = {}
     if witness == 'A':
+        # ABBYY's box starts at the first character it read, which on a stained or cut line is not where the
+        # headword starts — and on the entries the witnesses added (PLAN Rev. 7, flag `seg`) it is a median
+        # 205 px too far right, so the crop would show the middle of the line instead of the lemma. A headword
+        # begins at the column's flush edge by definition, so the box is extended there (deskewed on the rule,
+        # clamped at the image edge, which is where a cut left margin puts it).
+        rule = pg.get('rule')
+        edge = {}
+        for col in pg['columns']:
+            edge[col['n']] = (col['flush'], col['bbox'])
         for h in pg['entries_hint']:
-            out[(h['col'], h['para'])] = (tuple(h['bbox']), 'abbyy')
+            x0, y0, x1, y1 = h['bbox']
+            e = edge.get(h['col'])
+            if e:
+                gx = (rule[0] + rule[1] * (y0 + y1) / 2) if rule else 0
+                x0 = max(0, min(x0, round(gx + e[0])))
+            out[(h['col'], h['para'])] = ((x0, y0, x1, y1), 'abbyy')
         return out
     r = page_text(witness, leaf)
     # C and D are read in PDF points, B in DjVu pixels; the index keeps 600 ppi pixels for C and D

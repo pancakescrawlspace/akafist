@@ -581,21 +581,31 @@ See PLAN.md for the phases. Newest entry last.
 - Written up: PLAN.md Rev. 7 (Phase 3a, 3b step 1c, 3b resume, Phase 6), README.md (the Mermaid diagram, the
   tools and files tables, the rebuild recipe), this file.
 
-NEXT: (1) **the headword crops are stale.** `crops/<W>/NNNN.png` were cut from the old `headwords.tsv`, whose
-  entry ids the re-segmentation changed; the index is rebuilt but the images are not (they are git-ignored).
-  Run `python3 tools/dj_crops.py crops` (~30 min) before Phase 3b step 2, or `dj_heads.py crops` will read the
-  wrong strips.
+- The headword crops remade (session 6, same day): `dj_crops.py index` + `crops --force` over all four witnesses
+  (4,452 strips, 132 MB, 8 workers, ~100 min; the machine has 16 cores and the pool is CPU-bound at ~99 % a
+  worker, so `--workers 14` would cut that by about 40 % — worth passing on the long runs). Every located
+  headword is now in a strip: A 24,959, B 24,954, C 24,956, D 24,956 (was 99 %).
+  Checking the result against `Аполинъ` — an entry that exists only because of the re-segmentation — found a
+  defect in the crops themselves: **witness A's box came from ABBYY's own reading**, so it began at the first
+  character ABBYY managed to read. On the 235 entries only C and D could see, that is a median 205 px right of
+  the column edge (over 300 px on a third of them), against 0 px for every other entry, so A's crop showed the
+  middle of the line instead of the lemma — on exactly the entries a reading will most need a second opinion
+  about. A headword begins at the column's flush edge by definition, so `dj_crops.boxes_for` now extends
+  A's box out to it (deskewed on the page rule, clamped at the image edge, which is where a cut left margin puts
+  it). Re-indexed and A's 1,113 strips rebuilt; the crop of p. 20 now reads `Аполинъ — имя, встрѣтившееся`
+  (faint under the patch, but legible) and `Апокрифы, т. е. книги` instead of ABBYY's `4 фтг книги`.
+  `dj_seg.py --jobs` renamed `--workers`, as everywhere else in tools/.
 
-  (2) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
-  (3) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
+  (2) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
   carried over to their first line, so only A's geometry says an entry begins there. They are where a spurious
   lemma can still hide (p. 21 `два евангелія…`, printed with `дка` as its provisional headword). A pass over them
   — or a third geometric witness (B's DjVu boxes are coarse but its margins are intact) — would close it.
 
-  (4) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+  (3) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
@@ -603,12 +613,19 @@ NEXT: (1) **the headword crops are stale.** `crops/<W>/NNNN.png` were cut from t
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
 
-  (5) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+  (4) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
       misread; then `read --batch` for the rest (records batch ids; `collect` later, resumable), then `check`.
   (B) By hand: `sheet LEAF` → read → `enter LEAF FILE`, ~15 entries a sheet, in batches with commits.
+
+  The crops are current (all four witnesses, 2026-09-21). Checked while fixing the index: step 2 does **not**
+  need the same correction — `dj_heads.crop_boxes` cuts its own crops from A's image and already starts them at
+  `min(the line's box, the column's bbox)`, i.e. at the column edge (x = 250 on leaf 57, for `Апокрифы` and
+  `Аполинъ` alike). The two crops differ on purpose: dj_heads crops the *start of the line* for reading, the
+  index crops the *headword box* for comparing one lemma across the four copies, and it was only the latter that
+  took ABBYY's word for where the headword began.
 
   Note: djachenko.pdf and facsimile.pdf are git-ignored; both rebuilt 2026-09-21 from the current entries.tsv
   (flowing: 4 min; facsimile: 1,120 pages, 15 s). Rebuild after any change to entries.tsv.
