@@ -8,11 +8,16 @@
     python3 tools/dj_inspect.py find 45 барсукъ --in D --zoom 2 --lines 1
     python3 tools/dj_inspect.py gtcheck                  # sanity checks of djachenko/eval/gt/*.txt
     python3 tools/dj_inspect.py segcheck                 # likely false / missed entry starts in ocr/*.json
+    python3 tools/dj_inspect.py linecheck [--pages 38-1157] [--out lines.tsv]   # do B, C, A break their lines
+                                                         # where D does? (are the witnesses one setting)
 
 Images are written to djachenko/inspect/ (git-ignored); the path is printed. LEAF is always the leaf number of scan
 A (printed page = leaf − 37). Witnesses: A = scan A (600 ppi JP2), B = 1993 reprint (DjVu), C = Indiana PDFs,
 D = Cornell PDF (see djachenko/COPIES.md). `find` locates words through each witness's own text layer (ABBYY for A,
 the DjVu text for B, Google's for C and D), so it finds what that OCR read; give several spellings if needed.
+`linecheck` (session 5) aligns every printed line start of A (ocr/*.json), B and C onto witness D's text and counts
+how many fall on a line start of D: identical typesetting gives ~100 %, a reset page ~0 %. Result 2026-09-20 over
+all 1,119 pages: B 99.8 %, C 99.7 %, A 99.5 % on the sides whose margin is intact — one setting (COPIES.md).
 """
 import argparse, glob, html, json, re, statistics, subprocess, sys, unicodedata
 from pathlib import Path
@@ -150,7 +155,7 @@ def words_D(leaf):
 
 def words_C(leaf):
     p = leaf - OFFSET
-    return pdf_page_words(*((INDIANA[0], p + 46) if p <= 572 else (INDIANA[1], p - 558)))
+    return pdf_page_words(*((INDIANA[0], p + 46) if p <= 566 else (INDIANA[1], p - 558)))
 
 
 def words_B(leaf):
@@ -289,6 +294,99 @@ def cmd_segcheck(a):
                     print(f'{pg["idx"]} false? | {prev["text"][-20:]} | {t[:50]}')
 
 
+def linecheck_page(leaf):
+    """-> rows (leaf, page, side, witness, n_x, n_d, x line starts on a D line start, D line starts hit) for A, B
+    and C against D, per column side; -1 where a witness could not be read."""
+    import bisect
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from dj_witness import HYPHENS, align, norm_seq, page_of, page_text, side_texts
+    pg = load(leaf)
+    if pg['section'] not in ('main', 'supplement'):
+        return []
+    A = {}
+    for side in 'ab':                                   # A's lines joined as side_texts joins the others'
+        text, spans = '', []
+        for c in pg['columns']:
+            if c['side'] != side:
+                continue
+            for p in c['paragraphs']:
+                for ln in p['lines']:
+                    t = ln['text'].replace('\ufffc', '').strip()
+                    if not t:
+                        continue
+                    if text.endswith(HYPHENS) and not text.endswith(' -'):
+                        text = text[:-1]
+                    elif text:
+                        text += ' '
+                    spans.append(dict(start=len(text)))
+                    text += t
+        A[side] = dict(text=text, lines=spans)
+    W = {'A': A}
+    for name in 'BCD':
+        try:
+            W[name] = side_texts(page_text(name, leaf))
+        except Exception:                                 # noqa: BLE001 — a page a witness lacks
+            W[name] = None
+    rows = []
+    for side in 'ab':
+        d = W['D'][side] if W['D'] else None
+        for name in 'ABC':
+            x = W[name][side] if W[name] else None
+            if x is None or d is None or not x['lines'] or not d['lines']:
+                rows.append((leaf, page_of(leaf), side, name, -1, -1, 0, 0))
+                continue
+            xs = [l['start'] for l in x['lines']]
+            ds = sorted(l['start'] for l in d['lines'])
+            xseq, xidx = norm_seq(x['text'])
+            dseq, didx = norm_seq(d['text'])
+            if not xseq or not dseq:
+                rows.append((leaf, page_of(leaf), side, name, len(xs), len(ds), 0, 0))
+                continue
+            _, _, j_at = align(xseq, dseq)
+            hit_x, hit_d = 0, set()
+            for st in xs:
+                i = bisect.bisect_left(xidx, st)
+                if i >= len(xseq):
+                    continue
+                j = j_at[i]
+                raw = didx[j] if j < len(dseq) else len(d['text'])
+                k = bisect.bisect_left(ds, raw)
+                near = [ls for ls in ds[max(0, k - 1):k + 1] if abs(ls - raw) <= 2]
+                if near:
+                    hit_x += 1
+                    hit_d.add(min(near, key=lambda ls: abs(ls - raw)))
+            rows.append((leaf, page_of(leaf), side, name, len(xs), len(ds), hit_x, len(hit_d)))
+    return rows
+
+
+def cmd_linecheck(a):
+    """Are the four witnesses one typesetting? Per page and column side, the line starts of A, B and C carried onto
+    D's text by alignment and checked against D's line starts (tolerance 2 characters). Writes a TSV and prints the
+    totals; the residue is OCR (D splits a lone "=" or a tall headword off, A adds speck lines, B's text layer drops
+    the last lines of some pages and lets guide words in, A's cut margins hide the first letters)."""
+    import csv
+    from multiprocessing import Pool
+    leaves = []
+    for part in a.pages.split(','):
+        lo, _, hi = part.partition('-')
+        leaves.extend(range(int(lo), int(hi or lo) + 1))
+    out = Path(a.out)
+    with Pool(a.workers) as pool, open(out, 'w', newline='') as f:
+        w = csv.writer(f, delimiter='\t')
+        w.writerow(['leaf', 'page', 'side', 'wit', 'n_x', 'n_d', 'hit_x', 'hit_d'])
+        rows = []
+        for part in pool.imap(linecheck_page, leaves, chunksize=2):
+            w.writerows(part)
+            rows.extend(part)
+    for wit in 'ABC':
+        sel = [r for r in rows if r[3] == wit and r[4] > 0 and r[5] > 0]
+        nx, nd, hx, hd = (sum(r[i] for r in sel) for i in (4, 5, 6, 7))
+        low = sum(1 for r in sel if min(r[6] / r[4], r[7] / r[5]) < 0.8)
+        print(f'{wit} vs D: {nx} lines against {nd}; {hx / nx:.2%} of {wit}\'s line starts fall on a D line start, '
+              f'{hd / nd:.2%} of D\'s are hit; {low} sides below 80 %')
+    print(f'written: {out}')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     sub = ap.add_subparsers(dest='cmd', required=True)
@@ -310,9 +408,13 @@ def main():
     s = sub.add_parser('gtcheck')
     s.add_argument('files', nargs='*')
     sub.add_parser('segcheck')
+    s = sub.add_parser('linecheck')
+    s.add_argument('--pages', default='38-1157', help='leaves, e.g. 38-1157 or 45,150,341')
+    s.add_argument('--out', default=str(DJ / 'eval' / 'linecheck.tsv'))
+    s.add_argument('--workers', type=int, default=8)
     a = ap.parse_args()
     {'dump': cmd_dump, 'overlay': cmd_overlay, 'lines': cmd_lines, 'find': cmd_find, 'gtcheck': cmd_gtcheck,
-     'segcheck': cmd_segcheck}[a.cmd](a)
+     'segcheck': cmd_segcheck, 'linecheck': cmd_linecheck}[a.cmd](a)
 
 
 if __name__ == '__main__':

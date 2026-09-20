@@ -9,7 +9,8 @@ dj_eval.py (Phase 2) and dj_heads.py (Phase 3b) both use. Not a command; import 
 
 Everything is addressed by the LEAF number of scan A; printed page = leaf - 37. Page mapping into the witnesses
 (checked over the whole book, session 3): D's PDF page = printed page + 48; B's DjVu page = printed page; C: volume 1
-page = p + 46 up to p. 572, then volume 2 page = p - 558.
+page = p + 46 up to p. 566, then volume 2 page = p - 558 (both volumes print p. 567 — v1's last page, whose text layer
+is truncated, and v2's page 9, which reads fully — so p. 567 is taken from v2).
 
 `reading_order(words, W, H)` rebuilds the body text of a page from word boxes: gutter, header and footer removed,
 bands (a letter initial splits the page), left column before right, lines joined with hyphenation repaired. It returns
@@ -48,7 +49,7 @@ def b_page(leaf):
 
 def c_page(leaf):
     p = page_of(leaf)
-    return (INDIANA[0], p + 46) if p <= 572 else (INDIANA[1], p - 558)
+    return (INDIANA[0], p + 46) if p <= 566 else (INDIANA[1], p - 558)
 
 
 # ---------------------------------------------------------------- word boxes of B, C, D

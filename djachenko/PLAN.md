@@ -16,6 +16,11 @@ definition text and the Greek come from witness D's text layer (Google, Cornell 
 pages); the headwords are read from crops by a vision model (25/25 on a test page, against ~48 % for any OCR). Scan A
 also lacks the *right* margin on 313 right-hand pages, so half the pages are incomplete in A. Phase 3b rewritten
 (marked "Rev. 5").
+Revision 6 (2026-09-20, session 5): Phase 6 gets a second target, a **line-for-line facsimile** — every printed
+line, column and page of the rendition the same as in the book. Its two preconditions were checked: the four
+witnesses are one typesetting (verified line for line over the whole book, `dj_inspect.py linecheck`, COPIES.md),
+and the line structure is in the repository (`ocr/*.json`); what is missing is the mapping of the voted text onto
+the lines, and the type is bigger than the 10 pt now used. Phase 6 amended (marked "Rev. 6").
 
 This plan is written to be executed over several sessions. Every phase has a *Definition of done* and a *Resume*
 paragraph; all state lives in files under `djachenko/` so that a new session can read `PROGRESS.md`, the manifest and
@@ -81,7 +86,8 @@ tools/
   dj_witness.py    shared: witness word boxes and page mapping, reading order, normalisation, alignment (exists)
   dj_eval.py       Phase 2: CER of the OCR candidates against the ground truth, per zone; triangulation (exists)
   dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
-                   sanity checks of the ground truth and of the entry starts (exists)
+                   sanity checks of the ground truth and of the entry starts; `linecheck` — do the witnesses break
+                   their lines alike (Rev. 6; result in eval/linecheck.tsv) (exists)
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv + FLAGS.md (exists; headwords provisional until step 2 runs)
   dj_link.py       Phase 5: cross-reference entries.tsv with akathist/dictionary/dictionary.psv lemmas → links.tsv (exists)
   dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst), in the original's layout (exists)
@@ -321,7 +327,57 @@ Front matter to include: title, bibliographic note, what "checked/unchecked" mea
 Phase 0.2, and Дьяченко's own list of abbreviations (transcribed from the front matter as part of Phase 3;
 Rev. 3: pp. XXIX–XXXIII = leaves 27–31, already in ocr/ as two-column text with hanging indents).
 
-*Definition of done:* `djachenko.pdf` builds cleanly from `entries.tsv`; README updated; committed.
+**Rev. 6 — the facsimile target (decided 2026-09-20; not yet built).** Besides the flowing rendition above, build
+the book so that every printed line, column and page is the same as in the 1900 edition: page 113 of the PDF is
+page 113 of the book, line for line. What the investigation established (numbers in PROGRESS.md, session 5):
+
+- *One setting.* The four witnesses (A, B, C, D — COPIES.md) are one typesetting: over all 1,119 dictionary pages,
+  99.8 % of B's, 99.7 % of C's and 99.5 % of A's line starts (margin-intact sides) fall on a line start of D, no
+  page or column disagrees as a block, and the residue is OCR (`dj_inspect.py linecheck`, `eval/linecheck.tsv`).
+  C's title page (1899) and D's (1900) are one setting apart from the year line. So the choice of witness is
+  moot for the layout: A's geometry, already the segmentation reference, is the source; D fills A's cut margins.
+- *The line structure is in the repository.* `ocr/*.json` hold every printed line of every page (124,548 in the
+  dictionary proper) with box, baseline, indent level (flush/hanging), font size and ABBYY's text; the columns,
+  bands and letter initials with their boxes; 26,947 paragraphs, 1,585 of them continuing over a column or page.
+  Baseline pitch 102 px = 12.24 pt (the flowing build assumes 12.6).
+- *What is missing:* (1) the mapping of the voted text onto the lines — `text_merged` and `entries.tsv` are
+  line-less (lines joined, hyphens repaired); (2) the line-end hyphens of column b on the 313 right-cut pages
+  (13 % of those lines end hyphenated in A against 26 % elsewhere, i.e. ~2,300 hyphens lost with the margin) —
+  D has them, but D is on disk only (git-ignored); (3) the Church Slavonic type inside entries (cross-references)
+  is not marked, which the flowing rendition lacks too.
+- *The type.* The book's face is larger than the 10 pt Old Standard of the flowing build: printed x-height
+  6.2 pt and cap height 8.9 pt correspond to Old Standard at 12.5–13.5 pt, line widths to ~12.7 pt, on a 12.24 pt
+  pitch (a compact face with a large x-height). At 10 pt a line's natural width is 78 % of the printed line; the
+  columns would have to be justified with a quarter of their width in white. Page size is free (user, session 5),
+  so the page is scaled instead of the type. Share of full lines wider than the column, measured with Typst on
+  1,214 justified lines of 16 pages (ABBYY's text, so the last per cent is garbled headword lines):
+
+  | type size | scale 1.00 | 1.04 | 1.08 | 1.12 |
+  |---|---|---|---|---|
+  | 11 pt | 1.4 % | 1.0 % | 0.3 % | 0.2 % |
+  | 12 pt | 16.5 % | 6.1 % | 2.2 % | 1.1 % |
+  | 12.5 pt | 32.2 % | 17.0 % | 6.7 % | 2.5 % |
+
+  Candidates: 12 pt at scale 1.08 (text block 183 × 269 mm, pitch 13.2 pt, a ~215 × 300 mm page); 11 pt at 1.04
+  fits A4 with 15 mm margins. The rest is absorbed per line by negative tracking, found with `typst query` on
+  measured widths.
+
+Design (about one session): (1) `dj_heads.py text` VERSION 9 stores per paragraph the printed lines as spans of
+`text_merged` — the line starts of D snapped as the paragraph starts are, a hyphen flag per line (from D, so
+the right-cut pages get theirs) — and `dj_abbyy.py` carries them over like the other step-1 keys; (2) `dj_parse.py`
+carries the line spans into `entries.tsv` (a `lines` column: page, column, offset, hyphen), shifted through
+tidy/fix_quotes/errata as the italic and disputed spans are; (3) `dj_build.py --facsimile` sets the book page by
+page: each column a stack of its lines at the original's baselines (`place` at the measured x/y scaled from
+600 ppi, so bands, letter initials across both columns, short last columns and the page furniture come for free
+— no Typst column flow), each line justified to the column width with a forced break, page number, guide words as
+the entries give them, the signature line by the rule (p ≡ 1, 3 mod 16), `--size` and `--scale` as above, and a
+width check of every line that reports overlong ones and applies tracking. A one-page prototype of (3) (p. 113,
+lines placed at their baselines) worked mechanically in session 5. Front matter (preface, abbreviations, errata)
+has the same line data in `ocr/` but no voted text — later.
+
+*Definition of done:* `djachenko.pdf` builds cleanly from `entries.tsv`; README updated; committed. Rev. 6: the
+facsimile build has as many dictionary pages as the book (1,119 + the blank p. 864) and every page the same lines
+as the scan on a spot check of ten pages; overlong lines listed by the build and zero after tracking.
 
 ## Effort and budget (revised after the Phase 1 findings; to be revised again after Phase 2)
 
@@ -334,7 +390,7 @@ Rev. 3: pp. XXIX–XXXIII = leaves 27–31, already in ocr/ as two-column text w
 | 3b | 2 + reruns, or 4–8 | one session for the alignment/voting script and its checks, one for the crop pipeline; then either one unattended API pass over ~850 contact sheets (~2 M tokens) or 4–8 interactive sessions of sheet reading |
 | 4 | 1 + reruns | |
 | 5 | 3–6 short | proofreading ~550 linked entries |
-| 6 | 1 | |
+| 6 | 1 + 1 | Rev. 6: one more for the facsimile build (line spans in step 1 and Phase 4, `--facsimile` in dj_build) |
 
 Total for the full text with targeted proofreading: on the order of 10–18 sessions, about half the previous estimate,
 because the definition text no longer has to be OCR'd or transcribed. A full proofreading of all 30,000 entries is

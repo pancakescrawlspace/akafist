@@ -8,6 +8,17 @@ A **witness** is an independent physical copy of the 1900 printing. Scans of the
 many times they were re-uploaded. Witnesses are told apart by comparing the same page (p. 1087 was used) at the level
 of damaged letters, specks and the crop.
 
+**One typesetting (verified 2026-09-20, session 5).** The four witnesses are the same setting of type, line for
+line: `python3 tools/dj_inspect.py linecheck` aligned every printed line start of A, B and C onto D's text over all
+1,119 dictionary pages (`eval/linecheck.tsv`) — 99.8 % of B's, 99.7 % of C's and 99.5 % of A's line starts (on the
+sides whose margin is intact) fall on a line start of D, no page or column disagrees as a block, and the residue is
+OCR (Google splits a lone "=" or a tall headword into a "line" of its own, ABBYY adds speck lines, B's text layer
+drops the last lines of some pages and lets guide words in). The title pages of C (dated 1899) and D (1900) are one
+setting apart from the year line, both with the censor's permission of 21 Sept 1898: a re-dated title, not a new
+edition. The one textual difference noted earlier, B's mid-dot in "175·об." on p. 1087, is a speck in copy B (A's
+colour scan shows clean paper; C and D read "175 об."). Consequence for the facsimile rendition (PLAN.md Phase 6,
+Rev. 6): the line structure of any witness is the line structure of the book; A's is in `ocr/*.json`.
+
 ## Summary
 
 | witness | physical copy | best scan | margins | status |
@@ -47,8 +58,11 @@ Page/image mapping: "p" = printed page of the dictionary proper (1–1120).
    <https://archive.org/details/DyachenkoG.PolnyjCerkovnoslavyanskijSlovarM.19931159p>. "M., 1993, 1159p", described
    as "DJV c OCR + подробное оглавление". Original: DjVu 63.9 MB, 1,158 pages, bilevel JB2 at 300 dpi, ~1647×2637 px;
    the reprint is reduced (text block of p. 113: 13.4 cm against 17.0 cm in A, i.e. 79 %, so ≈ 237 ppi at original
-   size); hidden text layer (OCR by the uploader, ABBYY FineReader 11 per the item metadata). archive.org
-   derivatives: text PDF, JP2 zip (214 MB), `_abbyy.gz` (77 MB, archive.org's own ABBYY XML), `_djvu.xml`, `_djvu.txt`. Order: DjVu page = p for pp. 1–1120
+   size); hidden text layer (OCR by the uploader, ABBYY FineReader 11 per the item metadata); the title page (DjVu
+   page 1121) is cropped below the imprint, so its year cannot be read. archive.org
+   derivatives: text PDF, JP2 zip (214 MB), `_abbyy.gz` (77 MB, archive.org's own ABBYY XML), `_djvu.xml`, `_djvu.txt`. The hidden text
+   layer is incomplete on some pages: it drops the last lines of a column (p. 894: seven lines that the image has) and
+   includes the guide words of the head (session 5). Order: DjVu page = p for pp. 1–1120
    (archive.org leaf = p − 1), then page 1121 title page, 1122 table of contents, 1123 first page of the preface
    (p. III), 1124 p. IV … 1158 p. XXXVIII. Margins intact on p. 1087 (all headwords complete).
    **Downloaded** 2026-09-19 with `python3 tools/dj_fetch.py --reprint` into `djachenko/scan/reprint1993/` (DjVu,
@@ -86,10 +100,14 @@ C1. **Google Books PDFs of the Indiana University copy** (the user downloaded th
       e17677545cf7a53600bd01910006c1d3; PDF metadata "Полный церковно-славянский словарь", "Григорий Михайлович
       Дьяченко". Title page stamped "Indiana University Libraries Bloomington", shelfmark "PG 603 .D536 v.1"; title
       page dated **1899**; verso: censor's permission "Москва, сентября 21 дня 1898 г." and **"Reprinted by JUH"** —
-      a photo-offset reprint. Front matter, then pp. 1–~560; PDF page = p + 46.
+      a photo-offset reprint. Front matter, then pp. 1–567; PDF page = p + 46 (p. 567 = page 613, the last printed
+      page; its Google text layer holds only the first lines; pages 614–618 blank).
     - `google_indiana_v2.pdf` (originally `Polnyĭ_t͡serkovno_slavi͡anskīĭ_slov.pdf`): 570 PDF pages, 38,800,838
-      bytes, MD5 8a46a010c787843250821969994f4906; "v. 2", same title page repeated; pp. ~560–1120; PDF page =
-      p − 558 (p. 1087 = PDF page 529).
+      bytes, MD5 8a46a010c787843250821969994f4906; "v. 2", same title page repeated; opens with p. 567 again (the
+      letter С starts there), pp. 567–1120; PDF page = p − 558 (p. 567 = page 9, p. 1087 = page 529).
+      `dj_witness.c_page` takes pp. 1–566 from v1 and p. 567 on from v2 — until session 5 the boundary stood at
+      p. 572, so pp. 568–572 pointed at v1's blank pages and C was silently absent there (fixed 2026-09-20, the six
+      pages re-voted and re-indexed).
     Text pages: bilevel JBIG2 images at 600 ppi (~3700×5650 px) plus a hidden Google OCR text layer. Margins intact.
 D1. **Google Books PDF of the Cornell University Library copy** — `djachenko/scan/google/google_cornell.pdf`
     (originally `Polnyĭ_t︠s︡erkovno_slavi︠a︡nsk.pdf`): 1,174 PDF pages, 95,330,806 bytes, MD5
@@ -97,7 +115,8 @@ D1. **Google Books PDF of the Cornell University Library copy** — `djachenko/s
     Mihaĭlovich Dʹi︠a︡chenko". Cornell bookplate and date-due slip, shelfmark "PG 613 D53"; title page (PDF page 9)
     dated **1900**; an original copy. Complete in one PDF: title page, preface from p. III, all pages to 1120;
     PDF page = p + 48 (p. 1087 = PDF page 1135). Bilevel JBIG2 600 ppi, hidden Google OCR text layer. Margins intact.
-    On p. 1087 the text agrees with A and B; B shows a mid-dot in "175·об." that C and D lack.
+    On p. 1087 the text agrees with A and B (the "mid-dot" once noted in B's "175·об." is a speck in copy B — see
+    "One typesetting" above).
 11. **Google Books `lgbgAAAAMAAJ`** — <https://books.google.com/books?id=lgbgAAAAMAAJ>: "Polnyĭ t͡serkovno-slavi͡anskīĭ
     slovarʹ … Volume 2", Grigorīĭ Dʹi͡achenko, Tip. Vilʹde, 1899; original from Indiana University — probably the
     record of C1 vol. 2 (the web fetch here saw only snippet view; the user could download the PDF). The Google Books

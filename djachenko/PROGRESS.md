@@ -391,7 +391,46 @@ See PLAN.md for the phases. Newest entry last.
   truth of that page records), p. 889 "Панд . Акт" → "Панд. Ант."; no span of any entry is out of range after
   the substitutions; links.tsv unchanged.
 
-NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+## 2026-09-20 (session 5)
+
+- Feasibility of a line-for-line facsimile (user's question, not in PLAN.md before: can the Typst rendition have
+  every line, column and page as in the book? Two preconditions — one edition among the witnesses, or a witness we
+  can pick without trouble; and the metadata in the repo). Answered, recorded as **PLAN.md revision 6** (Phase 6).
+  1. One typesetting: `dj_inspect.py linecheck` (new) aligns every printed line start of A, B and C onto D's text
+     and counts those that fall on a D line start. Whole book, 1,119 pages, 3 min → eval/linecheck.tsv:
+     B 99.78 % / C 99.72 % / A 98.78 % of their line starts (A 99.5 % on the sides whose margin is intact; the
+     left-cut sides lose the first letters and with them my 2-character tolerance); D's line starts hit 99.4 %,
+     99.5 %, 98.4 %; no page or column disagrees as a block. Residue looked at: Google splits a lone "=" or a tall
+     headword into its own "line", ABBYY adds speck lines, B's DjVu text layer drops the last lines of some pages
+     (p. 894: the image has them — checked) and lets guide words in. Title pages: C 1899, D 1900, same setting
+     but for the year line, both with the censor's permission of 21 Sept 1898. B's "175·об." on p. 1087 (COPIES.md)
+     is a speck in copy B. So the witness choice is moot; A's geometry stays the source. COPIES.md updated.
+  2. Metadata: ocr/*.json hold every line (124,548 in main + supplement) with bbox, baseline, ind, fs, text; the
+     columns, bands, initials; 26,947 paragraphs, 1,585 continuing over a column/page; pitch 102 px = 12.24 pt.
+     Missing: the mapping of text_merged/entries.tsv onto the lines (derivable in step 1 as the italics are), and
+     the line-end hyphens of column b on the 313 right-cut pages (13 % hyphenated there against 26 % elsewhere,
+     ~2,300 lost with the margin; D has them but is on disk only). Design and effort in PLAN.md Phase 6 Rev. 6.
+  3. The type: a one-page prototype (p. 113, lines `place`d at their measured baselines, justified to the column)
+     works mechanically, but at 10 pt Old Standard a line is 78 % as wide as printed. Printed x-height 6.2 pt,
+     cap height 8.9 pt ≈ Old Standard 12.5–13.5 pt; widths ≈ 12.7 pt; on a 12.24 pt pitch. The user allows a
+     larger page: measured with `typst query` on 1,214 justified lines of 16 pages, 12 pt at page scale 1.08 or
+     11 pt at 1.04 leave ≤ 2 % of lines overlong (mostly ABBYY-garbled headword lines) — table in PLAN.md.
+- **Bug found and fixed: `dj_witness.c_page`** put C's volume boundary at p. 572; v1 ends with p. 567 (page 613,
+  its text layer truncated to 8 lines) and v2 opens with p. 567 on page 9, so pp. 568–572 pointed at v1's blank
+  pages and C was silently absent there (the linecheck showed it: C "missing" on leaves 605–609). Now pp. 1–566
+  from v1, p. 567 on from v2 (also in dj_inspect.py's own copy of the mapping). Re-done for leaves 604–609:
+  step 1 (`dj_heads.py text --pages 604-609 --force`; 45 entries changed, C now confirming D there as on every
+  other page — gains like Сддовїе → Садовїе, (φυтόѵ) → (φυτόν), and D's usual quirks under the usual rule),
+  dj_parse (entries.tsv, FLAGS.md), dj_link (242 linked, one fewer: сад → the provisional headword now reads
+  Сада; back with step 2), `dj_crops.py index` (only the 115 C rows of those leaves changed; C located
+  25,359/25,362 now) and the six C strips (`crops --pages … --witness C`, two of them with --force — `crops`
+  skips a strip that exists; git-ignored anyway).
+  Lesson: `dj_crops.py index --pages` writes ONLY those pages' rows (it would truncate headwords.tsv); re-index
+  the whole book (37 s).
+
+NEXT: (0) if the facsimile is wanted next: PLAN.md Phase 6 Rev. 6, steps (1)–(3) — step-1 line spans (VERSION 9,
+  needs D on disk), the `lines` column in entries.tsv, `dj_build.py --facsimile`; ~one session.
+  (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
