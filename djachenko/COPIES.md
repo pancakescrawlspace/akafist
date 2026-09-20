@@ -27,7 +27,7 @@ Rev. 6): the line structure of any witness is the line structure of the book; A'
 | **B** | an unidentified copy, reproduced photographically in the Moscow 1993 reprint (the 2004 reprint used by Azbyka shows the same damaged letters) | archive.org `DyachenkoG.PolnyjCerkovnoslavyanskijSlovarM.19931159p`: bilevel DjVu, 300 dpi at reprint size ≈ 237 ppi at original size | intact; has the title page | **downloaded** (`scan/reprint1993/`, 2026-09-19) as second witness |
 | **C** | Indiana University's copy — a modern photo-offset **reprint** ("Reprinted by JUH" on the title verso; title page dated 1899), 2 vols; which original it reproduces is unknown | Google Books PDFs (downloaded by the user): bilevel JBIG2, 600 ppi | intact | **downloaded** (`scan/google/google_indiana_v1.pdf`, `_v2.pdf`, 2026-09-19) |
 | **D** | Cornell University Library's copy, an **original** (title page dated 1900), 1 vol. | Google Books PDF (downloaded by the user): bilevel JBIG2, 600 ppi | intact | **downloaded** (`scan/google/google_cornell.pdf`, 2026-09-19) — the best second witness |
-| (HathiTrust) | presumably C or D (Google-digitised) | page images | — | the user can download single pages; not needed now that C and D are here |
+| (HathiTrust) | the same Google digitisations: Indiana (= C, confirmed on a sample page), Cornell (= D), and the Chicago and Berkeley copies of the JUH reprint | page images | — | nothing to download; single pages only, automated downloading forbidden |
 
 ## Every source located
 
@@ -128,21 +128,47 @@ D1. **Google Books PDF of the Cornell University Library copy** — `djachenko/s
     API refused queries (daily quota) on 2026-09-19.
 12. **HathiTrust** — catalog.hathitrust.org answers automated requests with 403 (Cloudflare), so it cannot be used
     from here. The user checked by hand (2026-09-19): the book is there and can be viewed, but only **single pages**
-    can be downloaded, not whole volumes. Agreed procedure: for pages that are hard to read in A and B, list them by
-    printed page; the user saves them as `djachenko/scan/hathi/pNNNN.<ext>` (NNNN = printed page, e.g. `p1087.png`).
-    Record URL and volume IDs: not yet noted (asked of the user). Probably the same Google scans as C1/D1, which are
-    now complete on disk, so HathiTrust is only a fallback. Search used:
+    can be downloaded, not whole volumes. A sample page saved by the user (2026-09-20,
+    `inu-30000011356106-46-…pdf`, 600 ppi bilevel, "Original from Indiana University, digitized by Google") is
+    witness C's digitisation, which is complete on disk from Google Books; HathiTrust's other volumes are the same
+    Google digitisations as 11 and C2–C3 below. Nothing to download there, and its terms forbid automated
+    page-by-page downloading anyway. Search used:
     <https://catalog.hathitrust.org/Search/Home?lookfor=Polnyi%20tserkovno-slavianskii%20slovar%20Diachenko&type=all>.
+C2. **Google Books `8y1IAQAAMAAJ`** — University of Chicago's copy, "1899, JUH", vol. 1 (616 pages), full view,
+    digitised 2015: another copy of the same JUH photo-offset reprint as C (found 2026-09-20 through the Google
+    Books Atom feed, `google.com/books/feeds/volumes?q=…`, which answers when the JSON API's quota does not). A
+    second scan of the reprint's plates, not a new witness; not downloaded.
+C3. **Google Books `AWFOAQAAMAAJ` (А–Р, 616 pages) and `euDar5UjPEsC` (С–Я, 568 pages)** — University of California,
+    Berkeley, "1899, JUH", full view, digitised 2016: the JUH reprint once more. Not downloaded. (`_QXgAAAAMAAJ` is
+    Indiana's vol. 1 again, = C1; `CqczAQAAMAAJ` is Cornell's record, = D1; `4k0UAQAAIAAJ`, `kt9FswEACAAJ`,
+    `fEhbzwEACAAJ`, `P_LCtgAACAAJ` are catalogue records without pages; `aaAkDwAAQBAJ` is the 2013 Рипол Классик
+    reprint, preview only.)
+    So every Google/HathiTrust digitisation is either Cornell's original (D) or a copy of the JUH reprint.
 
 ### Located but not examined (lineage unknown)
 
 13. **Тверская епархия** — <https://tvereparhia.ru/biblioteka-2/d/1981-dyachenko-g/23007-dyachenko-g-polnyj-tserkovno-slavyanskij-slovar-1900>:
-    a PDF of 89.7 MB according to the search snippet; the page returned HTTP 404 when fetched (2026-09-19).
-14. **Предание.ру** — <https://predanie.ru/dyachenko-grigoriy-mihaylovich/book/217771-polnyy-cerkovnoslavyanskiy-slovar>:
-    returned HTTP 400 when fetched (2026-09-19).
-15. **церковно-славянская-библия.рф** — the PDF named as the source of 8; not fetched.
+    a PDF of 89.7 MB according to the search snippet; the page returned HTTP 404 when fetched (2026-09-19). Checked
+    again 2026-09-20: the site was rebuilt and its library is gone; the Wayback Machine has the author's listing of
+    2017 (a "1900" and a "1993" item) but no capture of either item page or PDF. Dead.
+14. **Предание.ру** — <https://predanie.ru/dyachenko-grigoriy-mihaylovich/polnyy-cerkovno-slavyanskiy-slovar/>
+    (the old `/book/217771-…` URL gives 400). Reached 2026-09-20; two files under
+    `/uploads/ftp/dyachenko-grigoriy-m/polnyy-cerkovno-slavyanskiy-slovar/`, both downloaded and checked:
+    `slovar-dyachenko.djvu` (40,546,912 bytes, MD5 63758ffa987523629b356de24cb4d971, 1,159 pages, 1132×1755 px,
+    no text layer; DjVu page = printed page) is pixel for pixel the Azbyka scan of 9 (p. 20 compared) — witness B's
+    copy at ≈ 160 ppi; `slovar-dyachenko.pdf` (94,112,338 bytes, MD5 a44ce6120d43e0ce073db91b554a8206, 1,158
+    pages, CCITT 1646×2637 px at 300 dpi, "ABBYY FineReader 8.0", 2006, no text layer; PDF page = p + 38, front
+    matter first) is the scan behind 5, 6, 7 and 8 — p. 20 correlates 0.994 with the archive.org DjVu at zero
+    shift, 2.75 % of pixels differing from the JB2 re-encoding. Both witness B; nothing new. Not kept.
+15. **церковно-славянская-библия.рф** — the PDF named as the source of 8; HTTP 403 for a non-browser and for a
+    browser user agent alike (2026-09-20); the same 2006 scan as 14's PDF in all likelihood.
 16. **Славянская школа здравой мысли forum** — <http://www.anaslav.ru/forum/viewtopic.php?t=170>: a thread about the
-    dictionary with download links (search result); not fetched.
+    dictionary with download links (search result); not fetched (connection times out, 2026-09-20 too).
+17. **НЭБ (rusneb.ru), record `000199_000009_003687812`** — <https://rusneb.ru/catalog/000199_000009_003687812/>:
+    an РГБ item ("тип. Вильде, 1899"). The site answers foreign addresses with 403 and a "switch off your VPN"
+    page (2026-09-20), so it could not be examined. It is either the Presidential Library's scan of the РГБ copy
+    (= A) or a separate РГБ digitisation — the one open lead for a second *original*; needs a Russian address or
+    the user's browser. РНБ's catalogue (primo.nlr.ru) could not be searched automatically either.
 
 ### Not scans
 
