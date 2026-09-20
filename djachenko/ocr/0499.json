@@ -92,7 +92,7 @@
    ]}
   ]},
   {"n": 2, "side": "b", "band": 1, "bbox": [2277,417,4243,6279], "flush": 64, "indent": 119, "paragraphs": [
-   {"bbox": [2277,417,4197,601], "hanging": true, "text_d": "| Посмára, normara лепешка . Чет . мин. янв 5.", "text_merged": "Посмára, normara лепешка . Чет . мин. янв 5.", "disputed": [[4,7],[9,10],[11,13],[14,16]], "fixed": 0, "d_cut": "line", "d_line": [1903,416,3571,466], "italic": [[27,30],[33,41]], "lines": [
+   {"bbox": [2277,417,4197,601], "hanging": true, "text_d": "| Посмára, normara лепешка . Чет . мин. янв 5.", "text_merged": "Посмára, normara лепешка . Чет . мин. янв 5.", "disputed": [[5,7],[9,10],[11,13],[14,16]], "fixed": 0, "d_cut": "line", "d_line": [1903,416,3571,466], "italic": [[27,30],[33,41]], "lines": [
     {"bbox":[2277,417,4197,513],"base":498,"ind":0,"fs":10.5,"text":"Послмг&л послмгл=глепешка. Чет. мин.","words":[["Послмг&л",2277,417,2729,497,28,"o?",10.5],["послмгл=глепешка.",2805,435,3693,497,58,"o",10.5],["Чет.",3765,421,3973,501,89,"id",11.5],["мин.",4015,453,4197,513,66,"id",11.5]]},
     {"bbox":[2385,531,2715,601],"base":599,"ind":1,"fs":11,"text":"янв 5.","words":[["янв",2385,549,2541,601,100,"io",11],["5",2641,531,2683,599,59,"o?",10.5],[".",2701,587,2715,599,85,"o",11]]}
    ]},
@@ -230,6 +230,6 @@
   {"col":2,"para":22,"bbox":[2331,5761,2697,5831],"abbyy":"Посоѵіітіі","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":23,"bbox":[2329,5951,2881,6047],"abbyy":"Посошнйкъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":510,"b_page":462,"c_page":[508],"chars":3551,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":192,"fixed":28,"odd":[]},
+ "witness": {"version":8,"d_page":510,"b_page":462,"c_page":[508],"chars":3551,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":191,"fixed":28,"odd":[]},
  "warnings": []
 }

@@ -199,6 +199,6 @@
   {"col":2,"para":7,"bbox":[2373,1627,3163,1721],"abbyy":"СтЁелТе -до., -ль","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2397,5823,3103,5901],"abbyy":"Стега, стежка","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":708,"b_page":660,"c_page":[102],"chars":3888,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":129,"fixed":11,"odd":[]},
+ "witness": {"version":8,"d_page":708,"b_page":660,"c_page":[102],"chars":3888,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":129,"fixed":11,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (6 lines end at the image edge); line ends of the right column missing"]
 }

@@ -205,6 +205,6 @@
   {"col":2,"para":5,"bbox":[2347,2537,3351,2629],"abbyy":"ПервосБАТИтел&ство","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2345,2743,3185,2871],"abbyy":"ПервосвАці^нникъ","abbyy_conf":41,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":462,"b_page":414,"c_page":[460],"chars":3628,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":156,"fixed":31,"odd":[]},
+ "witness": {"version":8,"d_page":462,"b_page":414,"c_page":[460],"chars":3628,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":156,"fixed":31,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (11 lines end at the image edge); line ends of the right column missing"]
 }

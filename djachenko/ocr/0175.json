@@ -206,6 +206,6 @@
   {"col":2,"para":10,"bbox":[2307,5821,2693,5937],"abbyy":"Дебелый","abbyy_conf":72,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2311,6147,2837,6263],"abbyy":"Дек^л&стбо","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":186,"b_page":138,"c_page":[184],"chars":3796,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":144,"fixed":28,"odd":[]},
+ "witness": {"version":8,"d_page":186,"b_page":138,"c_page":[184],"chars":3796,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":144,"fixed":28,"odd":[]},
  "warnings": []
 }

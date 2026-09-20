@@ -146,6 +146,6 @@
   {"col":1,"para":3,"bbox":[281,5921,1125,5995],"abbyy":"Книги золотыя","abbyy_conf":42,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2449,1143,2963,1225],"abbyy":"Книжники","abbyy_conf":35,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":1062,"b_page":1014,"c_page":[456],"chars":4118,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":82,"fixed":6,"odd":[]},
+ "witness": {"version":8,"d_page":1062,"b_page":1014,"c_page":[456],"chars":4118,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":82,"fixed":6,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (49 lines end at the image edge); line ends of the right column missing"]
 }

@@ -243,6 +243,6 @@
   {"col":2,"para":21,"bbox":[2043,5541,2457,5629],"abbyy":"Ирмѵлстіію","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":22,"bbox":[2039,5747,2623,5871],"abbyy":"Причлстити","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":551,"b_page":503,"c_page":[549],"chars":3681,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":227,"fixed":60,"odd":[]},
+ "witness": {"version":8,"d_page":551,"b_page":503,"c_page":[549],"chars":3681,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":227,"fixed":60,"odd":[]},
  "warnings": []
 }

@@ -188,6 +188,6 @@
   {"col":1,"para":17,"bbox":[279,5053,597,5133],"abbyy":"Писало","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":18,"bbox":[283,5679,671,5755],"abbyy":"Писаніе","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":472,"b_page":424,"c_page":[470],"chars":4008,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":196,"fixed":27,"odd":[]},
+ "witness": {"version":8,"d_page":472,"b_page":424,"c_page":[470],"chars":4008,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":196,"fixed":27,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)"]
 }

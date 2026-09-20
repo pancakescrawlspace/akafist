@@ -217,6 +217,6 @@
   {"col":2,"para":18,"bbox":[2313,5003,2587,5137],"abbyy":"П|ьосо","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2311,5227,2755,5359],"abbyy":"ПросодіА","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":562,"b_page":514,"c_page":[560],"chars":3794,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":167,"fixed":31,"odd":[]},
+ "witness": {"version":8,"d_page":562,"b_page":514,"c_page":[560],"chars":3794,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":167,"fixed":31,"odd":[]},
  "warnings": []
 }

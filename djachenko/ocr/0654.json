@@ -154,6 +154,6 @@
   {"col":2,"para":5,"bbox":[2023,5749,2721,5839],"abbyy":"СлокоположЁні","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2021,5981,2611,6101],"abbyy":"Олокоп^ніе","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":665,"b_page":617,"c_page":[59],"chars":4041,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":149,"fixed":15,"odd":[]},
+ "witness": {"version":8,"d_page":665,"b_page":617,"c_page":[59],"chars":4041,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":149,"fixed":15,"odd":[]},
  "warnings": []
 }

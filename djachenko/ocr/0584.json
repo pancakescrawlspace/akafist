@@ -255,6 +255,6 @@
   {"col":2,"para":13,"bbox":[1887,5453,2317,5567],"abbyy":"РЕфлилш","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[1889,6179,2667,6275],"abbyy":"Рефедь, Рефидь","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":595,"b_page":547,"c_page":[593],"chars":3676,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":216,"fixed":25,"odd":[]},
+ "witness": {"version":8,"d_page":595,"b_page":547,"c_page":[593],"chars":3676,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":216,"fixed":25,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (18 lines at the image edge); entry starts from position and text features"]
 }

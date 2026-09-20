@@ -79,7 +79,7 @@
    ]}
   ]},
   {"n": 2, "side": "b", "band": 1, "bbox": [2439,317,4252,6121], "flush": 63, "indent": 116, "paragraphs": [
-   {"bbox": [2555,317,4252,545], "hanging": false, "text_d": "ваній Валента (Encycloped. Methodique, tom. I, part . 1 , pag. 113, Antiquités).", "text_merged": "ваній Валента (Encycloped. Methodique, tom. I, part . 1 , pag. 113, Antiquités).", "disputed": [[8,9],[19,21],[60,61],[63,66],[76,77]], "fixed": 0, "d_cut": "line", "d_line": [2064,396,3584,442], "italic": [[14,43],[47,51],[58,62],[68,80]], "lines": [
+   {"bbox": [2555,317,4252,545], "hanging": false, "text_d": "ваній Валента (Encycloped. Methodique, tom. I, part . 1 , pag. 113, Antiquités).", "text_merged": "ваній Валента (Encycloped. Methodique, tom. I, part . 1 , pag. 113, Antiquités).", "disputed": [[8,9],[19,21],[60,61],[63,66]], "fixed": 0, "d_cut": "line", "d_line": [2064,396,3584,442], "italic": [[14,43],[47,51],[58,62],[68,80]], "lines": [
     {"bbox":[2555,317,4211,441],"base":398,"ind":1,"fs":11,"text":"ваній Валента (Епсусіоред. МеШ0(Ц0","words":[["ваній",2555,319,2789,389,79,"o",11],["Валента",2855,317,3221,391,90,"o",11],["(Епсусіоред.",3263,319,3815,415,62,"io",11],["МеШ0(Ц0",3877,335,4211,441,54,"i?",11]]},
     {"bbox":[2561,409,4252,545],"base":499,"ind":1,"fs":11,"text":"іот. I, рагі. 1, рад. 113, АпЫдиій","words":[["іот.",2561,423,2749,491,65,"io",11],["I,",2819,419,2883,509,100,"o?",11],["рагі.",2933,425,3169,509,71,"io",11],["1,",3245,425,3323,511,78,"o?",11],["рад",3373,445,3551,515,85,"id",11],[".",3567,485,3577,495,100,"io",11],["113,",3653,429,3833,523,76,"o?",11],["АпЫдиій",3915,409,4252,545,38,"io?",11]]}
    ]},
@@ -166,6 +166,6 @@
   {"col":2,"para":7,"bbox":[2455,5105,2981,5203],"abbyy":"Аллегорія","abbyy_conf":77,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2449,5493,3011,5613],"abbyy":"ЯллилѴ'щТй","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":918,"b_page":870,"c_page":[312],"chars":4056,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":135,"fixed":24,"odd":[]},
+ "witness": {"version":8,"d_page":918,"b_page":870,"c_page":[312],"chars":4056,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":134,"fixed":24,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (51 lines end at the image edge); line ends of the right column missing"]
 }

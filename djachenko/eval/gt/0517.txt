@@ -4,6 +4,12 @@
 # notes: in this CS type в looks like к at low resolution (Преддверїе, Предживописати, Предликовствовати); ї is
 #   {Предзрительный}: the р after П has a broken descender (damaged type; both OCRs read о).
 #   ї is printed with two dots in the headwords (Преддверїе, Предержащїй, …).
+# checked 2026-09-20 (session 4, by the assistant, not an independent reading by the user): every place
+#   where two independent OCRs (one of D/C with one of B/A) agree against this file — 73 places, of which 38
+#   had not been looked at before — plus every place where this file stands alone against all four witnesses,
+#   plus every headword of the page compared with a 400 ppi contact sheet of the headword crops
+#   (dj_heads.py sheet). The decidable ones were read on the images at 600 ppi. No error found in this file;
+#   the remaining disagreements are OCR errors or the documented и/н, а/ѧ ambiguity of the small CS type.
 @ col 1 a
 + 23); оплотъ, ограда. защита. Мин. мѣс. нояб. 18. Предградія градская—(τὰ προάστεια τῶν πόλεων. Προάστειος, лежащій предъ городомъ. Πόλις, городъ (Числ. 35, 2). Левитамъ дано было 48 городовъ для жительства, изъ которыхъ 13 городовъ — священникамъ и 35 простымъ—левитамъ. Города священниковъ находились въ колѣнахъ: Іудиномъ, Симеоновомъ и Веніаминовомъ, а города собственно левитовъ были расположены во всѣхъ колѣнахъ, вѣроятно съ тою цѣлію, чтобы левитамъ удобнѣе было слѣдить за религіознымъ состояніемъ израильтянъ. Въ числѣ левитскихъ городовъ были и города убѣжища. Въ городахъ левитовъ левитамъ принадлежали небольшіе участки земли — предградія градская. Соотвѣтствующее еврейское слово (мигрошъ) значитъ: пастбище, выгонъ. Поля при городахъ левитовъ отъ стѣны города по прямой линіи должны простираться на 1000 локтей во всѣ стороны (Числ. 35, 4, 5), и затѣмъ повелѣно было отмѣрять за городомъ къ восточной, южной, сѣверной и западной сторонамъ 2000 локтей. 1000 локтей отъ городской стѣны означаетъ перпендикулярное измѣреніе, 2000 локтей означаютъ измѣреніе по окружности параллельно городской стѣнѣ, слѣдовательно левитамъ принадлежала площадь около 4 или 5 квадратныхъ верстъ (см. подроб. въ Словарѣ на пареміи В. Лебедева).
 {Предгрѧдꙋ}—(προέρχομαι)=выхожу торжественно (3 н. чет. на Г. в. 4); предшествую. Мин. мѣс. дек. 22.

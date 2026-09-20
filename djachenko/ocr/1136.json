@@ -234,6 +234,6 @@
   {"col":2,"para":13,"bbox":[2121,5317,2397,5399],"abbyy":"РигГл","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2123,5767,2511,5903],"abbyy":"Риторъ","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":1147,"b_page":1099,"c_page":[541],"chars":3980,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":173,"fixed":25,"odd":[]},
+ "witness": {"version":8,"d_page":1147,"b_page":1099,"c_page":[541],"chars":3980,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":173,"fixed":25,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (31 lines at the image edge); entry starts from position and text features"]
 }

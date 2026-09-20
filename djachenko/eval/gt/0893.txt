@@ -13,6 +13,12 @@
 #   {Ѩголꙗ}, {ѩгоулꙗ}, "букв. {ꙗ}": the narrow іа ligature (ꙗ) is distinct from the Ѩ (І+Ѧ) of the initials.
 #   {Ѫтрьѭдоу}: printed ь + ѭ (OCS normally ѫтрьѫдоу).
 #   Sanskrit "ângr", "ántara", "antrà", "ànatis", "atís", "àntis" with the accents as printed.
+# checked 2026-09-20 (session 4, by the assistant, not an independent reading by the user): every place
+#   where two independent OCRs (one of D/C with one of B/A) agree against this file — 73 places, of which 38
+#   had not been looked at before — plus every place where this file stands alone against all four witnesses,
+#   plus every headword of the page compared with a 400 ppi contact sheet of the headword crops
+#   (dj_heads.py sheet). The decidable ones were read on the images at 600 ppi. No error found in this file;
+#   the remaining disagreements are OCR errors or the documented и/н, а/ѧ ambiguity of the small CS type.
 @ col 1 a
 + ставленіе суживающагося пространства; и дѣйствительно, отъ готск. agguus (срав. лат. angustus—узкій, тѣсный)—узкій происходитъ санскр. ângr—узкій заливъ, engi — узкая луговина. Какъ наше {ѫз} переходитъ въ {ѫг}, такъ и санскр. юдж въ юга—собственно пара. Носовой звукъ, отсутствующій въ санскр. словѣ, является, подобно нашему, въ лат. jungo — соединять, связывать, и потомъ исчезаетъ въ conjux — супруга, jugum и т. п., какъ и въ нашемъ иго, которое опять принимаетъ носовой звукъ въ лит. jungas отъ jungiu. Санскр. гласная і въ юга, юдж, переходитъ въ l въ готск. liugan — жениться, liuga—бракъ. Такимъ образомъ, древне-славянское понятіе о родствѣ, происходя отъ представленія о связи и сближеніи, въ готскомъ яз. перешло въ понятіе о бракѣ, какъ источникѣ родственныхъ связей (См. подробн. у Буслаева, „О вліяніи христ. на слав н. языкъ“, стр. 142—144).
 {Ѫжь}=ужъ (змѣя). Это слово имѣетъ въ санскр. корень ah или anh (съ носовымъ звукомъ) — сжимать, душить, сдавливать, что указываетъ въ змѣѣ (ужѣ) страшнаго гада, который опутываетъ (связываетъ) свою добычу кольцами, сжимаетъ и душитъ ее; срав. санскр. anhu - тѣсный, греч. ἄγχω и лат. ango—давить, душить, angina—жаба, удушающая горловая опухоль, angustus — узкій, тѣсный, литов. anksztis и готск. agguus—съ тѣмъ же значеніемъ, слав. {ѫзити}—стѣснять. Отъ того же корня образовались и слова для обозначенія давящей тоски, страха и бѣдствія: санскр. anhas—печаль, несчастіе, грѣхъ, лат. angor — удушеніе и печаль, огорченіе, anxius—боязливый, опечаленный, русск. ужасъ (Пикте, I, 499—501; сн. Лекціи о языкѣ М. Мюллера, 291—292).

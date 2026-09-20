@@ -181,6 +181,6 @@
   {"col":2,"para":9,"bbox":[2063,3463,2487,3555],"abbyy":"Іи^дді|ініід","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2057,4505,3695,4625],"abbyy":"Беза^ъ, безуръ, безуй, заберзатъ","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":81,"b_page":33,"c_page":[79],"chars":3927,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":147,"fixed":17,"odd":[]},
+ "witness": {"version":8,"d_page":81,"b_page":33,"c_page":[79],"chars":3927,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":147,"fixed":17,"odd":[]},
  "warnings": []
 }

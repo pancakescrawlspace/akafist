@@ -288,9 +288,11 @@ def norm_char(ch, level='norm'):
             ch = '-'
         elif ch in QUOTES:
             ch = '"'
+        # diacritics first, then the look-alikes: an accented Latin letter (á in the Sanskrit etymologies) must
+        # fold to Cyrillic like a plain one, or it counts as an error against every candidate that reads it plain
+        ch = ''.join(c for c in unicodedata.normalize('NFD', ch) if not unicodedata.combining(c))
         ch = CS_CIVIL.get(ch, ch)
         ch = ''.join(LOOKALIKE.get(c, c) for c in ch)
-        ch = ''.join(c for c in unicodedata.normalize('NFD', ch) if not unicodedata.combining(c))
         ch = unicodedata.normalize('NFC', ch)
     return ch
 

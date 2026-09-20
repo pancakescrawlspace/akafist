@@ -16,9 +16,14 @@ Page images: `djachenko/pages/NNNN.jpg` (300 ppi; 600 ppi originals in `pages/jp
 (`scan/reprint1993/`, DjVu page 1087) and D (`scan/google/google_cornell.pdf`, PDF page 1135); see COPIES.md.
 
 **Status of each file:** the second line says `status: draft` until the user has checked it against the image,
-then `status: checked (date)`. User's checks so far: 0045 checked thoroughly, no error found (2026-09-19); 0517
+then `status: checked (date)`. A machine-assisted check of all six files was made in session 4 (2026-09-20) and is
+recorded in each file's header: every place where two independent OCRs agree against the file (73, of which 38 were
+new), every place where the file stands alone against all four witnesses, and every headword against a contact
+sheet of the headword crops; the decidable ones read on the images at 600 ppi. No error was found — the earlier
+11 slips were the ones this signal could catch, and they were corrected in session 3. It is not a substitute for
+the user's own reading, which stands open for 0465, 0660, 0893, 1124 and (beyond a cursory look) 0517. User's checks so far: 0045 checked thoroughly, no error found (2026-09-19); 0517
 checked cursorily, no error found (2026-09-19). After those checks, comparing the OCR witnesses against the GT
-(`tools/dj_eval.py --suspects`: places where two independent OCRs agree against the transcription) found 11 slips
+(`tools/dj_eval.py --suspects [--only X,Y]`: places where two independent OCRs agree against the transcription) found 11 slips
 in five files, each confirmed on the images and corrected; they are listed in the files' header comments (0045: 6,
 0465: 2, 0893: 2, 1124: 1). The remaining 35 disagreements are OCR errors (checked). Results: `RESULTS.md`;
 candidate texts per witness and page in `cand/` (cached; `--refresh` re-extracts them from the scans).

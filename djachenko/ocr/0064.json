@@ -179,6 +179,6 @@
   {"col":2,"para":8,"bbox":[2105,6001,2839,6093],"abbyy":"Асоуркскііі полкъ","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2107,6207,2535,6301],"abbyy":"Асценсіо","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":75,"b_page":27,"c_page":[73],"chars":3964,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":181,"fixed":18,"odd":[]},
+ "witness": {"version":8,"d_page":75,"b_page":27,"c_page":[73],"chars":3964,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":181,"fixed":18,"odd":[]},
  "warnings": []
 }

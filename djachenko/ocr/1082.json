@@ -211,6 +211,6 @@
   {"col":2,"para":8,"bbox":[1843,5753,2207,5845],"abbyy":"Мнродѣіі","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[1841,5859,2439,5953],"abbyy":"Миръ, міръ","abbyy_conf":50,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":1093,"b_page":1045,"c_page":[487],"chars":3922,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":221,"fixed":14,"odd":[]},
+ "witness": {"version":8,"d_page":1093,"b_page":1045,"c_page":[487],"chars":3922,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":221,"fixed":14,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (46 lines at the image edge); entry starts from position and text features"]
 }

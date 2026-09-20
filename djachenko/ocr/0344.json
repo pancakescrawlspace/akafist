@@ -191,6 +191,6 @@
   {"col":2,"para":6,"bbox":[1971,3855,2659,3989],"abbyy":"Митрополитъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[1971,5827,2563,5915],"abbyy":"Митоополіа","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":355,"b_page":307,"c_page":[353],"chars":3869,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":147,"fixed":32,"odd":[]},
+ "witness": {"version":8,"d_page":355,"b_page":307,"c_page":[353],"chars":3869,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":147,"fixed":32,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (9 lines at the image edge); entry starts from position and text features"]
 }

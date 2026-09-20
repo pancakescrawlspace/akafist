@@ -170,6 +170,6 @@
   {"col":2,"para":9,"bbox":[2415,4125,3349,4219],"abbyy":"Кіевскій роспѣвъ","abbyy_conf":48,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2413,5771,2711,5851],"abbyy":"Кіевъ","abbyy_conf":79,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":1058,"b_page":1010,"c_page":[452],"chars":4137,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":93,"fixed":15,"odd":[]},
+ "witness": {"version":8,"d_page":1058,"b_page":1010,"c_page":[452],"chars":4137,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":93,"fixed":15,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (46 lines end at the image edge); line ends of the right column missing"]
 }

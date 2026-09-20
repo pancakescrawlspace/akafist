@@ -203,6 +203,6 @@
   {"col":2,"para":9,"bbox":[2089,2705,2609,2815],"abbyy":"СтагнѴтіе","abbyy_conf":19,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2093,3155,2369,3231],"abbyy":"Стягъ","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":729,"b_page":681,"c_page":[123],"chars":3968,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":221,"fixed":30,"odd":[]},
+ "witness": {"version":8,"d_page":729,"b_page":681,"c_page":[123],"chars":3968,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":221,"fixed":30,"odd":[]},
  "warnings": []
 }

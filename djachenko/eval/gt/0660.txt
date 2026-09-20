@@ -5,6 +5,12 @@
 #   italic ъ/ь are hard to tell apart (Google reads "Блгочьстня съмотръ"); "стня" as printed (for "стия").
 #   col b "мꙋгленый" is printed without its initial С — the same in witness D, so a misprint of the book.
 #   In this small CS type в looks like к (Смотрѣливо, Смыслодавецъ, Смѣльствовати).
+# checked 2026-09-20 (session 4, by the assistant, not an independent reading by the user): every place
+#   where two independent OCRs (one of D/C with one of B/A) agree against this file — 73 places, of which 38
+#   had not been looked at before — plus every place where this file stands alone against all four witnesses,
+#   plus every headword of the page compared with a 400 ppi contact sheet of the headword crops
+#   (dj_heads.py sheet). The decidable ones were read on the images at 600 ppi. No error found in this file;
+#   the remaining disagreements are OCR errors or the documented и/н, а/ѧ ambiguity of the small CS type.
 @ col 1 a
 + ютъ какъ лакомство. Смоквы означеннаго сезона больше, чѣмъ первыя, продолговатѣе, и обыкновенно бываютъ темнаго цвѣта. Эти различные виды смоквъ употребляли въ пищу, какъ скоро они падали съ дерева; а равно и сушили въ связкахъ. (Иллюстр. полн. попул. библ. энциклопедія архим. Никифора, вып. III, Москва, изд. 1892 г.)
 {Смокноути} = стащить; „и разбиша сѣни о немъ и смокоша и съ сѣній и ту убиша и“ (Пер. лѣт., 58).

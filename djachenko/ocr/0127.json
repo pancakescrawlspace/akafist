@@ -214,6 +214,6 @@
   {"col":2,"para":17,"bbox":[2275,5461,2759,5563],"abbyy":"Возстаніе","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":18,"bbox":[2279,5675,2775,5771],"abbyy":"Ко?столшітіі","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":138,"b_page":90,"c_page":[136],"chars":3488,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":234,"fixed":31,"odd":[]},
+ "witness": {"version":8,"d_page":138,"b_page":90,"c_page":[136],"chars":3488,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":234,"fixed":31,"odd":[]},
  "warnings": []
 }

@@ -150,6 +150,6 @@
   {"col":1,"para":4,"bbox":[1,5539,125,5597],"abbyy":"нта","abbyy_conf":26,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2015,1463,2435,1551],"abbyy":"'Ѳчмілдѵж","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":909,"b_page":861,"c_page":[303],"chars":4139,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":166,"fixed":14,"odd":[]},
+ "witness": {"version":8,"d_page":909,"b_page":861,"c_page":[303],"chars":4139,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":166,"fixed":14,"odd":[]},
  "warnings": ["side a: lines at the edge lack \"=\", taken as continuation lines"]
 }

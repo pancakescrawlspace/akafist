@@ -149,6 +149,6 @@
   {"col":2,"para":2,"bbox":[2415,1939,3373,2033],"abbyy":"Ящуръ или ящеръ","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":3,"para":1,"bbox":[245,3459,271,3527],"abbyy":"І","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":902,"b_page":854,"c_page":[296],"chars":3394,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":135,"fixed":6,"odd":[]},
+ "witness": {"version":8,"d_page":902,"b_page":854,"c_page":[296],"chars":3394,"cuts":{"line":11,"aligned":0,"forced":0},"disputed":135,"fixed":6,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (42 lines end at the image edge); line ends of the right column missing"]
 }

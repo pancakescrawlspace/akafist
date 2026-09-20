@@ -249,6 +249,6 @@
   {"col":2,"para":16,"bbox":[2249,6007,2977,6099],"abbyy":"Подубрусникъ","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2283,6225,2631,6279],"abbyy":"ваемаго","abbyy_conf":66,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":491,"b_page":443,"c_page":[489],"chars":3668,"cuts":{"line":40,"aligned":0,"forced":0},"disputed":164,"fixed":45,"odd":[]},
+ "witness": {"version":8,"d_page":491,"b_page":443,"c_page":[489],"chars":3668,"cuts":{"line":40,"aligned":0,"forced":0},"disputed":164,"fixed":45,"odd":[]},
  "warnings": []
 }

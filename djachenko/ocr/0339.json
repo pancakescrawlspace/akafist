@@ -183,6 +183,6 @@
   {"col":2,"para":5,"bbox":[2213,5425,2345,5505],"abbyy":"Ме","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2205,6075,2573,6169],"abbyy":"Мегомъ","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":350,"b_page":302,"c_page":[348],"chars":3786,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":178,"fixed":32,"odd":[]},
+ "witness": {"version":8,"d_page":350,"b_page":302,"c_page":[348],"chars":3786,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":178,"fixed":32,"odd":[]},
  "warnings": []
 }

@@ -181,6 +181,6 @@
   {"col":2,"para":2,"bbox":[2271,651,2825,759],"abbyy":"Сынотворщ","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2267,793,2455,873],"abbyy":"Сын","abbyy_conf":77,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":744,"b_page":696,"c_page":[138],"chars":3889,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":185,"fixed":25,"odd":[]},
+ "witness": {"version":8,"d_page":744,"b_page":696,"c_page":[138],"chars":3889,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":185,"fixed":25,"odd":[]},
  "warnings": []
 }

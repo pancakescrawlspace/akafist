@@ -176,6 +176,6 @@
   {"col":2,"para":9,"bbox":[2345,3189,2691,3271],"abbyy":"Матбл","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2345,3411,3043,3503],"abbyy":"Мятль, мятель","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":372,"b_page":324,"c_page":[370],"chars":3898,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":209,"fixed":36,"odd":[]},
+ "witness": {"version":8,"d_page":372,"b_page":324,"c_page":[370],"chars":3898,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":209,"fixed":36,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (10 lines end at the image edge); line ends of the right column missing"]
 }

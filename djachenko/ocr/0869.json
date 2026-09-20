@@ -199,6 +199,6 @@
   {"col":2,"para":11,"bbox":[2319,5931,2799,6021],"abbyy":"Шеперокатн","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2315,6131,3703,6219],"abbyy":"ІІІЕПОТЛНКЫЙ И ШЕПОТНИКЪ","abbyy_conf":43,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":880,"b_page":832,"c_page":[274],"chars":3797,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":171,"fixed":12,"odd":[]},
+ "witness": {"version":8,"d_page":880,"b_page":832,"c_page":[274],"chars":3797,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":171,"fixed":12,"odd":[]},
  "warnings": []
 }

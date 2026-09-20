@@ -10,6 +10,12 @@
 #   {‹По›дънжникъ}: н, ж, н read as printed (Google reads "Подънжинкъ"); the word is doubtful.
 #   {Покаѧзнь}: the fourth letter is small yus (ѧ); cf. Sreznevsky "покаꙗзнь".
 #   "poymowac męza": a mark under the e, taken as ogonek; z without dot, as printed.
+# checked 2026-09-20 (session 4, by the assistant, not an independent reading by the user): every place
+#   where two independent OCRs (one of D/C with one of B/A) agree against this file — 73 places, of which 38
+#   had not been looked at before — plus every place where this file stands alone against all four witnesses,
+#   plus every headword of the page compared with a 400 ppi contact sheet of the headword crops
+#   (dj_heads.py sheet). The decidable ones were read on the images at 600 ppi. No error found in this file;
+#   the remaining disagreements are OCR errors or the documented и/н, а/ѧ ambiguity of the small CS type.
 @ col 1 a
 ‹По›дступникъ = обманщикъ, измѣнникъ (Словарь древн. акт. яз. ю.-з. Россіи, Горбачевскаго, стр. 263).
 ‹По›дсѣнье=комната, соотвѣтствующая въ подклѣтѣ сѣнямъ или пріемной комнатѣ; вокругъ нея были расположены кладовыя.

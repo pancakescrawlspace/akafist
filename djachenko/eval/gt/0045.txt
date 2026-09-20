@@ -10,6 +10,12 @@
 #   which the civil "по азвѣди" confirms); в by alphabetical order and by the word (др.-рус. язвъ, "badger").
 #   The period of "53)." and of "сн." is faint in scan A but clear in witness D.
 #   col b "Регл." is printed with a broken л (it looks like "Рег ı."); "ἐλλ." has a smooth breathing as printed.
+# checked 2026-09-20 (session 4, by the assistant, not an independent reading by the user): every place
+#   where two independent OCRs (one of D/C with one of B/A) agree against this file — 73 places, of which 38
+#   had not been looked at before — plus every place where this file stands alone against all four witnesses,
+#   plus every headword of the page compared with a 400 ppi contact sheet of the headword crops
+#   (dj_heads.py sheet). The decidable ones were read on the images at 600 ppi. No error found in this file;
+#   the remaining disagreements are OCR errors or the documented и/н, а/ѧ ambiguity of the small CS type.
 @ col 1 a
 + (26, 1, 3—5) онъ называется Озіею; 2) одинъ изъ трехъ плѣнныхъ еврейскихъ юношей, товарищей пр. Даніила, получившій въ Вавилонѣ имя Авденаго (служитель свѣта) (Дан. 1, 6).
 {Азбꙋка} = ст. слав. {азъбꙋкы}=азбука (изъ азъ+бꙋкы, по примѣру греч. ἀλφάβητος): Никита ни единого слова умѣя отвѣчати и просто рещи ни азбукы знаяше. Пат. Печ. Полик. посл. 2.

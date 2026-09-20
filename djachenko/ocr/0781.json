@@ -211,6 +211,6 @@
   {"col":2,"para":9,"bbox":[2335,3601,2673,3673],"abbyy":"Тагнжтіі","abbyy_conf":68,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2327,6245,2719,6325],"abbyy":"Таго'ГА","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":792,"b_page":744,"c_page":[186],"chars":3845,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":230,"fixed":34,"odd":[]},
+ "witness": {"version":8,"d_page":792,"b_page":744,"c_page":[186],"chars":3845,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":230,"fixed":34,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (5 lines end at the image edge); line ends of the right column missing"]
 }

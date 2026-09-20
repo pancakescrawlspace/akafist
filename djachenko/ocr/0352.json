@@ -193,6 +193,6 @@
   {"col":2,"para":4,"bbox":[2143,5543,2761,5623],"abbyy":"Молчальникъ","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2149,6071,2771,6183],"abbyy":"Молчальница","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":363,"b_page":315,"c_page":[361],"chars":3901,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":205,"fixed":35,"odd":[]},
+ "witness": {"version":8,"d_page":363,"b_page":315,"c_page":[361],"chars":3901,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":205,"fixed":35,"odd":[]},
  "warnings": []
 }

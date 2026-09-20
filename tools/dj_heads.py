@@ -58,7 +58,8 @@ from dj_witness import (CORNELL, DJ, OCR, PDF_DPI, align, b_page, c_page, d_page
                         load_page, norm_char, norm_seq, page_text, side_texts)
 import dj_abbyy  # noqa: E402  (dump, iou)
 
-VERSION = 7            # of the witness block; bump to redo every page (7 = A+B may fix Google's Greek look-alikes
+VERSION = 8            # of the witness block; bump to redo every page (8 = norm_char folds accented Latin letters
+#                        like plain ones — dj_witness; 7 = A+B may fix Google's Greek look-alikes
 #                        inside a Cyrillic word; 6 = the printer's sheet signature is no longer read as text —
 #                        dj_witness.reading_order; 5 = + italic spans from ABBYY's word flags)
 CUT_TOL = 15           # characters: how far a paragraph start may move to reach a line start of D

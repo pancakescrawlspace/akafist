@@ -232,6 +232,6 @@
   {"col":2,"para":18,"bbox":[2067,5073,2751,5159],"abbyy":"Кааежь, кадежыц","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2063,5177,2597,5265],"abbyy":"Календарь","abbyy_conf":62,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":289,"b_page":241,"c_page":[287],"chars":3726,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":176,"fixed":27,"odd":[]},
+ "witness": {"version":8,"d_page":289,"b_page":241,"c_page":[287],"chars":3726,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":176,"fixed":27,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (8 lines at the image edge); entry starts from position and text features"]
 }

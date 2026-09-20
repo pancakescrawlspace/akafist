@@ -231,6 +231,6 @@
   {"col":4,"para":13,"bbox":[2153,5653,2651,5793],"abbyy":"Отклоненіе","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":14,"bbox":[2151,5777,2515,5869],"abbyy":"Оуколнтн","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":1163,"b_page":1115,"c_page":[557],"chars":3541,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":171,"fixed":14,"odd":[]},
+ "witness": {"version":8,"d_page":1163,"b_page":1115,"c_page":[557],"chars":3541,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":171,"fixed":14,"odd":[]},
  "warnings": []
 }

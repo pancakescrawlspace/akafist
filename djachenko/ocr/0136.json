@@ -203,6 +203,6 @@
   {"col":2,"para":5,"bbox":[1953,1235,2209,1325],"abbyy":"Крастъ","abbyy_conf":18,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[1947,1361,2221,1493],"abbyy":"Ердтл","abbyy_conf":17,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":147,"b_page":99,"c_page":[145],"chars":3676,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":202,"fixed":37,"odd":[]},
+ "witness": {"version":8,"d_page":147,"b_page":99,"c_page":[145],"chars":3676,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":202,"fixed":37,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (17 lines at the image edge); entry starts from position and text features"]
 }

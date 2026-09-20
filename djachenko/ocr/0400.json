@@ -238,6 +238,6 @@
   {"col":2,"para":20,"bbox":[2223,5977,3861,6067],"abbyy":"Оеллстёнлчлл&ника., областника","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":21,"bbox":[2219,6195,2633,6269],"abbyy":"Обмстііііъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":411,"b_page":363,"c_page":[409],"chars":3516,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":206,"fixed":34,"odd":[]},
+ "witness": {"version":8,"d_page":411,"b_page":363,"c_page":[409],"chars":3516,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":206,"fixed":34,"odd":[]},
  "warnings": []
 }

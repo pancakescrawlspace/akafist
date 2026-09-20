@@ -220,6 +220,6 @@
   {"col":2,"para":11,"bbox":[1967,5077,2461,5171],"abbyy":"Голубецъ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[1963,5995,2877,6089],"abbyy":"Голубиная книга","abbyy_conf":49,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":995,"b_page":947,"c_page":[389],"chars":3905,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":269,"fixed":21,"odd":[]},
+ "witness": {"version":8,"d_page":995,"b_page":947,"c_page":[389],"chars":3905,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":269,"fixed":21,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (40 lines at the image edge); entry starts from position and text features"]
 }

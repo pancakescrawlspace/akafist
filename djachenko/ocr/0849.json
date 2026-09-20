@@ -150,6 +150,6 @@
   {"col":2,"para":4,"bbox":[2285,4833,2855,4905],"abbyy":"Чашничать","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2281,5159,2535,5271],"abbyy":"Члірл","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":7,"d_page":860,"b_page":812,"c_page":[254],"chars":4133,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":119,"fixed":14,"odd":[]},
+ "witness": {"version":8,"d_page":860,"b_page":812,"c_page":[254],"chars":4133,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":119,"fixed":14,"odd":[]},
  "warnings": ["side a: no flush line (edge from prior)"]
 }
