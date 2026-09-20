@@ -321,12 +321,17 @@ See PLAN.md for the phases. Newest entry last.
   compress (169 KB a page against 35 KB for a plain threshold at 165) — that one change decided whether this fits
   in the repository at all. And the temporary 600 ppi page renders of B, C and D must be deleted as they are used,
   or a full run leaves tens of gigabytes in cache/.
-  The crops are tracked with **Git LFS** (user's request), and the history was rewritten so that they are LFS
-  from the commit that introduced them: `git lfs migrate import --include="djachenko/crops/**/*.png"
-  --include-ref=refs/heads/master --exclude-ref=refs/remotes/origin/master`. The exclude-ref matters — without it
-  migrate rewrites all 44 commits, including those already on origin, and the push would need --force; with it
-  only the three unpushed commits changed and origin/master is still an ancestor, so the push is a fast-forward.
-  A clone now needs git-lfs (`git lfs pull`), and .gitattributes carries the pattern.
+  **The crops are NOT committed** (decided with the user after measuring the account's Git LFS budget): the
+  billing usage report (`gh api /users/<user>/settings/billing/usage`, needs a token with the `user` scope — the
+  old shared-storage endpoint is gone, HTTP 410) shows **801 MB of the 1,000 MB free LFS storage already in
+  use**: orthodoxy 613, orthodoxy-private 74, heiligenjaar 54, kerkmuziek 33, kummer 27; bandwidth 0 of 1,000 MB
+  this month. Adding these 134 MB would leave no headroom, and LFS storage counts every version ever pushed and
+  is not freed by deleting the files later, so one regeneration at other settings would go over. The repository
+  keeps the coordinates (headwords.tsv, 7 MB of text) and the script; `dj_crops.py crops` remakes the images.
+  `djachenko/crops/` is git-ignored.
+  (An LFS migration was made first and then undone. If it is ever wanted: `git lfs migrate import` needs
+  `--exclude-ref=refs/remotes/origin/master`, or it rewrites every commit including those already pushed, and the
+  push then needs --force. `git lfs checkout` is needed afterwards, or the working tree keeps pointer stubs.)
   Checked: slicing five entries out of the strips with nothing but headwords.tsv gives the same headword from all
   four copies side by side (Метати, Метехати, Метненїе). B's crops carry a sliver of the next line, because B's
   line boxes are coarse; C's sometimes keep the "=".
