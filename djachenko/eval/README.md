@@ -22,7 +22,7 @@ one done so far:
 |---|---|---|---|
 | 719 | 682 | Greek-densest page (395 Greek characters) | **done** |
 | 801 | 764 | second Greek-dense page (314) | **done** |
-| 260 | 223 | the Old Church Slavonic citation type, unmeasured so far (the page the user noticed it on) | to do |
+| 260 | 223 | the Old Church Slavonic citation type, unmeasured so far (the page the user noticed it on) | **done** |
 | 146 | 109 | 81 entries, the densest page of the book: segmentation and headwords | to do |
 | 283 | 246 | drawn at random (seed 2026) — **held out**: never to be used for tuning a rule | to do |
 | 696 | 659 | drawn at random — **held out** | to do |
