@@ -204,7 +204,7 @@ flowchart TD
 
     WITLIB --> SEG["dj_seg.py — Phase 3b step 1c<br/>the printed indentation of C and D, line by line:<br/>where an entry begins, where one runs on"]
     OCRJ --> SEG
-    SEG --> SEGF[("segmentation.tsv — the two witnesses' verdict<br/>on 119,461 printed lines, committed")]
+    SEG --> SEGF[("segmentation.tsv — the two witnesses' verdict<br/>on 119,616 printed lines, committed")]
     SEGF -- "entry starts A cannot see:<br/>cut margins, a stain over a line" --> ABBYY
 
     WITLIB --> EVAL["dj_eval.py — Phase 2<br/>character error per zone, segmentation,<br/>headword vote, suspect ground truth"]

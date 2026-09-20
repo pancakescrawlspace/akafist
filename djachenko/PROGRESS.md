@@ -551,7 +551,7 @@ See PLAN.md for the phases. Newest entry last.
     letters is a speck, not a line, and gets no verdict (those had produced empty entries).
   Result: 124,497 printed lines, 96 % carried over to both witnesses, **C and D agreeing on 99.8 %** of those —
   the same order as the 99.7 % of `linecheck`, and independent evidence for the one-typesetting finding.
-  `djachenko/segmentation.tsv` (119,461 rows, 2.3 MB) holds the verdict for every such line and is **committed**:
+  `djachenko/segmentation.tsv` (119,616 rows, 2.3 MB) holds the verdict for every such line and is **committed**:
   it is the witnesses' reading, not a diff against A, so the scripts may be re-run in either order and a rebuild
   without the Google PDFs still gets the entry boundaries right. `dj_abbyy.py` reads it when it groups lines into
   paragraphs (keyed by the line's baseline, which no re-run changes), counts how often it overruled A (page key
