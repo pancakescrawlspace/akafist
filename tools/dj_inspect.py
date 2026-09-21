@@ -460,9 +460,18 @@ def gtlines_page(leaf, force=False):
             text = parts[pi][2]
             if k <= 1:                                      # the start of a GT line: already a line start
                 continue
-            if not soft:                                    # a break between words: to the start of the word
-                while k > 0 and not text[k - 1].isspace():
-                    k -= 1
+            if not soft:                                    # a break between words: to the start of the word,
+                # back over letters only — a hyphen, dash, "=" or bracket before it ends the line above
+                # (съмрьтьни-¦полумертвы, Римскій —¦…) — and only from a letter or two in (the alignment's jitter):
+                # further into a word of the civil text it is a word the print broke without a hyphen
+                # (священни¦ковъ), and stays — but not in Church Slavonic type or a line's first word, where the
+                # voted text garbles the headword and the alignment is loose
+                j = k
+                while j > 0 and (text[j - 1].isalpha() or text[j - 1] in MARKUP):
+                    j -= 1
+                in_cs = text.rfind('{', 0, k) > text.rfind('}', 0, k)
+                if k - j <= 2 or in_cs or j <= 1:
+                    k = j
                 if k == 0:
                     continue
             while k > 0 and text[k - 1] in '{‹':            # before the markup that opens the line's first word
@@ -470,16 +479,27 @@ def gtlines_page(leaf, force=False):
             marks.setdefault(parts[pi][0], set()).add(k)
         n_gt = len(parts) + sum(len(marks.get(i, ())) for i, _, _ in parts)
         report.append((n, n_a, n_gt))
+    out = list(lines)
+    for i, ks in marks.items():
+        prefix = '+ ' if out[i].startswith('+ ') else ''
+        text = out[i][len(prefix):]
+        for k in sorted(ks, reverse=True):
+            text = text[:k] + BREAK + text[k:]
+        out[i] = prefix + text
+    # equal counts do not prove the markers right: a line the GT left out can be made up for by a misplaced
+    # marker (p. 109). So each GT line's length is also compared with scan A's reading of the same line.
+    odd = []
+    for n, parts in sorted(gt_columns_from(out).items()):
+        col = next(c for c in pg['columns'] if c['n'] == n)
+        a_lines = [ln['text'].strip() for par in col['paragraphs'] for ln in par['lines']]
+        g_lines = [re.sub(r'\[\?\]|[{}‹›]', '', seg).strip() for _, _, t in parts for seg in t.split(BREAK)]
+        for k, (x, g) in enumerate(zip(a_lines, g_lines)):
+            r = len(g) / max(1, len(x))
+            if not 0.8 <= r <= 1.25 and abs(len(g) - len(x)) > 4:
+                odd.append((n, k, x, g))
     if all(a == g for _, a, g in report):
-        out = list(lines)
-        for i, ks in marks.items():
-            prefix = '+ ' if out[i].startswith('+ ') else ''
-            text = out[i][len(prefix):]
-            for k in sorted(ks, reverse=True):
-                text = text[:k] + BREAK + text[k:]
-            out[i] = prefix + text
         path.write_text('\n'.join(out) + '\n', encoding='utf-8')
-    return report
+    return report, odd
 
 
 def gt_columns_from(lines):
@@ -498,13 +518,16 @@ def cmd_gtlines(a):
     """Mark the printed lines in the ground-truth files (eval/README.md: the break marker), from scan A's lines."""
     leaves = [int(x) for x in a.leaves] if a.leaves else sorted(int(f.stem) for f in GT_DIR.glob('[0-9]*.txt'))
     for leaf in leaves:
-        rep = gtlines_page(leaf, a.force)
-        if rep is None:
+        res = gtlines_page(leaf, a.force)
+        if res is None:
             print(f'{leaf:04d}: has breaks already (--force to redo)')
             continue
+        rep, odd = res
         bad = [(n, x, g) for n, x, g in rep if x != g]
         print(f'{leaf:04d}: ' + ('written' if not bad else 'NOT written') + ' — ' +
               ', '.join(f'col {n} {x}/{g}' + ('' if x == g else ' ✗') for n, x, g in rep))
+        for n, k, x, g in odd:                                  # a line far longer or shorter than A reads it
+            print(f'    col {n} line {k}: A "{x}"\n    {" " * len(str(n))}          GT "{g}"')
 
 
 # ---------------------------------------------------------------- counts

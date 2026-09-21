@@ -96,7 +96,10 @@ follows an uncertain reading (`[?]`). A note at the foot of the page names the f
   print broke the word there with a hyphen, which is not written; a hyphen that belongs to the word stays before it
   (`древне-¦русскихъ`). Removing every `¦` gives the text exactly as before: `dj_eval.py` and `gtcheck` ignore them.
   They were placed by `dj_inspect.py gtlines`, which carries scan A's line starts over from the voted text by
-  alignment and writes a file only when every column has as many printed lines as scan A. A new or edited page
+  alignment and writes a file only when every column has as many printed lines as scan A; since equal counts do not
+  prove every marker right, it also lists each line whose length disagrees with ABBYY's reading of the same line
+  (session 6: 20 misplaced markers and a second missing line on p. 109 found that way, and corrected). Where the
+  voted text itself is scrambled the markers are set by hand and the file's header says so (p. 623, Смокноути). A new or edited page
   gets its markers the same way (`gtlines LEAF --force` redoes a page).
 - How it was made: each column was read line by line in 600 ppi crops of scan A, and every line was compared with
   ABBYY's reading of it; where the two differed, the image decided. Doubtful glyphs were compared with witness D

@@ -10,6 +10,8 @@
 #   The last line of col b, "12 въ сп. XVI в. (Вост.).", was missing, which made the last entry seem to run on to
 #   p. 110; found when the printed lines were marked (¦), read on scan A and added (session 6, 2026-09-21). The
 #   entry ends here; p. 110 begins with Вывертка.
+#   Likewise the last line of col a, "(др. слав. „искони“).", was missing (found when the GT lines were paired with
+#   scan A's for dj_hwocr.py, session 6, 2026-09-21; read on scan A, искони in the citation type).
 @ col 1 a
 {Възварити}=разсорить. (Новг. л).
 {Възвести кого на кого} = возбудить на ¦войну противъ кого (Ипат. лѣт.).
@@ -51,7 +53,7 @@
 {Въ наведенїи величаваго нѣсть исцѣ¦ленїѧ} = испытанія послужатъ врачев¦ствомъ для каждаго. Прем. Солом. 3, 28.
 {Вънатъць}[?] = поспѣшно, скоро.
 {Въневѣды} = не зная.
-{Въ началѣ} — (ἐν ἀρχῇ)=1) сперва, прежде ¦всего (Быт. 1, 1); 2) всегда, ¦постоянно
+{Въ началѣ} — (ἐν ἀρχῇ)=1) сперва, прежде ¦всего (Быт. 1, 1); 2) всегда, постоянно ¦(др. слав. „{искони}“).
 @ col 2 b
 {Въиншьлъ}[?] = впалый.
 {Въ полѹдни} = въ русск. Библ. „во время ¦зноя дневнаго“ (Быт. 18, 1).
