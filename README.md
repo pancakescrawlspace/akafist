@@ -256,9 +256,11 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 
 ### Where it stands
 
-- **Headword crops:** every headword of every entry is located in all four witnesses (`headwords.tsv`, 99,836
-  rows, committed); `dj_crops.py crops` turns those coordinates into one page strip per witness (`crops/`, 134 MB,
-  not committed), so a headword can be compared across the four copies without opening the scans.
+- **Headword crops:** every headword of every entry is located in all four witnesses (`headwords.tsv`, 99,364
+  rows, committed); `dj_crops.py crops` turns those coordinates into one page strip per witness (`crops/`, 106 MB,
+  not committed), a black bar between two headwords and a slot for every entry in every witness, so the strips
+  can be cut apart from their pixels alone (`dj_crops.py split`) and a headword compared across the four copies
+  without opening the scans.
 - **Where the entries begin:** read off the printed indentation of witnesses C and D, line by line
   (`segmentation.tsv`, `dj_seg.py`): they reach 96 % of the 124,497 printed lines and agree on 99.8 % of those.
   Against scan A's own geometry — whose margins are cut on 551 pages — that adds 232 entry starts and withdraws
@@ -313,7 +315,7 @@ python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4
 python3 tools/dj_build.py --facsimile  # the same text, every line/column/page as in the book (~20 s)
 python3 tools/dj_errata.py report   # which errata rows locate and match
 python3 tools/dj_crops.py index     # the headword boxes; reads entries.tsv  (~25 s)
-python3 tools/dj_crops.py crops --workers 14   # the page strips (~35 min; ~100 at the default 8)
+python3 tools/dj_crops.py crops --workers 14   # a strip per page, bars between headwords (~30 min)
 python3 tools/dj_eval.py --refresh  # Phase 2: re-score everything against eval/gt/
 ```
 

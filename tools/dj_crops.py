@@ -3,18 +3,23 @@
 
     python3 tools/dj_crops.py index                    # djachenko/headwords.tsv — the boxes (fast, no images)
     python3 tools/dj_crops.py crops [--pages 45,341]   # djachenko/crops/<W>/NNNN.png — one strip per page
-    python3 tools/dj_crops.py crops --witness AD --ppi 300 --workers 8
+    python3 tools/dj_crops.py crops --files            # djachenko/crops/<W>/NNNN/<id>.png — one per headword
+    python3 tools/dj_crops.py crops --both             # both, from one decoding of each page
+    python3 tools/dj_crops.py split [--out DIR]        # cut the strips apart from their pixels alone, and check it
+    python3 tools/dj_crops.py crops --witness AD --ppi 300 --workers 14
     python3 tools/dj_crops.py report                   # what exists, and what it costs on disk
 
-Why strips and not one file per headword: git handles a few thousand files far better than a hundred thousand
-(24,841 headwords × 4 witnesses). Size is not the reason — measured (session 6), one 1-bit PNG per headword holds
-the same 3 % either way, though it occupies 2.7× on disk (a ~1.4 KB file in a 4 KB block: ~400 MB for the book);
-an earlier estimate here of "about a gigabyte" was for greyscale JPEG. crops/ is now git-ignored, so either would
-do. Each page and witness therefore gets ONE image, the page's headwords stacked in entry order, and
-`headwords.tsv` says which rows of that strip belong to which entry (`y0s`, `y1s`). Slicing one headword out is
-then a crop of the strip, with no need for the scans:
+One strip per page and witness: the page's headwords stacked in entry order, with a black bar the full width
+of the strip between two of them (the user's design, session 6). The bars make a strip self-describing: its
+headwords can be cut apart from the pixels alone — a bar is a run of rows black across the whole width, which no
+headword row is — and every entry of the page has its slot in every witness, an empty one where the witness has
+nothing, so the k-th piece of each of a page's four strips is the same entry. `split` does it and checks it
+against the index; `headwords.tsv` also gives each slot's rows (`y0s`, `y1s`):
 
     im = Image.open('djachenko/crops/A/0341.png').crop((0, y0s, width, y1s))
+
+Strips rather than one file per headword (`--files`, kept as an option): ~99,000 small files are unwieldy, and on
+disk each ~1.4 KB file fills a 4 KB block, 2.7× the space for the same bytes (measured, session 6).
 
 Where the boxes come from:
     A  the Church Slavonic type run that ABBYY marks at the start of the entry (`entries_hint[].bbox`), which is
@@ -49,11 +54,13 @@ Columns of headwords.tsv (tab-separated, one row per entry and witness; entries 
     y0s y1s   the rows of this headword inside the strip
     how       abbyy (A), dline (D), aligned (B, C), none (not found — box and strip empty)
 """
-import argparse, csv, json, subprocess, sys
+import argparse, csv, functools, json, subprocess, sys
+
+import numpy
 from multiprocessing import Pool
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from dj_witness import (CORNELL, DJ, OCR, PDF_DPI, REPRINT, align, b_page, c_page, d_page,  # noqa: E402
@@ -69,6 +76,8 @@ PAD_Y = {'B': 3}              # except above and below B's: its DjVu word boxes 
 #                               the lines either side — the noise the user saw in crops/B (session 6). The
 #                               horizontal pad stays: it keeps the last letter where the head's cut lands tight.
 THRESHOLD = 165               # grey level below which a pixel is ink (see strip_page)
+BAR, BAR_GAP = 4, 6           # strips: a black bar between two headwords, the full width, with white either side
+EMPTY_H = 12                  # the height of an empty slot: an entry this witness could not locate
 SEPS = '=—–'                  # what ends the headword on the line ("Метехати = …", "Метненїе—…")
 
 
@@ -349,6 +358,7 @@ def write_index(rows):
 
 # ---------------------------------------------------------------- the crops
 
+@functools.lru_cache(maxsize=1)                  # --both crops a page twice in the same worker: decode it once
 def witness_image(leaf, witness):
     """The witness's page as an image, in the coordinate space the index uses. The rendered page of B, C and D is
     a temporary file of several MB: it is read into memory and deleted at once, or a full run would leave tens of
@@ -373,6 +383,54 @@ def witness_image(leaf, witness):
     return im
 
 
+def cut(im, r, witness, scale):
+    """The crop of one headword box of the index, padded and scaled; still greyscale."""
+    x0, y0, x1, y1 = (int(r['x0']), int(r['y0']), int(r['x1']), int(r['y1']))
+    py = PAD_Y.get(witness, PAD)
+    c = im.crop((max(0, x0 - PAD), max(0, y0 - py), x1 + PAD, y1 + py))
+    if scale != 1.0:
+        c = c.resize((max(1, round(c.width * scale)), max(1, round(c.height * scale))), Image.LANCZOS)
+    return c
+
+
+def one_bit(im):
+    """Black on white: one bit keeps the letterforms. Threshold, never Pillow's dithering convert('1') — dithered
+    paper grain is noise that PNG cannot compress (a page strip of A: 169 KB dithered against 35 KB thresholded)."""
+    return im.point(lambda v: 255 if v > THRESHOLD else 0).convert('1')
+
+
+def headword_path(witness, eid):
+    """crops/<W>/NNNN/<id>.png — one folder per page, so that no folder holds more than a few dozen files."""
+    return CROPS / witness / eid[:4] / f'{eid}.png'
+
+
+def headword_files(args):
+    """One PNG per headword for one page and witness; -> (leaf, witness, files written, bytes of the page's files).
+    With force, files of entries the page no longer has (the ids move when the segmentation does) are removed."""
+    leaf, witness, rows, ppi, force = args
+    boxes = [r for r in rows if r['x0'] != '']
+    folder = CROPS / witness / f'{leaf:04d}'
+    if force and folder.exists():
+        keep = {f"{r['id']}.png" for r in boxes}
+        for f in folder.glob('*.png'):
+            if f.name not in keep:
+                f.unlink()
+    todo = [r for r in boxes if force or not headword_path(witness, r['id']).exists()]
+    if todo:
+        try:
+            im = witness_image(leaf, witness)
+        except Exception as e:                             # noqa: BLE001
+            print(f'leaf {leaf} {witness}: {type(e).__name__}: {e}', file=sys.stderr)
+            return leaf, witness, 0, 0
+        folder.mkdir(parents=True, exist_ok=True)
+        scale = ppi / PDF_DPI
+        for r in todo:
+            one_bit(cut(im, r, witness, scale)).save(headword_path(witness, r['id']), format='PNG', optimize=True)
+    size = sum(headword_path(witness, r['id']).stat().st_size for r in boxes
+               if headword_path(witness, r['id']).exists())
+    return leaf, witness, len(todo), size
+
+
 def strip_page(args):
     """Build one page strip for one witness; -> (leaf, witness, [(id, y0s, y1s)], bytes written)."""
     leaf, witness, rows, ppi, force = args
@@ -388,25 +446,99 @@ def strip_page(args):
         print(f'leaf {leaf} {witness}: {type(e).__name__}: {e}', file=sys.stderr)
         return leaf, witness, [], 0
     scale = ppi / PDF_DPI
+    # A black bar the full width of the strip between two headwords, with white either side of it (the user,
+    # session 6: first frames, then red frames, then bars — black, twice the frames' 2 px). The bars make the strip
+    # self-describing: its headwords can be cut apart from the pixels alone (`split`), no index needed. For that
+    # every entry of the page has its slot, in entry order, in every witness — an entry a witness could not locate
+    # gets an empty one — so that the k-th piece of each of the four strips of a page is the same entry.
+    # y0s/y1s give the slot's rows, without the bar.
     crops, spans, y = [], [], 0
-    for r in boxes:
-        x0, y0, x1, y1 = (int(r['x0']), int(r['y0']), int(r['x1']), int(r['y1']))
-        py = PAD_Y.get(witness, PAD)
-        c = im.crop((max(0, x0 - PAD), max(0, y0 - py), x1 + PAD, y1 + py))
-        if scale != 1.0:
-            c = c.resize((max(1, round(c.width * scale)), max(1, round(c.height * scale))), Image.LANCZOS)
+    for r in rows:
+        c = cut(im, r, witness, scale) if r['x0'] != '' else Image.new('L', (1, EMPTY_H), 255)
         crops.append(c)
         spans.append((r['id'], y, y + c.height))
-        y += c.height
+        y += c.height + BAR_GAP + BAR + BAR_GAP
     W = max(c.width for c in crops)
-    out = Image.new('L', (W, y), 255)
-    for c, (_, y0s, _) in zip(crops, spans):
+    H = y - (BAR_GAP + BAR + BAR_GAP)
+    out = Image.new('L', (W, H), 255)
+    draw = ImageDraw.Draw(out)
+    for c, (_, y0s, y1s) in zip(crops, spans):
         out.paste(c, (0, y0s))
+        if y1s < H:                                         # not after the last headword
+            draw.rectangle((0, y1s + BAR_GAP, W - 1, y1s + BAR_GAP + BAR - 1), fill=0)
     path.parent.mkdir(parents=True, exist_ok=True)
-    # black on white: one bit keeps the letterforms. Threshold, never Pillow's dithering convert('1') — dithered
-    # paper grain is noise that PNG cannot compress (a page strip of A: 169 KB dithered against 35 KB thresholded).
-    out.point(lambda v: 255 if v > THRESHOLD else 0).convert('1').save(path, format='PNG', optimize=True)
+    one_bit(out).save(path, format='PNG', optimize=True)
     return leaf, witness, spans, path.stat().st_size
+
+
+def split_strip(im):
+    """The headwords of a strip, found from its pixels alone: -> [(y0, y1)] in order, one per slot, (y, y) for an
+    empty slot. A bar is a run of rows that are black across the whole width — which no headword row can be, since
+    a crop is narrower than the strip or, at its full width, still has paper in it; each slot is what lies between
+    two bars, with the white on either side trimmed off."""
+    dark = numpy.asarray(im.convert('L')) < 128
+    H = dark.shape[0]
+    black, ink = dark.all(axis=1), dark.any(axis=1)
+    cuts, y = [], 0
+    while y < H:                                            # the bars, as runs of full-black rows
+        if black[y]:
+            z = y
+            while z < H and black[z]:
+                z += 1
+            cuts.append((y, z))
+            y = z
+        else:
+            y += 1
+    bounds = [0] + [v for c in cuts for v in c] + [H]
+    out = []
+    for a, b in zip(bounds[::2], bounds[1::2]):
+        rows = [y for y in range(a, b) if ink[y] and not black[y]]
+        out.append((rows[0], rows[-1] + 1) if rows else (a, a))
+    return out
+
+
+def cmd_split(a):
+    """Cut every strip apart from its pixels alone and check the pieces against the index: as many as the page has
+    entries, in the same order in all four witnesses, each piece inside its slot. With --out, write the pieces."""
+    rows = list(csv.DictReader(open(INDEX, encoding='utf-8'), delimiter='\t', quoting=csv.QUOTE_NONE))
+    by = {}
+    for r in rows:
+        by.setdefault((int(r['id'][:4]), r['witness']), []).append(r)
+    leaves = set(pages_of(a))
+    n = bad = 0
+    for (leaf, w), rs in sorted(by.items()):
+        path = CROPS / w / f'{leaf:04d}.png'
+        if leaf not in leaves or w not in a.witness or not path.exists():
+            continue
+        n += 1
+        im = Image.open(path)
+        pieces = split_strip(im)
+        if len(pieces) != len(rs):
+            bad += 1
+            print(f'  {path.relative_to(DJ)}: {len(pieces)} pieces, {len(rs)} entries')
+            continue
+        for (y0, y1), r in zip(pieces, rs):
+            empty, unlocated = y1 == y0, r['x0'] == ''
+            if empty != unlocated:                          # a piece is empty exactly where the witness has no box
+                bad += 1
+                print(f'  {path.relative_to(DJ)}: {r["id"]} ' + ('has no ink' if empty else 'has ink in an empty slot'))
+                break
+            if not empty and r['y0s'] and not (int(r['y0s']) <= y0 and y1 <= int(r['y1s'])):
+                bad += 1
+                print(f'  {path.relative_to(DJ)}: {r["id"]} found at rows {y0}-{y1}, its slot is {r["y0s"]}-{r["y1s"]}')
+                break
+        if a.out:
+            folder = Path(a.out) / w / f'{leaf:04d}'
+            folder.mkdir(parents=True, exist_ok=True)
+            for (y0, y1), r in zip(pieces, rs):
+                if y1 > y0:
+                    im.crop((0, y0, im.width, y1)).save(folder / f'{r["id"]}.png', optimize=True)
+    print(f'{n} strips split from their pixels alone; {bad} disagree with the index')
+
+
+def both(args):
+    """One page and witness: the headword files and the strip, from one decoding of the page."""
+    return headword_files(args), strip_page(args)
 
 
 def cmd_crops(a):
@@ -419,6 +551,34 @@ def cmd_crops(a):
     leaves = set(pages_of(a))
     jobs = [(leaf, w, rs, a.ppi, a.force) for (leaf, w), rs in sorted(by.items())
             if leaf in leaves and w in a.witness]
+    if a.both:
+        print(f'{len(jobs)} pages × witnesses: a strip per page and one file per headword')
+        total = written = 0
+        with Pool(a.workers) as pool:
+            for n, ((leaf, w, k, fsize), (_, _, spans, ssize)) in enumerate(pool.imap_unordered(both, jobs), 1):
+                total += fsize + ssize
+                written += k
+                for eid, y0s, y1s in (spans or []):
+                    for r in by[(leaf, w)]:
+                        if r['id'] == eid:
+                            r.update(strip=f'crops/{w}/{leaf:04d}.png', y0s=y0s, y1s=y1s)
+                if n % 50 == 0 or n == len(jobs):
+                    print(f'  [{n}/{len(jobs)}] {written} files, {total / 1e6:.0f} MB so far', flush=True)
+        write_index(rows)
+        print(f'{written} headword files and {len(jobs)} strips; {total / 1e6:.1f} MB at {a.ppi} ppi')
+        return
+    if a.files:
+        print(f'{len(jobs)} pages × witnesses to consider ({len(leaves)} pages × {len(a.witness)} witnesses), '
+              f'one file per headword')
+        total = written = 0
+        with Pool(a.workers) as pool:
+            for n, (leaf, w, k, size) in enumerate(pool.imap_unordered(headword_files, jobs), 1):
+                total += size
+                written += k
+                if n % 50 == 0 or n == len(jobs):
+                    print(f'  [{n}/{len(jobs)}] {written} files written, {total / 1e6:.0f} MB so far', flush=True)
+        print(f'{written} headword files written; {total / 1e6:.1f} MB at {a.ppi} ppi')
+        return
     print(f'{len(jobs)} page strips to consider ({len(leaves)} pages × {len(a.witness)} witnesses)')
     total = done = 0
     with Pool(a.workers) as pool:
@@ -451,25 +611,34 @@ def cmd_report(a):
     for w in 'ABCD':
         folder = CROPS / w
         if folder.exists():
-            files = list(folder.glob('*.png'))
-            size = sum(f.stat().st_size for f in files)
-            print(f'  crops/{w}: {len(files)} strips, {size / 1e6:.1f} MB'
-                  + (f' → {size / len(files) * 1119 / 1e6:.0f} MB for the whole book' if files else ''))
+            strips = list(folder.glob('*.png'))
+            heads = list(folder.glob('*/*.png'))
+            for kind, files in (('strips', strips), ('headword files', heads)):
+                if files:
+                    size = sum(f.stat().st_size for f in files)
+                    disk = sum(f.stat().st_blocks * 512 for f in files)
+                    print(f'  crops/{w}: {len(files)} {kind}, {size / 1e6:.1f} MB ({disk / 1e6:.0f} MB on disk)')
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     sub = ap.add_subparsers(dest='cmd', required=True)
-    for name, fn in (('index', cmd_index), ('crops', cmd_crops), ('report', cmd_report)):
+    for name, fn in (('index', cmd_index), ('crops', cmd_crops), ('split', cmd_split), ('report', cmd_report)):
         sp = sub.add_parser(name)
         sp.set_defaults(fn=fn)
         if name != 'report':
             sp.add_argument('--pages', help='leaves of scan A, e.g. 45,341,500-510')
             sp.add_argument('--workers', type=int, default=8)
             sp.add_argument('--force', action='store_true', help='redo what is already there')
+        if name == 'split':
+            sp.add_argument('--witness', default='ABCD')
+            sp.add_argument('--out', help='write the pieces to OUT/<W>/NNNN/<id>.png')
         if name == 'crops':
             sp.add_argument('--witness', default='ABCD', help='which witnesses to crop (default ABCD)')
             sp.add_argument('--ppi', type=int, default=600, help='resolution of the crops (default 600)')
+            sp.add_argument('--files', action='store_true',
+                            help='one file per headword (crops/<W>/NNNN/<id>.png) instead of one strip per page')
+            sp.add_argument('--both', action='store_true', help='the strips and the headword files, in one pass')
     a = ap.parse_args()
     a.fn(a)
 

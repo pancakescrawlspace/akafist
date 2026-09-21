@@ -763,6 +763,27 @@ See PLAN.md for the phases. Newest entry last.
   What the crops still show is upstream of them: where ABBYY's own reading of the headword ran on past the
   separator (`Лендиръ евр. источникъ обитанія`), the head in entries.tsv is that long and the crop follows it.
 
+- Strips with separator bars (session 6). The user's aim: "if there's noise on the page, I can't clearly see to
+  which headword it is connected." Tried in turn: one file per headword (`--files`; built for 62,747 headwords,
+  then stopped — the user: "too many small files", and on disk a ~1.4 KB file fills a 4 KB block, 2.7× the space
+  for the same bytes), frames round each headword in the strip, frames in red. Measured on 25 pages per witness,
+  the frames themselves cost 1.7 % and the red another 15–19 % (a 3-colour palette needs 2 bits a pixel; strips
+  for the book 82 MB black, 95 MB red). Settled on the user's design: **one strip per page, a black bar the full
+  width of the strip between two headwords**, 4 px (twice the frames' 2 px), with 6 px of white either side so
+  it never touches a letter; 1-bit PNG again. Strips are the default of `dj_crops.py crops` once more; `--files`
+  and `--both` (both from one decoding of each page — the page image is cached per worker) stay as options.
+  The per-headword files were deleted (generated and git-ignored); all 4,452 strips rebuilt.
+  The bars' purpose (the user): "that we can easily extract the individual headwords purely from the images, no
+  other metadata needed". Two things follow, both done: (a) **every entry of the page has its slot in every
+  witness**, in entry order — an entry a witness could not locate (11 in the book: B 5, C 3, D 3) gets an empty
+  12 px slot instead of being left out, which would have shifted every later headword of that strip by one, so
+  the k-th piece of a page's four strips is always the same entry; (b) `dj_crops.py split` cuts every strip apart
+  from its pixels alone — a bar is a run of rows black across the whole width, which no headword row is — and
+  checks the result against headwords.tsv (as many pieces as the page has entries, each inside its slot, a piece
+  empty exactly where the witness has no box); `--out DIR` writes the pieces as files.
+  Result over the whole book: **4,452 strips split from their pixels alone, 0 disagreeing with the index**; every
+  entry has its slot in all four witnesses. The strips take 106 MB (120 MB on disk): A 35, B 11, C 29, D 31.
+
 NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
@@ -799,6 +820,13 @@ NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now 
   `Аполинъ` alike). The two crops differ on purpose: dj_heads crops the *start of the line* for reading, the
   index crops the *headword box* for comparing one lemma across the four copies, and it was only the latter that
   took ABBYY's word for where the headword began.
+
+  (6) **the flowing PDF takes ~4 min against the facsimile's ~15 s** (the user noticed; flagged, not looked
+  into). Likely cause, seen in dj_build.py's preamble but not measured: the running head runs
+  `query(<e>).filter(… page() == here().page())` and `query(selector(<e>).before(here()))` on every page — over
+  all ~25,000 entry markers, ~1,000 times — to find the page's first and last entry for the guide words, where
+  the facsimile computes them in Python and places every line absolutely. If so, computing the guide words
+  once (a state updated per entry, or Python-side) would fix it.
 
   Note: djachenko.pdf and facsimile.pdf are git-ignored; both rebuilt 2026-09-21 from the current entries.tsv
   (flowing: 4 min; facsimile: 1,120 pages, 15 s). Rebuild after any change to entries.tsv.
