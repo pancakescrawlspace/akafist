@@ -713,9 +713,14 @@ def cmd_book(a):
     print(f'{len(rows)} first lines; reading them with {model.name} on {a.device} …')
     outdir = BOOK / 'read' / model.stem
     todo = [BOOK / 'img' / f'{r["id"]}.png' for r in rows if not (outdir / f'{r["id"]}.txt').exists()]
-    for i in range(0, len(todo), 1000):                          # one Kraken process per 1,000 lines
-        kraken_read(model, todo[i:i + 1000], outdir, a.device)
-        print(f'  [{min(i + 1000, len(todo))}/{len(todo)}]')
+    # Kraken reads on one thread: on the CPU, several processes side by side (on the GPU one)
+    jobs = a.jobs or (8 if a.device == 'cpu' else 1)
+    chunks = [todo[i:i + 500] for i in range(0, len(todo), 500)]
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(jobs) as ex:
+        for k, _ in enumerate(ex.map(lambda c: kraken_read(model, c, outdir, a.device), chunks), 1):
+            if k % 5 == 0 or k == len(chunks):
+                print(f'  [{min(k * 500, len(todo))}/{len(todo)}]', flush=True)
     for r in rows:
         r['model'] = norm((outdir / f'{r["id"]}.txt').read_text(encoding='utf-8'))
         r['model_head'], r['vote_head'] = head_of(r['model']), head_of(r['vote'])
@@ -936,7 +941,8 @@ def main():
     s.add_argument('--model', help='weights or checkpoint; default: the best in model/')
     s.add_argument('--device', default='mps', help='mps (default) or cpu (while the GPU trains)')
     s.add_argument('--leaves', help='only these leaves, e.g. 100-110 (a trial)')
-    s.add_argument('--workers', type=int, default=8)
+    s.add_argument('--workers', type=int, default=8, help='processes cutting the line images')
+    s.add_argument('--jobs', type=int, help='Kraken processes reading side by side (default: 8 on cpu, 1 on mps)')
     s = sub.add_parser('review')
     s.add_argument('--n', type=int, default=500, help='disagreements to draw (15 a sheet)')
     s.add_argument('--seed', type=int, default=1)
