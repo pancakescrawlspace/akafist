@@ -82,7 +82,8 @@ djachenko/
                    ocr/report.tsv: per-page statistics and warnings of the last dj_abbyy.py run
   entries.tsv      the structured dictionary (Phase 4 output) — committed; FLAGS.md its validation report
   eval/            ground-truth pages and evaluation results (Phase 2)
-  cache/           rendered D pages, entry crops, contact sheets (Phase 3b step 2; git-ignored, rebuilt on demand)
+  cache/           rendered D pages, entry crops, contact sheets (Phase 3b step 2; git-ignored, rebuilt on demand);
+                   cache/hwocr/ the training data and models of option (C) (dj_hwocr.py)
   heads_batches.tsv  Message Batches submitted by `dj_heads.py read --batch`, with their status (committed)
   djachenko.typ, djachenko.pdf   Typst rendition (Phase 6; generated, 9 + 20 MB — git-ignored, rebuilt with dj_build.py)
   segmentation.tsv where every printed line begins an entry or continues one, read off witnesses C and D
@@ -98,6 +99,8 @@ tools/
   dj_heads.py      Phase 3b (Rev. 5): `text` — per page, align witness D's text to A's segmentation, vote with B, A
                    and C (exists, run); `crops`/`read`/`collect`/`sheet`/`enter`/`check` — the headwords from
                    crops, by the API or by hand (exists, not yet run); idempotent and resumable throughout
+  dj_hwocr.py      Phase 3b step 2 option (C) (session 6): training data for our own headword OCR model — line images
+                   of scan A with GT, agreed and synthetic labels → cache/hwocr/; Kraken trains on it (exists)
   dj_seg.py        Phase 3b step 1c (Rev. 7): the printed indentation of C and D, line by line → segmentation.tsv,
                    which dj_abbyy.py applies — the authority on where an entry begins (exists, run)
   dj_witness.py    shared: witness word boxes and page mapping, reading order, normalisation, alignment,
@@ -266,9 +269,46 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
    (half price) and records the batch ids in `heads_batches.tsv` for `collect` in a later session; `sheet`/`enter`
    do the same by hand (tested on leaf 341: 25/25, 23 confirmed, the 2 disputed are the ones needing a second
    look). `dj_eval.py --heads` scores the readings on the GT pages. `headword_civil` is derived in Phase 4.
-   Open decision (user): API (needs `pip install anthropic` and ANTHROPIC_API_KEY; cost = ~$17 of images + the
+   Open decision (user): (A) API (needs `pip install anthropic` and ANTHROPIC_API_KEY; cost = ~$17 of images + the
    model's output, which the effort level governs — measure on the six GT pages at effort low and medium first)
-   or interactive sessions (~1,700 sheets of 15).
+   or (B) interactive sessions (~1,700 sheets of 15), or (C) below. The user's order (session 6): the free options
+   first; (A) only when they are exhausted.
+
+   **(C) Our own OCR model** (added session 6, 2026-09-21, the user's proposal; `tools/dj_hwocr.py`). A line
+   recogniser (Kraken 7, PyTorch, trained on this Mac's GPU) taught this one book's types. Not a replacement for (A)
+   so much as its partner: the one field with no reliable second reading is the headword, and a model of our own
+   is independent of a vision LLM by construction — where the two agree the headword can be trusted, where they
+   differ is what the user proofreads. It is free, offline, repeatable, and gives a confidence per letter. Also a
+   goal in itself: the user wants to learn the machine-learning side.
+   - *The bottleneck is labels, not images.* Exact labels exist only in the GT: 325 headwords, 2,917 characters,
+     some letters once or twice (ѡ, ѭ, ѵ, ф). Automatic labels come from the vote where D and B read a head alike —
+     scarce (~12 % of first lines) and at the norm level only (the OCRs read Church Slavonic letters as civil
+     look-alikes), biased toward the easy heads. So the Church Slavonic letters are taught by *synthetic* lines:
+     Typst sets heads in five Church Slavonic faces of the fonts-cu family (Ponomar, Pochaevsk, Monomakh, Menaion,
+     Fedorovsk — the book's headword type is closest to the first three, its heavy citation type to Menaion),
+     accented as printed, a quarter in bold civil type (the book's Russian headwords, e.g. Выбойка), then real
+     definition text; roughened to look like a scan. Whether that transfers to the book's own types is the
+     experiment's question.
+   - *Line images, not the crops.* The crops of dj_crops.py are cut to an estimated headword length, so image and
+     text need not match exactly, and a recogniser needs them to. The unit is the printed line (scan A's box):
+     the first line of an entry carries the head and a stretch of civil text whose label the vote supplies; the
+     GT's `¦` markers give every GT line its exact label.
+   - *Data* (`dj_hwocr.py data` → `djachenko/cache/hwocr/`, git-ignored; `sheet` for a contact sheet): gt (the
+     GT's lines), agree (entry first lines with an agreed head; 8 % of the fully agreed continuation lines, for
+     the book's civil type), synth. Labels at the norm level for stage 1; the strict label kept where known, and
+     for synthetic lines also the accented one — the Phase 0 decision against accents and titla is not final.
+     Splits: **test = the held-out GT pages 283 and 696 only** (a model trained on the other ten GT pages can
+     only be measured there); val = the agree lines of every 20th leaf, for choosing the checkpoint.
+   - *Environment:* `python3 -m venv ~/.venvs/kraken; ~/.venvs/kraken/bin/pip install kraken` (done session 6:
+     kraken 7.1.1, torch 2.14, MPS available; scipy upgraded to 1.17.1 past Kraken's pin, the 1.15.3 build failing
+     to load on macOS 27). Training (stage 1; smoke-tested: 4.0 M parameters, ~12 min an epoch):
+     `~/.venvs/kraken/bin/ketos -d mps --workers 4 train -f path -t djachenko/cache/hwocr/train.txt
+     -e djachenko/cache/hwocr/val.txt -o djachenko/cache/hwocr/model -B 16 --augment -q early`.
+     The concepts, the network and the data are explained in `djachenko/HWOCR.md`.
+   - *Decision:* stage 1 is worth pursuing if, on the held-out pages, it reads more headwords exactly (norm) than
+     the vote does (merged: hw CER 6.7 % on p. 246, 9.3 % on p. 659). Then stage 2: letters as printed (strict),
+     trained on the GT and synthetic lines; stage 3 perhaps accents; and self-training — the model reads every
+     headword, the readings that agree with D or B join the training data, repeat.
 3. *Greek.* Greek runs come with D's text; where C disagrees on a Greek run, mark it `disputed`.
 3a. *The crops themselves* (added session 4, `tools/dj_crops.py`): before the reading pass, every headword is
    located in all four witnesses and cropped once, into `djachenko/headwords.tsv` (the boxes, one row per entry

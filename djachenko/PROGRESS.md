@@ -853,6 +853,43 @@ See PLAN.md for the phases. Newest entry last.
   text is identical to the old build's on all 1,000 pages, guide words included (pdftotext); `--subset links`
   (32 pages) builds too.
 
+- **What the GT pages are for** (the user asked): not a benchmark of `dj_build.py` but of the text the pipeline
+  produces; also the instrument that chose the route (Phase 2), the regression test, the error estimate the edition
+  can state, the specification of right output, and the source of the vision model's examples. Blind to rare
+  defects (the footer cut left the scores unchanged) — the book-wide checks complement it. Answered in the chat;
+  nothing written.
+- **Phase 3b step 2 gets a third option, (C) our own OCR model** (the user's proposal; PLAN.md). The user will not
+  commit to the paid API pass (A) before the free options are exhausted, and wants to learn the machine-learning
+  side. Assessment: feasible; the bottleneck is labels, not images; best seen as (A)'s independent partner.
+  - Kraken installed by the user in `~/.venvs/kraken` (7.1.1, PyTorch 2.14, the Mac's GPU via MPS). SciPy there
+    upgraded to 1.17.1 past Kraken's pin: the 1.15.3 build fails to load on macOS 27. A smoke test (one epoch on
+    300 lines) runs: 4.0 M parameters, ~1.5 batches of 16 a second, i.e. ~12 min an epoch for the full set.
+  - **`tools/dj_hwocr.py`** (new) prepares the training data in `djachenko/cache/hwocr/` (git-ignored, ~1 GB):
+    line images of scan A (400 ppi) with their text, three kinds — gt (the GT's lines, paired with A's through the
+    `¦` markers: 1,094 train, and the two held-out pages 283/696 as the **test set**, 215 lines, 52 headwords),
+    agree (entry first lines whose head D and B read alike, 5,274, and 2,431 continuation lines they read alike
+    throughout; 359 of every 20th leaf are the validation set) and synth (8,000 first lines set by Typst in five
+    Church Slavonic faces, accented, a quarter with a bold civil head as the user pointed out the book has, then
+    real definition text; roughened like a scan; checked against the real lines for letter size). Labels at the
+    norm level for stage 1; strict and accented labels kept for later stages (the user: the Phase 0 decision
+    against accents and titla is not final). The automatic labels measured on the GT pages: head right in 83 %
+    (35/42), line characters in 98.85 %. `sheet` draws contact sheets; `data --only synth` rebuilds one kind.
+  - **djachenko/HWOCR.md** (the user asked for an expository note): CTC, the network Kraken trains, training,
+    the three sets, what dj_hwocr.py prepares and why, how to run and read a training run, a glossary.
+- **The GT audit that building the data became.** Pairing every GT line with A's and comparing their lengths found
+  **20 misplaced `¦` markers** — `gtlines` had snapped a marker back over a hyphen or dash (`съмрьтьни-¦полумертвы`
+  → `¦съмрьтьни-…`, `Римскій—¦старый` → `¦Римскій—…`) and to the start of words the print had broken whose hyphen
+  the vote had lost (`Богоро¦дицы`, `кры¦латый`, `священни¦ковъ`, each checked against A's line end) — and **a
+  second line missing from p. 109**, the last of col a (`(др. слав. „{искони}“).`, read on scan A), hidden because
+  a misplaced marker had made the counts agree. `gtlines` now snaps over letters only (not in Church Slavonic type
+  or a line's first word, where the alignment is loose), keeps a break deep inside a civil word, and lists every
+  line whose length disagrees with A's; all twelve pages rewritten and checked, the GT facsimile PDFs rebuilt.
+  Scores: merged 15.9 → 15.8 % on headwords, definitions 1.1 % (RESULTS.md).
+  ⚠ Found on the way, a pipeline defect: **the voted text of `Смокноути` (p. 623, leaf 660) is scrambled** —
+  `…разбиша сѣни о ша нема и“ (Пер. лѣт., 58). и ту уби`: D's words out of order and `немъ и смокоша и съ сѣній`
+  lost, so entries.tsv has it wrong. Its GT markers are set by hand (noted in the file). How many paragraphs are
+  like it is unknown — NEXT.
+
 NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two entries are not headwords at all:
   the library stamp on p. 41 (`0078-2-21`) and the tail of the footer on p. 913 (`0950-2-15`). Then the 53 pages
   `dj_inspect.py counts` flags (eval/pagecounts.tsv): look at a sample, find what the shortfall is.
@@ -882,7 +919,13 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
 
-  (6) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+  (6) Phase 3b step 2 — the headword reading itself. **Now: option (C), our own model** (PLAN.md, HWOCR.md). The
+  data is built (`dj_hwocr.py data`); next the stage-1 training run — a few hours, unattended:
+  `~/.venvs/kraken/bin/ketos -d mps --workers 4 train -f path -t djachenko/cache/hwocr/train.txt -e
+  djachenko/cache/hwocr/val.txt -o djachenko/cache/hwocr/model -B 16 --augment -q early` — then write
+  `dj_hwocr.py eval`: the model's first-line readings of the 52 test headwords (pp. 246, 659) against the GT, beside
+  the vote's on the same pages, CS and civil heads apart (the user's remark). The verdict decides stage 2 (letters
+  as printed), self-training, D's images for the cut margins — or a return to (A) and (B):
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
@@ -895,6 +938,11 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   `Аполинъ` alike). The two crops differ on purpose: dj_heads crops the *start of the line* for reading, the
   index crops the *headword box* for comparing one lemma across the four copies, and it was only the latter that
   took ABBYY's word for where the headword began.
+
+  (7) **scrambled voted text** (found session 6): the paragraph of `Смокноути` on p. 623 has D's words out of order
+  and half a line lost. Find how many paragraphs are like it — e.g. compare each paragraph's `text_merged` with
+  A's own line texts (ABBYY, reliable on civil text) by alignment, and flag the ones whose order disagrees — and
+  where the cause lies (D's reading order, `dj_witness.reading_order`, or the vote's cut).
 
   Note: djachenko.pdf and facsimile.pdf are git-ignored; both rebuilt 2026-09-21 from the current entries.tsv
   (flowing: 5 s; facsimile: 1,120 pages, 15 s). Rebuild after any change to entries.tsv.
