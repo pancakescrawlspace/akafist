@@ -313,7 +313,7 @@ python3 tools/dj_abbyy.py           # again, to apply segmentation.tsv; then dj_
 python3 tools/dj_heads.py text      #   (only the pages whose paragraphs moved)
 python3 tools/dj_parse.py           # Phase 4: entries.tsv + FLAGS.md        (~3 s)
 python3 tools/dj_link.py            # Phase 5: links.tsv
-python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)
+python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~5 s)
 python3 tools/dj_build.py --facsimile  # the same text, every line/column/page as in the book (~20 s)
 python3 tools/dj_build.py --gt      # the 12 ground-truth pages the same way, facsimile-P<page>.pdf, to proofread
 python3 tools/dj_errata.py report   # which errata rows locate and match

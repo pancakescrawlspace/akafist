@@ -842,6 +842,17 @@ See PLAN.md for the phases. Newest entry last.
   *Прибавленіе.* Known and left: verse lines are justified at the first indent where the book sets them ragged
   and deeper (as in the main facsimile).
 
+- **The flowing PDF: 3.7 min → 5 s** (NEXT item 7; the user asked to look into it). Measured by stage: writing
+  djachenko.typ 0.7 s; `typst compile` 118 s; and a `typst query <e>` that `compile_pdf` ran afterwards and never
+  used — a second full layout, 103 s. Compiled without the running head's two queries the book takes 3.3 s, so the
+  compile's time was all the guide words: every page filtered all 24,845 `<e>` markers by page in a Typst closure
+  (`query(<e>).filter(m => m.location().page() == here().page())`), ~25 million closure calls per layout pass.
+  Now the footer carries a marker, `<pgend>`, and since a page's header comes before its body in document order
+  and its footer after, the page's entries are `selector(<e>).after(here()).before(<its pgend>)`, resolved by
+  Typst's selectors instead of a closure. The unused query is gone. `dj_build.py` end to end: 5.2 s. The PDF's
+  text is identical to the old build's on all 1,000 pages, guide words included (pdftotext); `--subset links`
+  (32 pages) builds too.
+
 NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two entries are not headwords at all:
   the library stamp on p. 41 (`0078-2-21`) and the tail of the footer on p. 913 (`0950-2-15`). Then the 53 pages
   `dj_inspect.py counts` flags (eval/pagecounts.tsv): look at a sample, find what the shortfall is.
@@ -885,14 +896,7 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   index crops the *headword box* for comparing one lemma across the four copies, and it was only the latter that
   took ABBYY's word for where the headword began.
 
-  (7) **the flowing PDF takes ~4 min against the facsimile's ~15 s** (the user noticed; flagged, not looked
-  into). Likely cause, seen in dj_build.py's preamble but not measured: the running head runs
-  `query(<e>).filter(… page() == here().page())` and `query(selector(<e>).before(here()))` on every page — over
-  all ~25,000 entry markers, ~1,000 times — to find the page's first and last entry for the guide words, where
-  the facsimile computes them in Python and places every line absolutely. If so, computing the guide words
-  once (a state updated per entry, or Python-side) would fix it.
-
   Note: djachenko.pdf and facsimile.pdf are git-ignored; both rebuilt 2026-09-21 from the current entries.tsv
-  (flowing: 4 min; facsimile: 1,120 pages, 15 s). Rebuild after any change to entries.tsv.
+  (flowing: 5 s; facsimile: 1,120 pages, 15 s). Rebuild after any change to entries.tsv.
   The pipeline order is now dj_abbyy → dj_heads text → **dj_seg** → dj_abbyy → dj_heads text → dj_parse (README
   has it with timings): dj_seg.py needs step 1's text, and dj_abbyy.py needs dj_seg.py's file.

@@ -364,7 +364,7 @@ listed in `djachenko/FLAGS.md` (regenerated each run).
 
 Rev. 5 (session 3, user's decision): the rendition follows the **original's layout**, not the akathist dictionary's
 style. `tools/dj_build.py [--subset all|links] [--leaves A-B] [--marks] [--no-refs]` writes `djachenko/djachenko.typ`
-and compiles it (whole book: 25,362 entries → ~1,000 A4 pages, 4 min, 20 MB): the original's text block (169 × 249
+and compiles it (whole book: 25,362 entries → ~1,000 A4 pages, 5 s, 20 MB): the original's text block (169 × 249
 mm, measured on scan A) on A4, two columns with a rule, 12.6 pt line pitch, hanging indent 4.9 mm, page number over a
 short double rule, guide words in Church Slavonic type, the running title with the signature number every sixteenth
 page; letter initials in the column. Fonts (OFL, fetched into `djachenko/fonts/`, git-ignored): Ponomar Unicode for
