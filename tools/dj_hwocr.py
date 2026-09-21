@@ -6,6 +6,7 @@ environment (~/.venvs/kraken — PLAN.md has the commands).
     python3 tools/dj_hwocr.py data [--synth 8000] [--workers 14]    # the training data -> djachenko/cache/hwocr/
     python3 tools/dj_hwocr.py data --only gt,synth                   # rebuild some sets, keep the others
     python3 tools/dj_hwocr.py sheet agree [--n 30] [--split val]     # a contact sheet: samples and their labels
+    python3 tools/dj_hwocr.py alphabet                               # the characters of the labels -> alphabet.tsv
     python3 tools/dj_hwocr.py eval [--model PATH]                    # the verdict on the test pages (see below)
     python3 tools/dj_hwocr.py book [--device mps] [--leaves 100-110]  # the model reads every entry's first line
     python3 tools/dj_hwocr.py review [--n 500]                       # sheets of the model/vote disagreements
@@ -50,7 +51,7 @@ the answered head, then the rest of the line as the vote reads it.
 Splits: `test` = the two held-out GT pages (leaves 283 and 696, eval/README.md) and nothing else from them; `val` =
 the agree samples of every 20th leaf, for Kraken to choose its best checkpoint by; `train` = everything else.
 """
-import argparse, csv, datetime, json, random, re, shutil, subprocess, sys, unicodedata, zlib
+import argparse, collections, csv, datetime, json, random, re, shutil, subprocess, sys, unicodedata, zlib
 from multiprocessing import Pool
 from pathlib import Path
 
@@ -818,6 +819,27 @@ def build_checked():
     return rows
 
 
+def write_alphabet(rows):
+    """alphabet.tsv: every character of the training labels — the network's output symbols (Kraken adds the
+    blank) — with its code, name and counts in train, val and test, rarest first: where stray symbols show."""
+    counts = {sp: collections.Counter(ch for r in rows if r['split'] == sp and 'partial' not in r['flags']
+                                      for ch in r['norm']) for sp in ('train', 'val', 'test')}
+    chars = sorted(counts['train'], key=lambda ch: (counts['train'][ch], ch))
+    with open(OUT / 'alphabet.tsv', 'w', encoding='utf-8') as f:
+        f.write('char\tcode\tname\ttrain\tval\ttest\n')
+        for ch in chars:
+            f.write(f'{ch if ch != " " else "␠"}\tU+{ord(ch):04X}\t{unicodedata.name(ch, "?")}\t'
+                    f'{counts["train"][ch]}\t{counts["val"][ch]}\t{counts["test"][ch]}\n')
+    unseen = sorted(set(counts['test']) - set(counts['train']))
+    print(f'alphabet of the training labels: {len(chars)} characters (+ the blank = the {len(chars) + 1} output '
+          f'symbols of the network) — {(OUT / "alphabet.tsv").relative_to(DJ.parent)}'
+          + (f'; in the test labels but never trained: {"".join(unseen)}' if unseen else ''))
+
+
+def cmd_alphabet(a):
+    write_alphabet(read_manifest())
+
+
 def read_manifest():
     with open(OUT / 'manifest.tsv', encoding='utf-8') as f:
         return list(csv.DictReader(f, delimiter='\t', quoting=csv.QUOTE_NONE, escapechar='\\'))
@@ -861,6 +883,7 @@ def cmd_data(a):
     for split in ('train', 'val', 'test'):
         sel = [r for r in rows if r['split'] == split and 'partial' not in r['flags']]
         (OUT / f'{split}.txt').write_text(''.join(str(OUT / r['image']) + '\n' for r in sel), encoding='utf-8')
+    write_alphabet(rows)
     size = sum(p.stat().st_size for p in OUT.rglob('*.png'))
     print('samples (without the partial lines):')
     for s in ('gt', 'agree', 'synth', 'checked'):
@@ -904,6 +927,7 @@ def main():
     s.add_argument('--split', choices=('train', 'val', 'test'))
     s.add_argument('--n', type=int, default=30)
     s.add_argument('--seed', type=int, default=1)
+    sub.add_parser('alphabet')
     s = sub.add_parser('book')
     s.add_argument('--model', help='weights or checkpoint; default: the best in model/')
     s.add_argument('--device', default='mps', help='mps (default) or cpu (while the GPU trains)')
@@ -916,7 +940,8 @@ def main():
     s.add_argument('--model', help='weights (.safetensors) or a checkpoint (.ckpt); default: the best in model/')
     s.add_argument('--device', default='cpu', help='cpu (default: the GPU may be training), mps')
     a = ap.parse_args()
-    {'data': cmd_data, 'sheet': cmd_sheet, 'eval': cmd_eval, 'book': cmd_book, 'review': cmd_review}[a.cmd](a)
+    {'data': cmd_data, 'sheet': cmd_sheet, 'eval': cmd_eval, 'book': cmd_book, 'review': cmd_review,
+     'alphabet': cmd_alphabet}[a.cmd](a)
 
 
 if __name__ == '__main__':

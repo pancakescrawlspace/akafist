@@ -60,8 +60,12 @@ also offers another architecture family (`--arch ppocrv6`, from PaddleOCR); we s
 **The alphabet (codec)** is built from the training texts: every distinct character in them gets an output unit.
 A character that never occurs in training can never be output. Our stage-1 labels are at the norm level (§ 6), so
 this model's alphabet has no ѡ, ꙋ or ѧ — it reads Church Slavonic letters as their civil equivalents, which is what
-lookup and linking need. The training labels have 178 distinct characters (Cyrillic, Greek, Latin, digits,
-punctuation).
+lookup and linking need. The training labels have **169** distinct characters (Cyrillic, Greek, Latin, digits,
+punctuation — 178 before the look-alikes were folded, § 6), so the network has 170 output symbols with the blank.
+`dj_hwocr.py data` prints the count and writes the whole alphabet to `cache/hwocr/alphabet.tsv`, rarest first,
+with each character's Unicode name and its counts in train, validation and test (`dj_hwocr.py alphabet` rewrites it
+from the manifest alone). The rarest occur once — a single example teaches a network next to nothing, so it will
+seldom write them; the list is also where a stray symbol shows first.
 
 ## 4. How training works
 
@@ -188,7 +192,8 @@ part — `val_cer` and `val_wer`, the scorers of the validation set (no paramete
 `net.criterion`, the CTC loss. On `net`: **Params 4.1 M** (the output layer grows with the alphabet); **Mode**
 `train` (dropout active; reading switches it off); **In sizes** `[1, 1, 120, 400]`, the sample input Lightning
 measures with — one line, one channel, 120 × 400 px; **Out sizes** `[1, 170, 1, 50]`, the scores it gives — 170
-symbols (the 169 characters of the labels and the blank) in each of 50 frames (400 px ÷ 8); **FLOPs 1.6 B**, the
+symbols (the 169 characters of the labels and the blank) in each of 50 frames (400 px ÷ 8: the three
+`Mp2,2` poolings each halve the width, 2 × 2 × 2 = 8 — § 3); **FLOPs 1.6 B**, the
 operations to read that 400-px line once. A real first line, scaled to 120 px high, is ~1,800 px wide, ~7 billion
 operations, and training also works backwards through the network at about twice that again — some hundreds of
 trillions an epoch, which is why the GPU sets the pace.
