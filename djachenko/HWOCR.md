@@ -263,7 +263,11 @@ Spending human effort on the cases a model finds hardest is called **active lear
    known, and two are the test), not on a column whose left margin scan A cuts off — and writes sheets of 15:
    `cache/hwocr/review/NNN.png` shows each line's start, numbered, with the model's reading (a) and the vote's (b)
    under it; `djachenko/heads_review/NNN.txt` (committed — the user's work) has one line per number to answer:
-   `a`, `b`, the headword itself if both are wrong (civil letters will do), or `-` if the line begins no entry.
+   `a`, `b`, the headword itself if both are wrong (civil letters will do; letters as printed — `Апоплеѯіа` — are
+   better, kept for stage 2), or `-` if the line begins no entry. **Only the headword counts**: everything before the
+   separator (`=`, `—`, a bracket), several words if it has them (`Агіосъ надгробныи, Агіосъ задушныи`), not the text
+   after it — that comes from the reader's own line (step 3). A displayed reading may run on past the headword
+   (`a: Апоплезіа-греч`, a dash printed without spaces); `a` and `b` are judged by their headword part.
    Showing the two readings is faster than typing every word; its risk, *anchoring* (a plausible wrong suggestion
    is easier to accept than to invent), is small when the two disagree, since at least one is wrong. ~500 answers,
    about an hour.

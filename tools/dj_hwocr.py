@@ -805,6 +805,9 @@ def cmd_review(a):
             f'{datetime.date.today().isoformat()})\n'
             '# After the last tab of each line write: a (the first reading is right), b (the second), the headword\n'
             '# itself as printed (civil letters will do), or - (the line begins no entry). Empty = not yet read.\n'
+            '# Only the headword counts: all before the separator (= — or a bracket), several words if it has them; not\n'
+            '# the text after it (that comes from the reading\'s own line). Judge a and b by their headword part: a\n'
+            '# reading may run on past it (Апоплезіа-греч) where a dash was printed without spaces.\n'
             + '\n'.join(lines) + '\n', encoding='utf-8')
     n_sheets = (len(pick) + PER_SHEET - 1) // PER_SHEET
     print(f'{len(cands)} disagreements to choose from; {len(pick)} drawn → sheets {first:03d}–{first + n_sheets - 1:03d}:'
