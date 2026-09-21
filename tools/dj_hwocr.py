@@ -6,6 +6,7 @@ environment (~/.venvs/kraken — PLAN.md has the commands).
     python3 tools/dj_hwocr.py data [--synth 8000] [--workers 14]    # the training data -> djachenko/cache/hwocr/
     python3 tools/dj_hwocr.py data --only gt,synth                   # rebuild some sets, keep the others
     python3 tools/dj_hwocr.py sheet agree [--n 30] [--split val]     # a contact sheet: samples and their labels
+    python3 tools/dj_hwocr.py eval [--model PATH]                    # the verdict on the test pages (see below)
 
 A sample is one printed line: an image (scan A at 400 ppi, greyscale, the paper brought to white) and its text in
 a .gt.txt file beside it, the form `ketos train -f path` reads. Three kinds:
@@ -27,6 +28,13 @@ and dashes unified, оу -> у; spaces kept) — "stage 1": the level of the aut
 headwords are benchmarked (eval/RESULTS.md). manifest.tsv keeps the strict label (letters as printed) wherever it is
 known, and for the synthetic lines also the label with the accents set (`marked`), for later stages: the Phase 0
 decision to leave accents and titla out of the headwords is not final.
+
+`eval` runs a trained model (the best of cache/hwocr/model/, or --model: weights or a checkpoint, which it converts)
+on every line of the test pages, in Kraken's environment and on the CPU (the GPU may be training), and scores it as
+dj_eval.py scores the vote: the model's reading of a line aligned with the GT's, a headword right when no edit
+touches it (norm level, spaces ignored) — beside the vote's reading of the same headwords, Church Slavonic and civil
+heads apart. Writes cache/hwocr/eval/<model>/: the readings, report.tsv (one row per line) and sheet.png (every test
+headword: the image, the GT, the model, the vote).
 
 Splits: `test` = the two held-out GT pages (leaves 283 and 696, eval/README.md) and nothing else from them; `val` =
 the agree samples of every 20th leaf, for Kraken to choose its best checkpoint by; `train` = everything else.
@@ -452,6 +460,163 @@ def build_synth(n, rows_real, workers, seed=2026):
     return rows
 
 
+# ---------------------------------------------------------------- the verdict
+
+KRAKEN = Path.home() / '.venvs' / 'kraken' / 'bin'
+
+
+def val_of(path):
+    m = re.search(r'(\d\.\d{4})', path.name)
+    return float(m.group(1)) if m else 0.0
+
+
+def pick_model(arg):
+    """-> weights to read with: --model, or the best of cache/hwocr/model/ — the final best_*.safetensors when
+    training has ended, else its best checkpoint so far, converted (`ketos convert`) into cache/hwocr/eval/."""
+    if arg:
+        path = Path(arg)
+    else:
+        d = OUT / 'model'
+        cands = sorted(d.glob('best_*.safetensors'), key=val_of) or sorted(d.glob('checkpoint_*.ckpt'), key=val_of)
+        if not cands:
+            sys.exit(f'no model in {d.relative_to(DJ.parent)}: train one first (PLAN.md, HWOCR.md)')
+        path = cands[-1]
+    if path.suffix == '.ckpt':
+        out = OUT / 'eval' / (path.stem + '.safetensors')
+        if not out.exists():
+            out.parent.mkdir(parents=True, exist_ok=True)
+            r = subprocess.run([str(KRAKEN / 'ketos'), 'convert', '-o', str(out), str(path)], capture_output=True,
+                               text=True)
+            if r.returncode:
+                sys.exit('ketos convert failed:\n' + r.stderr[-2000:])
+        path = out
+    return path
+
+
+def kraken_read(model, images, outdir, device):
+    """Each image read as one line (`kraken … ocr -s`) into outdir/<stem>.txt."""
+    outdir.mkdir(parents=True, exist_ok=True)
+    for i in range(0, len(images), 100):
+        args = []
+        for img in images[i:i + 100]:
+            args += ['-i', str(img), str(outdir / (Path(img).stem + '.txt'))]
+        r = subprocess.run([str(KRAKEN / 'kraken'), '-d', device, *args, 'ocr', '-m', str(model), '-s'],
+                           capture_output=True, text=True)
+        if r.returncode:
+            sys.exit('kraken failed:\n' + r.stderr[-3000:])
+
+
+def gt_heads(leaf):
+    """{(column, line of the column): (the head as printed, Church Slavonic type or not)} for the first lines of the
+    GT page's entries — the head as dj_eval.py delimits it: the first {…} of a line that begins with one, else the
+    text before the separator."""
+    out, n = {}, None
+    k = {}
+    for raw in (GT_DIR / f'{leaf:04d}.txt').read_text(encoding='utf-8').splitlines():
+        if raw.startswith('@ col'):
+            n = int(raw.split()[2])
+            k[n] = 0
+        elif raw.strip() and not raw.startswith(('#', '@')) and n is not None:
+            cont = raw.startswith('+ ')
+            text, regions, cuts = gt_part(raw[2:] if cont else raw)
+            if not cont:
+                cs = [(a, b) for a, b, kind in regions if kind == 'cs' and a == 0]
+                m = SEP.search(text)
+                end = cs[0][1] if cs else (m.start() if m else len(text))
+                out[(n, k[n])] = (text[:end].strip(), bool(cs))
+            k[n] += len(cuts)
+    return out
+
+
+def cmd_eval(a):
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import dj_eval
+    model = pick_model(a.model)
+    rows = [r for r in read_manifest() if r['split'] == 'test']
+    outdir = OUT / 'eval' / model.stem
+    kraken_read(model, [OUT / r['image'] for r in rows], outdir, a.device)
+    heads = {leaf: gt_heads(leaf) for leaf in HELD_OUT}
+    # a column whose left margin scan A cuts off shows its headwords without their first letters: there the vote
+    # has witness D's intact margin and the model only A's image — reported apart (D's images are a later stage)
+    cut_cols = {}
+    for leaf in HELD_OUT:
+        pg = json.loads((OCR / f'{leaf:04d}.json').read_text(encoding='utf-8'))
+        left = {w.split(':')[0].split()[1] for w in pg['warnings'] if 'margin cut off' in w and 'right margin' not in w}
+        cut_cols[leaf] = {c['n'] for c in pg['columns'] if c['side'] in left}
+    votes = {leaf: dj_eval.headword_readings(leaf, ['merged']) for leaf in HELD_OUT}
+    report, ed = [], {'first': [0, 0], 'cont': [0, 0]}
+    for leaf in HELD_OUT:
+        firsts = sorted(heads[leaf])
+        if len(firsts) != len(votes[leaf]):
+            print(f'  leaf {leaf}: {len(firsts)} GT heads here, {len(votes[leaf])} in dj_eval — vote not compared')
+        vote_of = dict(zip(firsts, votes[leaf])) if len(firsts) == len(votes[leaf]) else {}
+        for r in (r for r in rows if int(r['leaf']) == leaf):
+            n, k = (int(x) for x in r['id'].split('-')[1:])
+            pred = norm((outdir / (Path(r['image']).stem + '.txt')).read_text(encoding='utf-8'))
+            x, y = list(r['norm'].replace(' ', '')), list(pred.replace(' ', ''))
+            d, cost_at, j_at = align(x, y)
+            kind = 'first' if (n, k) in heads[leaf] else 'cont'
+            ed[kind][0] += d
+            ed[kind][1] += len(x)
+            row = dict(id=r['id'], kind=kind, flags=r['flags'], gt=r['norm'], model=pred,
+                       cer=f'{d / max(1, len(x)):.3f}')
+            if kind == 'first':
+                head, cs = heads[leaf][(n, k)]
+                h = len(norm(head).replace(' ', ''))
+                ok = all(c == 0 for c in cost_at[:h])
+                v = vote_of.get((n, k))
+                row.update(cs=int(cs), cut=int(n in cut_cols[leaf]), head=norm(head), head_model=''.join(y[:j_at[h] if h < len(j_at) else len(y)]),
+                           ok_model=int(ok), head_vote=v['merged'] if v else '', ok_vote=int(v['merged_ok']) if v else '')
+            report.append(row)
+    fields = ['id', 'kind', 'flags', 'cs', 'cut', 'head', 'head_model', 'ok_model', 'head_vote', 'ok_vote', 'cer', 'gt',
+              'model']
+    with open(outdir / 'report.tsv', 'w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=fields, delimiter='\t', quoting=csv.QUOTE_NONE, escapechar='\\',
+                           extrasaction='ignore')
+        w.writeheader()
+        w.writerows(report)
+    hw = [r for r in report if r['kind'] == 'first']
+    print(f'model: {model.relative_to(DJ.parent) if model.is_relative_to(DJ.parent) else model}')
+    print(f'test pages {", ".join(str(x) for x in HELD_OUT)} (leaves): {len(report)} lines; character error, spaces '
+          f'ignored: first lines {ed["first"][0] / max(1, ed["first"][1]):.2%}, continuation lines '
+          f'{ed["cont"][0] / max(1, ed["cont"][1]):.2%}')
+    print(f'headwords exactly right (norm), model against the vote on the same headwords:')
+    for label, sel in (('all', hw), ('Church Slavonic type', [r for r in hw if r['cs']]),
+                       ('civil type', [r for r in hw if not r['cs']]),
+                       ('A intact at line start', [r for r in hw if not r['cut']]),
+                       ('A cut (left margin)', [r for r in hw if r['cut']])):
+        vs = [r for r in sel if r['ok_vote'] != '']
+        print(f'  {label:22} model {sum(r["ok_model"] for r in sel):3}/{len(sel)}   '
+              f'vote {sum(r["ok_vote"] for r in vs):3}/{len(vs)}')
+    both = [r for r in hw if r['ok_vote'] != '']
+    agree = [r for r in both if r['head_model'] == r['head_vote'].replace(' ', '')]
+    print(f'  both right {sum(1 for r in both if r["ok_model"] and r["ok_vote"])}, model only '
+          f'{sum(1 for r in both if r["ok_model"] and not r["ok_vote"])}, vote only '
+          f'{sum(1 for r in both if r["ok_vote"] and not r["ok_model"])}, neither '
+          f'{sum(1 for r in both if not r["ok_model"] and not r["ok_vote"])}; where the two read alike '
+          f'({len(agree)}): right {sum(r["ok_model"] for r in agree)}')
+    # the sheet: every test headword, with its image and the three readings
+    font = ImageFont.truetype(str(FONTS / 'OldStandard-Regular.ttf'), 22)
+    tiles = []
+    for r in hw:
+        im = Image.open(OUT / next(x['image'] for x in rows if x['id'] == r['id'])).convert('L')
+        im = im.resize((min(900, im.size[0]), round(im.size[1] * min(900, im.size[0]) / im.size[0])))
+        t = Image.new('L', (900, im.size[1] + 34), 255)
+        t.paste(im, (0, 0))
+        mark = lambda ok: '✓' if ok == 1 else '✗' if ok == 0 else ' '  # noqa: E731
+        ImageDraw.Draw(t).text((4, im.size[1] + 4), f'{r["id"]}  GT {r["head"]}  ·  model {r["head_model"]} '
+                               f'{mark(r["ok_model"])}  ·  vote {r["head_vote"]} {mark(r["ok_vote"])}', fill=70,
+                               font=font)
+        tiles.append(t)
+    sheet = Image.new('L', (900, sum(t.size[1] + 6 for t in tiles)), 255)
+    y = 0
+    for t in tiles:
+        sheet.paste(t, (0, y))
+        y += t.size[1] + 6
+    sheet.save(outdir / 'sheet.png')
+    print(f'written: {outdir.relative_to(DJ.parent)}/ — report.tsv, sheet.png, the readings')
+
+
 # ---------------------------------------------------------------- commands
 
 def read_manifest():
@@ -538,8 +703,11 @@ def main():
     s.add_argument('--split', choices=('train', 'val', 'test'))
     s.add_argument('--n', type=int, default=30)
     s.add_argument('--seed', type=int, default=1)
+    s = sub.add_parser('eval')
+    s.add_argument('--model', help='weights (.safetensors) or a checkpoint (.ckpt); default: the best in model/')
+    s.add_argument('--device', default='cpu', help='cpu (default: the GPU may be training), mps')
     a = ap.parse_args()
-    {'data': cmd_data, 'sheet': cmd_sheet}[a.cmd](a)
+    {'data': cmd_data, 'sheet': cmd_sheet, 'eval': cmd_eval}[a.cmd](a)
 
 
 if __name__ == '__main__':

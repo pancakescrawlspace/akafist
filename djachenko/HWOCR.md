@@ -191,9 +191,28 @@ should not be in the labels at all (`{`, `■`, `|`, the look-alikes above), whi
 few hours — tens of epochs at ~12 minutes; `--resume <checkpoint>` continues an interrupted run. The progress bar
 shows `train_loss` falling within each epoch and `val_accuracy` after it.
 
-Then the verdict, on the test set only: `ketos test` gives the character accuracy on the 215 test lines; the
-question of § 1 is narrower — **does it read more of the 52 test headwords exactly than the vote does?** — and is
-answered by comparing its first-line readings with the GT's heads (to be written: `dj_hwocr.py eval`).
+**Speed.** `--workers` is the number of processes that load, augment and batch the images while the GPU computes.
+Measured during the first run (epoch 3): the four workers used 1.3 cores between them and the Mac was 61 % idle —
+they wait for the GPU, which sets the pace (~11 min an epoch); more workers would not help. A larger batch
+(`-B 32`) might: a GPU does 32 lines at once more efficiently than 16, at the price of half as many weight updates
+an epoch — an experiment, to be judged by minutes an epoch and by the validation curve.
+
+**The verdict**, on the test set only: `python3 tools/dj_hwocr.py eval` (~40 s; on the CPU, so it can run while the
+GPU trains). It takes the best model in `cache/hwocr/model/` — the final `best_*.safetensors`, or while training
+still runs its best checkpoint so far, converted — reads every line of the two test pages, and scores it as
+`dj_eval.py` scores the vote: the model's line aligned with the GT's, a headword right when no edit touches it. The
+question of § 1 — **does it read more of the 52 test headwords exactly than the vote does?** — is answered beside
+the vote's reading of the same headwords, split by type (Church Slavonic, civil) and by whether scan A shows the
+start of the line: on a column whose left margin the scan cuts off, the model sees headwords without their first
+letters while the vote reads them in witness D. `cache/hwocr/eval/<model>/sheet.png` shows every test headword with
+its image and the three readings; `report.tsv` has every line.
+
+First look, the checkpoint after epoch 2 (val_accuracy 98.2 %), while training went on: on the sides scan A shows
+whole, **31 of 40 headwords exactly right against the vote's 28**; on the cut column of p. 659, 2 of 12 against 8
+(its images lack the letters). Where model and vote read a headword alike (27 times) they were right 26 times —
+the independent-partner argument of § 1 in numbers. A detail the sheet shows: on p. 246 the model reads
+`священни` where the GT's label says `священни-` — the print broke the word without a hyphen, and the GT's
+convention implies one; the model is right there.
 
 Environment (session 6): `~/.venvs/kraken`, Kraken 7.1.1, PyTorch 2.14 with MPS. SciPy was upgraded to 1.17.1
 there: the 1.15.3 that Kraken pins fails to load on macOS 27 (a compiled part the loader rejects), 1.17.1 loads,
