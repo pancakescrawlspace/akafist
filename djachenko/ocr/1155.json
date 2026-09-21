@@ -168,6 +168,6 @@
   {"col":3,"para":9,"bbox":[119,5881,545,5957],"abbyy":"Чеснокъ","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":2,"bbox":[2249,5251,2521,5335],"abbyy":"Месть","abbyy_conf":22,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1166,"b_page":1118,"c_page":[560],"chars":3230,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":110,"fixed":14,"odd":[]},
+ "witness": {"version":12,"d_page":1166,"b_page":1118,"c_page":[560],"chars":3230,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":110,"fixed":14,"odd":[]},
  "warnings": []
 }

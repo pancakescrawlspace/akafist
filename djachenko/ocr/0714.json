@@ -183,6 +183,6 @@
   {"col":1,"para":15,"bbox":[17,5367,217,5459],"abbyy":"Цш","abbyy_conf":7,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2017,6105,2821,6201],"abbyy":"Стрѣла грозшая","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":725,"b_page":677,"c_page":[119],"chars":4054,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":190,"fixed":18,"odd":[]},
+ "witness": {"version":12,"d_page":725,"b_page":677,"c_page":[119],"chars":4054,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":190,"fixed":18,"odd":[]},
  "warnings": []
 }

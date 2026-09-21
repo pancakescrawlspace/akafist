@@ -150,6 +150,6 @@
   {"col":2,"para":3,"bbox":[2651,5397,2715,5405],"abbyy":"—","abbyy_conf":-1,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":727,"b_page":679,"c_page":[121],"chars":4077,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":103,"fixed":3,"odd":[]},
+ "witness": {"version":12,"d_page":727,"b_page":679,"c_page":[121],"chars":4077,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":103,"fixed":3,"odd":[]},
  "warnings": []
 }

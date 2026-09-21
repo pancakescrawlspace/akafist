@@ -236,6 +236,6 @@
   {"col":2,"para":21,"bbox":[2037,5231,3029,5325],"abbyy":"Пономарскія двери","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":22,"bbox":[2041,5865,2501,5971],"abbyy":"Пономдрь","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":503,"b_page":455,"c_page":[501],"chars":3689,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":164,"fixed":24,"odd":[]},
+ "witness": {"version":12,"d_page":503,"b_page":455,"c_page":[501],"chars":3689,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":164,"fixed":24,"odd":[]},
  "warnings": []
 }

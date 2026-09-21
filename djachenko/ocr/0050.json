@@ -183,6 +183,6 @@
   {"col":2,"para":10,"bbox":[2045,5679,2203,5751],"abbyy":"\"’Аді","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2073,5881,2251,5957],"abbyy":"Аль","abbyy_conf":83,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":61,"b_page":13,"c_page":[59],"chars":4101,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":160,"fixed":30,"odd":[]},
+ "witness": {"version":12,"d_page":61,"b_page":13,"c_page":[59],"chars":4101,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":160,"fixed":30,"odd":[]},
  "warnings": []
 }

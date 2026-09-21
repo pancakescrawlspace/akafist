@@ -163,6 +163,6 @@
   {"col":1,"para":8,"bbox":[1,5445,141,5525],"abbyy":"!илъ","abbyy_conf":47,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2031,4131,2311,4205],"abbyy":"Вилы","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":969,"b_page":921,"c_page":[363],"chars":4093,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":125,"fixed":7,"odd":[]},
+ "witness": {"version":12,"d_page":969,"b_page":921,"c_page":[363],"chars":4093,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":125,"fixed":7,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (5 lines at the image edge); entry starts from position and text features"]
 }

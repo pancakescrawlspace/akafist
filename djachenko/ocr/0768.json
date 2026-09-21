@@ -216,6 +216,6 @@
   {"col":2,"para":19,"bbox":[2107,5447,2707,5595],"abbyy":"Три д небный","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":779,"b_page":731,"c_page":[173],"chars":3669,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":185,"fixed":28,"odd":[]},
+ "witness": {"version":12,"d_page":779,"b_page":731,"c_page":[173],"chars":3669,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":185,"fixed":28,"odd":[]},
  "warnings": []
 }

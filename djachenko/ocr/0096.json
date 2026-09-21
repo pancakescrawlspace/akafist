@@ -192,6 +192,6 @@
   {"col":2,"para":10,"bbox":[2091,4929,2371,5065],"abbyy":"БрЕМА","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2089,6069,2709,6187],"abbyy":"БрЕМА легкое","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":107,"b_page":59,"c_page":[105],"chars":3938,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":160,"fixed":34,"odd":[]},
+ "witness": {"version":12,"d_page":107,"b_page":59,"c_page":[105],"chars":3938,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":160,"fixed":34,"odd":[]},
  "warnings": []
 }

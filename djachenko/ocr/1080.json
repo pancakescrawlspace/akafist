@@ -183,6 +183,6 @@
   {"col":2,"para":12,"bbox":[1843,5327,2881,5421],"abbyy":"Между двухъ огней","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":4},
- "witness": {"version":11,"d_page":1091,"b_page":1043,"c_page":[485],"chars":3949,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":136,"fixed":19,"odd":[]},
+ "witness": {"version":12,"d_page":1091,"b_page":1043,"c_page":[485],"chars":3949,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":136,"fixed":19,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (42 lines at the image edge); entry starts from position and text features"]
 }

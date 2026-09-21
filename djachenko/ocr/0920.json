@@ -188,6 +188,6 @@
   {"col":4,"para":8,"bbox":[1971,5615,2289,5705],"abbyy":"БяБоуші","abbyy_conf":27,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":4},
- "witness": {"version":11,"d_page":931,"b_page":883,"c_page":[325],"chars":3550,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":153,"fixed":17,"odd":[]},
+ "witness": {"version":12,"d_page":931,"b_page":883,"c_page":[325],"chars":3550,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":153,"fixed":17,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (33 lines at the image edge); entry starts from position and text features"]
 }

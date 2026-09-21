@@ -406,8 +406,16 @@ def layout(leaf, pg, printed):
     rest = [ln for ln in lines if id(ln) not in hids]
 
     # -- footer: the signature line ("Церк.-славян. словарь свящ. Г. Дьяченко.", on the first page of each sheet), the
-    #    signature number level with it, and anything below it
-    foot = [ln for ln in rest if ln['box'][1] > 0.88 * H and FOOT_RE.search(text_of(ln['chars']))]
+    #    signature number level with it, and anything below it. In the dictionary it is looked for only on the pages
+    #    that carry it (printed page ≡ 1 mod 16, and no other: checked in B, C and D), and anchored on the lowest
+    #    line FOOT_RE matches, since the footer lies below all text — the pattern also matches "(церк.-слав.)" in
+    #    the text, and before this (session 6) such a line in the bottom zone of any page was filed as the footer
+    #    with everything below it: article lines lost from A on pp. 387, 840, 1030, 1093 (MISSING_HEADWORDS.md).
+    sheet_first = sec not in ('main', 'supplement') or (printed and printed.isdigit() and int(printed) % 16 == 1)
+    foot = [ln for ln in rest if sheet_first and ln['box'][1] > 0.88 * H and FOOT_RE.search(text_of(ln['chars']))]
+    if foot:
+        low = max(ln['base'] for ln in foot)
+        foot = [ln for ln in foot if ln['base'] >= low - 60]
     footer = []
     if foot:
         fb = min(ln['base'] for ln in foot) - 50

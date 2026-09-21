@@ -214,6 +214,6 @@
   {"col":2,"para":10,"bbox":[2333,4645,2861,4719],"abbyy":"Рыбинскъ","abbyy_conf":66,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":1148,"b_page":1100,"c_page":[542],"chars":3920,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":198,"fixed":29,"odd":[]},
+ "witness": {"version":12,"d_page":1148,"b_page":1100,"c_page":[542],"chars":3920,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":198,"fixed":29,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (41 lines end at the image edge); line ends of the right column missing"]
 }

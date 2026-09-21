@@ -229,6 +229,6 @@
   {"col":2,"para":14,"bbox":[2217,4075,2577,4155],"abbyy":"Скомлю","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2215,4293,2977,4387],"abbyy":"Скоморошество","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":655,"b_page":607,"c_page":[49],"chars":3659,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":119,"fixed":13,"odd":[]},
+ "witness": {"version":12,"d_page":655,"b_page":607,"c_page":[49],"chars":3659,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":119,"fixed":13,"odd":[]},
  "warnings": []
 }

@@ -213,9 +213,11 @@ starts contain "=" in 82 % of cases, continuation lines in 2 %); on pages whose 
 text features are combined (naive Bayes) and the paragraphs marked `guessed`. **Rev. 7:** where
 `segmentation.tsv` has a line, that decision is overruled by witnesses C and D (step 1c below); `dj_abbyy.py`
 reads the file and records per page how often it did so (`seg`), and per paragraph whether the start is the
-witnesses' and not A's (`seg: "CD"`) or one no witness could reach (`seg: "A"`). Result: 24,959 entry candidates
+witnesses' and not A's (`seg: "CD"`) or one no witness could reach (`seg: "A"`). Result: 24,845 entry candidates
 in main + supplement (22,575 with "=" in their first two lines; 232 starts added and 636 withdrawn against A's own
-geometry; `guessed` down from 3,197 to 244, since a witness now decides most of the cut-margin pages);
+geometry; `guessed` down from 3,197 to 244, since a witness now decides most of the cut-margin pages; the page
+footer looked for only on the pages that carry it, p ≡ 1 mod 16, after it had filed article lines as footer
+on four pages — MISSING_HEADWORDS.md);
 `manifest.tsv` has section and letters; `ocr/report.tsv` the per-page statistics and warnings. The book's
 "~30,000 entries" is a round figure: the "=" count (24,483) and the candidates agree on ~25,000.
 

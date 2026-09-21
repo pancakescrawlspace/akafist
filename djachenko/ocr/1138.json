@@ -216,6 +216,6 @@
   {"col":4,"para":6,"bbox":[2217,6009,2511,6081],"abbyy":"Скаты іі","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":7,"bbox":[2219,6115,2667,6209],"abbyy":"Сверкать","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1149,"b_page":1101,"c_page":[543],"chars":3496,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":215,"fixed":34,"odd":[]},
+ "witness": {"version":12,"d_page":1149,"b_page":1101,"c_page":[543],"chars":3496,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":215,"fixed":34,"odd":[]},
  "warnings": []
 }

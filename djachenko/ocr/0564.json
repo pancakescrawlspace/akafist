@@ -206,6 +206,6 @@
   {"col":2,"para":7,"bbox":[2085,5243,2495,5321],"abbyy":"Пьітлши","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2085,5767,2413,5841],"abbyy":"Пытка","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":575,"b_page":527,"c_page":[573],"chars":3801,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":160,"fixed":25,"odd":[]},
+ "witness": {"version":12,"d_page":575,"b_page":527,"c_page":[573],"chars":3801,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":160,"fixed":25,"odd":[]},
  "warnings": []
 }

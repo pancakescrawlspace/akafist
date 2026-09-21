@@ -220,6 +220,6 @@
   {"col":2,"para":22,"bbox":[2031,5877,2643,5961],"abbyy":"Боготочный","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":14},
- "witness": {"version":11,"d_page":101,"b_page":53,"c_page":[99],"chars":3485,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":158,"fixed":29,"odd":[]},
+ "witness": {"version":12,"d_page":101,"b_page":53,"c_page":[99],"chars":3485,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":158,"fixed":29,"odd":[]},
  "warnings": []
 }

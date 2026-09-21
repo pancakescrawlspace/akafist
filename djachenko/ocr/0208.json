@@ -201,6 +201,6 @@
   {"col":2,"para":11,"bbox":[2175,4959,2461,5039],"abbyy":"(/Ламъ","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":219,"b_page":171,"c_page":[217],"chars":3915,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":180,"fixed":25,"odd":[]},
+ "witness": {"version":12,"d_page":219,"b_page":171,"c_page":[217],"chars":3915,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":180,"fixed":25,"odd":[]},
  "warnings": []
 }

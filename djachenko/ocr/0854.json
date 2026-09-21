@@ -213,6 +213,6 @@
   {"col":2,"para":21,"bbox":[1993,6125,2417,6235],"abbyy":"Ч^ггб^Ю","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":2},
- "witness": {"version":11,"d_page":865,"b_page":817,"c_page":[259],"chars":3835,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":192,"fixed":25,"odd":[]},
+ "witness": {"version":12,"d_page":865,"b_page":817,"c_page":[259],"chars":3835,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":192,"fixed":25,"odd":[]},
  "warnings": []
 }

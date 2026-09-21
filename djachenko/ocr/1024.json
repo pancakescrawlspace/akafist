@@ -176,6 +176,6 @@
   {"col":2,"para":3,"bbox":[2097,1815,2441,1905],"abbyy":"Звѣзда","abbyy_conf":52,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[2097,3047,3161,3141],"abbyy":"Звѣзда Виѳлеемская","abbyy_conf":65,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1035,"b_page":987,"c_page":[429],"chars":4032,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":118,"fixed":8,"odd":[]},
+ "witness": {"version":12,"d_page":1035,"b_page":987,"c_page":[429],"chars":4032,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":118,"fixed":8,"odd":[]},
  "warnings": []
 }

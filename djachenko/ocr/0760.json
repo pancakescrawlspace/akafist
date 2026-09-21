@@ -191,6 +191,6 @@
   {"col":2,"para":7,"bbox":[2015,5093,2217,5169],"abbyy":"Тли","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":771,"b_page":723,"c_page":[165],"chars":3918,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":195,"fixed":15,"odd":[]},
+ "witness": {"version":12,"d_page":771,"b_page":723,"c_page":[165],"chars":3918,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":195,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (7 lines at the image edge); entry starts from position and text features"]
 }

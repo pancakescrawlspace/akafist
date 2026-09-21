@@ -171,6 +171,6 @@
   {"col":2,"para":3,"bbox":[2337,671,3127,807],"abbyy":"Босп^ѴЕліникг-цл","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":144,"b_page":96,"c_page":[142],"chars":3916,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":142,"fixed":10,"odd":[]},
+ "witness": {"version":12,"d_page":144,"b_page":96,"c_page":[142],"chars":3916,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":142,"fixed":10,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (32 lines end at the image edge); line ends of the right column missing"]
 }

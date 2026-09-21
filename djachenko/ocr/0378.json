@@ -255,6 +255,6 @@
   {"col":2,"para":22,"bbox":[2059,6069,2763,6175],"abbyy":"Неб'Ьетничеекн","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":389,"b_page":341,"c_page":[387],"chars":3562,"cuts":{"line":41,"aligned":1,"forced":0},"disputed":305,"fixed":46,"odd":[[1,6,0.6]]},
+ "witness": {"version":12,"d_page":389,"b_page":341,"c_page":[387],"chars":3562,"cuts":{"line":41,"aligned":1,"forced":0},"disputed":305,"fixed":46,"odd":[[1,6,0.6]]},
  "warnings": []
 }

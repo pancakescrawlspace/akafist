@@ -6,7 +6,7 @@ nothing else.
 | Folder | Project |
 |---|---|
 | `akathist/` | **Akathist to the Theotokos before the Kazan icon** — the text and a 703-entry dictionary of it, as groundwork for a Dutch translation. Built by `tools/build.py`. |
-| `djachenko/` | **A digital edition of Дьяченко's dictionary of 1900** — the whole of Г. Дьяченко's *Полный церковнославянский словарь*, 24,959 entries, made from four scanned copies. Built by `tools/dj_*.py`. |
+| `djachenko/` | **A digital edition of Дьяченко's dictionary of 1900** — the whole of Г. Дьяченко's *Полный церковнославянский словарь*, 24,845 entries, made from four scanned copies. Built by `tools/dj_*.py`. |
 
 The Дьяченко project started as a reference work for the akathist dictionary, but it is its own undertaking: it
 digitises the entire book, not the part the akathist needs, and it can be read, run and used without the akathist
@@ -214,7 +214,7 @@ flowchart TD
     OCRJ --> PARSE["dj_parse.py — Phase 4<br/>entries, typography, quotation marks, the printed lines,<br/>headword forms and keys, validation"]
     ERR[("errata.tsv — Дьяченко's own<br/>234 corrections, transcribed")] --> ERRATA["dj_errata.py<br/>locate each row's page, column, line"]
     ERRATA --> PARSE
-    PARSE --> ENT[("entries.tsv — 24,959 entries")]
+    PARSE --> ENT[("entries.tsv — 24,845 entries")]
     PARSE --> FLG[("FLAGS.md — what needs checking")]
 
     PSV[("akathist/dictionary/dictionary.psv<br/>703 akathist lemmas")] --> LINK["dj_link.py — Phase 5<br/>lemma → entry, with fallbacks"]
@@ -231,7 +231,7 @@ flowchart TD
     CROPS --> HW[("headwords.tsv · crops/A|B|C|D/NNNN.png")]
     HW --> HEADS
 
-    OCRJ --> INSP["dj_inspect.py — crops, overlays, the same line<br/>in all four witnesses, checks, the line-break agreement"]
+    OCRJ --> INSP["dj_inspect.py — crops, overlays, the same line<br/>in all four witnesses, checks, the line-break agreement,<br/>lines and characters per page against A"]
     SCAN --> INSP
 ```
 
@@ -252,22 +252,22 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `tools/dj_link.py` | 5 | `links.tsv` (akathist lemmas → entries) |
 | `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf`; with `--facsimile` the book line for line, `facsimile.typ`, `facsimile.pdf` |
 | `tools/dj_crops.py` | 3b | `headwords.tsv` (every headword's box in all four witnesses; committed) and `crops/<W>/NNNN.png` (local) |
-| `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye; `linecheck` — do the witnesses break their lines alike |
+| `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye; `linecheck` — do the witnesses break their lines alike; `counts` — pages where a witness has fewer lines and characters than A (`eval/pagecounts.tsv`) |
 
 ### Where it stands
 
-- **Headword crops:** every headword of every entry is located in all four witnesses (`headwords.tsv`, 99,364
+- **Headword crops:** every headword of every entry is located in all four witnesses (`headwords.tsv`, 99,380
   rows, committed); `dj_crops.py crops` turns those coordinates into one page strip per witness (`crops/`, 106 MB,
   not committed), a black bar between two headwords and a slot for every entry in every witness, so the strips
   can be cut apart from their pixels alone (`dj_crops.py split`) and a headword compared across the four copies
   without opening the scans.
 - **Where the entries begin:** read off the printed indentation of witnesses C and D, line by line
-  (`segmentation.tsv`, `dj_seg.py`): they reach 96 % of the 124,497 printed lines and agree on 99.8 % of those.
+  (`segmentation.tsv`, `dj_seg.py`): they reach 96 % of the 124,505 printed lines and agree on 99.8 % of those.
   Against scan A's own geometry — whose margins are cut on 551 pages — that adds 232 entry starts and withdraws
   636. 653 entries (2.6 %) rest on A alone and are flagged `unconfirmed`.
-- **Text:** merged for all 1,119 dictionary pages; 24,959 entries (20,023 in the main sequence, 4,936 in the
+- **Text:** merged for all 1,119 dictionary pages; 24,845 entries (20,003 in the main sequence, 4,842 in the
   supplement) in `entries.tsv`, with the spans where the witnesses disagree, the italics and every printed line
-  (124,497 of them) marked per entry; Дьяченко's own errata applied to 165 entries (34 rows point at text the OCR
+  (124,505 of them) marked per entry; Дьяченко's own errata applied to 165 entries (34 rows point at text the OCR
   misread, listed in `FLAGS.md`).
 - **Headwords:** 25 read so far; the other 24,934 carry the witnesses' provisional reading and are printed grey in
   the PDFs. Reading them is the next step.

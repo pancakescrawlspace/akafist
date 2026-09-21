@@ -264,6 +264,6 @@
   {"col":2,"para":23,"bbox":[2115,5983,2485,6065],"abbyy":"Опаденіе","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":11,"d_page":431,"b_page":383,"c_page":[429],"chars":3568,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":218,"fixed":16,"odd":[]},
+ "witness": {"version":12,"d_page":431,"b_page":383,"c_page":[429],"chars":3568,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":218,"fixed":16,"odd":[]},
  "warnings": []
 }

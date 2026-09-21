@@ -222,6 +222,6 @@
   {"col":2,"para":7,"bbox":[1979,4875,3275,4959],"abbyy":"СбѢтильничныа молитбы","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":2},
- "witness": {"version":11,"d_page":627,"b_page":579,"c_page":[21],"chars":3633,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":144,"fixed":9,"odd":[]},
+ "witness": {"version":12,"d_page":627,"b_page":579,"c_page":[21],"chars":3633,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":144,"fixed":9,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (12 lines at the image edge); entry starts from position and text features"]
 }

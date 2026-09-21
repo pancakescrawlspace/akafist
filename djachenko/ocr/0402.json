@@ -234,6 +234,6 @@
   {"col":2,"para":26,"bbox":[2123,5907,2845,6037],"abbyy":"Обол'&зннтиса","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":11,"d_page":413,"b_page":365,"c_page":[411],"chars":3545,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":172,"fixed":15,"odd":[]},
+ "witness": {"version":12,"d_page":413,"b_page":365,"c_page":[411],"chars":3545,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":172,"fixed":15,"odd":[]},
  "warnings": []
 }

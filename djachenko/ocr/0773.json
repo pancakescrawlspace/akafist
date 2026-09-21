@@ -176,6 +176,6 @@
   {"col":2,"para":12,"bbox":[2306,5730,2386,5810],"abbyy":"Т","abbyy_conf":100,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":784,"b_page":736,"c_page":[178],"chars":3910,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":258,"fixed":5,"odd":[]},
+ "witness": {"version":12,"d_page":784,"b_page":736,"c_page":[178],"chars":3910,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":258,"fixed":5,"odd":[]},
  "warnings": []
 }

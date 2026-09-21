@@ -204,6 +204,6 @@
   {"col":2,"para":13,"bbox":[1891,5915,2795,6009],"abbyy":"Житейскіе мужи","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":7,"start":1},
- "witness": {"version":11,"d_page":1027,"b_page":979,"c_page":[421],"chars":3708,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":193,"fixed":19,"odd":[]},
+ "witness": {"version":12,"d_page":1027,"b_page":979,"c_page":[421],"chars":3708,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":193,"fixed":19,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (37 lines at the image edge); entry starts from position and text features"]
 }

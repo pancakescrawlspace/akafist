@@ -175,6 +175,6 @@
   {"col":2,"para":7,"bbox":[1973,3259,2289,3381],"abbyy":"гулило","abbyy_conf":19,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":11,"d_page":927,"b_page":879,"c_page":[321],"chars":3994,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":111,"fixed":9,"odd":[]},
+ "witness": {"version":12,"d_page":927,"b_page":879,"c_page":[321],"chars":3994,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":111,"fixed":9,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (13 lines at the image edge); entry starts from position and text features"]
 }

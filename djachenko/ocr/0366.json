@@ -213,6 +213,6 @@
   {"col":2,"para":13,"bbox":[2071,5009,2987,5115],"abbyy":"Назнлл\\енобати-га","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2075,5537,2623,5611],"abbyy":"Назойливъ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":377,"b_page":329,"c_page":[375],"chars":3666,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":134,"fixed":15,"odd":[]},
+ "witness": {"version":12,"d_page":377,"b_page":329,"c_page":[375],"chars":3666,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":134,"fixed":15,"odd":[]},
  "warnings": []
 }

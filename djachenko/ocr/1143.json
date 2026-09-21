@@ -171,6 +171,6 @@
   {"col":2,"para":5,"bbox":[2483,4173,3199,4251],"abbyy":"СлоБопйЪ'ГИСА","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2481,4511,2801,4583],"abbyy":"Слонине","abbyy_conf":24,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1154,"b_page":1106,"c_page":[548],"chars":4055,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":102,"fixed":15,"odd":[]},
+ "witness": {"version":12,"d_page":1154,"b_page":1106,"c_page":[548],"chars":4055,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":102,"fixed":15,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (31 lines end at the image edge); line ends of the right column missing"]
 }

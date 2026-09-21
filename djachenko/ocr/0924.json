@@ -194,6 +194,6 @@
   {"col":2,"para":6,"bbox":[2003,2403,2427,2477],"abbyy":"Безменъ","abbyy_conf":44,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1,"continue":6},
- "witness": {"version":11,"d_page":935,"b_page":887,"c_page":[329],"chars":3789,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":140,"fixed":17,"odd":[]},
+ "witness": {"version":12,"d_page":935,"b_page":887,"c_page":[329],"chars":3789,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":140,"fixed":17,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (48 lines at the image edge); entry starts from position and text features"]
 }

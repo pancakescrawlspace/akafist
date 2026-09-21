@@ -146,6 +146,6 @@
   {"col":1,"para":3,"bbox":[13,2115,309,2231],"abbyy":"СофонУл","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":4,"bbox":[29,2563,177,2639],"abbyy":"Сохй","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":693,"b_page":645,"c_page":[87],"chars":4038,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":94,"fixed":1,"odd":[]},
+ "witness": {"version":12,"d_page":693,"b_page":645,"c_page":[87],"chars":4038,"cuts":{"line":5,"aligned":0,"forced":0},"disputed":94,"fixed":1,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)"]
 }

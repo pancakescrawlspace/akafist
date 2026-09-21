@@ -150,6 +150,6 @@
   {"col":1,"para":5,"bbox":[9,2429,149,2509],"abbyy":"Лоле","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":6,"bbox":[1,2909,185,2981],"abbyy":"Ноле","abbyy_conf":46,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":497,"b_page":449,"c_page":[495],"chars":3982,"cuts":{"line":7,"aligned":0,"forced":0},"disputed":87,"fixed":10,"odd":[]},
+ "witness": {"version":12,"d_page":497,"b_page":449,"c_page":[495],"chars":3982,"cuts":{"line":7,"aligned":0,"forced":0},"disputed":87,"fixed":10,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features"]
 }

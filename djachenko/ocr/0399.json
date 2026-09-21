@@ -180,6 +180,6 @@
   {"col":2,"para":10,"bbox":[2285,5903,2677,5983],"abbyy":"Обильно","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":410,"b_page":362,"c_page":[408],"chars":3861,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":142,"fixed":17,"odd":[]},
+ "witness": {"version":12,"d_page":410,"b_page":362,"c_page":[408],"chars":3861,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":142,"fixed":17,"odd":[]},
  "warnings": []
 }

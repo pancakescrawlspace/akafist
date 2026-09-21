@@ -186,6 +186,6 @@
   {"col":2,"para":9,"bbox":[2259,4727,2707,4807],"abbyy":"Моаитба","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2249,5971,2983,6051],"abbyy":"Моаитбеиникъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":362,"b_page":314,"c_page":[360],"chars":3917,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":234,"fixed":50,"odd":[]},
+ "witness": {"version":12,"d_page":362,"b_page":314,"c_page":[360],"chars":3917,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":234,"fixed":50,"odd":[]},
  "warnings": []
 }

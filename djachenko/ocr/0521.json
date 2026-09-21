@@ -218,6 +218,6 @@
   {"col":2,"para":9,"bbox":[2275,5685,2729,5817],"abbyy":"П|іЕЖДАНіЕ","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":532,"b_page":484,"c_page":[530],"chars":3453,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":178,"fixed":27,"odd":[]},
+ "witness": {"version":12,"d_page":532,"b_page":484,"c_page":[530],"chars":3453,"cuts":{"line":30,"aligned":0,"forced":0},"disputed":178,"fixed":27,"odd":[]},
  "warnings": []
 }

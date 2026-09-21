@@ -197,6 +197,6 @@
   {"col":2,"para":11,"bbox":[2087,5189,2529,5289],"abbyy":"Дырерыид","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2087,5397,2917,5495],"abbyy":"Дыба или виска","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1019,"b_page":971,"c_page":[413],"chars":3927,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":119,"fixed":18,"odd":[]},
+ "witness": {"version":12,"d_page":1019,"b_page":971,"c_page":[413],"chars":3927,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":119,"fixed":18,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (3 lines at the image edge); entry starts from position and text features"]
 }

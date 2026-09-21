@@ -174,6 +174,6 @@
   {"col":4,"para":5,"bbox":[2315,5801,2663,5899],"abbyy":"Халдеи","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":828,"b_page":780,"c_page":[222],"chars":3561,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":142,"fixed":16,"odd":[]},
+ "witness": {"version":12,"d_page":828,"b_page":780,"c_page":[222],"chars":3561,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":142,"fixed":16,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (30 lines end at the image edge); line ends of the right column missing"]
 }

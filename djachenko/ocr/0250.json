@@ -204,6 +204,6 @@
   {"col":2,"para":11,"bbox":[1939,6059,3291,6195],"abbyy":"Изгнать йзженѴ„ йжденѴ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":261,"b_page":213,"c_page":[259],"chars":3876,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":192,"fixed":15,"odd":[]},
+ "witness": {"version":12,"d_page":261,"b_page":213,"c_page":[259],"chars":3876,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":192,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (9 lines at the image edge); entry starts from position and text features"]
 }

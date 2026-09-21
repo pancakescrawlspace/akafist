@@ -201,6 +201,6 @@
   {"col":2,"para":7,"bbox":[2299,2575,2581,2645],"abbyy":"Ковыль","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2293,3795,2563,3863],"abbyy":"Коганъ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":304,"b_page":256,"c_page":[302],"chars":3891,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":196,"fixed":25,"odd":[]},
+ "witness": {"version":12,"d_page":304,"b_page":256,"c_page":[302],"chars":3891,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":196,"fixed":25,"odd":[]},
  "warnings": []
 }

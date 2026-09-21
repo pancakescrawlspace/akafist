@@ -179,6 +179,6 @@
   {"col":2,"para":12,"bbox":[1911,6049,2343,6125],"abbyy":"Манатья","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":4},
- "witness": {"version":11,"d_page":1089,"b_page":1041,"c_page":[483],"chars":4115,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":122,"fixed":14,"odd":[]},
+ "witness": {"version":12,"d_page":1089,"b_page":1041,"c_page":[483],"chars":4115,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":122,"fixed":14,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (48 lines at the image edge); entry starts from position and text features"]
 }

@@ -233,6 +233,6 @@
   {"col":2,"para":18,"bbox":[2157,5713,2461,5847],"abbyy":"Красно","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2157,5953,2953,6059],"abbyy":"КрлсногллголлнѴЕ","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":315,"b_page":267,"c_page":[313],"chars":3470,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":178,"fixed":29,"odd":[]},
+ "witness": {"version":12,"d_page":315,"b_page":267,"c_page":[313],"chars":3470,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":178,"fixed":29,"odd":[]},
  "warnings": []
 }

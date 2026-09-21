@@ -241,6 +241,6 @@
   {"col":2,"para":24,"bbox":[2315,5899,2601,5987],"abbyy":"Обча","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":11,"d_page":420,"b_page":372,"c_page":[418],"chars":3666,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":251,"fixed":27,"odd":[]},
+ "witness": {"version":12,"d_page":420,"b_page":372,"c_page":[418],"chars":3666,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":251,"fixed":27,"odd":[]},
  "warnings": []
 }

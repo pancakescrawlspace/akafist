@@ -208,6 +208,6 @@
   {"col":2,"para":11,"bbox":[2263,4711,2549,4791],"abbyy":"Расти","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":592,"b_page":544,"c_page":[590],"chars":3884,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":214,"fixed":30,"odd":[]},
+ "witness": {"version":12,"d_page":592,"b_page":544,"c_page":[590],"chars":3884,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":214,"fixed":30,"odd":[]},
  "warnings": []
 }

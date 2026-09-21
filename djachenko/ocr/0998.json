@@ -183,6 +183,6 @@
   {"col":2,"para":6,"bbox":[1845,5951,2753,6049],"abbyy":"Денежный дворъ","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":8},
- "witness": {"version":11,"d_page":1009,"b_page":961,"c_page":[403],"chars":4087,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":175,"fixed":21,"odd":[]},
+ "witness": {"version":12,"d_page":1009,"b_page":961,"c_page":[403],"chars":4087,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":175,"fixed":21,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (43 lines at the image edge); entry starts from position and text features"]
 }

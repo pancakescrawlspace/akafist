@@ -10,6 +10,8 @@
     python3 tools/dj_inspect.py segcheck                 # likely false / missed entry starts in ocr/*.json
     python3 tools/dj_inspect.py linecheck [--pages 38-1157] [--out lines.tsv]   # do B, C, A break their lines
                                                          # where D does? (are the witnesses one setting)
+    python3 tools/dj_inspect.py counts [--workers 14]    # lines and characters per page and witness against A;
+                                                         # pages where a witness falls short (eval/pagecounts.tsv)
 
 Images are written to djachenko/inspect/ (git-ignored); the path is printed. LEAF is always the leaf number of scan
 A (printed page = leaf − 37). Witnesses: A = scan A (600 ppi JP2), B = 1993 reprint (DjVu), C = Indiana PDFs,
@@ -387,6 +389,60 @@ def cmd_linecheck(a):
     print(f'written: {out}')
 
 
+# ---------------------------------------------------------------- counts
+
+SHORT_LINES, SHORT_CHARS = 1, 0.985     # a witness this many lines short of A and under this share of its characters
+
+
+def counts_page(leaf):
+    """-> rows (leaf, page, side, wit, lines, chars, lines_short, chars_ratio, short) for A, B, C and D. A is the
+    reference: its lines are ABBYY's own layout (ocr/*.json), not the reading order the other three go through."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from dj_witness import norm_seq, page_of, page_text, side_texts
+    pg = load(leaf)
+    if pg['section'] not in ('main', 'supplement'):
+        return []
+    ref = {}
+    for side in 'ab':
+        lines = [ln['text'] for c in pg['columns'] if c['side'] == side for p in c['paragraphs'] for ln in p['lines']]
+        ref[side] = (len(lines), len(norm_seq(' '.join(lines))[0]))
+    rows = [(leaf, page_of(leaf), side, 'A', n, ch, 0, 1.0, '') for side, (n, ch) in ref.items()]
+    for wit in 'BCD':
+        try:
+            S = side_texts(page_text(wit, leaf))
+        except Exception:                                  # noqa: BLE001
+            continue
+        for side in 'ab':
+            n, ch = len(S[side]['lines']), len(norm_seq(S[side]['text'])[0])
+            dl, cr = ref[side][0] - n, (ch / ref[side][1] if ref[side][1] else 1.0)
+            short = 'short' if ref[side][1] > 200 and dl >= SHORT_LINES and cr < SHORT_CHARS else ''
+            rows.append((leaf, page_of(leaf), side, wit, n, ch, dl, round(cr, 3), short))
+    return rows
+
+
+def cmd_counts(a):
+    """Lines and characters of every page and column side in each witness, against A's; a witness at least one line
+    short of A AND under 98.5 % of its characters on the same side is flagged `short`. Either count alone is too
+    noisy (OCR engines split or merge a line either way, and characters vary by ±3 %); together they catch all 8
+    pages of the footer cut (MISSING_HEADWORDS.md) for ~50 others to look at. Writes eval/pagecounts.tsv."""
+    import csv
+    from multiprocessing import Pool
+    leaves = sorted(int(f.stem) for f in OCR.glob('[0-9][0-9][0-9][0-9].json'))
+    with Pool(a.workers) as pool:
+        rows = [r for part in pool.imap(counts_page, leaves, chunksize=4) for r in part]
+    out = Path(a.out)
+    with open(out, 'w', newline='', encoding='utf-8') as f:
+        w = csv.writer(f, delimiter='\t', lineterminator='\n')
+        w.writerow(['leaf', 'page', 'side', 'wit', 'lines', 'chars', 'lines_short', 'chars_ratio', 'flag'])
+        w.writerows(rows)
+    flagged = [r for r in rows if r[8]]
+    pages = sorted({r[1] for r in flagged})
+    print(f'{len(rows)} rows -> {out.relative_to(ROOT)}; {len(flagged)} column sides flagged short, on '
+          f'{len(pages)} pages:')
+    for r in sorted(flagged, key=lambda r: (r[1], r[2], r[3])):
+        print(f'  p. {r[1]}{r[2]} {r[3]}: {r[6]} line(s) short, {r[7]:.1%} of A\'s characters')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     sub = ap.add_subparsers(dest='cmd', required=True)
@@ -412,9 +468,12 @@ def main():
     s.add_argument('--pages', default='38-1157', help='leaves, e.g. 38-1157 or 45,150,341')
     s.add_argument('--out', default=str(DJ / 'eval' / 'linecheck.tsv'))
     s.add_argument('--workers', type=int, default=8)
+    s = sub.add_parser('counts')
+    s.add_argument('--out', default=str(DJ / 'eval' / 'pagecounts.tsv'))
+    s.add_argument('--workers', type=int, default=8)
     a = ap.parse_args()
     {'dump': cmd_dump, 'overlay': cmd_overlay, 'lines': cmd_lines, 'find': cmd_find, 'gtcheck': cmd_gtcheck,
-     'segcheck': cmd_segcheck, 'linecheck': cmd_linecheck}[a.cmd](a)
+     'segcheck': cmd_segcheck, 'linecheck': cmd_linecheck, 'counts': cmd_counts}[a.cmd](a)
 
 
 if __name__ == '__main__':

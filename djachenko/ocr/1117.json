@@ -231,6 +231,6 @@
   {"col":2,"para":16,"bbox":[2381,5665,2891,5759],"abbyy":"Передача","abbyy_conf":73,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2385,6073,3441,6167],"abbyy":"Переемъ, переимъ","abbyy_conf":66,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1128,"b_page":1080,"c_page":[522],"chars":3811,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":207,"fixed":32,"odd":[]},
+ "witness": {"version":12,"d_page":1128,"b_page":1080,"c_page":[522],"chars":3811,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":207,"fixed":32,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (35 lines end at the image edge); line ends of the right column missing"]
 }

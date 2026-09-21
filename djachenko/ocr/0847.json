@@ -156,6 +156,6 @@
   {"col":2,"para":2,"bbox":[2339,1063,2617,1145],"abbyy":"Часть","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2339,3027,2553,3107],"abbyy":"Часъ","abbyy_conf":58,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":858,"b_page":810,"c_page":[252],"chars":4097,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":78,"fixed":7,"odd":[]},
+ "witness": {"version":12,"d_page":858,"b_page":810,"c_page":[252],"chars":4097,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":78,"fixed":7,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (10 lines end at the image edge); line ends of the right column missing"]
 }

@@ -207,6 +207,6 @@
   {"col":2,"para":14,"bbox":[2277,5535,2537,5617],"abbyy":"КитЪ","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2279,5881,2527,5997],"abbyy":"Киф а","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":298,"b_page":250,"c_page":[296],"chars":3773,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":202,"fixed":48,"odd":[]},
+ "witness": {"version":12,"d_page":298,"b_page":250,"c_page":[296],"chars":3773,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":202,"fixed":48,"odd":[]},
  "warnings": []
 }

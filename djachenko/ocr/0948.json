@@ -177,6 +177,6 @@
   {"col":2,"para":4,"bbox":[1915,2977,2527,3069],"abbyy":"Бѣлый царь","abbyy_conf":75,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":11,"d_page":959,"b_page":911,"c_page":[353],"chars":4139,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":140,"fixed":15,"odd":[]},
+ "witness": {"version":12,"d_page":959,"b_page":911,"c_page":[353],"chars":4139,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":140,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (21 lines at the image edge); entry starts from position and text features"]
 }

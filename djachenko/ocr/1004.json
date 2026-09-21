@@ -183,6 +183,6 @@
   {"col":1,"para":15,"bbox":[1,5125,449,5191],"abbyy":"осочитися","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":16,"bbox":[1,5319,1123,5417],"abbyy":"оспѣхи древне-русскіе","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1015,"b_page":967,"c_page":[409],"chars":4035,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":120,"fixed":17,"odd":[]},
+ "witness": {"version":12,"d_page":1015,"b_page":967,"c_page":[409],"chars":4035,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":120,"fixed":17,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (10 lines at the image edge); entry starts from position and text features"]
 }

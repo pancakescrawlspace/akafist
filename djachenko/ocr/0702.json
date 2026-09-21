@@ -161,6 +161,6 @@
   {"col":2,"para":2,"bbox":[2123,1069,2481,1147],"abbyy":"Столпъ","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":713,"b_page":665,"c_page":[107],"chars":4093,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":86,"fixed":8,"odd":[]},
+ "witness": {"version":12,"d_page":713,"b_page":665,"c_page":[107],"chars":4093,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":86,"fixed":8,"odd":[]},
  "warnings": []
 }

@@ -220,6 +220,6 @@
   {"col":2,"para":18,"bbox":[2087,5303,2847,5407],"abbyy":"Сла'&льгтеоелти","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2089,5649,2523,5753],"abbyy":"Ом'кштн","abbyy_conf":16,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":671,"b_page":623,"c_page":[65],"chars":3559,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":173,"fixed":20,"odd":[]},
+ "witness": {"version":12,"d_page":671,"b_page":623,"c_page":[65],"chars":3559,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":173,"fixed":20,"odd":[]},
  "warnings": []
 }

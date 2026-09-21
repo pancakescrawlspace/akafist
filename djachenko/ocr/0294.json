@@ -234,6 +234,6 @@
   {"col":2,"para":21,"bbox":[2077,5573,2559,5683],"abbyy":"Колесница","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":305,"b_page":257,"c_page":[303],"chars":3512,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":177,"fixed":20,"odd":[]},
+ "witness": {"version":12,"d_page":305,"b_page":257,"c_page":[303],"chars":3512,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":177,"fixed":20,"odd":[]},
  "warnings": []
 }

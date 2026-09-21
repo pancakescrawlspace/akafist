@@ -207,6 +207,6 @@
   {"col":2,"para":13,"bbox":[2049,5895,2365,5993],"abbyy":"Буянъ","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":955,"b_page":907,"c_page":[349],"chars":3865,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":132,"fixed":23,"odd":[]},
+ "witness": {"version":12,"d_page":955,"b_page":907,"c_page":[349],"chars":3865,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":132,"fixed":23,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (8 lines at the image edge); entry starts from position and text features"]
 }

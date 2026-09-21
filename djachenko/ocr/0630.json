@@ -184,6 +184,6 @@
   {"col":2,"para":9,"bbox":[1945,4841,2865,4939],"abbyy":"Сеунча или саунча","abbyy_conf":67,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[1949,5957,2291,6053],"abbyy":"Сефель","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":641,"b_page":593,"c_page":[35],"chars":3999,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":194,"fixed":14,"odd":[]},
+ "witness": {"version":12,"d_page":641,"b_page":593,"c_page":[35],"chars":3999,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":194,"fixed":14,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (6 lines at the image edge); entry starts from position and text features"]
 }

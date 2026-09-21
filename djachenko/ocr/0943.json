@@ -198,6 +198,6 @@
   {"col":2,"para":8,"bbox":[2417,5961,2871,6055],"abbyy":"Буйвище","abbyy_conf":49,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":954,"b_page":906,"c_page":[348],"chars":3825,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":157,"fixed":17,"odd":[]},
+ "witness": {"version":12,"d_page":954,"b_page":906,"c_page":[348],"chars":3825,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":157,"fixed":17,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (39 lines end at the image edge); line ends of the right column missing"]
 }

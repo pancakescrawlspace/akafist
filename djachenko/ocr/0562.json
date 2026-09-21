@@ -182,6 +182,6 @@
   {"col":2,"para":15,"bbox":[2059,5495,3141,5655],"abbyy":"пУсщьінног^лждлнйнъ","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":16,"bbox":[2061,5819,2975,5927],"abbyy":"пУстыннолкжй&ын","abbyy_conf":33,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":573,"b_page":525,"c_page":[571],"chars":3888,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":153,"fixed":11,"odd":[]},
+ "witness": {"version":12,"d_page":573,"b_page":525,"c_page":[571],"chars":3888,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":153,"fixed":11,"odd":[]},
  "warnings": ["side a: lines at the edge lack \"=\", taken as continuation lines","side a: no flush line (edge from prior)"]
 }

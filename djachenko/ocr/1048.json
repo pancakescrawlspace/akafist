@@ -181,6 +181,6 @@
   {"col":2,"para":7,"bbox":[1891,6077,2377,6151],"abbyy":"Клеченье","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":4},
- "witness": {"version":11,"d_page":1059,"b_page":1011,"c_page":[453],"chars":4008,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":201,"fixed":30,"odd":[]},
+ "witness": {"version":12,"d_page":1059,"b_page":1011,"c_page":[453],"chars":4008,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":201,"fixed":30,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (50 lines at the image edge); entry starts from position and text features"]
 }

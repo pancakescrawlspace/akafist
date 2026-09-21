@@ -225,6 +225,6 @@
   {"col":2,"para":10,"bbox":[2043,3075,2735,3205],"abbyy":"ОуМНО/КИѴИСА","abbyy_conf":32,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2039,5929,2417,6061],"abbyy":"О умный","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":803,"b_page":755,"c_page":[197],"chars":3702,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":217,"fixed":33,"odd":[]},
+ "witness": {"version":12,"d_page":803,"b_page":755,"c_page":[197],"chars":3702,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":217,"fixed":33,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (6 lines at the image edge); entry starts from position and text features"]
 }

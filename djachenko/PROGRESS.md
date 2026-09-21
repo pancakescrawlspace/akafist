@@ -797,28 +797,48 @@ See PLAN.md for the phases. Newest entry last.
   before it. Most entries there were still "located" in the witnesses — on the wrong line — so the unlocated list
   understates it.
 
-NEXT: (1) **the footer cut** (MISSING_HEADWORDS.md): accept a `FOOT_RE` match in `dj_witness.reading_order`
-  only on the pages that carry the footer (printed page ≡ 1 mod 16) — measured, that restores every line above —
-  then `dj_heads.py text` (a VERSION bump), the vote checked as VOTE.md prescribes, `dj_parse.py`, `dj_crops.py
-  index` and `crops --force`. Separately, Phase 3a: page furniture (the stamp on p. 41, the footer's tail on
-  p. 913) must not become a paragraph of A.
+- **The footer cut fixed** (the user: go ahead, "if this can properly be done in the build layer, and not in the
+  corrections layer" — it can, and nothing here is a hand correction). First checked the premise from the
+  witnesses: the footer's own words occur at the foot of 70 pages in B, C and D, every one ≡ 1 mod 16, one per
+  sheet. `dj_witness.reading_order` now takes a `footer` flag (printed page ≡ 1) and cuts only there, at the
+  LOWEST matching line; against the committed code the witnesses' text changes on exactly the 8 pages, 98 lines
+  restored and none lost anywhere (VERSION 12, VOTE.md). Then found that A's own layout had the same pattern:
+  `dj_abbyy.py` had filed article lines as the page footer on pp. 387, 840, 1030, 1093 (p. 387's footer held
+  `Орлейщикъ`, `Орьлъ`, `Орьтъма`); the same rule returns 8 lines to A's body, no real footer changed.
+  Loop to the fixed point, then: 24,841 → **24,845 entries** (`Орлейщикъ`, `Орьлъ`, `Орьтъма`, `Куръ` entries again;
+  `Фата` and `Февруарій` whole); 124,497 → 124,505 printed lines, the line invariant holding; disputed places
+  199,878 → 198,730; ground-truth scores unchanged. The unlocated headwords are down from 11 to the 5 witness-
+  instances of the two non-headwords (the stamp, the footer tail). Crops of the 8 pages rebuilt; all 4,452
+  strips split cleanly. MISSING_HEADWORDS.md has the resolution.
+- **`dj_inspect.py counts`** (the user's idea: store line counts per page to spot pages with too little in them) →
+  `eval/pagecounts.tsv`, lines and characters of every page and column side in B, C and D against A (whose lines
+  are ABBYY's own layout, not the reading order the others share). Measured before settling the rule: line counts
+  alone are too noisy for a loss of one or two lines — OCR splits or merges a line either way, witnesses differ
+  from A by ±1–2 on ordinary pages — and so are characters (±3 %); flagging a side where a witness is **at least
+  one line short *and* under 98.5 % of A's characters** caught all 8 footer-cut pages. After the fix none of the 8
+  is flagged; **53 pages remain flagged**, of unknown cause (their first and last lines match A, so not this bug)
+  — the review list.
 
-  (1b) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two entries are not headwords at all:
+  the library stamp on p. 41 (`0078-2-21`) and the tail of the footer on p. 913 (`0950-2-15`). Then the 53 pages
+  `dj_inspect.py counts` flags (eval/pagecounts.tsv): look at a sample, find what the shortfall is.
+
+  (2) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
-  (2) **the second indent.** The book sets the body of a numbered sense two indents in, and the facsimile sets
+  (3) **the second indent.** The book sets the body of a numbered sense two indents in, and the facsimile sets
   it at one: A's `ind_of` collapses the two levels and `dj_build` renders `min(ind, 1)` anyway. `dj_seg.py`
   already measures the true level of every line in C and D (`dj_witness.indent_levels`), so `segmentation.tsv`
   could carry it — one more column — and both `dj_abbyy.py` (which would store it as the line's `ind`) and the
   facsimile could use it. It would also give `dj_parse.py` a way to tell a numbered sense from a lemma.
 
-  (3) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
+  (4) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
   carried over to their first line, so only A's geometry says an entry begins there. They are where a spurious
   lemma can still hide (p. 21 `два евангелія…`, printed with `дка` as its provisional headword). A pass over them
   — or a third geometric witness (B's DjVu boxes are coarse but its margins are intact) — would close it.
 
-  (4) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+  (5) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
@@ -826,7 +846,7 @@ NEXT: (1) **the footer cut** (MISSING_HEADWORDS.md): accept a `FOOT_RE` match in
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
 
-  (5) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+  (6) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
@@ -840,7 +860,7 @@ NEXT: (1) **the footer cut** (MISSING_HEADWORDS.md): accept a `FOOT_RE` match in
   index crops the *headword box* for comparing one lemma across the four copies, and it was only the latter that
   took ABBYY's word for where the headword began.
 
-  (6) **the flowing PDF takes ~4 min against the facsimile's ~15 s** (the user noticed; flagged, not looked
+  (7) **the flowing PDF takes ~4 min against the facsimile's ~15 s** (the user noticed; flagged, not looked
   into). Likely cause, seen in dj_build.py's preamble but not measured: the running head runs
   `query(<e>).filter(… page() == here().page())` and `query(selector(<e>).before(here()))` on every page — over
   all ~25,000 entry markers, ~1,000 times — to find the page's first and last entry for the guide words, where

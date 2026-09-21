@@ -222,6 +222,6 @@
   {"col":2,"para":14,"bbox":[2059,5811,2351,5903],"abbyy":"Сводъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":625,"b_page":577,"c_page":[19],"chars":3635,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":211,"fixed":32,"odd":[]},
+ "witness": {"version":12,"d_page":625,"b_page":577,"c_page":[19],"chars":3635,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":211,"fixed":32,"odd":[]},
  "warnings": []
 }

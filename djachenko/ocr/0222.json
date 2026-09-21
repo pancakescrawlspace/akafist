@@ -206,6 +206,6 @@
   {"col":2,"para":10,"bbox":[2103,5571,2401,5661],"abbyy":"Жнтарь","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2101,5797,2915,5887],"abbyy":"Житейское море","abbyy_conf":69,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":233,"b_page":185,"c_page":[231],"chars":3718,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":182,"fixed":24,"odd":[]},
+ "witness": {"version":12,"d_page":233,"b_page":185,"c_page":[231],"chars":3718,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":182,"fixed":24,"odd":[]},
  "warnings": []
 }

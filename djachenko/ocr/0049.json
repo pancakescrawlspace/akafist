@@ -172,6 +172,6 @@
   {"col":2,"para":9,"bbox":[2191,5967,3221,6059],"abbyy":"ЯдогИо или Алогіане","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":60,"b_page":12,"c_page":[58],"chars":3972,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":183,"fixed":26,"odd":[]},
+ "witness": {"version":12,"d_page":60,"b_page":12,"c_page":[58],"chars":3972,"cuts":{"line":14,"aligned":0,"forced":0},"disputed":183,"fixed":26,"odd":[]},
  "warnings": []
 }

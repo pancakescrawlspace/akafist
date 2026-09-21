@@ -179,6 +179,6 @@
   {"col":4,"para":5,"bbox":[2287,5315,2709,5407],"abbyy":"Гайдукъ","abbyy_conf":51,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":990,"b_page":942,"c_page":[384],"chars":3715,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":187,"fixed":11,"odd":[]},
+ "witness": {"version":12,"d_page":990,"b_page":942,"c_page":[384],"chars":3715,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":187,"fixed":11,"odd":[]},
  "warnings": []
 }

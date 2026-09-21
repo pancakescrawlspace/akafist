@@ -206,6 +206,6 @@
   {"col":2,"para":5,"bbox":[1763,4915,3443,5009],"abbyy":"Крюки, крюковая семеіографія","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":11,"start":2},
- "witness": {"version":11,"d_page":1075,"b_page":1027,"c_page":[469],"chars":4020,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":213,"fixed":39,"odd":[]},
+ "witness": {"version":12,"d_page":1075,"b_page":1027,"c_page":[469],"chars":4020,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":213,"fixed":39,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (40 lines at the image edge); entry starts from position and text features"]
 }

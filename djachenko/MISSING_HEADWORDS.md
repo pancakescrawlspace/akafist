@@ -2,7 +2,9 @@
 
 `dj_crops.py index` locates every entry's headword in all four witnesses (`headwords.tsv`). Of 24,841 × 4 it
 fails on **11** — which are **6 entries**, two of them missing from three witnesses and one from two. Examined one
-by one (session 6, 2026-09-21), they fall into three kinds, and only one kind is about the witnesses at all:
+by one (session 6, 2026-09-21), they fall into three kinds, and only one kind is about the witnesses at all.
+(Resolved the same day for the four real headwords — see the last section; the list is now down to the two
+non-headwords, which are rightly missing.)
 
 | entry | page | what it is | missing from | cause |
 |---|---|---|---|---|
@@ -131,8 +133,25 @@ That is why the 11 undercount it: most entries on these pages were still "locate
 put them on some other line nearby — so their crops show the wrong line without being flagged. Only where a
 headword's line was gone and nothing plausible was near did the index record a failure.
 
-**Status:** diagnosed, not fixed (see PROGRESS.md, NEXT). The fix is to accept a footer match only on the pages
-that carry the footer (p ≡ 1 mod 16) — measured, that removes every one of the losses above — then re-run
-`dj_heads.py text`, check the vote as VOTE.md prescribes, and re-run `dj_parse.py` and the crops. The stamp and
-the footer made into entries are Phase 3a defects of A's layout and want their own fix: page furniture should
-not become a paragraph.
+## Resolution (session 6, the same day)
+
+Fixed in the build layer, where it arose — no hand corrections:
+
+- `dj_witness.reading_order` looks for the footer only on the pages that carry it, printed page ≡ 1 (mod 16), and
+  cuts at the lowest line that matches, since the footer lies below all text. Checked first that this holds: in
+  B, C and D the footer's own words (*словарь свящ. Г. Дьяченко*) occur at the foot of 70 pages, every one ≡ 1,
+  one per sheet. Against the old code the witnesses' text changes on exactly the 8 pages above: 98 lines
+  restored, none lost anywhere. dj_heads VERSION 12.
+- `dj_abbyy.py` had the same pattern in A's own layout: on four of those pages (387, 840, 1030, 1093) it had
+  filed article lines as the page footer — p. 387's footer held `Орлейщикъ`, `Орьлъ` and `Орьтъма`. The same rule
+  there returns 8 lines to A's body; no real footer changed.
+
+Result: 24,841 → 24,845 entries — `Орлейщикъ`, `Орьлъ`, `Орьтъма` and `Куръ` are entries of their own again,
+`Фата` and `Февруарій` have their first lines back, and no text slides into a neighbour. The ground-truth scores
+are unchanged (none of the eight pages is a GT page). **The unlocated list is down to the two non-headwords**: the
+stamp on p. 41 (missing from B, C, D) and the footer's tail on p. 913 (missing from C, D) — five witness-instances,
+all correctly so. That these two became entries at all is a defect of A's layout, still open (PROGRESS.md, NEXT).
+
+A check that would have found the footer cut is now in the build: `dj_inspect.py counts` compares every page's
+lines and characters in B, C and D with A's and flags a column side where a witness is at least one line short
+*and* under 98.5 % of A's characters. Before the fix it flagged all eight pages; after it, none of them.

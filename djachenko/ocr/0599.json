@@ -143,6 +143,6 @@
  "entries_hint": [
   {"col":2,"para":2,"bbox":[2325,4273,3283,4369],"abbyy":"Русальная недѣля","abbyy_conf":56,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":610,"b_page":562,"c_page":[608],"chars":4223,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":86,"fixed":7,"odd":[]},
+ "witness": {"version":12,"d_page":610,"b_page":562,"c_page":[608],"chars":4223,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":86,"fixed":7,"odd":[]},
  "warnings": ["side a: no flush line (edge from prior)"]
 }

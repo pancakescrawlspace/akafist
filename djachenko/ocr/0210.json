@@ -205,6 +205,6 @@
   {"col":2,"para":12,"bbox":[2139,5985,2475,6055],"abbyy":"Кілмшік","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":13,"bbox":[2137,6087,2471,6157],"abbyy":"Ібмліінк","abbyy_conf":22,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":221,"b_page":173,"c_page":[219],"chars":3851,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":270,"fixed":31,"odd":[]},
+ "witness": {"version":12,"d_page":221,"b_page":173,"c_page":[219],"chars":3851,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":270,"fixed":31,"odd":[]},
  "warnings": []
 }

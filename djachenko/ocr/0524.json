@@ -207,6 +207,6 @@
   {"col":2,"para":18,"bbox":[2105,5547,2793,5711],"abbyy":"ПрЕ/И^дроБЛТИ","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2103,5889,3471,6055],"abbyy":"ПрЕм^дростньій,, гшм^д&ый","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":535,"b_page":487,"c_page":[533],"chars":3624,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":179,"fixed":13,"odd":[]},
+ "witness": {"version":12,"d_page":535,"b_page":487,"c_page":[533],"chars":3624,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":179,"fixed":13,"odd":[]},
  "warnings": []
 }

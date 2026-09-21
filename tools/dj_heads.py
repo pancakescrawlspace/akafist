@@ -64,7 +64,9 @@ from dj_witness import (CORNELL, DJ, OCR, PDF_DPI, align, b_page, c_page, d_page
                         load_page, norm_char, norm_seq, page_text, side_texts)
 import dj_abbyy  # noqa: E402  (dump, iou)
 
-VERSION = 11           # of the witness block; bump to redo every page (11 = witness B's boxes flipped about the
+VERSION = 12           # of the witness block; bump to redo every page (12 = the footer is looked for only on the
+#                        pages that carry it, p ≡ 1 mod 16 — dj_witness.reading_order; it had cut off lines
+#                        ending in "(церк.-слав.)" and all below them; 11 = witness B's boxes flipped about the
 #                        true page height, not the text layer's bounding box — dj_witness.djvu_words; 10 = the
 #                        FineReader pair may override a
 #                        Latin-script word of D, or an unaccented Greek run, only with a word of D's own lexicon —

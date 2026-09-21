@@ -168,6 +168,6 @@
   {"col":1,"para":10,"bbox":[239,5623,1091,5737],"abbyy":"Церковный годъ","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2345,1045,2733,1153],"abbyy":"Церковь","abbyy_conf":37,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":850,"b_page":802,"c_page":[244],"chars":4033,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":124,"fixed":25,"odd":[]},
+ "witness": {"version":12,"d_page":850,"b_page":802,"c_page":[244],"chars":4033,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":124,"fixed":25,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (6 lines end at the image edge); line ends of the right column missing"]
 }

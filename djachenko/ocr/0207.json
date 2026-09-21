@@ -212,6 +212,6 @@
   {"col":2,"para":10,"bbox":[2373,3917,2657,4047],"abbyy":"вздцл","abbyy_conf":19,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2383,5383,3911,5497],"abbyy":"О3ЕКІА {евр. крѣпость Господня","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":218,"b_page":170,"c_page":[216],"chars":3796,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":184,"fixed":13,"odd":[]},
+ "witness": {"version":12,"d_page":218,"b_page":170,"c_page":[216],"chars":3796,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":184,"fixed":13,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (30 lines end at the image edge); line ends of the right column missing"]
 }

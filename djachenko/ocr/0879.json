@@ -183,6 +183,6 @@
   {"col":3,"para":5,"bbox":[215,4609,1053,4723],"abbyy":"Юбилейный год","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":2,"bbox":[2371,3811,2543,3899],"abbyy":"Юг","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":890,"b_page":842,"c_page":[284],"chars":3563,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":175,"fixed":18,"odd":[]},
+ "witness": {"version":12,"d_page":890,"b_page":842,"c_page":[284],"chars":3563,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":175,"fixed":18,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (31 lines end at the image edge); line ends of the right column missing"]
 }

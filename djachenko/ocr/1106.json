@@ -197,6 +197,6 @@
   {"col":2,"para":10,"bbox":[2097,3581,2487,3693],"abbyy":"Омофор","abbyy_conf":42,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":1117,"b_page":1069,"c_page":[511],"chars":4015,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":182,"fixed":15,"odd":[]},
+ "witness": {"version":12,"d_page":1117,"b_page":1069,"c_page":[511],"chars":4015,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":182,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (7 lines at the image edge); entry starts from position and text features"]
 }

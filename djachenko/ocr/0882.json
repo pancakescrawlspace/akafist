@@ -183,6 +183,6 @@
   {"col":2,"para":4,"bbox":[2025,2317,2691,2409],"abbyy":"Юрьевъ день","abbyy_conf":41,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":11,"d_page":893,"b_page":845,"c_page":[287],"chars":3866,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":151,"fixed":14,"odd":[]},
+ "witness": {"version":12,"d_page":893,"b_page":845,"c_page":[287],"chars":3866,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":151,"fixed":14,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (11 lines at the image edge); entry starts from position and text features"]
 }

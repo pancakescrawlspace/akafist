@@ -223,6 +223,6 @@
   {"col":2,"para":10,"bbox":[1949,5909,2857,6057],"abbyy":"Огнедо^ноеЕнный","abbyy_conf":50,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1,"continue":6},
- "witness": {"version":11,"d_page":421,"b_page":373,"c_page":[419],"chars":3639,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":189,"fixed":27,"odd":[]},
+ "witness": {"version":12,"d_page":421,"b_page":373,"c_page":[419],"chars":3639,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":189,"fixed":27,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (19 lines at the image edge); entry starts from position and text features"]
 }

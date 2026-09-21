@@ -241,6 +241,6 @@
   {"col":2,"para":21,"bbox":[2413,6069,3007,6151],"abbyy":"Долготѣ БАЮ","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":500,"b_page":452,"c_page":[498],"chars":3616,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":150,"fixed":24,"odd":[]},
+ "witness": {"version":12,"d_page":500,"b_page":452,"c_page":[498],"chars":3616,"cuts":{"line":37,"aligned":0,"forced":0},"disputed":150,"fixed":24,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (26 lines end at the image edge); line ends of the right column missing"]
 }

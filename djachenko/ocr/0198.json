@@ -231,6 +231,6 @@
   {"col":2,"para":16,"bbox":[2065,5973,2331,6067],"abbyy":"Дѣваіа","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":4},
- "witness": {"version":11,"d_page":209,"b_page":161,"c_page":[207],"chars":3818,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":248,"fixed":29,"odd":[]},
+ "witness": {"version":12,"d_page":209,"b_page":161,"c_page":[207],"chars":3818,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":248,"fixed":29,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (7 lines at the image edge); entry starts from position and text features"]
 }

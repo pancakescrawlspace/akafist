@@ -266,6 +266,6 @@
   {"col":2,"para":22,"bbox":[2059,6035,2805,6135],"abbyy":"ОтгрЕКЛТИСА^І","abbyy_conf":34,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":11,"d_page":441,"b_page":393,"c_page":[439],"chars":3686,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":251,"fixed":30,"odd":[]},
+ "witness": {"version":12,"d_page":441,"b_page":393,"c_page":[439],"chars":3686,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":251,"fixed":30,"odd":[]},
  "warnings": []
 }

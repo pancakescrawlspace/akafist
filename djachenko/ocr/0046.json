@@ -180,6 +180,6 @@
   {"col":2,"para":7,"bbox":[2079,4445,2477,4543],"abbyy":"\" Акротби д","abbyy_conf":31,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2099,4961,2561,5037],"abbyy":"Аксааштъ","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":57,"b_page":9,"c_page":[55],"chars":3921,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":241,"fixed":16,"odd":[]},
+ "witness": {"version":12,"d_page":57,"b_page":9,"c_page":[55],"chars":3921,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":241,"fixed":16,"odd":[]},
  "warnings": []
 }

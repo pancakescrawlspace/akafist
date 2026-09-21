@@ -215,6 +215,6 @@
   {"col":4,"para":8,"bbox":[1785,6153,2469,6229],"abbyy":"Завстегненье","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":5},
- "witness": {"version":11,"d_page":1029,"b_page":981,"c_page":[423],"chars":3588,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":204,"fixed":12,"odd":[]},
+ "witness": {"version":12,"d_page":1029,"b_page":981,"c_page":[423],"chars":3588,"cuts":{"line":29,"aligned":0,"forced":0},"disputed":204,"fixed":12,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (33 lines at the image edge); entry starts from position and text features"]
 }

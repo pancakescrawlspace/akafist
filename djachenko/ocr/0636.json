@@ -163,6 +163,6 @@
   {"col":2,"para":6,"bbox":[1961,6031,2245,6109],"abbyy":"Синди","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1,"start":1},
- "witness": {"version":11,"d_page":647,"b_page":599,"c_page":[41],"chars":4049,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":95,"fixed":13,"odd":[]},
+ "witness": {"version":12,"d_page":647,"b_page":599,"c_page":[41],"chars":4049,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":95,"fixed":13,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (8 lines at the image edge); entry starts from position and text features"]
 }

@@ -201,6 +201,6 @@
   {"col":2,"para":9,"bbox":[2299,4577,3505,4695],"abbyy":"Пок-іедити къ ггголп4г","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2295,4819,2585,4893],"abbyy":"Поглпъ","abbyy_conf":27,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":11,"d_page":1132,"b_page":1084,"c_page":[526],"chars":4103,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":167,"fixed":21,"odd":[]},
+ "witness": {"version":12,"d_page":1132,"b_page":1084,"c_page":[526],"chars":4103,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":167,"fixed":21,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (44 lines end at the image edge); line ends of the right column missing"]
 }

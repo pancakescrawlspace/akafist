@@ -130,7 +130,7 @@ def join_lines(lines):
     return out
 
 
-def reading_order(words, W, H, mixed_lines=False, signature=False):
+def reading_order(words, W, H, mixed_lines=False, signature=False, footer=False):
     """words: [(text, x0, y0, x1, y1)] top-left origin -> dict(text, lines, words):
     text   the body text in reading order: band by band, left column before right; header, footer and full-width
            headings left out; lines joined, hyphenation repaired (as join_lines)
@@ -142,7 +142,13 @@ def reading_order(words, W, H, mixed_lines=False, signature=False):
     a Church Slavonic headword beside civil text; only for witnesses with precise boxes (Google's C and D), on B's
     coarse boxes it pulls in noise.
     signature: the page is one of those that carry the printer's sheet signature at the foot (every 16th page and
-    the third page of the sheet), so a signature merged into the lowest printed line may be taken off its end."""
+    the third page of the sheet), so a signature merged into the lowest printed line may be taken off its end.
+    footer: the page carries the footer line "Церк.-славян. словарь свящ. Г. Дьяченко." — the first page of every
+    sheet, printed page ≡ 1 mod 16, and no other (checked in B, C and D: 70 pages, all ≡ 1). Only there is FOOT_RE
+    looked for, and the cut made at the LOWEST line it matches, since the footer lies below all text: the pattern
+    also matches the abbreviation "(церк.-слав.)" in the text, and before this (session 6) a match anywhere in
+    the bottom 15 % of any page cut off that line and all below it in both columns — ~18 printed lines lost from
+    every witness on pp. 387, 774, 840, 1030 and 1093, the headword Фата among them (MISSING_HEADWORDS.md)."""
     words = [(w[0].strip(),) + tuple(w[1:]) for w in words if w[0].strip()]
     if not words:
         return dict(text='', lines=[], words=[])
@@ -184,8 +190,8 @@ def reading_order(words, W, H, mixed_lines=False, signature=False):
                       x0=min(w[1] for w in ws), x1=max(w[3] for w in ws)))
     body = [l for l in L if l['side'] != 'w' and (l['n'] >= 3 or len(l['text']) >= 15)]
     top = min(l['y0'] for l in body) if body else 0
-    foot = [l for l in L if FOOT_RE.search(l['text']) and l['y0'] > 0.85 * H]
-    bottom = min(l['y0'] for l in foot) - 0.3 * wh if foot else H
+    foot = [l for l in L if footer and FOOT_RE.search(l['text']) and l['y0'] > 0.85 * H]
+    bottom = max(l['y0'] for l in foot) - 0.3 * wh if foot else H
     keep = [l for l in L if l['y1'] > top - 0.3 * wh and l['y0'] < bottom]
     # page furniture at the foot: a line of one or two short words lying below every other line of the page — the
     # printer's signature ("32 *", on every third page of a sheet), a stray page number, a speck. Each candidate is
@@ -333,7 +339,8 @@ def indent_levels(page, side=None):
 def page_text(name, leaf):
     """Body text of witness B, C or D for a leaf, with spans (reading_order)."""
     words, W, H = {'B': words_B, 'C': words_C, 'D': words_D}[name](leaf)
-    r = reading_order(words, W, H, mixed_lines=name in 'CD', signature=page_of(leaf) % 16 in (1, 3))
+    r = reading_order(words, W, H, mixed_lines=name in 'CD', signature=page_of(leaf) % 16 in (1, 3),
+                      footer=page_of(leaf) % 16 == 1)
     r.update(W=W, H=H)
     return r
 

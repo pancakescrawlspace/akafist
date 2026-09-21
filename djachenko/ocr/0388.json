@@ -203,6 +203,6 @@
   {"col":2,"para":10,"bbox":[2055,4699,2295,4773],"abbyy":"Нети","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":11,"d_page":399,"b_page":351,"c_page":[397],"chars":3779,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":158,"fixed":18,"odd":[]},
+ "witness": {"version":12,"d_page":399,"b_page":351,"c_page":[397],"chars":3779,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":158,"fixed":18,"odd":[]},
  "warnings": []
 }
