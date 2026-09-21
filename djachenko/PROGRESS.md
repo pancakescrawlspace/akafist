@@ -690,6 +690,26 @@ See PLAN.md for the phases. Newest entry last.
      already have in `entries.tsv`, estimate its width from its character count against the line's own text and
      box, and cut there — we know the line, so we know the coordinates to within a few per cent.
 
+- Explanatory words in the head are no longer set in Church Slavonic (session 6, end; the user: "sometimes a
+  word in the headword section is not printed in headword style... 'Або, иногда альбо' means that the word Або
+  is sometimes given as альбо. The word иногда is explanatory to the headword, not part of it"). Checked on the
+  scan: in that line `Або,` and `альбо` are bold and `иногда` is not (and `польск.` is italic). ABBYY cannot
+  help — it flags `b` on 3,585 of 676,646 words, 0.5 %, far too few to be the headword face — so a list of words
+  it is, as the user proposed, and the twelve ground-truth pages supply it: they mark the Church Slavonic type
+  with braces, and the words that fall between two marked groups there are `и` (5), `или` (3) and `вм.` (1),
+  while none of the four ever appears inside a marked group.
+  The user's caution about `и` is right and is measurable: `или`, `иногда` and `вм.` are never part of a lemma,
+  but `и` can be — `Дворяне и дѣти боярскіе`, `Испытаніе водою и желѣзомъ`, `Полъ и Луда` are headwords in their
+  own right. So `и` is taken as a connective only where it joins two spellings of one word (`Мождевельникъ и
+  можжевельникъ`), measured by the similarity of its neighbours at the norm level: 148 of the 240 heads with an
+  internal `и`, the other 92 keeping theirs.
+  `dj_build.head_spans` gives the head's Church Slavonic spans and both renditions use it — the facsimile
+  through its style regions, the flowing one through `head_markup`, whose `#e` now takes the head as markup
+  rather than as a string. 332 of 24,719 heads have a word set in civil: 177 `или`, 149 `и`, 4 `вм.`,
+  2 `иногда`. Both PDFs rebuilt; p. 1 checked by eye against the scan.
+  This is an interim measure: once Phase 3b step 2 reads the headwords, the Church Slavonic span is the read
+  headword itself and no list is needed.
+
 NEXT: (1) **the crops of B, C and D** (the open defect above; the user will look at more pages meanwhile).
   B: take the page size from `djvused -e 'select N; size'` instead of the `print-txt` rectangle in
   `dj_witness.djvu_words`, re-run `dj_heads.py text` for all pages, check the vote did not move (dj_eval
