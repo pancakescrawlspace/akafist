@@ -749,8 +749,8 @@ def cmd_book(a):
 
 
 def review_answers():
-    """{entry id: (head, how)} from the answered lines of djachenko/heads_review/*.txt; how = a, b or typed;
-    a line answered '-' maps to None (no entry begins there)."""
+    """{entry id: (head, how, the `a:` text the sheet showed)} from the answered lines of
+    djachenko/heads_review/*.txt; how = a, b or typed; a line answered '-' maps to None (no entry begins there)."""
     out = {}
     for f in sorted(REVIEW.glob('[0-9]*.txt')):
         for line in f.read_text(encoding='utf-8').splitlines():
@@ -761,8 +761,8 @@ def review_answers():
                 continue
             eid, ans = parts[1], parts[4].strip()
             a_head, b_head = parts[2].removeprefix('a: '), parts[3].removeprefix('b: ')
-            out[eid] = None if ans == '-' else (a_head, 'a') if ans == 'a' else (b_head, 'b') if ans == 'b' \
-                else (norm(ans), 'typed')
+            out[eid] = None if ans == '-' else (a_head, 'a', a_head) if ans == 'a' else (b_head, 'b', a_head) \
+                if ans == 'b' else (norm(ans), 'typed', a_head)
     return out
 
 
@@ -863,12 +863,19 @@ def build_checked():
     answers = review_answers()
     if not answers:
         return []
-    book = {r['id']: r for r in csv.DictReader(open(BOOK / 'readings.tsv', encoding='utf-8'), delimiter='\t',
-                                                quoting=csv.QUOTE_NONE, escapechar='\\')}
+    # an answer belongs to the readings its sheet was drawn from — one model's; `book` with a later model writes
+    # another readings_<model>.tsv. So each answer is looked up in the one whose model head the sheet showed.
+    tables = [{r['id']: r for r in csv.DictReader(open(f, encoding='utf-8'), delimiter='\t', quoting=csv.QUOTE_NONE,
+                                                  escapechar='\\')}
+              for f in sorted(BOOK.glob('readings_*.tsv'), key=lambda f: f.stat().st_mtime, reverse=True)]
     rows = []
     for eid, ans in sorted(answers.items()):
-        r = book.get(eid)
-        if ans is None or r is None:
+        if ans is None:
+            continue
+        r = next((t[eid] for t in tables if eid in t and ans[2] in (t[eid]['model_head'],
+                                                                   shown(t[eid]['model_head'], t[eid]['model']))), None)
+        if r is None:
+            print(f'  {eid}: no readings match what its sheet showed ({ans[2]!r}) — left out')
             continue
         label = norm(checked_label(ans[0], ans[1], r))
         shutil.copy(BOOK / 'img' / f'{eid}.png', OUT / 'checked' / f'{eid}.png')

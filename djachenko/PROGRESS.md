@@ -971,7 +971,12 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   omitting them is a possibility kept open, not decided) — nothing may be built that rules them out.
   `djachenko/CS_LETTERS.md` (the user asked): the Church Slavonic letters and marks to copy, their codes and civil
   equivalents, and how to type them on the Mac. Found making it: dj_witness.norm_char folds ѻ and ꙩ to о but not
-  their capitals Ѻ, Ꙩ — folded in dj_hwocr.py; the shared function (and so the vote) still has the gap. Stage 2 (PLAN.md option C, HWOCR.md § 10): extend the
+  their capitals Ѻ, Ꙩ — folded in dj_hwocr.py; the shared function (and so the vote) still has the gap.
+- **The first run ended** (2026-09-22): early stopping after epoch 22; best epoch 12, val 98.92 %,
+  `cache/hwocr/model/best_0.9892.safetensors`. Test pages: 37/40 intact headwords (vote 29), 41/52 in all (vote
+  37), agreement 30/30 right — as epoch 10. `data` now looks each review answer up in the readings its sheet was
+  drawn from (readings_<model>.tsv, matched by the `a:` text), so reading the book with a later model cannot
+  change what an answer confirmed. The user is answering the sheets (001 under way) and checking the test pages. Stage 2 (PLAN.md option C, HWOCR.md § 10): extend the
   model's alphabet, train on the strict labels, *constrained reading* of every confirmed headword (the civil form
   fixes the word; the model chooses the letters). Meanwhile the user types corrections in printed letters.
   What stays open after that: the unreviewed disagreements — more rounds, or (A) aimed only at them:

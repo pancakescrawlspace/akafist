@@ -237,8 +237,13 @@ model found two errors in the ground truth: on p. 246 it and the vote both read 
 had `…їа`; the scan shows ѧ (pointed, with a crossbar — the а of the same words is round). Corrected, and counted
 fairly: two independent readers agreeing against the GT is the same test `dj_eval.py --suspects` applies to any pair
 of readers — correcting the GT only where the model disagrees with it would tilt the test in the model's favour.
-The three misses left on intact sides are all и/н in the citation type, which only the sense decides. A detail the
-sheet shows: on p. 246 the model reads
+The three misses left on intact sides are all и/н in the citation type, which only the sense decides.
+
+**The first run's end** (session 6): early stopping after epoch 22, the best epoch 12 (val_accuracy 98.92 %) kept as
+`model/best_0.9892.safetensors`. On the test pages it reads as epoch 10 did: 37/40 headwords on the intact sides
+(the vote 29), 41/52 in all (the vote 37), 30 of 30 right where it and the vote agree. The run had done what it
+could; what moves the numbers now is the review answers, witness D's images for the cut columns, and the checked
+test pages. A detail the sheet shows: on p. 246 the model reads
 `священни` where the GT's label says `священни-` — the print broke the word without a hyphen, and the GT's
 convention implies one; the model is right there.
 
