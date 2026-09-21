@@ -312,7 +312,8 @@ python3 tools/dj_link.py            # Phase 5: links.tsv
 python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)
 python3 tools/dj_build.py --facsimile  # the same text, every line/column/page as in the book (~20 s)
 python3 tools/dj_errata.py report   # which errata rows locate and match
-python3 tools/dj_crops.py crops     # the headword crops from headwords.tsv  (~30 min)
+python3 tools/dj_crops.py index     # the headword boxes; reads entries.tsv  (~25 s)
+python3 tools/dj_crops.py crops --workers 14   # the page strips (~35 min; ~100 at the default 8)
 python3 tools/dj_eval.py --refresh  # Phase 2: re-score everything against eval/gt/
 ```
 

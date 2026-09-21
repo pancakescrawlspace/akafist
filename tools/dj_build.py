@@ -438,11 +438,12 @@ def starting_letters(pg):
 # Church Slavonic of the lemma ("Або, иногда альбо" — the entry is Або, sometimes given as альбо). Confirmed on
 # the twelve ground-truth pages, which mark the Church Slavonic type: the words that fall between two marked
 # groups there are и (5), или (3) and вм. (1), and none of the four ever appears inside one.
-#   или / иногда / вм. are never part of a lemma, whatever stands either side of them.
+#   или / иногда / иначе / также / вм. are never part of a lemma, whatever stands either side of them (иначе
+#   checked on the scan too: p. 7 "Аермонъ, иначе Ермонъ", the two names Church Slavonic, иначе civil).
 #   и can be: "Дворяне и дѣти боярскіе", "Испытаніе водою и желѣзомъ", "Полъ и Луда" are headwords in their own
 #   right, so it is taken as a connective only where it joins two spellings of one word ("Мождевельникъ и
 #   можжевельникъ") — measured over the book, 148 of the 240 heads that have an internal и.
-HEAD_CIVIL = ('или', 'иногда', 'вм', 'вмѣсто')
+HEAD_CIVIL = ('или', 'иногда', 'иначе', 'также', 'вм', 'вмѣсто')
 HEAD_JOIN = ('и',)                      # only between two spellings of the same word
 
 

@@ -667,8 +667,8 @@ See PLAN.md for the phases. Newest entry last.
   machine has 16 cores and the pool is CPU-bound, so 14 is worth passing; 8 took ~100 min). Every located
   headword is in a strip: A 24,841, B 24,836, C 24,838, D 24,838.
 
-- ⚠ OPEN DEFECT (found by the user inspecting djachenko/crops/): **the crops of B are cut from the wrong part of
-  the page, and those of C and D take in too much.** A's are good (the user's judgement and ours). Diagnosed but
+- DEFECT (found by the user inspecting djachenko/crops/; FIXED the same session, below): **the crops of B are cut
+  from the wrong part of the page, and those of C and D take in too much.** A's are good (the user's judgement and ours). Diagnosed but
   NOT fixed — see the NEXT line.
   1. *B: the y-flip uses the wrong page height.* `dj_witness.djvu_words` reads the page rectangle from
      `djvused print-txt`, which is **the text layer's bounding box, not the page**: on B's p. 1 it is
@@ -710,29 +710,75 @@ See PLAN.md for the phases. Newest entry last.
   This is an interim measure: once Phase 3b step 2 reads the headwords, the Church Slavonic span is the read
   headword itself and no list is needed.
 
-NEXT: (1) **the crops of B, C and D** (the open defect above; the user will look at more pages meanwhile).
-  B: take the page size from `djvused -e 'select N; size'` instead of the `print-txt` rectangle in
-  `dj_witness.djvu_words`, re-run `dj_heads.py text` for all pages, check the vote did not move (dj_eval
-  --refresh against the twelve GT pages, and a diff of entries.tsv), then `dj_crops.py index` + `crops
-  --witness B --force`. C and D: cut the box from the head's character count against the line, as above, then
-  `crops --witness CD --force`. A's crops need nothing.
+- The crops of B, C and D fixed (session 6, NEXT item 1).
+  1. *B's coordinates.* `dj_witness.djvu_words` now takes the page size from `djvused … size` (in the same call
+     as `print-txt`) and flips the boxes about it; p. 1's first word moves from y 190 to 900 and the crop lands
+     on `А=первая`. B's extracted text moves on 110 of 1,119 pages, because the gutter search is a fraction of
+     the width and the width changed too: 596 of the 788 edits are gutter specks (`J`, `j`, `I`, `|`, `{`, `[`)
+     changing column, the rest a few running-head fragments leaking in on some pages and out on others, and
+     four line-order swaps. dj_heads VERSION 11, whole book re-voted (30 s at 14 workers): 23,677 → 23,670
+     B+A fixes, 199,800 → 199,878 disputed places, paragraph cuts identical, dj_seg 0 lines differing;
+     **14 of 24,841 entries changed text**, a coin toss (`разрѣшать н отъ` → `разрѣшать отъ` and `оть санскр.` →
+     `отъ` better, `окрестъ` → `окресть` and `XIV — XV` → `XIV XV` worse). dj_eval --refresh: **no text column
+     changed on any of the twelve ground-truth pages**, merged 2.279 % → 2.279 % at the norm level. So the vote
+     does not see B's layout, as intended — B only overrides D where A agrees with it.
+     The same refresh records the segmentation work of this session against the ground truth for the first time:
+     recall 99.7 % → 100 %, precision 97.3 % → 99.7 %, guessed starts 54 → 2 (eval/results.tsv).
+  2. *The box within the line* (the user's proposal): `head_box` now walks the line's words counting characters
+     at the norm level until the entry's head in entries.tsv is reached, and cuts inside the word where the head
+     ends there (`альбо—польск.`, `Я—первая`), with a sliver for the last letter. Before, it cut at the first word
+     containing a separator, or after four words.
+  3. *Full height.* C's and D's Google word boxes span the lowercase letters only — 54 px at 600 ppi against
+     A's 94 — so every capital and accent lost its top (`Абецадло`, `Предзащитница`); they are extended 45 % up and
+     15 % down, measured on pp. 1, 109 and 480 against the images. B's DjVu boxes are full height already.
+  Result, median box at 600 ppi / share over twice the median width: A 454 px / 6.9 %, B 466 / 6.3 %,
+  C 382 / 6.0 %, D 398 / 5.8 % (were B 577 / 13.6 %, C 593 / 23.1 %, D 600 / 23.2 %); heights A 94, B 104,
+  C and D 86 (were 54). Checked by eye on pp. 1, 109 and 480 for all three witnesses. B, C and D's 3,339 strips
+  rebuilt; A's were right and are untouched. `dj_crops.py index` now reads entries.tsv, so it runs after
+  dj_parse.py.
+  4. *B's vertical padding* (the user, looking at the rebuilt crops/B/0038: "all the headwords, but also still
+     quite a bit of noise"). `PAD` (15 px) was meant at 600 ppi but applied in each witness's own pixels, and B's
+     page is ~250 ppi, whose DjVu word boxes already span 95 % of its line pitch (41 px of 43): the padding took
+     in two-thirds of the lines above and below. B's vertical pad is now 3 px (`PAD_Y`); the horizontal pad stays,
+     since it is what keeps the last letter where the head's cut lands tight (tried at 6: `Ааронь род?`). B's
+     strips rebuilt again.
+  5. *The initial capital.* crops/B/0044 also showed `Адонисъдекъ`, `Адонъ`, `Аеръ` with the left half of the
+     big initial А missing: B's OCR had left it out of the word box, which started at x 67 where the column's
+     flush lines start at 35 — the same thing ABBYY does, and fixed the same way as for A this session: the box
+     is pulled out to the column edge. Not to one figure per column, though: B's indent is only ~12 px (flush
+     35–42, hanging 46–50), so the 10th percentile of the line starts lands on the hanging level, and the Google
+     columns are skewed by up to 13 pt, so a column minimum would add much white at the other end. The edge is
+     the start of the nearest flush line, level 0 of `dj_witness.indent_levels`, which is deskewed. B, C and D's
+     strips rebuilt once more with all five changes together (14 workers, ~25 min): every located headword in a
+     strip; the four witnesses take 105 MB (were 131), B's 11 MB (were 21 — the noise). Checked by eye on
+     pp. 1 and 7 in B and D side by side: the same headwords row for row, initial capitals complete.
+  Side-question from the user, answered by measurement: one PNG per headword instead of a strip per page costs
+  the same in content (20 pages of A: 483 KB as strips, 496 KB as 354 files — PNG pays per ink, not per pixel,
+  and a strip even has twice the pixels, padding every row to the widest), but 2.7× on disk, since a file of
+  ~1.4 KB occupies a 4 KB APFS block: ~400 MB for the book against ~130. The "about a gigabyte" of the dj_crops
+  docstring was greyscale JPEG, a format question, not a granularity one; the file-count concern was git's,
+  and crops/ is git-ignored. Per-headword files would be fine if wanted (not done).
+  Two further explanatory words for `dj_build.HEAD_CIVIL`, seen in crops/B/0044: `иначе` (3 heads; checked on
+  the scan — p. 7 `Аермонъ, иначе Ермонъ`, the names Church Slavonic, `иначе` civil) and `также` (2).
+  What the crops still show is upstream of them: where ABBYY's own reading of the headword ran on past the
+  separator (`Лендиръ евр. источникъ обитанія`), the head in entries.tsv is that long and the crop follows it.
 
-  (2) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
-  (3) **the second indent.** The book sets the body of a numbered sense two indents in, and the facsimile sets
+  (2) **the second indent.** The book sets the body of a numbered sense two indents in, and the facsimile sets
   it at one: A's `ind_of` collapses the two levels and `dj_build` renders `min(ind, 1)` anyway. `dj_seg.py`
   already measures the true level of every line in C and D (`dj_witness.indent_levels`), so `segmentation.tsv`
   could carry it — one more column — and both `dj_abbyy.py` (which would store it as the line's `ind`) and the
   facsimile could use it. It would also give `dj_parse.py` a way to tell a numbered sense from a lemma.
 
-  (4) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
+  (3) the 653 entries flagged `unconfirmed` are the whole residue of the segmentation: neither C nor D could be
   carried over to their first line, so only A's geometry says an entry begins there. They are where a spurious
   lemma can still hide (p. 21 `два евангелія…`, printed with `дка` as its provisional headword). A pass over them
   — or a third geometric witness (B's DjVu boxes are coarse but its margins are intact) — would close it.
 
-  (5) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
+  (4) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
   six new ones are drafts too; not blocking. Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
@@ -740,7 +786,7 @@ NEXT: (1) **the crops of B, C and D** (the open defect above; the user will look
   doubtful; write the file in the conventions of eval/README.md; then `dj_eval.py --refresh`, `--suspects` for all
   four independent pairings, the "stands alone" comparison, and `dj_inspect.py gtcheck`. Budget ~45 min a page.
 
-  (6) Phase 3b step 2 — the headword reading itself, once the user has chosen:
+  (5) Phase 3b step 2 — the headword reading itself, once the user has chosen:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are

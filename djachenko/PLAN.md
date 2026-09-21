@@ -270,7 +270,10 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
    the index gives each headword's rows inside the strip). The index is committed; the crops are not — 134 MB
    that follow from the index and the scans, remade by `dj_crops.py crops` in about half an hour (the account's
    Git LFS budget is 80 % spent, see PROGRESS.md). With the crops in hand a headword can be compared across the
-   four copies without touching the scans.
+   four copies without touching the scans. Rev. 7 (session 6): B's, C's and D's boxes are cut as far along
+   the line as the entry's head in entries.tsv is long (the user's proposal), C's and D's made full height,
+   and B's flipped about the true page height — before, B's crops were cut up to 710 px too high and C's and
+   D's ran into the definition (docstring of dj_crops.py). `index` therefore runs after dj_parse.py.
 4. *The Old Church Slavonic citation type* (added session 4). Besides the civil text and the Church Slavonic
    headwords, the book has a third text class: quotations from Old Russian manuscripts set in a heavy uncial face
    (e.g. p. 223 "нноѹадыи вм. єдиноѹадыи", p. 1087). No OCR reads it: Google renders its letters as capitals
