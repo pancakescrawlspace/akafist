@@ -765,6 +765,15 @@ def review_answers():
     return out
 
 
+def shown(head, line):
+    """What a sheet shows of a reading: its head — or, where the line has no separator (a head of several words
+    running on to the next line, 0049-1-05 Аллилꙋіа кѣнаничнаѧ), the line's first 45 characters, so that every word
+    of the headword can be judged (head_of takes only the first word there)."""
+    if HEAD_SEP.search(line):
+        return head
+    return line[:45] + ('…' if len(line) > 45 else '')
+
+
 def cmd_review(a):
     rows = list(csv.DictReader(open(BOOK / 'readings.tsv', encoding='utf-8'), delimiter='\t',
                                quoting=csv.QUOTE_NONE, escapechar='\\'))
@@ -790,9 +799,10 @@ def cmd_review(a):
             d = ImageDraw.Draw(t)
             font.draw(d, (6, im.size[1] // 2 - 12), f'{k:2}', 0)
             t.paste(im, (60, 0))
-            small.draw(d, (64, im.size[1] + 2), f'a: {r["model_head"]}      b: {r["vote_head"]}', 40)
+            ra, rb = shown(r['model_head'], r['model']), shown(r['vote_head'], r['vote'])
+            small.draw(d, (64, im.size[1] + 2), f'a: {ra}      b: {rb}', 40)
             tiles.append(t)
-            lines.append(f'{k}\t{r["id"]}\ta: {r["model_head"]}\tb: {r["vote_head"]}\t')
+            lines.append(f'{k}\t{r["id"]}\ta: {ra}\tb: {rb}\t')
         W = max(t.size[0] for t in tiles)
         sheet = Image.new('L', (W, sum(t.size[1] + 8 for t in tiles)), 255)
         y = 0
