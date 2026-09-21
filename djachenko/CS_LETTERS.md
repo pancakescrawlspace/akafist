@@ -52,21 +52,27 @@ Whether the headwords get their accents and titla is left open (PLAN.md, Phase 0
 answer does no harm — the civil label drops them, the answer file keeps them. A mark is typed *after* the letter it
 stands over; a breathing before an accent (`А҆́`).
 
+Few fonts have these marks, so the table below may show boxes where a mark should be; the picture shows them as
+set in Ponomar. To see them in the text as well, install the font: double-click `djachenko/fonts/PonomarUnicode.otf`
+and choose *Install* — most Mac apps then borrow it for any character their own font lacks.
+
+![The marks, set in Ponomar Unicode](CS_LETTERS_marks.png)
+
 | mark | name | code | example |
 |:---:|---|---|---|
-| ◌҆ | psili (zvatel'tse), the breathing | U+0486 | А҆́зъ |
-| ◌́ | oxia, acute accent | U+0301 | сло́во |
-| ◌̀ | varia, grave accent (on a final vowel) | U+0300 | добрѣ̀ |
-| ◌̑ | kamora, circumflex | U+0311 | marks certain plural forms |
-| ◌҃ | titlo | U+0483 | бг҃ъ (Богъ), ст҃ъ (святъ) |
-| ◌҇ | pokrytie (the arc over a letter-titlo) | U+0487 | — |
-| ◌ⷭ҇ | slovo-titlo: superscript с + pokrytie | U+2DED U+0487 | гдⷭ҇ь (Господь) |
-| ◌ⷣ҇ | dobro-titlo: superscript д + pokrytie | U+2DE3 U+0487 | — |
-| ◌ⷢ҇ | glagol-titlo: superscript г + pokrytie | U+2DE2 U+0487 | — |
-| ◌ⷪ҇ | on-titlo: superscript о + pokrytie | U+2DEA U+0487 | — |
-| ◌ⷬ҇ | rtsy-titlo: superscript р + pokrytie | U+2DEC U+0487 | — |
-| ◌ⷡ҇ | vedi-titlo: superscript в + pokrytie | U+2DE1 U+0487 | — |
-| ◌ⷮ҇ | tverdo-titlo: superscript т + pokrytie | U+2DEE U+0487 | — |
+| а҆ | psili (zvatel'tse), the breathing | U+0486 | А҆́зъ |
+| а́ | oxia, acute accent | U+0301 | сло́во |
+| а̀ | varia, grave accent (on a final vowel) | U+0300 | добрѣ̀ |
+| а̑ | kamora, circumflex | U+0311 | marks certain plural forms |
+| а҃ | titlo | U+0483 | бг҃ъ (Богъ), ст҃ъ (святъ) |
+| а҇ | pokrytie (the arc over a letter-titlo) | U+0487 | — |
+| аⷭ҇ | slovo-titlo: superscript с + pokrytie | U+2DED U+0487 | гдⷭ҇ь (Господь) |
+| аⷣ҇ | dobro-titlo: superscript д + pokrytie | U+2DE3 U+0487 | — |
+| аⷢ҇ | glagol-titlo: superscript г + pokrytie | U+2DE2 U+0487 | — |
+| аⷪ҇ | on-titlo: superscript о + pokrytie | U+2DEA U+0487 | — |
+| аⷬ҇ | rtsy-titlo: superscript р + pokrytie | U+2DEC U+0487 | — |
+| аⷡ҇ | vedi-titlo: superscript в + pokrytie | U+2DE1 U+0487 | — |
+| аⷮ҇ | tverdo-titlo: superscript т + pokrytie | U+2DEE U+0487 | — |
 
 (The GT convention today: a superscript letter is written in its place as an ordinary letter — гдсь — and the
 marks are left out; eval/README.md.)
