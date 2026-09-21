@@ -182,7 +182,18 @@ out of order and a half line lost (PROGRESS.md).
 `-f path` images with `.gt.txt` files; `-t`/`-e` the training and validation lists; `-o` the directory for the
 checkpoints; `-B 16` the batch; `--augment` as in § 4; `-q early` stop when validation stops improving.
 
-At the start Kraken prints a warning like `alphabet mismatch: chars in training set only: {…} (not included in
+At the start Kraken (through PyTorch Lightning, the framework it trains with) prints a **model summary**: one row per
+part — `val_cer` and `val_wer`, the scorers of the validation set (no parameters: they count, they do not learn),
+`net` (the network) and `net.nn` (its stack of layers, the same numbers), an empty slot for extra layers, and
+`net.criterion`, the CTC loss. On `net`: **Params 4.1 M** (the output layer grows with the alphabet); **Mode**
+`train` (dropout active; reading switches it off); **In sizes** `[1, 1, 120, 400]`, the sample input Lightning
+measures with — one line, one channel, 120 × 400 px; **Out sizes** `[1, 170, 1, 50]`, the scores it gives — 170
+symbols (the 169 characters of the labels and the blank) in each of 50 frames (400 px ÷ 8); **FLOPs 1.6 B**, the
+operations to read that 400-px line once. A real first line, scaled to 120 px high, is ~1,800 px wide, ~7 billion
+operations, and training also works backwards through the network at about twice that again — some hundreds of
+trillions an epoch, which is why the GPU sets the pace.
+
+At the start Kraken also prints a warning like `alphabet mismatch: chars in training set only: {…} (not included in
 accuracy test during training)`. It compares the characters of the training labels with those of the validation
 labels; a character that never occurs among the 359 validation lines cannot be scored there, so it is left out of
 `val_accuracy`. Expected for rare characters — Greek capitals, Latin letters of the etymologies, Cyrillic capitals,
