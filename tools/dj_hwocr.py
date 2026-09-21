@@ -78,7 +78,8 @@ SEP = re.compile(r'=|—|–|\s-\s|\(')
 # alphabet warning): fita as barred o, І as palochka, h and j as Cyrillic shha and je; braces where the book prints
 # brackets. Spacing accents (a Greek breathing standing alone) go the way the norm level sends every accent.
 FOLD = str.maketrans({'Ө': 'Ѳ', 'ө': 'ѳ', 'Ӏ': 'І', 'ӏ': 'і', 'һ': 'h', 'Һ': 'H', 'ј': 'j', 'Ј': 'J',
-                      '{': '(', '}': ')'})
+                      '{': '(', '}': ')',
+                      'Ѻ': 'О', 'Ꙩ': 'О'})   # norm_char folds ѻ and ꙩ to о but not their capitals (dj_witness)
 JUNK = set('■|')                        # OCR debris (a column rule read as |): a line with it is left out
 
 
@@ -818,6 +819,7 @@ def cmd_review(a):
             '# Only the headword counts: all before the separator (= — or a bracket), several words if it has them; not\n'
             '# the text after it (that comes from the reading\'s own line). Judge a and b by their headword part: a\n'
             '# reading may run on past it (Апоплезіа-греч) where a dash was printed without spaces.\n'
+            '# Type the letters as printed where you can (ѯ ꙋ ѧ ѡ …): djachenko/CS_LETTERS.md has them to copy.\n'
             + '\n'.join(lines) + '\n', encoding='utf-8')
     n_sheets = (len(pick) + PER_SHEET - 1) // PER_SHEET
     print(f'{len(cands)} disagreements to choose from; {len(pick)} drawn → sheets {first:03d}–{first + n_sheets - 1:03d}:'

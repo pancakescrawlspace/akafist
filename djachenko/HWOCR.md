@@ -264,7 +264,8 @@ Spending human effort on the cases a model finds hardest is called **active lear
    `cache/hwocr/review/NNN.png` shows each line's start, numbered, with the model's reading (a) and the vote's (b)
    under it; `djachenko/heads_review/NNN.txt` (committed — the user's work) has one line per number to answer:
    `a`, `b`, the headword itself if both are wrong (civil letters will do; letters as printed — `Апоплеѯіа` — are
-   better, kept for stage 2), or `-` if the line begins no entry. **Only the headword counts**: everything before the
+   better, kept for stage 2 — `djachenko/CS_LETTERS.md` has every Church Slavonic letter and mark to copy, with ways to
+   type them on the Mac), or `-` if the line begins no entry. **Only the headword counts**: everything before the
    separator (`=`, `—`, a bracket), several words if it has them (`Агіосъ надгробныи, Агіосъ задушныи`), not the text
    after it — that comes from the reader's own line (step 3). A displayed reading may run on past the headword
    (`a: Апоплезіа-греч`, a dash printed without spaces); `a` and `b` are judged by their headword part.

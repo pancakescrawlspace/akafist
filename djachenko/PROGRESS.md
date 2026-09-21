@@ -968,7 +968,10 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   6. The corrections layer (item 2) takes the answers into the edition as checked headwords.
   **Decision (the user, session 6):** the end result is the headword in the letters as printed, not civil letters;
   the civil readings are the intermediate. Whether titla and accents are recorded too is **left open** (the user:
-  omitting them is a possibility kept open, not decided) — nothing may be built that rules them out. Stage 2 (PLAN.md option C, HWOCR.md § 10): extend the
+  omitting them is a possibility kept open, not decided) — nothing may be built that rules them out.
+  `djachenko/CS_LETTERS.md` (the user asked): the Church Slavonic letters and marks to copy, their codes and civil
+  equivalents, and how to type them on the Mac. Found making it: dj_witness.norm_char folds ѻ and ꙩ to о but not
+  their capitals Ѻ, Ꙩ — folded in dj_hwocr.py; the shared function (and so the vote) still has the gap. Stage 2 (PLAN.md option C, HWOCR.md § 10): extend the
   model's alphabet, train on the strict labels, *constrained reading* of every confirmed headword (the civil form
   fixes the word; the model chooses the letters). Meanwhile the user types corrections in printed letters.
   What stays open after that: the unreviewed disagreements — more rounds, or (A) aimed only at them:
