@@ -305,6 +305,9 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
      `~/.venvs/kraken/bin/ketos -d mps --workers 4 train -f path -t djachenko/cache/hwocr/train.txt
      -e djachenko/cache/hwocr/val.txt -o djachenko/cache/hwocr/model -B 16 --augment -q early`.
      The concepts, the network and the data are explained in `djachenko/HWOCR.md`.
+   - *Review round* (active learning, HWOCR.md § 9): `dj_hwocr.py book` has the model read every entry's first
+     line; `review` samples the lines where it and the vote disagree into sheets of 15 (both readings shown); the
+     user answers in `djachenko/heads_review/NNN.txt` (committed); `data` adds the answers as exact samples.
    - *Decision:* stage 1 is worth pursuing if, on the held-out pages, it reads more headwords exactly (norm) than
      the vote does (merged: hw CER 6.7 % on p. 246, 9.3 % on p. 659). Then stage 2: letters as printed (strict),
      trained on the GT and synthetic lines; stage 3 perhaps accents; and self-training — the model reads every

@@ -218,7 +218,33 @@ Environment (session 6): `~/.venvs/kraken`, Kraken 7.1.1, PyTorch 2.14 with MPS.
 there: the 1.15.3 that Kraken pins fails to load on macOS 27 (a compiled part the loader rejects), 1.17.1 loads,
 and Kraken uses SciPy for image filtering, whose interface has not changed. `pip install scipy==1.15.3` undoes it.
 
-## 9. What comes after
+## 9. The review round (active learning)
+
+Making the 16,799 training labels perfect would take hundreds of hours and gain little: training averages scattered
+label errors away — the model already reads more test headwords right than the vote its automatic labels came
+from. What it lacks is *correct examples of the hard cases*, and those are exactly where it and the vote disagree.
+Spending human effort on the cases a model finds hardest is called **active learning**:
+
+1. `python3 tools/dj_hwocr.py book` — the model reads the first line of every entry of the book (~24,800; the images
+   in `cache/hwocr/book/img/`, the readings in `cache/hwocr/book/readings.tsv`, each head beside the vote's).
+   A trial on ten pages (leaves 100–109) with the epoch-5 checkpoint: model and vote read the head alike in 34 % of
+   the lines scan A shows whole — and where they differ the model is mostly the one that is right: `Бѣдити` against
+   the vote's `БКдити`, `Бѣдствовати` against `Бедсткокати`, `Бѣлыи` against `Καλωи` (the vote often reads ѣ as е or
+   ъ). Its own weak spot shows too: В and К, alike in the headword type (`Квязати` for `Вказати`).
+2. `python3 tools/dj_hwocr.py review --n 500` draws a sample of the disagreements — not on a GT page (their truth is
+   known, and two are the test), not on a column whose left margin scan A cuts off — and writes sheets of 15:
+   `cache/hwocr/review/NNN.png` shows each line's start, numbered, with the model's reading (a) and the vote's (b)
+   under it; `djachenko/heads_review/NNN.txt` (committed — the user's work) has one line per number to answer:
+   `a`, `b`, the headword itself if both are wrong (civil letters will do), or `-` if the line begins no entry.
+   Showing the two readings is faster than typing every word; its risk, *anchoring* (a plausible wrong suggestion
+   is easier to accept than to invent), is small when the two disagree, since at least one is wrong. ~500 answers,
+   about an hour.
+3. `python3 tools/dj_hwocr.py data` adds every answered line as a fourth kind of sample, `checked`: the answered head,
+   then the rest of the line as the vote reads it. Retrain, `eval`, and repeat while a round still pays.
+
+The answers are also proofread headwords, which a corrections layer can later give to the edition itself.
+
+## 10. What comes after
 
 If stage 1 beats the vote on the test pages: **stage 2**, letters as printed (strict labels: the GT and the
 synthetic lines; the automatic labels cannot teach them); **stage 3** perhaps the accents; and **self-training** —

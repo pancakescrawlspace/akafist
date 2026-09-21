@@ -7,6 +7,8 @@ environment (~/.venvs/kraken — PLAN.md has the commands).
     python3 tools/dj_hwocr.py data --only gt,synth                   # rebuild some sets, keep the others
     python3 tools/dj_hwocr.py sheet agree [--n 30] [--split val]     # a contact sheet: samples and their labels
     python3 tools/dj_hwocr.py eval [--model PATH]                    # the verdict on the test pages (see below)
+    python3 tools/dj_hwocr.py book [--device mps] [--leaves 100-110]  # the model reads every entry's first line
+    python3 tools/dj_hwocr.py review [--n 500]                       # sheets of the model/vote disagreements
 
 A sample is one printed line: an image (scan A at 400 ppi, greyscale, the paper brought to white) and its text in
 a .gt.txt file beside it, the form `ketos train -f path` reads. Three kinds:
@@ -36,10 +38,19 @@ touches it (norm level, spaces ignored) — beside the vote's reading of the sam
 heads apart. Writes cache/hwocr/eval/<model>/: the readings, report.tsv (one row per line) and sheet.png (every test
 headword: the image, the GT, the model, the vote).
 
+The review round (active learning): `book` saves the first line of every entry of the book as an image (cache/
+hwocr/book/img/) and has the model read them all; readings.tsv puts its reading of each head beside the vote's.
+`review` draws a sample of the lines where the two disagree — not on a GT page, not on a column whose left margin
+scan A cuts off — and writes numbered sheets (cache/hwocr/review/NNN.png, the start of each line with both
+readings) and, for each, an answer file djachenko/heads_review/NNN.txt (committed: it is the user's work). The
+user answers each line: `a` (the model's reading is right), `b` (the vote's), the headword itself (civil letters
+will do), or `-` (the line begins no entry). `data` adds every answered line as a fourth kind of sample, `checked`:
+the answered head, then the rest of the line as the vote reads it.
+
 Splits: `test` = the two held-out GT pages (leaves 283 and 696, eval/README.md) and nothing else from them; `val` =
 the agree samples of every 20th leaf, for Kraken to choose its best checkpoint by; `train` = everything else.
 """
-import argparse, csv, json, random, re, shutil, subprocess, sys, unicodedata, zlib
+import argparse, csv, datetime, json, random, re, shutil, subprocess, sys, unicodedata, zlib
 from multiprocessing import Pool
 from pathlib import Path
 
@@ -94,6 +105,24 @@ def clean(s):
     s = re.sub(r'\s+', ' ', s).strip()
     s = re.sub(r'\s+([.,;:!?)])', r'\1', s)
     return re.sub(r'([(„])\s+', r'\1', s)
+
+
+class label_font:
+    """The readings under a sheet's images: Old Standard, whose ѣ cannot be taken for ъ (the very distinction a
+    reviewer judges), and for Greek, which this Old Standard lacks, Arial Unicode where the Mac has it."""
+    def __init__(self, size):
+        self.main = ImageFont.truetype(str(FONTS / 'OldStandard-Regular.ttf'), size)
+        self.greek = next((ImageFont.truetype(p, size) for p in ('/System/Library/Fonts/Supplemental/Arial Unicode.ttf',
+                                                                  '/Library/Fonts/Arial Unicode.ttf')
+                           if Path(p).exists()), self.main)
+
+    def draw(self, d, xy, text, fill):
+        x, y = xy
+        for greek, run in ((g, ''.join(r)) for g, r in __import__('itertools').groupby(
+                text, key=lambda ch: '\u0370' <= ch <= '\u03ff' or '\u1f00' <= ch <= '\u1fff')):
+            f = self.greek if greek else self.main
+            d.text((x, y), run, fill=fill, font=f)
+            x += f.getlength(run)
 
 
 def letters(s):
@@ -596,7 +625,7 @@ def cmd_eval(a):
           f'{sum(1 for r in both if not r["ok_model"] and not r["ok_vote"])}; where the two read alike '
           f'({len(agree)}): right {sum(r["ok_model"] for r in agree)}')
     # the sheet: every test headword, with its image and the three readings
-    font = ImageFont.truetype(str(FONTS / 'OldStandard-Regular.ttf'), 22)
+    font = label_font(20)
     tiles = []
     for r in hw:
         im = Image.open(OUT / next(x['image'] for x in rows if x['id'] == r['id'])).convert('L')
@@ -604,9 +633,8 @@ def cmd_eval(a):
         t = Image.new('L', (900, im.size[1] + 34), 255)
         t.paste(im, (0, 0))
         mark = lambda ok: '✓' if ok == 1 else '✗' if ok == 0 else ' '  # noqa: E731
-        ImageDraw.Draw(t).text((4, im.size[1] + 4), f'{r["id"]}  GT {r["head"]}  ·  model {r["head_model"]} '
-                               f'{mark(r["ok_model"])}  ·  vote {r["head_vote"]} {mark(r["ok_vote"])}', fill=70,
-                               font=font)
+        font.draw(ImageDraw.Draw(t), (4, im.size[1] + 4), f'{r["id"]}  GT {r["head"]}  ·  model {r["head_model"]} '
+                  f'{mark(r["ok_model"])}  ·  vote {r["head_vote"]} {mark(r["ok_vote"])}', 70)
         tiles.append(t)
     sheet = Image.new('L', (900, sum(t.size[1] + 6 for t in tiles)), 255)
     y = 0
@@ -617,7 +645,178 @@ def cmd_eval(a):
     print(f'written: {outdir.relative_to(DJ.parent)}/ — report.tsv, sheet.png, the readings')
 
 
+# ---------------------------------------------------------------- the review round
+
+BOOK = OUT / 'book'
+REVIEW = DJ / 'heads_review'            # the user's answers: committed
+PER_SHEET = 15
+
+
+def head_of(line):
+    """The head of a first line: the text before the separator, else its first word."""
+    m = SEP.search(line)
+    return (line[:m.start()] if m else line.split(' ')[0]).strip().strip(',')
+
+
+def same(x, y):
+    return x.replace(' ', '') == y.replace(' ', '')
+
+
+def book_lines(leaf):
+    """The first line of every entry on the leaf, its image saved to cache/hwocr/book/img/ (unless there already):
+    [dict(id, leaf, cut, gt, vote)] — cut = its column's left margin cut off in scan A."""
+    pg = json.loads((OCR / f'{leaf:04d}.json').read_text(encoding='utf-8'))
+    if pg['section'] not in ('main', 'supplement') or not pg['columns']:
+        return []
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from dj_crops import witness_image
+    ids = entry_ids()
+    left = {w.split(':')[0].split()[1] for w in pg['warnings'] if 'margin cut off' in w and 'right margin' not in w}
+    out, im = [], None
+    for c in pg['columns']:
+        for pi, par in enumerate(c['paragraphs'], 1):
+            eid = f'{leaf:04d}-{c["n"]}-{pi:02d}'
+            if eid not in ids or not par['lines']:
+                continue
+            text, br = par.get('text_merged', ''), par.get('breaks') or [[0, 0]]
+            b1 = br[1][0] if len(br) > 1 else len(text)
+            path = BOOK / 'img' / f'{eid}.png'
+            if not path.exists():
+                im = im or witness_image(leaf, 'A')
+                a_line_image(im, par['lines'][0]['bbox']).save(path, optimize=True)
+            out.append(dict(id=eid, leaf=leaf, cut=int(c['side'] in left), gt=int(leaf in GT_LEAVES),
+                            vote=norm(clean(text[br[0][0]:b1]) + ('-' if br[0][1] else ''))))
+    return out
+
+
+def parse_leaves(s):
+    out = set()
+    for part in s.split(','):
+        a, _, b = part.partition('-')
+        out.update(range(int(a), int(b or a) + 1))
+    return sorted(out)
+
+
+def cmd_book(a):
+    model = pick_model(a.model)
+    (BOOK / 'img').mkdir(parents=True, exist_ok=True)
+    leaves = parse_leaves(a.leaves) if a.leaves else sorted(int(f.stem) for f in OCR.glob('[0-9]' * 4 + '.json'))
+    rows = []
+    with Pool(a.workers) as pool:
+        for r in pool.imap(book_lines, leaves, chunksize=4):
+            rows += r
+    print(f'{len(rows)} first lines; reading them with {model.name} on {a.device} …')
+    outdir = BOOK / 'read' / model.stem
+    todo = [BOOK / 'img' / f'{r["id"]}.png' for r in rows if not (outdir / f'{r["id"]}.txt').exists()]
+    for i in range(0, len(todo), 1000):                          # one Kraken process per 1,000 lines
+        kraken_read(model, todo[i:i + 1000], outdir, a.device)
+        print(f'  [{min(i + 1000, len(todo))}/{len(todo)}]')
+    for r in rows:
+        r['model'] = norm((outdir / f'{r["id"]}.txt').read_text(encoding='utf-8'))
+        r['model_head'], r['vote_head'] = head_of(r['model']), head_of(r['vote'])
+        r['agree'] = int(same(r['model_head'], r['vote_head']))
+    fields = ['id', 'leaf', 'cut', 'gt', 'agree', 'model_head', 'vote_head', 'model', 'vote']
+    path = BOOK / f'readings_{model.stem}.tsv'
+    with open(path, 'w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=fields, delimiter='\t', quoting=csv.QUOTE_NONE, escapechar='\\')
+        w.writeheader()
+        w.writerows(rows)
+    shutil.copy(path, BOOK / 'readings.tsv')
+    for label, sel in (('all', rows), ('A intact at line start', [r for r in rows if not r['cut']]),
+                       ('A cut', [r for r in rows if r['cut']])):
+        print(f'  {label:24} {len(sel):6} lines; model and vote read the head alike in '
+              f'{sum(r["agree"] for r in sel) / max(1, len(sel)):.0%}')
+    print(f'written: {path.relative_to(DJ.parent)} (and readings.tsv)')
+
+
+def review_answers():
+    """{entry id: (head, how)} from the answered lines of djachenko/heads_review/*.txt; how = a, b or typed;
+    a line answered '-' maps to None (no entry begins there)."""
+    out = {}
+    for f in sorted(REVIEW.glob('[0-9]*.txt')):
+        for line in f.read_text(encoding='utf-8').splitlines():
+            if line.startswith('#') or not line.strip():
+                continue
+            parts = line.split('\t')
+            if len(parts) < 5 or not parts[4].strip():
+                continue
+            eid, ans = parts[1], parts[4].strip()
+            a_head, b_head = parts[2].removeprefix('a: '), parts[3].removeprefix('b: ')
+            out[eid] = None if ans == '-' else (a_head, 'a') if ans == 'a' else (b_head, 'b') if ans == 'b' \
+                else (norm(ans), 'typed')
+    return out
+
+
+def cmd_review(a):
+    rows = list(csv.DictReader(open(BOOK / 'readings.tsv', encoding='utf-8'), delimiter='\t',
+                               quoting=csv.QUOTE_NONE, escapechar='\\'))
+    REVIEW.mkdir(exist_ok=True)
+    (OUT / 'review').mkdir(parents=True, exist_ok=True)
+    seen = set()
+    for f in REVIEW.glob('[0-9]*.txt'):
+        seen |= {line.split('\t')[1] for line in f.read_text(encoding='utf-8').splitlines()
+                 if line and not line.startswith('#') and '\t' in line}
+    cands = [r for r in rows if r['agree'] == '0' and r['cut'] == '0' and r['gt'] == '0' and r['id'] not in seen]
+    pick = sorted(random.Random(a.seed).sample(cands, min(a.n, len(cands))), key=lambda r: r['id'])
+    first = 1 + max([int(f.stem) for f in REVIEW.glob('[0-9]*.txt')] or [0])
+    font = label_font(24)
+    small = label_font(19)
+    for s0 in range(0, len(pick), PER_SHEET):
+        num = first + s0 // PER_SHEET
+        chunk = pick[s0:s0 + PER_SHEET]
+        tiles, lines = [], []
+        for k, r in enumerate(chunk, 1):
+            im = Image.open(BOOK / 'img' / f'{r["id"]}.png').convert('L')
+            im = im.crop((0, 0, min(im.size[0], 1000), im.size[1]))
+            t = Image.new('L', (60 + im.size[0], im.size[1] + 30), 255)
+            d = ImageDraw.Draw(t)
+            font.draw(d, (6, im.size[1] // 2 - 12), f'{k:2}', 0)
+            t.paste(im, (60, 0))
+            small.draw(d, (64, im.size[1] + 2), f'a: {r["model_head"]}      b: {r["vote_head"]}', 40)
+            tiles.append(t)
+            lines.append(f'{k}\t{r["id"]}\ta: {r["model_head"]}\tb: {r["vote_head"]}\t')
+        W = max(t.size[0] for t in tiles)
+        sheet = Image.new('L', (W, sum(t.size[1] + 8 for t in tiles)), 255)
+        y = 0
+        for t in tiles:
+            sheet.paste(t, (0, y))
+            y += t.size[1] + 8
+        sheet.save(OUT / 'review' / f'{num:03d}.png')
+        (REVIEW / f'{num:03d}.txt').write_text(
+            f'# sheet {num:03d}: djachenko/cache/hwocr/review/{num:03d}.png (dj_hwocr.py review, '
+            f'{datetime.date.today().isoformat()})\n'
+            '# After the last tab of each line write: a (the first reading is right), b (the second), the headword\n'
+            '# itself as printed (civil letters will do), or - (the line begins no entry). Empty = not yet read.\n'
+            + '\n'.join(lines) + '\n', encoding='utf-8')
+    n_sheets = (len(pick) + PER_SHEET - 1) // PER_SHEET
+    print(f'{len(cands)} disagreements to choose from; {len(pick)} drawn → sheets {first:03d}–{first + n_sheets - 1:03d}:'
+          f' images in {(OUT / "review").relative_to(DJ.parent)}/, answers to write in {REVIEW.relative_to(DJ.parent)}/')
+
+
 # ---------------------------------------------------------------- commands
+
+def build_checked():
+    """The reviewed lines (djachenko/heads_review/): the answered head, then the rest of the line as the vote reads
+    it (from the separator on). A line answered '-' begins no entry and is not a sample."""
+    answers = review_answers()
+    if not answers:
+        return []
+    book = {r['id']: r for r in csv.DictReader(open(BOOK / 'readings.tsv', encoding='utf-8'), delimiter='\t',
+                                                quoting=csv.QUOTE_NONE, escapechar='\\')}
+    rows = []
+    for eid, ans in sorted(answers.items()):
+        r = book.get(eid)
+        m = SEP.search(r['vote']) if r else None
+        if ans is None or not m:
+            continue
+        label = ans[0] + ' ' + r['vote'][m.start():].strip() if not r['vote'][m.start():].startswith('(') \
+            else ans[0] + ' ' + r['vote'][m.start():]
+        shutil.copy(BOOK / 'img' / f'{eid}.png', OUT / 'checked' / f'{eid}.png')
+        (OUT / 'checked' / f'{eid}.gt.txt').write_text(norm(label) + '\n', encoding='utf-8')
+        rows.append(dict(id=eid, set='checked', split='train', leaf=int(eid[:4]), first=1, flags=f'answer={ans[1]}',
+                         image=f'checked/{eid}.png', norm=norm(label), strict=''))
+    return rows
+
 
 def read_manifest():
     with open(OUT / 'manifest.tsv', encoding='utf-8') as f:
@@ -625,7 +824,7 @@ def read_manifest():
 
 
 def cmd_data(a):
-    only = set(a.only.split(',')) if a.only else {'gt', 'agree', 'synth'}
+    only = set(a.only.split(',')) if a.only else {'gt', 'agree', 'synth', 'checked'}
     rows = [r for r in read_manifest() if r['set'] not in only] if a.only else []
     for d in only:
         shutil.rmtree(OUT / d, ignore_errors=True)
@@ -650,6 +849,8 @@ def cmd_data(a):
               f'{edits / max(1, sum(len(y) for _, y in ok)):.2%}')
     if 'synth' in only and a.synth:
         rows += build_synth(a.synth, rows, a.workers)
+    if 'checked' in only:
+        rows += build_checked()
     rows.sort(key=lambda r: (r['set'], r['id']))
     for r in rows:
         r.setdefault('marked', '')                              # the label with accents: synthetic lines only
@@ -662,7 +863,7 @@ def cmd_data(a):
         (OUT / f'{split}.txt').write_text(''.join(str(OUT / r['image']) + '\n' for r in sel), encoding='utf-8')
     size = sum(p.stat().st_size for p in OUT.rglob('*.png'))
     print('samples (without the partial lines):')
-    for s in ('gt', 'agree', 'synth'):
+    for s in ('gt', 'agree', 'synth', 'checked'):
         by = {sp: sum(1 for r in rows if r['set'] == s and r['split'] == sp and 'partial' not in r['flags'])
               for sp in ('train', 'val', 'test')}
         print(f'  {s:6} ' + ', '.join(f'{k} {v}' for k, v in by.items() if v))
@@ -672,14 +873,14 @@ def cmd_data(a):
 def cmd_sheet(a):
     rows = [r for r in read_manifest() if r['set'] == a.set and (not a.split or r['split'] == a.split)]
     rows = random.Random(a.seed).sample(rows, min(a.n, len(rows)))
-    font = ImageFont.truetype(str(FONTS / 'OldStandard-Regular.ttf'), 22)
+    font = label_font(20)
     tiles = []
     for r in rows:
         im = Image.open(OUT / r['image']).convert('L')
         im = im.resize((min(900, im.size[0]) , round(im.size[1] * min(900, im.size[0]) / im.size[0])))
         t = Image.new('L', (900, im.size[1] + 34), 255)
         t.paste(im, (0, 0))
-        ImageDraw.Draw(t).text((4, im.size[1] + 4), f'{r["id"]}: {r["norm"]}', fill=90, font=font)
+        font.draw(ImageDraw.Draw(t), (4, im.size[1] + 4), f'{r["id"]}: {r["norm"]}', 90)
         tiles.append(t)
     sheet = Image.new('L', (900, sum(t.size[1] + 6 for t in tiles)), 255)
     y = 0
@@ -697,17 +898,25 @@ def main():
     s = sub.add_parser('data')
     s.add_argument('--synth', type=int, default=8000, help='synthetic first lines (0: none)')
     s.add_argument('--workers', type=int, default=14)
-    s.add_argument('--only', help='rebuild only these sets (comma-separated: gt,agree,synth), keep the others')
+    s.add_argument('--only', help='rebuild only these sets (comma-separated: gt,agree,synth,checked), keep the others')
     s = sub.add_parser('sheet')
     s.add_argument('set', choices=('gt', 'agree', 'synth'))
     s.add_argument('--split', choices=('train', 'val', 'test'))
     s.add_argument('--n', type=int, default=30)
     s.add_argument('--seed', type=int, default=1)
+    s = sub.add_parser('book')
+    s.add_argument('--model', help='weights or checkpoint; default: the best in model/')
+    s.add_argument('--device', default='mps', help='mps (default) or cpu (while the GPU trains)')
+    s.add_argument('--leaves', help='only these leaves, e.g. 100-110 (a trial)')
+    s.add_argument('--workers', type=int, default=8)
+    s = sub.add_parser('review')
+    s.add_argument('--n', type=int, default=500, help='disagreements to draw (15 a sheet)')
+    s.add_argument('--seed', type=int, default=1)
     s = sub.add_parser('eval')
     s.add_argument('--model', help='weights (.safetensors) or a checkpoint (.ckpt); default: the best in model/')
     s.add_argument('--device', default='cpu', help='cpu (default: the GPU may be training), mps')
     a = ap.parse_args()
-    {'data': cmd_data, 'sheet': cmd_sheet, 'eval': cmd_eval}[a.cmd](a)
+    {'data': cmd_data, 'sheet': cmd_sheet, 'eval': cmd_eval, 'book': cmd_book, 'review': cmd_review}[a.cmd](a)
 
 
 if __name__ == '__main__':

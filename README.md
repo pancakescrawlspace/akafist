@@ -237,6 +237,8 @@ flowchart TD
     GT --> HWOCR
     HWOCR --> HWD[("cache/hwocr/ — samples, manifest,<br/>train/val/test lists (local)")]
     HWD --> KRAKEN["Kraken (ketos train, ~/.venvs/kraken)<br/>a line recogniser for this book's types"]
+    KRAKEN -- "dj_hwocr.py book · review:<br/>the lines where model and vote disagree" --> REV[("heads_review/NNN.txt<br/>the user's answers, committed")]
+    REV --> HWOCR
 
     OCRJ --> INSP["dj_inspect.py — crops, overlays, the same line<br/>in all four witnesses, checks, the line-break agreement,<br/>lines and characters per page against A"]
     SCAN --> INSP
@@ -259,7 +261,7 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `tools/dj_link.py` | 5 | `links.tsv` (akathist lemmas → entries) |
 | `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf`; with `--facsimile` the book line for line, `facsimile.typ`, `facsimile.pdf`; with `--gt` each ground-truth page the same way, `facsimile-P<page>.pdf` |
 | `tools/dj_crops.py` | 3b | `headwords.tsv` (every headword's box in all four witnesses; committed) and `crops/<W>/NNNN.png` (local) |
-| `tools/dj_hwocr.py` | 3b | option C of the headword reading: `cache/hwocr/` (local) — line images of scan A with their labels (ground truth, where D and B agree, synthetic), the data Kraken trains our own model on; `sheet` for a contact sheet |
+| `tools/dj_hwocr.py` | 3b | option C of the headword reading: `cache/hwocr/` (local) — line images of scan A with their labels (ground truth, where D and B agree, synthetic), the data Kraken trains our own model on; `eval` scores a model on the test pages; `book` + `review` — the model reads the whole book, the disagreements with the vote go to the user as sheets, answered in `heads_review/` |
 | `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye; `linecheck` — do the witnesses break their lines alike; `counts` — pages where a witness has fewer lines and characters than A (`eval/pagecounts.tsv`); `gtlines` — mark the printed lines in the ground truth (`¦`) |
 
 ### Where it stands

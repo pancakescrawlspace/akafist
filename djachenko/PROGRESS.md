@@ -896,6 +896,16 @@ See PLAN.md for the phases. Newest entry last.
   (val 98.2 %): **31/40 headwords exact on the sides A shows whole, the vote 28/40**; 2/12 against 8/12 on the
   cut column of p. 659 (A's image lacks the first letters; the vote has D). Where model and vote agree: 26/27
   right. Workers measured: the GPU is the bottleneck, not the data loading.
+- **The review round** (the user asked whether hand-checked originals were needed; the answer: not for the training
+  set as a whole — training averages label noise away, what the model lacks is correct examples of the hard cases —
+  but yes where the model and the vote disagree: *active learning*). `dj_hwocr.py book` has the model read the first
+  line of every entry and sets each head beside the vote's; `review` samples the disagreements (no GT page, no
+  cut column) into sheets of 15, both readings under each line, to be answered in `djachenko/heads_review/NNN.txt`
+  (a / b / the word / -); `data` adds the answers as a fourth kind of sample, `checked`. Trial on leaves 100–109
+  (epoch-5 checkpoint): model and vote agree on 34 % of the intact heads; where they differ the model is mostly
+  right (the vote reads ѣ as е or ъ), its own weak spot В/К in the headword type. Sheets labelled in Old Standard
+  (its ѣ unmistakable) with Greek from Arial Unicode. The trial sheets were removed; the real round waits for the
+  final model. Also answered: what a contact sheet is (HWOCR.md § 9).
 
 NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two entries are not headwords at all:
   the library stamp on p. 41 (`0078-2-21`) and the tail of the footer on p. 913 (`0950-2-15`). Then the 53 pages
@@ -930,8 +940,10 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   data is built (`dj_hwocr.py data`); next the stage-1 training run — a few hours, unattended:
   `~/.venvs/kraken/bin/ketos -d mps --workers 4 train -f path -t djachenko/cache/hwocr/train.txt -e
   djachenko/cache/hwocr/val.txt -o djachenko/cache/hwocr/model -B 16 --augment -q early` (running, session 6) —
-  then `python3 tools/dj_hwocr.py eval` on the final model. The verdict decides stage 2 (letters as printed),
-  self-training, D's images for the cut margins — or a return to (A) and (B):
+  then `python3 tools/dj_hwocr.py eval` on the final model; then the review round (HWOCR.md § 9, the user
+  agreed): `dj_hwocr.py book` (the whole book, on the GPU once training has ended), `review --n 500`, the user
+  answers the sheets, `data`, retrain, `eval`. The verdicts decide stage 2 (letters as printed), D's images for
+  the cut margins — or a return to (A) and (B):
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
