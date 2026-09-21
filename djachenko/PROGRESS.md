@@ -951,10 +951,22 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   data is built (`dj_hwocr.py data`); next the stage-1 training run — a few hours, unattended:
   `~/.venvs/kraken/bin/ketos -d mps --workers 4 train -f path -t djachenko/cache/hwocr/train.txt -e
   djachenko/cache/hwocr/val.txt -o djachenko/cache/hwocr/model -B 16 --augment -q early` (running, session 6) —
-  then `python3 tools/dj_hwocr.py eval` on the final model; then the review round (HWOCR.md § 9, the user
-  agreed): `dj_hwocr.py book` (the whole book, on the GPU once training has ended), `review --n 500`, the user
-  answers the sheets, `data`, retrain, `eval`. The verdicts decide stage 2 (letters as printed), D's images for
-  the cut margins — or a return to (A) and (B):
+  then `python3 tools/dj_hwocr.py eval` on the final model. **The review round is drawn** (sheets 001–034 in
+  `djachenko/heads_review/`); the user is answering them and checking the two test pages (0283, 0696 — the
+  verdict rests on them). With those in hand, the plan (sketched to the user, session 6):
+  1. `dj_hwocr.py data` (adds the answers), train on from the best model (`ketos train -i <best> …`, fewer epochs
+     than from scratch), `eval` on the checked test pages.
+  2. From the answers, a random sample of the disagreements: how often the model is right, the vote, neither —
+     with the 49 % agreement (right 30/30 on the test pages) an estimate of the book's headword accuracy; the `-`
+     answers are a list of segmentation faults. If the model wins: it becomes a witness — agreement = confirmed,
+     disagreement = the better reader's reading, flagged — replacing entries.tsv's provisional headwords (links,
+     both PDFs).
+  3. Further rounds (`book` on the new model, `review`) while each still pays.
+  4. The ~2,700 first lines on cut columns: witness D's images (train on them and read from them).
+  5. Stage 2, letters as printed (strict labels: GT, synthetic, the user's typed answers in printed letters);
+     accents perhaps later.
+  6. The corrections layer (item 2) takes the answers into the edition as checked headwords.
+  What stays open after that: the unreviewed disagreements — more rounds, or (A) aimed only at them:
   (A) API: `pip install anthropic`, export ANTHROPIC_API_KEY, then `python3 tools/dj_heads.py read --pages
       45,465,517,660,893,1124 --effort low --force` and again with `--effort medium`; compare `dj_eval.py --heads`
       (exact headwords; expect ≳ 95 %) and the printed token usage; fix the prompt if the null/phrase rules are
