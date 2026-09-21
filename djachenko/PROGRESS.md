@@ -784,7 +784,26 @@ See PLAN.md for the phases. Newest entry last.
   Result over the whole book: **4,452 strips split from their pixels alone, 0 disagreeing with the index**; every
   entry has its slot in all four witnesses. The strips take 106 MB (120 MB on disk): A 35, B 11, C 29, D 31.
 
-NEXT: (1) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
+- **djachenko/MISSING_HEADWORDS.md** (the user asked for it): the 11 headwords `dj_crops.py index` could not
+  locate are 6 entries, of three kinds — the library stamp of copy A on p. 41 (*Публ. Библ. СССР им. В. И.
+  Ленина*) and the page footer on p. 913, both made into entries by A's layout; and four real headwords (`Фата`,
+  `Блевотина`, `Блюстися`, `Кужель`) that the witnesses read but `dj_witness.reading_order` throws away. Every
+  witness's reading of each is in the file.
+  ⚠ OPEN DEFECT found that way: **the footer cut**. `FOOT_RE` (`Ц[еѳe]рк\W{0,3}сла|…`, case-insensitive) is meant
+  for the footer *Церк.-славян. словарь…* but also matches the abbreviation `(церк.-слав.)`, and a match in the
+  bottom 15 % of a page cuts off that line and all below it in both columns. On pages that carry no footer it
+  fires on 8 pages; on 5 of them (387, 774, 840, 1030, 1093) B, C and D all lose the same lines, so ~18 printed
+  lines (~640 characters) are missing from entries.tsv and the text after each gap slides into the entry
+  before it. Most entries there were still "located" in the witnesses — on the wrong line — so the unlocated list
+  understates it.
+
+NEXT: (1) **the footer cut** (MISSING_HEADWORDS.md): accept a `FOOT_RE` match in `dj_witness.reading_order`
+  only on the pages that carry the footer (printed page ≡ 1 mod 16) — measured, that restores every line above —
+  then `dj_heads.py text` (a VERSION bump), the vote checked as VOTE.md prescribes, `dj_parse.py`, `dj_crops.py
+  index` and `crops --force`. Separately, Phase 3a: page furniture (the stamp on p. 41, the footer's tail on
+  p. 913) must not become a paragraph of A.
+
+  (1b) the corrections layer (corrections.tsv, QUOTES.md) — the errata now survives a regeneration because it
   is applied during the build, but OUR proofreading fixes still do not; and the 34 errata_missed rows want it too,
   since they have to be made by hand against the image.
 
