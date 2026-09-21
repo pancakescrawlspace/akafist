@@ -8,6 +8,8 @@
     python3 tools/dj_build.py --no-refs --no-pdf     # without the grey page references; .typ only
     python3 tools/dj_build.py --facsimile [--leaves 140-160] [--size 12] [--scale 1.08]
                                                      # Rev. 6: djachenko/facsimile.typ + .pdf, line for line
+    python3 tools/dj_build.py --gt [45 146 …]        # the ground-truth pages as facsimile pages, to proofread:
+                                                     # djachenko/facsimile-P<printed page>.pdf (eval/README.md)
 
 The page follows the original (measured on scan A, 600 ppi): A4 with the original's text block of 169 x 249 mm,
 two columns of 82.5 mm with a 5.3 mm gutter and a rule between them, 12.6 pt line pitch, a hanging indent of
@@ -35,6 +37,13 @@ original's 82.5 mm columns are too narrow for Old Standard at 12 pt; the page gr
 whose natural width still exceeds the column is condensed to fit and reported (`typst query` of <over>; the build
 prints the count). Not in the facsimile yet: the front matter of the book (its lines are in ocr/ but not voted),
 the Church Slavonic type inside entries (cross-references), and the italics beyond what ABBYY flagged.
+
+With --gt the text of a page is its ground truth (eval/gt/NNNN.txt) instead of entries.tsv: its entries as the GT
+divides them, each printed line where its `¦` marker says, set on scan A's lines in order, column by column (the
+markers were placed so that the counts agree; a column where they do not is reported). The Church Slavonic type is
+the GT's own `{…}` markup, in the head at the headword's size, in the text at the text's; letters read in another
+copy (`‹…›`) are grey, an uncertain reading (`[?]`) is followed by a small grey ?, and a note at the foot names
+the file and its status. One PDF per page, facsimile-P0008.pdf for p. 8, the .typ in djachenko/cache/.
 """
 import argparse, csv, datetime, difflib, json, re, shutil, subprocess, sys, urllib.request
 from collections import Counter
@@ -488,7 +497,8 @@ def head_markup(head):
 
 def line_markup(text, a, b, regions, marks):
     """text[a:b] as Typst markup: regions = [(start, end, kind)] in text coordinates, kind cs (headword,
-    provisional or not: 'cs'/'csp'), 'i' (italic) and 'd' (disputed)."""
+    provisional or not: 'cs'/'csp'), 'i' (italic) and 'd' (disputed); on a ground-truth page (--gt) also 'cst'
+    (Church Slavonic type inside the definition), 'o' (letters read in another copy) and 'q' (an uncertain reading)."""
     cuts = {a, b}
     for s, e, _ in regions:
         if s < b and e > a:
@@ -499,12 +509,18 @@ def line_markup(text, a, b, regions, marks):
         if not seg:
             continue
         kinds = {k for s, e, k in regions if s <= x and y <= e}
+        if 'q' in kinds:
+            seg = f'#text(fill: luma(120), size: 0.7em, baseline: -0.35em)[{seg}];'
+        if 'o' in kinds:
+            seg = f'#text(fill: luma(120))[{seg}];'
         if 'i' in kinds:
             seg = f'#emph[{seg}];'
         if marks and 'd' in kinds:
             seg = f'#dis[{seg}];'
         if 'cs' in kinds or 'csp' in kinds:
             seg = f'#hw({"true" if "csp" in kinds else "false"})[{seg}];'
+        elif 'cst' in kinds:
+            seg = f'#cs[{seg}];'
         out.append(seg)
     return ''.join(out)
 
@@ -539,7 +555,9 @@ def entry_lines(r, marks):
     return text, regions, lines, cont
 
 
-def build_facsimile(rows, marks, size, scale, hwsize, leaves):
+def build_facsimile(rows, marks, size, scale, hwsize, leaves, gt=None, typ=FTYP):
+    """The facsimile of `leaves` (all pages when None) into `typ`. With gt (one ground-truth page, gt_page()) the
+    text is the GT's instead of entries.tsv's, line for line on scan A's lines, and only the page itself is set."""
     k = PX * scale                                              # mm per px of the scan
     left, top = MARGIN['left'], MARGIN['top'] + HEAD_DY * k    # x of column a's flush edge, y of the first baseline
     pw = MARGIN['left'] + BLOCK_W * k + MARGIN['right']
@@ -582,6 +600,10 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
                 if r and r['headword']:
                     first_hw = first_hw or r['headword']
                     last_hw = r['headword']
+        gsize = f'size: {size * 1.05:.1f}pt'
+        guides = [f'cs(text({gsize})[{esc(guide_of(hw))}])' if hw else None for hw in (first_hw, last_hw)]
+        if gt:
+            guides = [f'text({gsize})[{g}]' for g in gt['guides']]
         above = [h for h in pg['headings'] if h['bbox'][1] < first_base - 150]
         # the number is printed where the OCR read one, or where nothing but the OCR's miss says it is absent;
         # p. 1 opens with the letter's initial and has none (the OCR's "number" there is bleed-through)
@@ -589,15 +611,17 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
             xc = X(gx(y_ref))
             yn = Y(y_ref - HEAD_DY)
             items.append(f'#C({xc:.2f}mm, {yn:.2f}mm, text(weight: "bold", size: {size * 1.15:.1f}pt)[{p}])')
-            items.append(f'#hr({xc - 5:.2f}mm, {yn + 1.6:.2f}mm, 10mm, 0.9pt)')
-            items.append(f'#hr({xc - 5:.2f}mm, {yn + 2.4:.2f}mm, 10mm, 0.35pt)')
+            # the supplement sets its running title just below: there the rules sit close under the number
+            r0, r1 = (0.8, 1.4) if pg['section'] == 'supplement' else (1.6, 2.4)
+            items.append(f'#hr({xc - 5:.2f}mm, {yn + r0:.2f}mm, 10mm, 0.9pt)')
+            items.append(f'#hr({xc - 5:.2f}mm, {yn + r1:.2f}mm, 10mm, 0.35pt)')
             yg = Y(y_ref - GUIDE_DY)
             if pg['section'] == 'supplement':                  # the supplement's running title, on every page
                 items.append(f'#C({xc:.2f}mm, {yg:.2f}mm, text(size: {size * 0.85:.1f}pt, tracking: 0.12em)[Прибавленіе.])')
-            if first_hw:
-                items.append(f'#T({col_x["a"] + 220 * k:.2f}mm, {yg:.2f}mm, cs(text(size: {size * 1.05:.1f}pt)[{esc(guide_of(first_hw))}]))')
-            if last_hw:
-                items.append(f'#R({col_x["b"] + (COLW - 300) * k:.2f}mm, {yg:.2f}mm, cs(text(size: {size * 1.05:.1f}pt)[{esc(guide_of(last_hw))}]))')
+            if guides[0]:
+                items.append(f'#T({col_x["a"] + 220 * k:.2f}mm, {yg:.2f}mm, {guides[0]})')
+            if guides[1]:
+                items.append(f'#R({col_x["b"] + (COLW - 300) * k:.2f}mm, {yg:.2f}mm, {guides[1]})')
         last_base = max(c['paragraphs'][-1]['lines'][-1]['base'] for c in cols if c['paragraphs'])
         items.append(f'#rule({X(gx(y_ref)):.2f}mm, {Y(y_ref - 90):.2f}mm, {Y(last_base + 30):.2f}mm)')
         # the signature line (first page of a sheet) and the asterisked sheet number (its third page)
@@ -621,22 +645,26 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
                 body = f'text(size: 20pt, tracking: 0.08em)[{esc(t)}]'
                 w, hh = x1 - x0, (y1 - y0) * 0.8                          # the box has descenders in it
             items.append(f'#H({X((x0 + x1) / 2):.2f}mm, {Y(y1 - 0.08 * (y1 - y0)):.2f}mm, {w * k:.2f}mm, {hh * k:.2f}mm, {body})')
-        # the lines
+        # the lines: an entry begins at its first paragraph (the ground truth: at the line its first part begins
+        # on, counted through the column) and is set on the lines that follow until its own lines run out
         for c in cols:
             side = c['side']
+            starts = gt['starts'].get(c['n'], {}) if gt else {}
+            n_col = 0                                           # the column's lines so far
             for pi, par in enumerate(c['paragraphs'], 1):
                 eid = f"{pg['idx']:04d}-{c['n']}-{pi:02d}"
-                if eid in by_id:
+                if not gt and eid in by_id:
                     r = by_id[eid]
                     text, regions, lines, cont = entry_lines(r, marks)
-                    cur = [r, lines, text, regions, 0, cont]
-                if cur is None:
-                    continue
-                r, lines, text, regions, at, cont = cur
+                    cur = [r['id'], lines, text, regions, 0, cont]
                 picture = all(ln['text'].strip() in ('', '\ufffc') for ln in par['lines'])
                 for ln in par['lines']:
-                    if at >= len(lines):
-                        break
+                    if n_col in starts:
+                        cur = list(starts[n_col])
+                    n_col += 1
+                    if cur is None or cur[4] >= len(cur[1]):
+                        continue
+                    rid, lines, text, regions, at, cont = cur
                     s, e, hyph, last = lines[at]
                     cur[4] = at = at + 1
                     seg = text[s:e].strip()
@@ -645,6 +673,8 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
                     ind = ln['ind']
                     if at == 1 and cont:                       # a continuation line taken for an entry start
                         ind = max(ind, 1)
+                    if gt:                                      # the GT knows the entry starts: flush, the rest hang
+                        ind = 0 if at == 1 and not cont else max(ind, 1)
                     if picture and len(seg) > 50:              # the whole paragraph in one placeholder line
                         x = col_x[side] + ind * c['indent'] * k
                         body = line_markup(text, s, e, regions, marks)
@@ -663,8 +693,12 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
                     if hyph and not seg.endswith(('-', '¬')):
                         body += '-'
                     items.append(f'#L({x:.2f}mm, {Y(ln["base"]):.2f}mm, {w:.2f}mm, {"true" if not last else "false"}, '
-                                 f'"{r["id"]}/{at - 1}", [{body}])')
+                                 f'"{rid}/{at - 1}", [{body}])')
                     n_lines += 1
+        if gt:
+            items.append(f'#place(top + left, dx: {left:.2f}mm, dy: {ph - 9:.2f}mm, block(width: {BLOCK_W * k:.2f}mm, '
+                         f'text(size: 7pt, fill: luma(110), top-edge: "ascender", bottom-edge: "descender")'
+                         f'[#set par(leading: 0.3em); {gt["caption"]}]))')
         out.append('#page[\n' + '\n'.join(items) + '\n]\n')
     n_entries = len(rows)
     n_prov = sum(r['hw_source'] == 'D' for r in rows)
@@ -674,9 +708,12 @@ def build_facsimile(rows, marks, size, scale, hwsize, leaves):
     pre = FACS_PREAMBLE % dict(size=size, hwsize=hwsize, pw=pw, ph=ph, note=note.strip(),
                                subset_note=('complete' if not leaves else f'leaves {min(leaves)}–{max(leaves)}'),
                                date=datetime.date.today().isoformat())
-    FTYP.write_text(pre + ''.join(out), encoding='utf-8')
-    print(f'wrote {FTYP.relative_to(ROOT)}: {n_pages} pages, {n_lines} lines; page {pw:.0f} × {ph:.0f} mm, '
+    if gt:                                                      # the page alone: no title page, no note
+        pre = pre[:pre.index('#page(margin: 20mm)[')]
+    typ.write_text(pre + ''.join(out), encoding='utf-8')
+    print(f'wrote {typ.relative_to(ROOT)}: {n_pages} pages, {n_lines} lines; page {pw:.0f} × {ph:.0f} mm, '
           f'{size} pt, scale {scale}')
+    return n_lines
 
 
 def compile_facsimile():
@@ -713,6 +750,119 @@ def compile_facsimile():
             encoding='utf-8')
 
 
+# ---------------------------------------------------------------- the ground-truth pages as facsimile pages
+
+GT_DIR = DJ / 'eval' / 'gt'
+GT_BREAK = '¦'                          # eval/README.md: a printed line begins here inside an entry line
+GT_SEP = re.compile(r'=|—|–|\s-\s|\(')   # the end of the head (as dj_eval.parse_gt has it)
+GT_NOTE = ('Ground truth eval/gt/%s — %s · in grey: letters read in another copy (not in scan A), guide words not '
+           'transcribed (taken from the first and last headword) · a small ? follows an uncertain reading')
+
+
+def gt_leaves():
+    return sorted(int(f.stem) for f in GT_DIR.glob('[0-9][0-9][0-9][0-9].txt'))
+
+
+def gt_part(raw):
+    """One entry line of a GT file, its '+ ' taken off -> (text, regions, cuts): the text without the markup; the
+    regions ('cs' Church Slavonic type, 'o' letters read in another copy, 'q' the ? that marks an uncertain
+    reading); the positions where printed lines begin."""
+    text, regions, cuts, opened = '', [], [0], {}
+    pair = {'}': '{', '›': '‹'}
+    i = 0
+    while i < len(raw):
+        if raw.startswith('[?]', i):
+            regions.append((len(text), len(text) + 1, 'q'))
+            text += '?'
+            i += 3
+            continue
+        ch = raw[i]
+        if ch in '{‹':
+            opened[ch] = len(text)
+        elif ch in pair:
+            if pair[ch] in opened:
+                regions.append((opened.pop(pair[ch]), len(text), 'cs' if ch == '}' else 'o'))
+        elif ch == GT_BREAK:
+            cuts.append(len(text))
+        else:
+            text += ch
+        i += 1
+    for ch, a in opened.items():                # markup left open (gtcheck reports it): to the end of the line
+        regions.append((a, len(text), 'cs' if ch == '{' else 'o'))
+    return text, regions, cuts
+
+
+def gt_page(leaf):
+    """eval/gt/NNNN.txt -> the page's ground truth for build_facsimile: 'starts' = {column: {line of the column:
+    [id, lines, text, regions, 0, cont]}} (an entry part and its printed lines as entry_lines gives them, from the
+    GT's line markers — dj_inspect.py gtlines), 'count' = the printed lines per column, 'guides' and 'caption' as
+    markup."""
+    raw = (GT_DIR / f'{leaf:04d}.txt').read_text(encoding='utf-8').splitlines()
+    cols, n = {}, None
+    for i, line in enumerate(raw, 1):
+        if line.startswith('@ col'):
+            n = int(line.split()[2])
+            cols[n] = []
+        elif line.strip() and not line.startswith(('#', '@')) and n is not None:
+            cont = line.startswith('+ ')
+            cols[n].append((i, cont, line[2:] if cont else line))
+    order = [(n, part) for n in sorted(cols) for part in cols[n]]
+    # the page's last entry goes on over the page when the next page does not begin with an entry of its own
+    over = not any(r['id'] == f'{leaf + 1:04d}-1-01' for r in load('all', {leaf + 1}))
+    starts, count, heads = {}, {}, []
+    for k, (n, (lno, cont, body)) in enumerate(order):
+        text, regions, cuts = gt_part(body)
+        going_on = order[k + 1][1][1] if k + 1 < len(order) else over
+        head_end = 0
+        if not cont:                            # CS type in the head is the headword's, after it the text's
+            head_end = next((m.start() for m in GT_SEP.finditer(text)
+                             if not any(a <= m.start() < b for a, b, kind in regions if kind == 'cs')), len(text))
+            heads.append(text[:head_end])
+        regions = [(a, b, 'cst' if kind == 'cs' and a >= head_end else kind) for a, b, kind in regions]
+        lines = []
+        for j, a in enumerate(cuts):
+            b = cuts[j + 1] if j + 1 < len(cuts) else len(text)
+            hyph = 0 < b < len(text) and text[b - 1].isalpha() and text[b].isalpha()   # a word broken at the line end
+            lines.append((a, b, hyph, j == len(cuts) - 1 and not going_on))
+        starts.setdefault(n, {})[count.get(n, 0)] = [f'gt{leaf:04d}:{lno}', lines, text, regions, 0, cont]
+        count[n] = count.get(n, 0) + len(lines)
+    m = re.search(r'guide words: (.+?) \| (.+?)$', raw[0])
+    if m:                                       # as transcribed: {…} is the Church Slavonic type
+        guides = [''.join(f'#cs[{esc(t[1:-1])}];' if t.startswith('{') else esc(t)
+                          for t in re.split(r'(\{[^}]*\})', x) if t) for x in m.groups()]
+    else:
+        guides = [f'#text(fill: luma(120))[#cs[{esc(guide_of(h))}]]' if h else '' for h in (heads[:1] + heads[-1:])]
+    status = next((x.split(':', 1)[1] for x in raw if x.startswith('# status:')), 'status unknown')
+    status = re.split(r'[(,]', status)[0].strip().rstrip(';')
+    return dict(starts=starts, count=count, guides=guides, caption=esc(GT_NOTE % (f'{leaf:04d}.txt', status)))
+
+
+def build_gt(leaves, size, scale, hwsize, pdf=True):
+    """--gt: each ground-truth page as its own facsimile page, djachenko/facsimile-P<printed page>.pdf, to read
+    the transcription against the scan (the .typ in djachenko/cache/)."""
+    typst = shutil.which('typst')
+    for leaf in leaves or gt_leaves():
+        gt = gt_page(leaf)
+        pg = json.loads((OCR / f'{leaf:04d}.json').read_text(encoding='utf-8'))
+        for c in pg['columns']:
+            n_a = sum(len(par['lines']) for par in c['paragraphs'])
+            if gt['count'].get(c['n'], 0) != n_a:
+                print(f'  leaf {leaf}, column {c["n"]}: {gt["count"].get(c["n"], 0)} lines in the GT, {n_a} in scan A '
+                      f'— the lines after the first difference are misplaced (dj_inspect.py gtlines {leaf} --force)')
+        p = int(pg['printed_page'])
+        typ, out = DJ / 'cache' / f'facsimile-P{p:04d}.typ', DJ / f'facsimile-P{p:04d}.pdf'
+        typ.parent.mkdir(exist_ok=True)
+        build_facsimile(load('all', {leaf}), False, size, scale, hwsize, {leaf}, gt=gt, typ=typ)
+        if not pdf or not typst:
+            continue
+        r = subprocess.run([typst, 'compile', '--font-path', str(FONTS), str(typ), str(out)], capture_output=True,
+                           text=True)
+        if r.returncode != 0:
+            print('typst compile failed:\n', r.stderr[:3000])
+            continue
+        print('wrote', out.relative_to(ROOT), f'({out.stat().st_size // 1024} KB)')
+
+
 def parse_ranges(s):
     out = set()
     for part in s.split(','):
@@ -736,8 +886,14 @@ def main():
     ap.add_argument('--hwsize', type=float, default=None, help='headword size in pt (default 1.12 × size)')
     ap.add_argument('--facsimile', action='store_true', help='line for line as the 1900 edition (Rev. 6)')
     ap.add_argument('--scale', type=float, default=1.08, help='facsimile: enlargement of the page')
+    ap.add_argument('--gt', nargs='*', type=int, metavar='LEAF',
+                    help='facsimile pages of the ground truth (eval/gt/), all or these leaves: facsimile-P<page>.pdf')
     a = ap.parse_args()
     fetch_fonts()
+    if a.gt is not None:
+        size = a.size if a.size != 10.0 else 12.0
+        build_gt(a.gt, size, a.scale, a.hwsize or round(size * 1.12, 1), not a.no_pdf)
+        return
     if a.facsimile:
         size = a.size if a.size != 10.0 else 12.0
         rows = load('all', parse_ranges(a.leaves) if a.leaves else None)

@@ -228,11 +228,15 @@ Now 12 pages, 325 headwords. Scores over the whole set (norm level):
 
 | candidate | CER all | headwords CER | headwords exact | definitions | Greek |
 |---|---:|---:|---:|---:|---:|
-| abbyy_A | 10.6 % | 51.6 % | 29/325 | 3.4 % | 120 % |
+| abbyy_A | 10.5 % | 51.6 % | 29/325 | 3.3 % | 120 % |
 | djvu_B | 4.6 % | 13.3 % | 154/325 | 3.7 % | 9.2 % |
-| google_D | 2.9 % | 17.0 % | 137/325 | 1.8 % | 1.5 % |
-| google_C | 3.1 % | 17.5 % | 129/325 | 2.0 % | 1.4 % |
-| **merged** | **2.3 %** | **15.9 %** | **139/325** | **1.2 %** | **1.5 %** |
+| google_D | 2.8 % | 17.0 % | 137/325 | 1.7 % | 1.5 % |
+| google_C | 3.1 % | 17.5 % | 129/325 | 1.9 % | 1.4 % |
+| **merged** | **2.2 %** | **16.0 %** | **139/325** | **1.1 %** | **1.5 %** |
+
+(Re-measured 2026-09-21, session 6, after the last printed line of p. 109's col b — left out of its transcription —
+was added to the ground truth: every candidate had been charged ~20 characters for it. Before: merged 2.3 % all,
+1.2 % definitions.)
 
 The definition rate is higher than the 0.9 % of the first six pages because four of the new pages were chosen to
 be hard; the headline figure for the book should stay on the six representative pages, and the new ones should be

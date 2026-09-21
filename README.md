@@ -169,7 +169,7 @@ voted character by character:
 
 The four copies are one setting of type: verified line for line over all 1,119 pages (`dj_inspect.py linecheck`,
 `eval/linecheck.tsv`), which is what makes the facsimile possible — the line structure of any witness is the line
-structure of the book. Measured on the twelve ground-truth pages (`eval/RESULTS.md`): definition text 1.2 %
+structure of the book. Measured on the twelve ground-truth pages (`eval/RESULTS.md`): definition text 1.1 %
 character error after the vote (≈1 % on ordinary pages; the twelve include the hardest of the book), Greek 1.5 %,
 entry segmentation 99 % recall and 100 % precision on ordinary pages. The Church Slavonic headwords are the one
 thing no OCR reads (about 48 % exact in every layer), so they are read from 400 ppi crops of the page images by a
@@ -225,6 +225,8 @@ flowchart TD
     BUILD --> PDF[("djachenko.typ + .pdf<br/>≈1,000 pages, git-ignored")]
     OCRJ --> BUILD
     BUILD --> FAC[("facsimile.typ + .pdf (--facsimile)<br/>1,120 pages, line for line as the book")]
+    GT -- "with its printed lines marked (¦)" --> BUILD
+    BUILD --> GTFAC[("facsimile-P0008.pdf … (--gt)<br/>each GT page set line for line, to proofread")]
 
     OCRJ --> CROPS["dj_crops.py — every headword located<br/>and cropped in all four witnesses"]
     SCAN --> CROPS
@@ -250,9 +252,9 @@ an interrupted run can simply be repeated. What each of them does in detail is i
 | `tools/dj_errata.py` | 4 | applies `errata.tsv` while `dj_parse.py` builds the entries; `report` says which rows locate and match |
 | `tools/dj_errata_bands.py` | 4 | crops of the errata table's rows at 600 ppi, for transcribing it |
 | `tools/dj_link.py` | 5 | `links.tsv` (akathist lemmas → entries) |
-| `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf`; with `--facsimile` the book line for line, `facsimile.typ`, `facsimile.pdf` |
+| `tools/dj_build.py` | 6 | `djachenko.typ`, `djachenko.pdf`; with `--facsimile` the book line for line, `facsimile.typ`, `facsimile.pdf`; with `--gt` each ground-truth page the same way, `facsimile-P<page>.pdf` |
 | `tools/dj_crops.py` | 3b | `headwords.tsv` (every headword's box in all four witnesses; committed) and `crops/<W>/NNNN.png` (local) |
-| `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye; `linecheck` — do the witnesses break their lines alike; `counts` — pages where a witness has fewer lines and characters than A (`eval/pagecounts.tsv`) |
+| `tools/dj_inspect.py` | — | page crops and overlays in `inspect/`, for checking by eye; `linecheck` — do the witnesses break their lines alike; `counts` — pages where a witness has fewer lines and characters than A (`eval/pagecounts.tsv`); `gtlines` — mark the printed lines in the ground truth (`¦`) |
 
 ### Where it stands
 
@@ -313,6 +315,7 @@ python3 tools/dj_parse.py           # Phase 4: entries.tsv + FLAGS.md        (~3
 python3 tools/dj_link.py            # Phase 5: links.tsv
 python3 tools/dj_build.py           # Phase 6: djachenko.typ + .pdf          (~4 min)
 python3 tools/dj_build.py --facsimile  # the same text, every line/column/page as in the book (~20 s)
+python3 tools/dj_build.py --gt      # the 12 ground-truth pages the same way, facsimile-P<page>.pdf, to proofread
 python3 tools/dj_errata.py report   # which errata rows locate and match
 python3 tools/dj_crops.py index     # the headword boxes; reads entries.tsv  (~25 s)
 python3 tools/dj_crops.py crops --workers 14   # a strip per page, bars between headwords (~30 min)

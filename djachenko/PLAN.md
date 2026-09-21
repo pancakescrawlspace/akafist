@@ -89,6 +89,8 @@ djachenko/
                    (Phase 3b step 1c Rev. 7, `dj_seg.py`; committed — `dj_abbyy.py` needs it, the scans it does not)
   facsimile.typ, facsimile.pdf   the line-for-line facsimile (Phase 6 Rev. 6; `dj_build.py --facsimile`; git-ignored),
                    facsimile_over.tsv the lines it had to condense
+  facsimile-P0008.pdf …  each ground-truth page set the same way from its GT text, to proofread it against the
+                   scan (`dj_build.py --gt`, session 6; git-ignored; eval/README.md)
   fonts/           Ponomar Unicode, Old Standard TT (OFL; fetched by dj_build.py; git-ignored)
 tools/
   dj_fetch.py      Phase 1: download scan + OCR layers, extract page images, write manifest (exists)
@@ -103,11 +105,13 @@ tools/
   dj_eval.py       Phase 2: CER of the OCR candidates against the ground truth, per zone; triangulation (exists)
   dj_inspect.py    helpers: dump/overlay a page, crop lines, find a word in all four witnesses side by side,
                    sanity checks of the ground truth and of the entry starts; `linecheck` — do the witnesses break
-                   their lines alike (Rev. 6; result in eval/linecheck.tsv) (exists)
+                   their lines alike (Rev. 6; result in eval/linecheck.tsv); `gtlines` — mark the printed lines in
+                   the ground truth (`¦`, session 6); `counts` — pages short of lines against A (exists)
   dj_parse.py      Phase 4: ocr/*.json → entries.tsv + FLAGS.md (exists; headwords provisional until step 2 runs)
   dj_link.py       Phase 5: cross-reference entries.tsv with akathist/dictionary/dictionary.psv lemmas → links.tsv (exists)
   dj_build.py      Phase 6: entries.tsv → djachenko.typ (+ PDF via typst), in the original's layout; --facsimile
-                   (Rev. 6) → facsimile.typ/.pdf, every line, column and page as in the book (exists)
+                   (Rev. 6) → facsimile.typ/.pdf, every line, column and page as in the book; --gt → the same for
+                   each ground-truth page, facsimile-P<page>.pdf (exists)
 ```
 
 `.gitignore` gets `djachenko/scan/` and `djachenko/pages/`. Everything else is committed, in small batches, so that a

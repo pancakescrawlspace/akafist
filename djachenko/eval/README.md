@@ -49,6 +49,13 @@ candidate texts per witness and page in `cand/` (cached; `--refresh` re-extracts
 - In the small CS type и and н look nearly the same (ABBYY reads н for both), л is Λ-shaped and а is ɑ-shaped; where
   the glyphs do not decide, the word is read by sense and the choice noted in the file (e.g. Ѫзилиште on p. 856).
 
+**Proofreading on the page.** `python3 tools/dj_build.py --gt [LEAF …]` sets each ground-truth page as a page of
+the facsimile, `djachenko/facsimile-P<page>.pdf` (the printed page number, four digits: `facsimile-P0008.pdf` is
+`gt/0045.txt`; git-ignored). The text is the GT's, placed line for line on scan A's lines, so the PDF and the scan
+can be read side by side, line against line. In grey: letters read in another copy (`‹…›`) and the guide words of
+a page whose guide words were not transcribed (they are then taken from the first and last headword). A small `?`
+follows an uncertain reading (`[?]`). A note at the foot of the page names the file and its status.
+
 ## Conventions
 
 - UTF-8, Unicode NFC. One printed **entry per text line**: the whole paragraph joined, with line-end hyphenation
@@ -84,6 +91,13 @@ candidate texts per witness and page in `cand/` (cached; `--refresh` re-extracts
   its С in both copies.
 - Roman numerals are written with Latin letters (XVI), as printed. An entry split across a column break: the first
   part keeps its final hyphen (`со сбо-`), the continuation starts with `+ ` (`+ рами …`).
+- `¦` stands before the first character of every printed line that begins inside an entry line (added session 6;
+  the first line of an entry and a `+ ` continuation need none, they begin a text line). A `¦` inside a word means the
+  print broke the word there with a hyphen, which is not written; a hyphen that belongs to the word stays before it
+  (`древне-¦русскихъ`). Removing every `¦` gives the text exactly as before: `dj_eval.py` and `gtcheck` ignore them.
+  They were placed by `dj_inspect.py gtlines`, which carries scan A's line starts over from the voted text by
+  alignment and writes a file only when every column has as many printed lines as scan A. A new or edited page
+  gets its markers the same way (`gtlines LEAF --force` redoes a page).
 - How it was made: each column was read line by line in 600 ppi crops of scan A, and every line was compared with
   ABBYY's reading of it; where the two differed, the image decided. Doubtful glyphs were compared with witness D
   (Cornell copy) where needed.

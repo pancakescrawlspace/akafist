@@ -819,6 +819,29 @@ See PLAN.md for the phases. Newest entry last.
   is flagged; **53 pages remain flagged**, of unknown cause (their first and last lines match A, so not this bug)
   — the review list.
 
+- **The ground truth gets its printed lines, and a facsimile page each** (the user asked, to make reviewing
+  easier). `dj_inspect.py gtlines` puts a `¦` into the GT files before every printed line that begins inside an
+  entry line: scan A's line starts are known in the voted text (`text_merged` + `breaks`), and that text agrees
+  with the GT on ~99 % of its characters, so each start is carried over by alignment — to the start of the word for
+  a break between words, inside the word where the print hyphenated it. A file is written only when every column
+  then has as many printed lines as scan A. 11 of the 12 pages came out right at once; **p. 109 did not, and the
+  cause was the GT: the last printed line of col b, `12 въ сп. XVI в. (Вост.).`, had not been transcribed** (read
+  on scan A and added; the note that the entry runs on to p. 110 was a consequence and is corrected — p. 110
+  begins with Вывертка). p. 109's scores improve by ~20 errors for every candidate; every other page scores exactly
+  as before (`dj_eval.py` and `gtcheck` drop the `¦`). Also closed on the way: an unbalanced `‹` on p. 246
+  (`и у‹ инѣхъ` → `и ‹у› инѣхъ`, the у half cut off by the scan's edge; text unchanged), which gtcheck had reported
+  since session 4.
+  `dj_build.py --gt [LEAF …]` then sets each GT page as a facsimile page, `djachenko/facsimile-P<printed page>.pdf`
+  (facsimile-P0008.pdf … facsimile-P1087.pdf; git-ignored): the GT's entries and `¦` lines placed on scan A's
+  lines in order, column by column; its `{…}` as the Church Slavonic type (headword size in the head, text size
+  after it); `‹…›` letters grey, `[?]` a small grey ?; guide words as transcribed, or grey from the first and last
+  headword where they were not; a note at the foot with the file and its status. Checked side by side with the
+  scans on pp. 8, 428, 856 (four columns, an initial in mid-page) and 1087 (cut margin): line for line. The main
+  facsimile's output is unchanged by the refactoring (44 pages compared), except that on supplement pages the
+  rules under the page number now sit close under it, as printed, instead of running into the running title
+  *Прибавленіе.* Known and left: verse lines are justified at the first indent where the book sets them ragged
+  and deeper (as in the main facsimile).
+
 NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two entries are not headwords at all:
   the library stamp on p. 41 (`0078-2-21`) and the tail of the footer on p. 913 (`0950-2-15`). Then the 53 pages
   `dj_inspect.py counts` flags (eval/pagecounts.tsv): look at a sample, find what the shortfall is.
@@ -839,7 +862,9 @@ NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two ent
   — or a third geometric witness (B's DjVu boxes are coarse but its margins are intact) — would close it.
 
   (5) the five older draft GT files still await the user's own reading (0465, 0517, 0660, 0893, 1124), and the
-  six new ones are drafts too; not blocking. Method that worked on 719:
+  six new ones are drafts too; not blocking. The user reads them in `facsimile-P<page>.pdf` beside the scan
+  (`dj_build.py --gt`); a corrected GT file keeps its `¦` markers, and a new one gets them with
+  `dj_inspect.py gtlines LEAF` (which also catches a line left out, as on p. 109). Method that worked on 719:
   `dj_inspect.py lines LEAF COL FIRST LAST --scale 0.62` in 10–14 line chunks (col line counts from ocr/NNNN.json),
   read each chunk, compare every line with ABBYY's reading printed beside it, the Greek against witness D
   (`dj_witness.page_text('D', leaf)`), the headwords against `dj_heads.py sheet LEAF` at 600 ppi where a glyph is

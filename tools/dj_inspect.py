@@ -7,6 +7,8 @@
     python3 tools/dj_inspect.py find 45 Азкъ Азвѣди      # crop the words in every witness (A, B, C, D) side by side
     python3 tools/dj_inspect.py find 45 барсукъ --in D --zoom 2 --lines 1
     python3 tools/dj_inspect.py gtcheck                  # sanity checks of djachenko/eval/gt/*.txt
+    python3 tools/dj_inspect.py gtlines [LEAF …] [--force]   # mark the printed lines in the GT (¦, eval/README.md),
+                                                         # from scan A's lines; only where every column agrees
     python3 tools/dj_inspect.py segcheck                 # likely false / missed entry starts in ocr/*.json
     python3 tools/dj_inspect.py linecheck [--pages 38-1157] [--out lines.tsv]   # do B, C, A break their lines
                                                          # where D does? (are the witnesses one setting)
@@ -246,7 +248,7 @@ def cmd_find(a):
 def cmd_gtcheck(a):
     files = a.files or sorted(str(p) for p in GT_DIR.glob('*.txt'))
     for f in files:
-        raw = open(f, encoding='utf-8').read()
+        raw = open(f, encoding='utf-8').read().replace(BREAK, '')
         if unicodedata.normalize('NFC', raw) != raw:
             print(f, 'not NFC')
         body = ''.join(l if not l.startswith(('#', '@')) else '\n' for l in raw.splitlines(True))
@@ -389,6 +391,122 @@ def cmd_linecheck(a):
     print(f'written: {out}')
 
 
+# ---------------------------------------------------------------- the printed lines of the ground truth
+
+BREAK = '¦'           # in eval/gt/*.txt: stands before the first character of each printed line inside an entry line
+MARKUP = '{}‹›'       # GT markup that is not text: Church Slavonic type, letters from another copy
+
+
+def gtlines_page(leaf, force=False):
+    """Put a BREAK into the GT file of one leaf wherever scan A starts a printed line inside an entry line. The
+    line starts are carried over from the voted text (`breaks` in ocr/*.json), whose printed lines are known, by
+    aligning it with the GT column by column — the two agree on ~99 % of their characters. -> [(col, A lines,
+    GT lines)] per column, the GT's count taken after the breaks are in; the file is rewritten only when every
+    column agrees."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import bisect
+    from dj_witness import align, norm_seq
+    path = GT_DIR / f'{leaf:04d}.txt'
+    lines = path.read_text(encoding='utf-8').splitlines()
+    if not force and any(BREAK in ln for ln in lines if not ln.startswith('#')):
+        return None
+    lines = [ln.replace(BREAK, '') if not ln.startswith('#') else ln for ln in lines]
+    pg = load(leaf)
+    report = []
+    marks = {}                                              # file line index -> [positions in its text]
+    for n, parts in sorted(gt_columns_from(lines).items()):
+        col = next(c for c in pg['columns'] if c['n'] == n)
+        vtext, vstarts, vsoft = '', [], []
+        for par in col['paragraphs']:
+            if vtext:
+                vtext += ' '
+            base = len(vtext)
+            for k, (off, _hy) in enumerate(par.get('breaks') or []):
+                vstarts.append(base + off)
+                prev = par['breaks'][k - 1][1] if k else 0
+                vsoft.append(bool(prev))                    # the line before ends in a hyphen the text joined
+            vtext += par.get('text_merged', '')
+        n_a = sum(len(par['lines']) for par in col['paragraphs'])
+        # the GT column as one text, markup left out, with a map back to (part, position in the part's text)
+        gclean, gmap, starts = '', [], []
+        for pi, (_i, _prefix, text) in enumerate(parts):
+            if gclean:
+                gclean += ' '
+                gmap.append(None)
+            starts.append(len(gclean))
+            for k, ch in enumerate(text.replace('[?]', '\0\0\0')):
+                if ch in MARKUP or ch == '\0':
+                    continue
+                gclean += ch
+                gmap.append((pi, k))
+        v_seq, v_idx = norm_seq(vtext)
+        g_seq, g_idx = norm_seq(gclean)
+        if not v_seq or not g_seq:
+            report.append((n, n_a, len(parts)))
+            continue
+        _, _, j_at = align(v_seq, g_seq)
+        part_starts = {pi for pi in range(len(parts))}
+        for s, soft in zip(vstarts, vsoft):
+            i = bisect.bisect_left(v_idx, s)
+            if i >= len(v_seq):
+                continue
+            j = j_at[i]
+            if j >= len(g_seq):
+                continue
+            pos = gmap[g_idx[j]]
+            if pos is None:
+                continue
+            pi, k = pos
+            text = parts[pi][2]
+            if k <= 1:                                      # the start of a GT line: already a line start
+                continue
+            if not soft:                                    # a break between words: to the start of the word
+                while k > 0 and not text[k - 1].isspace():
+                    k -= 1
+                if k == 0:
+                    continue
+            while k > 0 and text[k - 1] in '{‹':            # before the markup that opens the line's first word
+                k -= 1
+            marks.setdefault(parts[pi][0], set()).add(k)
+        n_gt = len(parts) + sum(len(marks.get(i, ())) for i, _, _ in parts)
+        report.append((n, n_a, n_gt))
+    if all(a == g for _, a, g in report):
+        out = list(lines)
+        for i, ks in marks.items():
+            prefix = '+ ' if out[i].startswith('+ ') else ''
+            text = out[i][len(prefix):]
+            for k in sorted(ks, reverse=True):
+                text = text[:k] + BREAK + text[k:]
+            out[i] = prefix + text
+        path.write_text('\n'.join(out) + '\n', encoding='utf-8')
+    return report
+
+
+def gt_columns_from(lines):
+    cols, cur = {}, None
+    for i, raw in enumerate(lines):
+        if raw.startswith('@ col'):
+            cur = int(raw.split()[2])
+            cols[cur] = []
+        elif raw.strip() and not raw.startswith(('#', '@')) and cur is not None:
+            prefix = '+ ' if raw.startswith('+ ') else ''
+            cols[cur].append((i, prefix, raw[len(prefix):]))
+    return cols
+
+
+def cmd_gtlines(a):
+    """Mark the printed lines in the ground-truth files (eval/README.md: the break marker), from scan A's lines."""
+    leaves = [int(x) for x in a.leaves] if a.leaves else sorted(int(f.stem) for f in GT_DIR.glob('[0-9]*.txt'))
+    for leaf in leaves:
+        rep = gtlines_page(leaf, a.force)
+        if rep is None:
+            print(f'{leaf:04d}: has breaks already (--force to redo)')
+            continue
+        bad = [(n, x, g) for n, x, g in rep if x != g]
+        print(f'{leaf:04d}: ' + ('written' if not bad else 'NOT written') + ' — ' +
+              ', '.join(f'col {n} {x}/{g}' + ('' if x == g else ' ✗') for n, x, g in rep))
+
+
 # ---------------------------------------------------------------- counts
 
 SHORT_LINES, SHORT_CHARS = 1, 0.985     # a witness this many lines short of A and under this share of its characters
@@ -468,12 +586,15 @@ def main():
     s.add_argument('--pages', default='38-1157', help='leaves, e.g. 38-1157 or 45,150,341')
     s.add_argument('--out', default=str(DJ / 'eval' / 'linecheck.tsv'))
     s.add_argument('--workers', type=int, default=8)
+    s = sub.add_parser('gtlines')
+    s.add_argument('leaves', nargs='*')
+    s.add_argument('--force', action='store_true', help='redo files that have breaks already')
     s = sub.add_parser('counts')
     s.add_argument('--out', default=str(DJ / 'eval' / 'pagecounts.tsv'))
     s.add_argument('--workers', type=int, default=8)
     a = ap.parse_args()
     {'dump': cmd_dump, 'overlay': cmd_overlay, 'lines': cmd_lines, 'find': cmd_find, 'gtcheck': cmd_gtcheck,
-     'segcheck': cmd_segcheck, 'linecheck': cmd_linecheck, 'counts': cmd_counts}[a.cmd](a)
+     'segcheck': cmd_segcheck, 'linecheck': cmd_linecheck, 'counts': cmd_counts, 'gtlines': cmd_gtlines}[a.cmd](a)
 
 
 if __name__ == '__main__':

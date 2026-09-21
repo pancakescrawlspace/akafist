@@ -37,6 +37,7 @@ GT_DIR, CAND_DIR = EVAL / 'gt', EVAL / 'cand'
 # ---------------------------------------------------------------- ground truth
 
 GREEK = re.compile(r'[Ͱ-Ͽἀ-῿]')
+BREAK = '¦'           # a printed line's start inside a GT line (eval/README.md): not text
 
 
 def parse_gt(path):
@@ -47,7 +48,7 @@ def parse_gt(path):
             continue
         cont = raw.startswith('+ ')
         line = raw[2:] if cont else raw
-        line = line.replace('[?]', '')
+        line = line.replace('[?]', '').replace(BREAK, '')
         # headword span (in the line with markup)
         hw_end = 0
         if not cont:
@@ -281,7 +282,7 @@ def gt_headword_list(leaf):
     for line in (GT_DIR / f'{leaf:04d}.txt').read_text(encoding='utf-8').splitlines():
         if not line.strip() or line.startswith(('#', '@', '+')):
             continue
-        line = line.replace('[?]', '')
+        line = line.replace('[?]', '').replace(BREAK, '')
         if line.startswith('{'):
             hw = line[1:line.index('}')]
         else:
