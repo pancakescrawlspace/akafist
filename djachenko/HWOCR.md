@@ -290,7 +290,7 @@ The answers are also proofread headwords, which a corrections layer can later gi
 ## 10. What comes after
 
 If stage 1 beats the vote on the test pages: **stage 2**, letters as printed — the target (the user, session 6: not
-"plain Russian"; titla and accents may stay out). Stage 1 does not lock this out: the images keep every letter, the
+"plain Russian"; whether the titla and accents are recorded too is left open, so nothing may rule them out). Stage 1 does not lock this out: the images keep every letter, the
 strict labels are kept (GT, synthetic, the user's typed answers), and entries.tsv holds the printed form and the civil
 one apart. A civil reading cannot be turned back — у may be у, ꙋ, ѹ, оу or ѫ — but a *confirmed* one narrows a
 headword to a handful of spellings (`Азбука`: Азбука, Азбꙋка, Азбѹка, Азбоука), and choosing among them is a far

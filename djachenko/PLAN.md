@@ -135,8 +135,10 @@ Decide and record in `PROGRESS.md`:
    works. The exact Church Slavonic form (titla etc.) can be added later as a separate column if wanted; rendering it
    needs a Slavonic font (Ponomar Unicode, OFL).
    **Revised (session 6, 2026-09-21, the user):** the target is the headword in the *letters as printed* — the Church
-   Slavonic letters (ꙋ ѧ ꙗ ѡ є ї ѯ ѱ ѳ ѵ ѿ …), as the GT has them — without titla and accents; the civil pre-reform
-   form and the key are derived from it, not the other way round. Civil readings alone ("plain Russian") are an
+   Slavonic letters (ꙋ ѧ ꙗ ѡ є ї ѯ ѱ ѳ ѵ ѿ …), as the GT has them; the civil pre-reform form and the key are derived
+   from it, not the other way round. **Whether the titla and accents are recorded too is left open** — leaving them
+   out remains a possibility, not a decision, so nothing may be built that rules them out (the synthetic lines keep
+   their accented labels; a stage for the diacritics would need the GT's test pages transcribed with them). Civil readings alone ("plain Russian") are an
    intermediate result, not the end: the headword reading (Phase 3b step 2, option C) reads them first because
    that is where cheap labels exist, then fills in the printed letters (stage 2 below).
 3. **Proofreading policy.** Nothing will be proofread completely by machine or by me. Priority order: (i) entries hit
