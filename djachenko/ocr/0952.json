@@ -186,6 +186,6 @@
   {"col":2,"para":9,"bbox":[1891,3369,2159,3445],"abbyy":"Вежа","abbyy_conf":53,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":10,"d_page":963,"b_page":915,"c_page":[357],"chars":4092,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":161,"fixed":15,"odd":[]},
+ "witness": {"version":11,"d_page":963,"b_page":915,"c_page":[357],"chars":4092,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":161,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (47 lines at the image edge); entry starts from position and text features"]
 }

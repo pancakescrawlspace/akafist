@@ -180,6 +180,6 @@
   {"col":2,"para":10,"bbox":[2327,5371,2765,5479],"abbyy":"Согласую","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2323,5829,2851,5925],"abbyy":"Согладаіш","abbyy_conf":57,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":678,"b_page":630,"c_page":[72],"chars":3869,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":156,"fixed":17,"odd":[]},
+ "witness": {"version":11,"d_page":678,"b_page":630,"c_page":[72],"chars":3869,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":156,"fixed":17,"odd":[]},
  "warnings": []
 }

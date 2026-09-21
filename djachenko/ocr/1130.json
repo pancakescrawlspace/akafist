@@ -247,6 +247,6 @@
   {"col":2,"para":17,"bbox":[1857,5673,2465,5833],"abbyy":"Прим^ш^шЕ","abbyy_conf":58,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":6},
- "witness": {"version":10,"d_page":1141,"b_page":1093,"c_page":[535],"chars":3690,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":197,"fixed":29,"odd":[]},
+ "witness": {"version":11,"d_page":1141,"b_page":1093,"c_page":[535],"chars":3690,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":197,"fixed":29,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (39 lines at the image edge); entry starts from position and text features"]
 }

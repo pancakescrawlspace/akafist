@@ -236,6 +236,6 @@
   {"col":2,"para":18,"bbox":[2271,6031,2861,6161],"abbyy":"Есе^каайный","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":19,"bbox":[2271,6257,2409,6335],"abbyy":"ВсЕ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":152,"b_page":104,"c_page":[150],"chars":3567,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":278,"fixed":39,"odd":[]},
+ "witness": {"version":11,"d_page":152,"b_page":104,"c_page":[150],"chars":3567,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":278,"fixed":39,"odd":[]},
  "warnings": []
 }

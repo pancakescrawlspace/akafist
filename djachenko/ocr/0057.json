@@ -213,6 +213,6 @@
   {"col":2,"para":11,"bbox":[2329,4723,2791,4803],"abbyy":"Япоетолъ","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":2},
- "witness": {"version":10,"d_page":68,"b_page":20,"c_page":[66],"chars":3954,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":258,"fixed":42,"odd":[[0,14,1.68],[0,15,1.73]]},
+ "witness": {"version":11,"d_page":68,"b_page":20,"c_page":[66],"chars":3954,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":258,"fixed":42,"odd":[[0,14,1.68],[0,15,1.73]]},
  "warnings": ["side b: right margin cut off in the scan (31 lines end at the image edge); line ends of the right column missing"]
 }

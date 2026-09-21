@@ -184,6 +184,6 @@
   {"col":2,"para":12,"bbox":[2347,5663,2703,5783],"abbyy":"Езл^М'А","abbyy_conf":40,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":13,"bbox":[2349,5905,2965,6009],"abbyy":"Езлимодлти","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":122,"b_page":74,"c_page":[120],"chars":3991,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":243,"fixed":24,"odd":[]},
+ "witness": {"version":11,"d_page":122,"b_page":74,"c_page":[120],"chars":3991,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":243,"fixed":24,"odd":[]},
  "warnings": []
 }

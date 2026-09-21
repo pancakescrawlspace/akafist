@@ -188,6 +188,6 @@
   {"col":4,"para":12,"bbox":[2389,5873,2627,5981],"abbyy":"Газа","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":166,"b_page":118,"c_page":[164],"chars":3609,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":147,"fixed":19,"odd":[]},
+ "witness": {"version":11,"d_page":166,"b_page":118,"c_page":[164],"chars":3609,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":147,"fixed":19,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (30 lines end at the image edge); line ends of the right column missing"]
 }

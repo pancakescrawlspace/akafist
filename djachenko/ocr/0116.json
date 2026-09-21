@@ -229,6 +229,6 @@
   {"col":2,"para":22,"bbox":[2035,5645,2571,5729],"abbyy":"Елдстелинъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":127,"b_page":79,"c_page":[125],"chars":3530,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":148,"fixed":21,"odd":[]},
+ "witness": {"version":11,"d_page":127,"b_page":79,"c_page":[125],"chars":3530,"cuts":{"line":34,"aligned":0,"forced":0},"disputed":148,"fixed":21,"odd":[]},
  "warnings": []
 }

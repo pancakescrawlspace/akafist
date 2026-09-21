@@ -201,6 +201,6 @@
   {"col":2,"para":13,"bbox":[1859,6199,2229,6291],"abbyy":"Городъ","abbyy_conf":65,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":9},
- "witness": {"version":10,"d_page":997,"b_page":949,"c_page":[391],"chars":3896,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":183,"fixed":11,"odd":[]},
+ "witness": {"version":11,"d_page":997,"b_page":949,"c_page":[391],"chars":3896,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":183,"fixed":11,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (44 lines at the image edge); entry starts from position and text features"]
 }

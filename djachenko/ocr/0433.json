@@ -215,6 +215,6 @@
   {"col":2,"para":10,"bbox":[2343,4787,2379,4821],"abbyy":"л","abbyy_conf":59,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2311,4807,2809,4919],"abbyy":"Отпустъ","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":444,"b_page":396,"c_page":[442],"chars":3734,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":168,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":444,"b_page":396,"c_page":[442],"chars":3734,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":168,"fixed":18,"odd":[]},
  "warnings": []
 }

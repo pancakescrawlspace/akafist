@@ -163,6 +163,6 @@
   {"col":2,"para":2,"bbox":[2233,3113,2521,3191],"abbyy":"Сіоны","abbyy_conf":41,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":650,"b_page":602,"c_page":[44],"chars":4033,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":113,"fixed":21,"odd":[]},
+ "witness": {"version":11,"d_page":650,"b_page":602,"c_page":[44],"chars":4033,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":113,"fixed":21,"odd":[]},
  "warnings": []
 }

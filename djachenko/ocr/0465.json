@@ -143,6 +143,6 @@
  "entries_hint": [
   {"col":1,"para":2,"bbox":[297,1125,1059,1219],"abbyy":"Плакунъ трава","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":476,"b_page":428,"c_page":[474],"chars":4013,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":65,"fixed":11,"odd":[]},
+ "witness": {"version":11,"d_page":476,"b_page":428,"c_page":[474],"chars":4013,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":65,"fixed":11,"odd":[]},
  "warnings": ["side b: lines at the edge lack \"=\", taken as continuation lines","side b: no flush line (edge from prior)","side a: lines at the edge lack \"=\", taken as continuation lines"]
 }

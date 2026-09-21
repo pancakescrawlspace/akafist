@@ -237,6 +237,6 @@
   {"col":2,"para":16,"bbox":[2071,5157,2971,5261],"abbyy":"М&кд селінддланда","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1,"start":1},
- "witness": {"version":10,"d_page":367,"b_page":319,"c_page":[365],"chars":3508,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":239,"fixed":30,"odd":[]},
+ "witness": {"version":11,"d_page":367,"b_page":319,"c_page":[365],"chars":3508,"cuts":{"line":36,"aligned":0,"forced":0},"disputed":239,"fixed":30,"odd":[]},
  "warnings": []
 }

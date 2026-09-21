@@ -242,6 +242,6 @@
   {"col":2,"para":22,"bbox":[2415,5987,3209,6101],"abbyy":"ЛюкожизнЕННЫЙ","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":340,"b_page":292,"c_page":[338],"chars":3277,"cuts":{"line":39,"aligned":0,"forced":0},"disputed":286,"fixed":56,"odd":[]},
+ "witness": {"version":11,"d_page":340,"b_page":292,"c_page":[338],"chars":3277,"cuts":{"line":39,"aligned":0,"forced":0},"disputed":286,"fixed":56,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (28 lines end at the image edge); line ends of the right column missing"]
 }

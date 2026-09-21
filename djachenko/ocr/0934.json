@@ -180,6 +180,6 @@
   {"col":2,"para":7,"bbox":[1971,6061,2377,6153],"abbyy":"Боедана","abbyy_conf":78,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[1973,6165,2339,6239],"abbyy":"Божатт","abbyy_conf":55,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":945,"b_page":897,"c_page":[339],"chars":4027,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":153,"fixed":16,"odd":[]},
+ "witness": {"version":11,"d_page":945,"b_page":897,"c_page":[339],"chars":4027,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":153,"fixed":16,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (7 lines at the image edge); entry starts from position and text features"]
 }

@@ -178,6 +178,6 @@
   {"col":2,"para":8,"bbox":[1929,5605,2243,5701],"abbyy":"Карга","abbyy_conf":83,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":4},
- "witness": {"version":10,"d_page":1055,"b_page":1007,"c_page":[449],"chars":4110,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":130,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":1055,"b_page":1007,"c_page":[449],"chars":4110,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":130,"fixed":18,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (41 lines at the image edge); entry starts from position and text features"]
 }

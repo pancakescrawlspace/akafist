@@ -64,7 +64,9 @@ from dj_witness import (CORNELL, DJ, OCR, PDF_DPI, align, b_page, c_page, d_page
                         load_page, norm_char, norm_seq, page_text, side_texts)
 import dj_abbyy  # noqa: E402  (dump, iou)
 
-VERSION = 10           # of the witness block; bump to redo every page (10 = the FineReader pair may override a
+VERSION = 11           # of the witness block; bump to redo every page (11 = witness B's boxes flipped about the
+#                        true page height, not the text layer's bounding box — dj_witness.djvu_words; 10 = the
+#                        FineReader pair may override a
 #                        Latin-script word of D, or an unaccented Greek run, only with a word of D's own lexicon —
 #                        see VOTE.md; 9 = breaks: the printed lines as offsets in
 #                        text_merged; 8 = norm_char folds accented Latin letters

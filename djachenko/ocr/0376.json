@@ -215,6 +215,6 @@
   {"col":2,"para":12,"bbox":[2039,4023,2249,4103],"abbyy":"Небо","abbyy_conf":46,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":387,"b_page":339,"c_page":[385],"chars":3851,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":172,"fixed":22,"odd":[]},
+ "witness": {"version":11,"d_page":387,"b_page":339,"c_page":[385],"chars":3851,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":172,"fixed":22,"odd":[]},
  "warnings": []
 }

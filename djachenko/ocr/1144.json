@@ -208,6 +208,6 @@
   {"col":2,"para":11,"bbox":[1931,5659,2533,5737],"abbyy":"Соликамскъ","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":9},
- "witness": {"version":10,"d_page":1155,"b_page":1107,"c_page":[549],"chars":3933,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":209,"fixed":23,"odd":[]},
+ "witness": {"version":11,"d_page":1155,"b_page":1107,"c_page":[549],"chars":3933,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":209,"fixed":23,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (38 lines at the image edge); entry starts from position and text features"]
 }

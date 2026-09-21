@@ -272,6 +272,6 @@
   {"col":2,"para":22,"bbox":[2027,6035,2335,6127],"abbyy":"Прикати","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":2},
- "witness": {"version":10,"d_page":541,"b_page":493,"c_page":[539],"chars":3435,"cuts":{"line":48,"aligned":0,"forced":0},"disputed":233,"fixed":38,"odd":[]},
+ "witness": {"version":11,"d_page":541,"b_page":493,"c_page":[539],"chars":3435,"cuts":{"line":48,"aligned":0,"forced":0},"disputed":233,"fixed":38,"odd":[]},
  "warnings": []
 }

@@ -244,6 +244,6 @@
   {"col":2,"para":22,"bbox":[2087,5929,2741,6081],"abbyy":"Призовъ оч^с","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":2},
- "witness": {"version":10,"d_page":543,"b_page":495,"c_page":[541],"chars":3613,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":244,"fixed":29,"odd":[]},
+ "witness": {"version":11,"d_page":543,"b_page":495,"c_page":[541],"chars":3613,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":244,"fixed":29,"odd":[]},
  "warnings": []
 }

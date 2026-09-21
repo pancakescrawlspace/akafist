@@ -185,6 +185,6 @@
   {"col":2,"para":12,"bbox":[1983,5937,2237,6017],"abbyy":"Вдень","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":10,"d_page":1023,"b_page":975,"c_page":[417],"chars":4010,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":165,"fixed":14,"odd":[]},
+ "witness": {"version":11,"d_page":1023,"b_page":975,"c_page":[417],"chars":4010,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":165,"fixed":14,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (5 lines at the image edge); entry starts from position and text features"]
 }

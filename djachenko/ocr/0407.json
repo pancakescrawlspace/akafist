@@ -254,6 +254,6 @@
   {"col":2,"para":18,"bbox":[2387,5257,2767,5341],"abbyy":"Обрати","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":10,"d_page":418,"b_page":370,"c_page":[416],"chars":3417,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":245,"fixed":31,"odd":[]},
+ "witness": {"version":11,"d_page":418,"b_page":370,"c_page":[416],"chars":3417,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":245,"fixed":31,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (16 lines end at the image edge); line ends of the right column missing"]
 }

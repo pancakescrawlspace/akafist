@@ -5,10 +5,10 @@
 | flag | entries |
 |---|---:|
 | hw_provisional | 24816 |
-| order | 7985 |
+| order | 7983 |
 | no_eq | 2285 |
-| eq_from_A | 1951 |
-| sep_lost | 1300 |
+| eq_from_A | 1949 |
+| sep_lost | 1299 |
 | unconfirmed | 718 |
 | hw_from_A | 594 |
 | script | 507 |
@@ -19,7 +19,7 @@
 | seg | 190 |
 | caps | 189 |
 | errata | 165 |
-| hw_missing | 122 |
+| hw_missing | 123 |
 | errata_missed | 34 |
 | empty | 29 |
 | odd_len | 21 |

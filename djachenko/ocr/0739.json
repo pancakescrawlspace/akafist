@@ -162,6 +162,6 @@
   {"col":1,"para":8,"bbox":[167,2831,1369,2911],"abbyy":"Сѵмволы евангелистовъ","abbyy_conf":44,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":2,"bbox":[2257,3649,3629,3747],"abbyy":"Сѵмволы шсонографическіе","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":750,"b_page":702,"c_page":[144],"chars":4075,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":156,"fixed":37,"odd":[]},
+ "witness": {"version":11,"d_page":750,"b_page":702,"c_page":[144],"chars":4075,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":156,"fixed":37,"odd":[]},
  "warnings": []
 }

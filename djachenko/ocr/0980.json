@@ -199,6 +199,6 @@
   {"col":2,"para":14,"bbox":[1951,6155,2793,6285],"abbyy":"ГелбУнекТа горы","abbyy_conf":39,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":10,"d_page":991,"b_page":943,"c_page":[385],"chars":4003,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":135,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":991,"b_page":943,"c_page":[385],"chars":4003,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":135,"fixed":18,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (43 lines at the image edge); entry starts from position and text features"]
 }

@@ -159,6 +159,6 @@
   {"col":2,"para":4,"bbox":[2029,4141,2439,4221],"abbyy":"Финикіл","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[1993,6207,2937,6321],"abbyy":"Финик® и финике","abbyy_conf":31,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":825,"b_page":777,"c_page":[219],"chars":4061,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":76,"fixed":7,"odd":[]},
+ "witness": {"version":11,"d_page":825,"b_page":777,"c_page":[219],"chars":4061,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":76,"fixed":7,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (3 lines at the image edge); entry starts from position and text features"]
 }

@@ -184,6 +184,6 @@
   {"col":2,"para":4,"bbox":[2271,1009,2803,1087],"abbyy":"Слаокбы ПЕ","abbyy_conf":19,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":5,"bbox":[2273,1537,2875,1635],"abbyy":"Слаокобннцл","abbyy_conf":21,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":670,"b_page":622,"c_page":[64],"chars":3864,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":207,"fixed":36,"odd":[]},
+ "witness": {"version":11,"d_page":670,"b_page":622,"c_page":[64],"chars":3864,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":207,"fixed":36,"odd":[]},
  "warnings": []
 }

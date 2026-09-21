@@ -164,6 +164,6 @@
   {"col":1,"para":9,"bbox":[1,5965,1339,6059],"abbyy":"ило, яръ, ярунъ, яровитъ","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":7},
- "witness": {"version":10,"d_page":899,"b_page":851,"c_page":[293],"chars":4168,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":141,"fixed":8,"odd":[]},
+ "witness": {"version":11,"d_page":899,"b_page":851,"c_page":[293],"chars":4168,"cuts":{"line":10,"aligned":0,"forced":0},"disputed":141,"fixed":8,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (31 lines at the image edge); entry starts from position and text features"]
 }

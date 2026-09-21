@@ -223,6 +223,6 @@
   {"col":2,"para":13,"bbox":[2413,4895,2905,4981],"abbyy":"Повинный","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":14,"bbox":[2423,5715,2803,5813],"abbyy":"Повйти","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":484,"b_page":436,"c_page":[482],"chars":3645,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":174,"fixed":40,"odd":[]},
+ "witness": {"version":11,"d_page":484,"b_page":436,"c_page":[482],"chars":3645,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":174,"fixed":40,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (11 lines end at the image edge); line ends of the right column missing"]
 }

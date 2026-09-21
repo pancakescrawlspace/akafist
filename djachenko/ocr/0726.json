@@ -195,6 +195,6 @@
   {"col":2,"para":13,"bbox":[2055,4917,2333,5011],"abbyy":"Сулея","abbyy_conf":63,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":10,"d_page":737,"b_page":689,"c_page":[131],"chars":3966,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":198,"fixed":28,"odd":[]},
+ "witness": {"version":11,"d_page":737,"b_page":689,"c_page":[131],"chars":3966,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":198,"fixed":28,"odd":[]},
  "warnings": []
 }

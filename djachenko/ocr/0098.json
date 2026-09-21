@@ -192,6 +192,6 @@
   {"col":2,"para":9,"bbox":[2027,5053,2543,5149],"abbyy":"Бурмицкій","abbyy_conf":46,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2025,5967,2387,6117],"abbyy":"Б^ный","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":109,"b_page":61,"c_page":[107],"chars":4008,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":192,"fixed":17,"odd":[]},
+ "witness": {"version":11,"d_page":109,"b_page":61,"c_page":[107],"chars":4008,"cuts":{"line":20,"aligned":0,"forced":0},"disputed":192,"fixed":17,"odd":[]},
  "warnings": []
 }

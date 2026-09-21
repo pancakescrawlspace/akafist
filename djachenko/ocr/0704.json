@@ -196,6 +196,6 @@
   {"col":2,"para":14,"bbox":[2195,5035,2659,5123],"abbyy":"Стоянецъ","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":715,"b_page":667,"c_page":[109],"chars":3721,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":127,"fixed":22,"odd":[]},
+ "witness": {"version":11,"d_page":715,"b_page":667,"c_page":[109],"chars":3721,"cuts":{"line":22,"aligned":0,"forced":0},"disputed":127,"fixed":22,"odd":[]},
  "warnings": []
 }

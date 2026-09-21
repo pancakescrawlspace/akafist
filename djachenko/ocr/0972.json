@@ -225,6 +225,6 @@
   {"col":2,"para":12,"bbox":[2005,5921,2227,6009],"abbyy":"Воѵ?я","abbyy_conf":25,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1,"continue":1},
- "witness": {"version":10,"d_page":983,"b_page":935,"c_page":[377],"chars":3690,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":271,"fixed":23,"odd":[]},
+ "witness": {"version":11,"d_page":983,"b_page":935,"c_page":[377],"chars":3690,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":271,"fixed":23,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (16 lines at the image edge); entry starts from position and text features"]
 }

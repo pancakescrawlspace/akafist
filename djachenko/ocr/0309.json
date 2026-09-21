@@ -245,6 +245,6 @@
   {"col":2,"para":26,"bbox":[2219,5157,2581,5293],"abbyy":"КроюсА'","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":27,"bbox":[2213,5481,2513,5577],"abbyy":"Кругъ","abbyy_conf":45,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":320,"b_page":272,"c_page":[318],"chars":3914,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":290,"fixed":32,"odd":[]},
+ "witness": {"version":11,"d_page":320,"b_page":272,"c_page":[318],"chars":3914,"cuts":{"line":38,"aligned":0,"forced":0},"disputed":290,"fixed":32,"odd":[]},
  "warnings": []
 }

@@ -161,6 +161,6 @@
   {"col":2,"para":6,"bbox":[2311,3325,2961,3475],"abbyy":"Ят’млид^іѴх","abbyy_conf":29,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":72,"b_page":24,"c_page":[70],"chars":4078,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":189,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":72,"b_page":24,"c_page":[70],"chars":4078,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":189,"fixed":18,"odd":[]},
  "warnings": []
 }

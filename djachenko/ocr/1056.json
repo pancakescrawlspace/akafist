@@ -174,6 +174,6 @@
   {"col":2,"para":8,"bbox":[2079,5831,2323,5917],"abbyy":"Копръ","abbyy_conf":15,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":1067,"b_page":1019,"c_page":[461],"chars":4063,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":105,"fixed":2,"odd":[]},
+ "witness": {"version":11,"d_page":1067,"b_page":1019,"c_page":[461],"chars":4063,"cuts":{"line":13,"aligned":0,"forced":0},"disputed":105,"fixed":2,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features"]
 }

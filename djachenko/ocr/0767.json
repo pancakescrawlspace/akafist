@@ -209,6 +209,6 @@
   {"col":2,"para":14,"bbox":[2295,6109,2705,6187],"abbyy":"ТйЕТИНА","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":778,"b_page":730,"c_page":[172],"chars":3839,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":267,"fixed":32,"odd":[]},
+ "witness": {"version":11,"d_page":778,"b_page":730,"c_page":[172],"chars":3839,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":267,"fixed":32,"odd":[]},
  "warnings": []
 }

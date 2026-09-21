@@ -187,6 +187,6 @@
   {"col":2,"para":12,"bbox":[1895,5903,2415,6013],"abbyy":"Еоспацілю","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":8},
- "witness": {"version":10,"d_page":979,"b_page":931,"c_page":[373],"chars":3847,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":199,"fixed":10,"odd":[]},
+ "witness": {"version":11,"d_page":979,"b_page":931,"c_page":[373],"chars":3847,"cuts":{"line":19,"aligned":0,"forced":0},"disputed":199,"fixed":10,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (48 lines at the image edge); entry starts from position and text features"]
 }

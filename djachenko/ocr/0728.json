@@ -214,6 +214,6 @@
   {"col":2,"para":6,"bbox":[1957,4503,2193,4599],"abbyy":"Суръ","abbyy_conf":24,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":739,"b_page":691,"c_page":[133],"chars":3900,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":266,"fixed":33,"odd":[]},
+ "witness": {"version":11,"d_page":739,"b_page":691,"c_page":[133],"chars":3900,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":266,"fixed":33,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (10 lines at the image edge); entry starts from position and text features"]
 }

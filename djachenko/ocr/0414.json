@@ -235,6 +235,6 @@
   {"col":2,"para":25,"bbox":[2047,5705,2343,5803],"abbyy":"ОЗіА","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":425,"b_page":377,"c_page":[423],"chars":3638,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":264,"fixed":31,"odd":[]},
+ "witness": {"version":11,"d_page":425,"b_page":377,"c_page":[423],"chars":3638,"cuts":{"line":35,"aligned":0,"forced":0},"disputed":264,"fixed":31,"odd":[]},
  "warnings": []
 }

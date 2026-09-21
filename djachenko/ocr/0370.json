@@ -277,6 +277,6 @@
   {"col":2,"para":25,"bbox":[2141,5845,2851,5941],"abbyy":"Нл&допистикіа","abbyy_conf":34,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":381,"b_page":333,"c_page":[379],"chars":3427,"cuts":{"line":49,"aligned":0,"forced":0},"disputed":184,"fixed":23,"odd":[]},
+ "witness": {"version":11,"d_page":381,"b_page":333,"c_page":[379],"chars":3427,"cuts":{"line":49,"aligned":0,"forced":0},"disputed":184,"fixed":23,"odd":[]},
  "warnings": []
 }

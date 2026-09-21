@@ -178,6 +178,6 @@
   {"col":2,"para":7,"bbox":[1931,6047,2261,6137],"abbyy":"Роушніы","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":10,"d_page":611,"b_page":563,"c_page":[609],"chars":4055,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":148,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":611,"b_page":563,"c_page":[609],"chars":4055,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":148,"fixed":18,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (5 lines at the image edge); entry starts from position and text features"]
 }

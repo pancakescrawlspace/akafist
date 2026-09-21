@@ -141,6 +141,6 @@
  "entries_hint": [
   {"col":2,"para":2,"bbox":[2371,1857,2977,1933],"abbyy":"Хлѣбъ-соль","abbyy_conf":51,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":836,"b_page":788,"c_page":[230],"chars":4160,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":127,"fixed":9,"odd":[]},
+ "witness": {"version":11,"d_page":836,"b_page":788,"c_page":[230],"chars":4160,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":127,"fixed":9,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (39 lines end at the image edge); line ends of the right column missing","side a: no flush line (edge from prior)"]
 }

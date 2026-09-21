@@ -221,6 +221,6 @@
   {"col":2,"para":19,"bbox":[2119,5769,2865,5899],"abbyy":"Разгн’Ѣбатиса","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":585,"b_page":537,"c_page":[583],"chars":3554,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":198,"fixed":23,"odd":[]},
+ "witness": {"version":11,"d_page":585,"b_page":537,"c_page":[583],"chars":3554,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":198,"fixed":23,"odd":[]},
  "warnings": []
 }

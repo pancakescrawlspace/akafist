@@ -206,6 +206,6 @@
   {"col":2,"para":14,"bbox":[2107,4509,2587,4595],"abbyy":"Конокный","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":15,"bbox":[2113,4941,2457,5021],"abbyy":"Коноеь","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":309,"b_page":261,"c_page":[307],"chars":3851,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":222,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":309,"b_page":261,"c_page":[307],"chars":3851,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":222,"fixed":18,"odd":[]},
  "warnings": []
 }

@@ -200,6 +200,6 @@
   {"col":2,"para":8,"bbox":[2331,2245,3771,2341],"abbyy":"Сословія у древнихъ славянъ","abbyy_conf":59,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":688,"b_page":640,"c_page":[82],"chars":3802,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":123,"fixed":14,"odd":[]},
+ "witness": {"version":11,"d_page":688,"b_page":640,"c_page":[82],"chars":3802,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":123,"fixed":14,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (9 lines end at the image edge); line ends of the right column missing"]
 }

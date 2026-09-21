@@ -158,6 +158,6 @@
   {"col":2,"para":4,"bbox":[2325,5737,2691,5825],"abbyy":"Ендова","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":1024,"b_page":976,"c_page":[418],"chars":4184,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":176,"fixed":14,"odd":[]},
+ "witness": {"version":11,"d_page":1024,"b_page":976,"c_page":[418],"chars":4184,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":176,"fixed":14,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (38 lines end at the image edge); line ends of the right column missing"]
 }

@@ -213,6 +213,6 @@
   {"col":2,"para":14,"bbox":[2059,5255,2463,5333],"abbyy":"Остожье","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":10,"d_page":439,"b_page":391,"c_page":[437],"chars":3653,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":236,"fixed":17,"odd":[]},
+ "witness": {"version":11,"d_page":439,"b_page":391,"c_page":[437],"chars":3653,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":236,"fixed":17,"odd":[]},
  "warnings": []
 }

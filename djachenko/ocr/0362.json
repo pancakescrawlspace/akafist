@@ -196,6 +196,6 @@
   {"col":2,"para":12,"bbox":[1993,5379,3371,5521],"abbyy":"МѵроточЕЦъ.» мѵроточиБЫЙ","abbyy_conf":52,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":13,"bbox":[1991,6005,2665,6171],"abbyy":"Мѵро^днный","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":373,"b_page":325,"c_page":[371],"chars":3674,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":216,"fixed":19,"odd":[]},
+ "witness": {"version":11,"d_page":373,"b_page":325,"c_page":[371],"chars":3674,"cuts":{"line":23,"aligned":0,"forced":0},"disputed":216,"fixed":19,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features"]
 }

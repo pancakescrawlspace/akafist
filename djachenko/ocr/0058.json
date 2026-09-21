@@ -192,6 +192,6 @@
   {"col":2,"para":11,"bbox":[2033,5869,3255,5967],"abbyy":"Ардашъ, ордаг\"г ѵпдапіъ","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":12,"bbox":[2027,6075,2227,6213],"abbyy":"Я рій","abbyy_conf":52,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":69,"b_page":21,"c_page":[67],"chars":3886,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":186,"fixed":21,"odd":[]},
+ "witness": {"version":11,"d_page":69,"b_page":21,"c_page":[67],"chars":3886,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":186,"fixed":21,"odd":[]},
  "warnings": []
 }

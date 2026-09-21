@@ -163,6 +163,6 @@
   {"col":4,"para":2,"bbox":[2285,5645,3321,5737],"abbyy":"Яблоки серебряныя","abbyy_conf":66,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":10,"d_page":894,"b_page":846,"c_page":[288],"chars":3760,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":136,"fixed":10,"odd":[]},
+ "witness": {"version":11,"d_page":894,"b_page":846,"c_page":[288],"chars":3760,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":136,"fixed":10,"odd":[]},
  "warnings": []
 }

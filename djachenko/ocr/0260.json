@@ -205,6 +205,6 @@
   {"col":2,"para":5,"bbox":[2057,1575,2717,1681],"abbyy":"И н о азы м н ы й","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":6,"bbox":[2071,1819,3047,1915],"abbyy":"Инрогъ, единорогъ","abbyy_conf":54,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":271,"b_page":223,"c_page":[269],"chars":3832,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":193,"fixed":21,"odd":[]},
+ "witness": {"version":11,"d_page":271,"b_page":223,"c_page":[269],"chars":3832,"cuts":{"line":25,"aligned":0,"forced":0},"disputed":193,"fixed":21,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (9 lines at the image edge); entry starts from position and text features"]
 }

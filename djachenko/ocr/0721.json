@@ -155,6 +155,6 @@
   {"col":2,"para":5,"bbox":[2241,4829,3463,4935],"abbyy":"С^бкотстбобашУ плотУю","abbyy_conf":33,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":732,"b_page":684,"c_page":[126],"chars":4019,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":159,"fixed":3,"odd":[]},
+ "witness": {"version":11,"d_page":732,"b_page":684,"c_page":[126],"chars":4019,"cuts":{"line":8,"aligned":0,"forced":0},"disputed":159,"fixed":3,"odd":[]},
  "warnings": []
 }

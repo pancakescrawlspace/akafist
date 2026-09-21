@@ -70,14 +70,19 @@ def pdf_words(pdf, page):
 
 
 def djvu_words(page):
-    """-> ([(text, x0, y0, x1, y1)] in DjVu pixels, top-left origin, W, H)."""
-    out = subprocess.run(['djvused', '-u', str(REPRINT), '-e', f'select {page}; print-txt'],
+    """-> ([(text, x0, y0, x1, y1)] in DjVu pixels, top-left origin, W, H).
+
+    DjVu counts y upwards from the foot of the page, so the boxes are flipped about the page height, which comes
+    from `size`. It must not come from the `(page …)` rectangle that `print-txt` opens with: that is the
+    bounding box of the text layer, not the page (on p. 1: `(page 31 21 1608 1906)` against a page of
+    1647 × 2637), and flipping about it put every box of witness B as much as 710 px too high — which the
+    text never showed, since reading order is relative, but every crop of B did (fixed 2026-09-21)."""
+    out = subprocess.run(['djvused', '-u', str(REPRINT), '-e', f'select {page}; size; print-txt'],
                          capture_output=True, text=True, check=True).stdout
-    m = re.match(r'\(page (\d+) (\d+) (\d+) (\d+)', out)
+    m = re.match(r'width=(\d+)\s+height=(\d+)', out)
     if not m:
         return [], 1, 1
-    H = int(m.group(4)) + int(m.group(2))
-    W = int(m.group(3)) + int(m.group(1))
+    W, H = int(m.group(1)), int(m.group(2))
     words = []
     for mm in re.finditer(r'\(word (\d+) (\d+) (\d+) (\d+) "((?:[^"\\]|\\.)*)"\)', out):
         x0, y0, x1, y1 = map(int, mm.group(1, 2, 3, 4))

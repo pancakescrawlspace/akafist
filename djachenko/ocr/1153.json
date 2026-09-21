@@ -209,6 +209,6 @@
   {"col":3,"para":4,"bbox":[91,4319,893,4441],"abbyy":"Фелонл крлтклА","abbyy_conf":35,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":1164,"b_page":1116,"c_page":[558],"chars":3399,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":132,"fixed":17,"odd":[]},
+ "witness": {"version":11,"d_page":1164,"b_page":1116,"c_page":[558],"chars":3399,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":132,"fixed":17,"odd":[]},
  "warnings": []
 }

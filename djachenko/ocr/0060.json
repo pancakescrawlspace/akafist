@@ -197,6 +197,6 @@
   {"col":2,"para":10,"bbox":[2153,5953,2829,6047],"abbyy":"Архитыхтанъ","abbyy_conf":74,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":71,"b_page":23,"c_page":[69],"chars":3964,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":255,"fixed":29,"odd":[]},
+ "witness": {"version":11,"d_page":71,"b_page":23,"c_page":[69],"chars":3964,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":255,"fixed":29,"odd":[]},
  "warnings": []
 }

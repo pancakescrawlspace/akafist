@@ -267,6 +267,6 @@
   {"col":2,"para":16,"bbox":[2403,5917,3015,6005],"abbyy":"Заточаемый","abbyy_conf":43,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":244,"b_page":196,"c_page":[242],"chars":3659,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":202,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":244,"b_page":196,"c_page":[242],"chars":3659,"cuts":{"line":45,"aligned":0,"forced":0},"disputed":202,"fixed":18,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (38 lines end at the image edge); line ends of the right column missing"]
 }

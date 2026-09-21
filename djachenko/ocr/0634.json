@@ -151,6 +151,6 @@
   {"col":2,"para":3,"bbox":[1897,1551,2335,1631],"abbyy":"Сил&никъ","abbyy_conf":30,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":4,"bbox":[1905,1991,2417,2087],"abbyy":"Симарьгла","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":645,"b_page":597,"c_page":[39],"chars":4163,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":165,"fixed":12,"odd":[]},
+ "witness": {"version":11,"d_page":645,"b_page":597,"c_page":[39],"chars":4163,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":165,"fixed":12,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (16 lines at the image edge); entry starts from position and text features"]
 }

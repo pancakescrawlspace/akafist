@@ -186,6 +186,6 @@
   {"col":2,"para":10,"bbox":[2243,4819,2481,4915],"abbyy":"(\\фіі|>д","abbyy_conf":20,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":11,"bbox":[2239,5233,2513,5331],"abbyy":"Аффо","abbyy_conf":65,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":76,"b_page":28,"c_page":[74],"chars":3937,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":240,"fixed":27,"odd":[]},
+ "witness": {"version":11,"d_page":76,"b_page":28,"c_page":[74],"chars":3937,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":240,"fixed":27,"odd":[]},
  "warnings": []
 }

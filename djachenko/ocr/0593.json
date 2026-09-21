@@ -183,6 +183,6 @@
   {"col":1,"para":15,"bbox":[91,6027,559,6123],"abbyy":"Роснустъ","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":1,"para":16,"bbox":[87,6129,385,6205],"abbyy":"Россъ","abbyy_conf":48,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":604,"b_page":556,"c_page":[602],"chars":3877,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":140,"fixed":13,"odd":[]},
+ "witness": {"version":11,"d_page":604,"b_page":556,"c_page":[602],"chars":3877,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":140,"fixed":13,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)"]
 }

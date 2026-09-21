@@ -168,6 +168,6 @@
   {"col":2,"para":4,"bbox":[2067,3297,2419,3413],"abbyy":"Ішсифг","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":287,"b_page":239,"c_page":[285],"chars":4024,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":143,"fixed":15,"odd":[]},
+ "witness": {"version":11,"d_page":287,"b_page":239,"c_page":[285],"chars":4024,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":143,"fixed":15,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (5 lines at the image edge); entry starts from position and text features"]
 }

@@ -161,6 +161,6 @@
   {"col":1,"para":8,"bbox":[1,3065,521,3203],"abbyy":"Троіпіргти","abbyy_conf":21,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":1161,"b_page":1113,"c_page":[555],"chars":4144,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":133,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":1161,"b_page":1113,"c_page":[555],"chars":4144,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":133,"fixed":18,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (6 lines at the image edge); entry starts from position and text features"]
 }

@@ -143,6 +143,6 @@
  "entries_hint": [
   {"col":1,"para":2,"bbox":[7,5615,101,5685],"abbyy":"йд","abbyy_conf":20,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":751,"b_page":703,"c_page":[145],"chars":4255,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":106,"fixed":7,"odd":[]},
+ "witness": {"version":11,"d_page":751,"b_page":703,"c_page":[145],"chars":4255,"cuts":{"line":3,"aligned":0,"forced":0},"disputed":106,"fixed":7,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (4 lines at the image edge); entry starts from position and text features"]
 }

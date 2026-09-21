@@ -197,6 +197,6 @@
   {"col":2,"para":18,"bbox":[1963,6221,2331,6317],"abbyy":"Скуфья","abbyy_conf":56,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":10,"d_page":1153,"b_page":1105,"c_page":[547],"chars":4027,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":167,"fixed":11,"odd":[]},
+ "witness": {"version":11,"d_page":1153,"b_page":1105,"c_page":[547],"chars":4027,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":167,"fixed":11,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (50 lines at the image edge); entry starts from position and text features"]
 }

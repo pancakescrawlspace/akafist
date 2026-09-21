@@ -225,6 +225,6 @@
   {"col":2,"para":11,"bbox":[2011,5753,2355,5831],"abbyy":"Осмакъ","abbyy_conf":61,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":4},
- "witness": {"version":10,"d_page":437,"b_page":389,"c_page":[435],"chars":3756,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":216,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":437,"b_page":389,"c_page":[435],"chars":3756,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":216,"fixed":18,"odd":[]},
  "warnings": []
 }

@@ -133,6 +133,6 @@
   {"col":4,"para":2,"bbox":[2311,3451,3023,3545],"abbyy":"Ысадъ, исадъ","abbyy_conf":48,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":5,"para":1,"bbox":[159,4347,227,4429],"abbyy":"Ь","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":888,"b_page":840,"c_page":[282],"chars":3134,"cuts":{"line":7,"aligned":0,"forced":0},"disputed":108,"fixed":8,"odd":[]},
+ "witness": {"version":11,"d_page":888,"b_page":840,"c_page":[282],"chars":3134,"cuts":{"line":7,"aligned":0,"forced":0},"disputed":108,"fixed":8,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (18 lines end at the image edge); line ends of the right column missing"]
 }

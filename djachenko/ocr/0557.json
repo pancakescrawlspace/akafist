@@ -268,6 +268,6 @@
   {"col":2,"para":19,"bbox":[2319,6177,2629,6269],"abbyy":"Пръкдрь","abbyy_conf":19,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":2},
- "witness": {"version":10,"d_page":568,"b_page":520,"c_page":[566],"chars":3508,"cuts":{"line":46,"aligned":0,"forced":0},"disputed":248,"fixed":34,"odd":[]},
+ "witness": {"version":11,"d_page":568,"b_page":520,"c_page":[566],"chars":3508,"cuts":{"line":46,"aligned":0,"forced":0},"disputed":248,"fixed":34,"odd":[]},
  "warnings": []
 }

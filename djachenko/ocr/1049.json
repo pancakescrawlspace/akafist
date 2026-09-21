@@ -150,6 +150,6 @@
   {"col":2,"para":2,"bbox":[2413,1941,2923,2023],"abbyy":"Климент'ъ","abbyy_conf":46,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":3,"bbox":[2429,4479,2807,4617],"abbyy":"Кли)й’къ","abbyy_conf":40,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":1060,"b_page":1012,"c_page":[454],"chars":4065,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":83,"fixed":8,"odd":[]},
+ "witness": {"version":11,"d_page":1060,"b_page":1012,"c_page":[454],"chars":4065,"cuts":{"line":6,"aligned":0,"forced":0},"disputed":83,"fixed":8,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (43 lines end at the image edge); line ends of the right column missing"]
 }

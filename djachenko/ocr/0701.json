@@ -177,6 +177,6 @@
   {"col":2,"para":7,"bbox":[2339,3259,2855,3341],"abbyy":"СтолобанТе","abbyy_conf":38,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2341,3505,2871,3583],"abbyy":"Столпникъ","abbyy_conf":45,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":712,"b_page":664,"c_page":[106],"chars":3985,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":109,"fixed":10,"odd":[]},
+ "witness": {"version":11,"d_page":712,"b_page":664,"c_page":[106],"chars":3985,"cuts":{"line":15,"aligned":0,"forced":0},"disputed":109,"fixed":10,"odd":[]},
  "warnings": []
 }

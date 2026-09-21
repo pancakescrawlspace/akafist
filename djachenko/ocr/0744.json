@@ -181,6 +181,6 @@
   {"col":2,"para":12,"bbox":[1979,6097,2477,6177],"abbyy":"Таланта","abbyy_conf":58,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":755,"b_page":707,"c_page":[149],"chars":4056,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":139,"fixed":8,"odd":[]},
+ "witness": {"version":11,"d_page":755,"b_page":707,"c_page":[149],"chars":4056,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":139,"fixed":8,"odd":[]},
  "warnings": []
 }

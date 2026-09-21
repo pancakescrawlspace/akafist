@@ -145,6 +145,6 @@
   {"col":4,"para":6,"bbox":[2271,4553,2569,4629],"abbyy":"Яшма","abbyy_conf":76,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":9,"start":4},
- "witness": {"version":10,"d_page":1168,"b_page":1120,"c_page":[562],"chars":2252,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":195,"fixed":13,"odd":[]},
+ "witness": {"version":11,"d_page":1168,"b_page":1120,"c_page":[562],"chars":2252,"cuts":{"line":18,"aligned":0,"forced":0},"disputed":195,"fixed":13,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (21 lines end at the image edge); line ends of the right column missing"]
 }

@@ -183,6 +183,6 @@
   {"col":2,"para":8,"bbox":[2247,3863,2607,3983],"abbyy":"’О’Еофіл","abbyy_conf":41,"eq":false,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":9,"bbox":[2235,6231,2645,6347],"abbyy":"©ЕйДфин","abbyy_conf":39,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":908,"b_page":860,"c_page":[302],"chars":4010,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":203,"fixed":20,"odd":[]},
+ "witness": {"version":11,"d_page":908,"b_page":860,"c_page":[302],"chars":4010,"cuts":{"line":17,"aligned":0,"forced":0},"disputed":203,"fixed":20,"odd":[]},
  "warnings": []
 }

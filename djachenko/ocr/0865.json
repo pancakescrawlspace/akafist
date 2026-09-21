@@ -207,6 +207,6 @@
   {"col":2,"para":7,"bbox":[2269,2467,2981,2561],"abbyy":"Чумъ, чумича","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2271,2669,2651,2763],"abbyy":"Чурила","abbyy_conf":67,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":876,"b_page":828,"c_page":[270],"chars":3817,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":255,"fixed":16,"odd":[]},
+ "witness": {"version":11,"d_page":876,"b_page":828,"c_page":[270],"chars":3817,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":255,"fixed":16,"odd":[]},
  "warnings": []
 }

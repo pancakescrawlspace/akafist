@@ -61,7 +61,7 @@
     {"bbox":[1,3655,1855,3751],"base":3729,"ind":0,"fs":11,"text":"гто(а)рить = разговаривать, говорить,","words":[["гто(а)рить",1,3655,453,3751,51,"o",11],["=",515,3689,619,3715,73,"o",11],["разговаривать,",679,3675,1359,3751,78,"od",11],["говорить,",1425,3677,1855,3751,71,"od",11]]},
     {"bbox":[15,3759,509,3839],"base":3828,"ind":1,"fs":11,"text":"бесѣдовать.","words":[["бесѣдовать",15,3759,477,3839,66,"od",11],[".",495,3817,509,3831,83,"o",11]]}
    ]},
-   {"bbox": [1,3861,1355,3959], "hanging": true, "text_d": "Гуфъ = толпа, отрядъ, строй . 1.", "text_merged": "Гуфъ = толпа, отрядъ, строй  .", "disputed": [[28,28],[29,29]], "italic": [], "fixed": 2, "d_cut": "line", "d_line": [96,3616,1304,3662], "breaks": [[0,0]], "lines": [
+   {"bbox": [1,3861,1355,3959], "hanging": true, "text_d": "Гуфъ = толпа, отрядъ, строй . 1.", "text_merged": "Гуфъ = толпа, отрядъ, строй . .", "disputed": [[30,31]], "italic": [], "fixed": 1, "d_cut": "line", "d_line": [96,3616,1304,3662], "breaks": [[0,0]], "lines": [
     {"bbox":[1,3861,1355,3959],"base":3931,"ind":0,"fs":11,"text":"уфъ = толпа, отрядъ, строй.","words":[["уфъ",1,3863,137,3955,31,"od",11],["=",175,3893,275,3919,100,"o",11],["толпа,",315,3881,601,3959,78,"od",11],["отрядъ,",665,3881,1009,3955,85,"od",11],["строй.",1079,3861,1355,3955,80,"od",11]]}
    ]}
   ]},
@@ -208,6 +208,6 @@
   {"col":4,"para":5,"bbox":[2005,5717,2473,5833],"abbyy":"Длинный","abbyy_conf":29,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":4,"para":6,"bbox":[2003,5947,2769,6093],"abbyy":"Дллмлн^флнгки","abbyy_conf":35,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":1005,"b_page":957,"c_page":[399],"chars":3584,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":300,"fixed":20,"odd":[]},
+ "witness": {"version":11,"d_page":1005,"b_page":957,"c_page":[399],"chars":3584,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":300,"fixed":19,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (11 lines at the image edge); entry starts from position and text features"]
 }

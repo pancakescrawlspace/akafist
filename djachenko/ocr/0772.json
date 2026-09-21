@@ -170,6 +170,6 @@
   {"col":2,"para":2,"bbox":[2067,435,2371,525],"abbyy":"Троганъ","abbyy_conf":51,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":783,"b_page":735,"c_page":[177],"chars":4148,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":292,"fixed":36,"odd":[]},
+ "witness": {"version":11,"d_page":783,"b_page":735,"c_page":[177],"chars":4148,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":292,"fixed":36,"odd":[]},
  "warnings": []
 }

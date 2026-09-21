@@ -207,6 +207,6 @@
   {"col":2,"para":13,"bbox":[2343,4035,2591,4161],"abbyy":"От^","abbyy_conf":74,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":10,"d_page":442,"b_page":394,"c_page":[440],"chars":3776,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":205,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":442,"b_page":394,"c_page":[440],"chars":3776,"cuts":{"line":26,"aligned":0,"forced":0},"disputed":205,"fixed":18,"odd":[]},
  "warnings": []
 }

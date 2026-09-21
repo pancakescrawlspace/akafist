@@ -227,6 +227,6 @@
   {"col":2,"para":17,"bbox":[2429,5585,2775,5691],"abbyy":"Бездна","abbyy_conf":80,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":82,"b_page":34,"c_page":[80],"chars":3628,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":151,"fixed":26,"odd":[]},
+ "witness": {"version":11,"d_page":82,"b_page":34,"c_page":[80],"chars":3628,"cuts":{"line":33,"aligned":0,"forced":0},"disputed":151,"fixed":26,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (40 lines end at the image edge); line ends of the right column missing"]
 }

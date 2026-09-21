@@ -197,6 +197,6 @@
   {"col":2,"para":9,"bbox":[2277,4759,3779,4895],"abbyy":"/ГезоименЙто и тезоим^нн4","abbyy_conf":24,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":10,"bbox":[2303,5129,3057,5239],"abbyy":"Тезоименитый","abbyy_conf":28,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":760,"b_page":712,"c_page":[154],"chars":3993,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":188,"fixed":22,"odd":[]},
+ "witness": {"version":11,"d_page":760,"b_page":712,"c_page":[154],"chars":3993,"cuts":{"line":21,"aligned":0,"forced":0},"disputed":188,"fixed":22,"odd":[]},
  "warnings": []
 }

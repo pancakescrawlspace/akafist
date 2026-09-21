@@ -161,6 +161,6 @@
   {"col":1,"para":8,"bbox":[129,5979,523,6075],"abbyy":"Пужало","abbyy_conf":47,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":1,"bbox":[2285,423,2537,517],"abbyy":"Пузъ","abbyy_conf":34,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":572,"b_page":524,"c_page":[570],"chars":4066,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":116,"fixed":12,"odd":[]},
+ "witness": {"version":11,"d_page":572,"b_page":524,"c_page":[570],"chars":4066,"cuts":{"line":9,"aligned":0,"forced":0},"disputed":116,"fixed":12,"odd":[]},
  "warnings": []
 }

@@ -214,6 +214,6 @@
   {"col":2,"para":13,"bbox":[2365,5981,3159,6073],"abbyy":"Запрягалмшкъ","abbyy_conf":62,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1},
- "witness": {"version":10,"d_page":1032,"b_page":984,"c_page":[426],"chars":3904,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":181,"fixed":12,"odd":[]},
+ "witness": {"version":11,"d_page":1032,"b_page":984,"c_page":[426],"chars":3904,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":181,"fixed":12,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (35 lines end at the image edge); line ends of the right column missing"]
 }

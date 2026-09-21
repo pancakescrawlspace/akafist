@@ -171,6 +171,6 @@
   {"col":1,"para":11,"bbox":[1,2589,783,2643],"abbyy":"еченныя книги","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":8},
- "witness": {"version":10,"d_page":1123,"b_page":1075,"c_page":[517],"chars":4094,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":118,"fixed":13,"odd":[]},
+ "witness": {"version":11,"d_page":1123,"b_page":1075,"c_page":[517],"chars":4094,"cuts":{"line":12,"aligned":0,"forced":0},"disputed":118,"fixed":13,"odd":[]},
  "warnings": ["side b: no flush line (edge from prior)","side a: margin cut off in the scan (48 lines at the image edge); entry starts from position and text features"]
 }

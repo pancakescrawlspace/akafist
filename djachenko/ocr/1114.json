@@ -217,6 +217,6 @@
   {"col":2,"para":9,"bbox":[2033,5865,2475,5961],"abbyy":"Охреянъ","abbyy_conf":61,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":5,"start":1},
- "witness": {"version":10,"d_page":1125,"b_page":1077,"c_page":[519],"chars":3915,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":173,"fixed":26,"odd":[]},
+ "witness": {"version":11,"d_page":1125,"b_page":1077,"c_page":[519],"chars":3915,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":173,"fixed":26,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (39 lines at the image edge); entry starts from position and text features"]
 }

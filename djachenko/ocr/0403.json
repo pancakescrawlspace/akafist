@@ -208,6 +208,6 @@
   {"col":2,"para":7,"bbox":[2277,2045,2611,2161],"abbyy":"Ое^аз","abbyy_conf":64,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":2},
- "witness": {"version":10,"d_page":414,"b_page":366,"c_page":[412],"chars":3754,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":231,"fixed":22,"odd":[]},
+ "witness": {"version":11,"d_page":414,"b_page":366,"c_page":[412],"chars":3754,"cuts":{"line":27,"aligned":0,"forced":0},"disputed":231,"fixed":22,"odd":[]},
  "warnings": []
 }

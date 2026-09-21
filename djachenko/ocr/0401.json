@@ -254,6 +254,6 @@
   {"col":2,"para":22,"bbox":[2231,5901,2813,5981],"abbyy":"ОеминобенѴе","abbyy_conf":42,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":3},
- "witness": {"version":10,"d_page":412,"b_page":364,"c_page":[410],"chars":3532,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":190,"fixed":32,"odd":[]},
+ "witness": {"version":11,"d_page":412,"b_page":364,"c_page":[410],"chars":3532,"cuts":{"line":42,"aligned":0,"forced":0},"disputed":190,"fixed":32,"odd":[]},
  "warnings": []
 }

@@ -215,6 +215,6 @@
   {"col":2,"para":16,"bbox":[2025,5973,2565,6047],"abbyy":"Полотескъ","abbyy_conf":86,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"start":1,"continue":1},
- "witness": {"version":10,"d_page":499,"b_page":451,"c_page":[497],"chars":3744,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":158,"fixed":29,"odd":[]},
+ "witness": {"version":11,"d_page":499,"b_page":451,"c_page":[497],"chars":3744,"cuts":{"line":28,"aligned":0,"forced":0},"disputed":158,"fixed":29,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (11 lines at the image edge); entry starts from position and text features"]
 }

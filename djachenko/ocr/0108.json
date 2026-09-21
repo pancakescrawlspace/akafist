@@ -222,6 +222,6 @@
   {"col":2,"para":16,"bbox":[2063,5643,2475,5773],"abbyy":"Береженъ","abbyy_conf":53,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":17,"bbox":[2067,6075,2297,6157],"abbyy":"Белей","abbyy_conf":72,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":119,"b_page":71,"c_page":[117],"chars":3695,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":168,"fixed":18,"odd":[]},
+ "witness": {"version":11,"d_page":119,"b_page":71,"c_page":[117],"chars":3695,"cuts":{"line":31,"aligned":0,"forced":0},"disputed":168,"fixed":18,"odd":[]},
  "warnings": []
 }

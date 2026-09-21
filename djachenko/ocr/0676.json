@@ -251,6 +251,6 @@
   {"col":2,"para":23,"bbox":[2111,6053,2639,6157],"abbyy":"Сопрлж^ШЕ","abbyy_conf":36,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
  "seg": {"continue":1},
- "witness": {"version":10,"d_page":687,"b_page":639,"c_page":[81],"chars":3524,"cuts":{"line":41,"aligned":0,"forced":0},"disputed":257,"fixed":24,"odd":[]},
+ "witness": {"version":11,"d_page":687,"b_page":639,"c_page":[81],"chars":3524,"cuts":{"line":41,"aligned":0,"forced":0},"disputed":257,"fixed":24,"odd":[]},
  "warnings": []
 }

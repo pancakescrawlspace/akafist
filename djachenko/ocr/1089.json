@@ -196,6 +196,6 @@
   {"col":2,"para":7,"bbox":[2261,2433,2879,2509],"abbyy":"Наголовокъ","abbyy_conf":70,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":8,"bbox":[2261,2741,2811,2815],"abbyy":"Наголовья","abbyy_conf":64,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":1100,"b_page":1052,"c_page":[494],"chars":3573,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":173,"fixed":13,"odd":[]},
+ "witness": {"version":11,"d_page":1100,"b_page":1052,"c_page":[494],"chars":3573,"cuts":{"line":24,"aligned":0,"forced":0},"disputed":173,"fixed":13,"odd":[]},
  "warnings": ["side b: right margin cut off in the scan (10 lines end at the image edge); line ends of the right column missing"]
 }

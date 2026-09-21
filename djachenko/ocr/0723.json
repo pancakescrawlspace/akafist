@@ -177,6 +177,6 @@
   {"col":2,"para":6,"bbox":[2233,4357,2553,4441],"abbyy":"Соудокъ","abbyy_conf":37,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[2229,4785,2447,4873],"abbyy":"Соуду","abbyy_conf":70,"eq":true,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":734,"b_page":686,"c_page":[128],"chars":3991,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":155,"fixed":21,"odd":[]},
+ "witness": {"version":11,"d_page":734,"b_page":686,"c_page":[128],"chars":3991,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":155,"fixed":21,"odd":[]},
  "warnings": []
 }

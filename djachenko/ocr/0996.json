@@ -182,6 +182,6 @@
   {"col":2,"para":6,"bbox":[2079,1577,2845,1677],"abbyy":"Дворъ земскій","abbyy_conf":60,"eq":true,"headword":null,"headword_source":null,"conf":null},
   {"col":2,"para":7,"bbox":[2071,3325,3001,3425],"abbyy":"Дворъ государевъ","abbyy_conf":71,"eq":false,"headword":null,"headword_source":null,"conf":null}
  ],
- "witness": {"version":10,"d_page":1007,"b_page":959,"c_page":[401],"chars":4034,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":74,"fixed":6,"odd":[]},
+ "witness": {"version":11,"d_page":1007,"b_page":959,"c_page":[401],"chars":4034,"cuts":{"line":16,"aligned":0,"forced":0},"disputed":74,"fixed":6,"odd":[]},
  "warnings": ["side a: margin cut off in the scan (8 lines at the image edge); entry starts from position and text features"]
 }

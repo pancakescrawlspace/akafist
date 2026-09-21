@@ -113,3 +113,4 @@ garbage is never in it, Google's own systematic misreadings are under-represente
 | 8 | `norm_char` folds accented Latin letters like plain ones |
 | 9 | `breaks`: the printed lines as offsets in `text_merged` (for the facsimile) |
 | 10 | exceptions 4–5: Latin-script words and whole abbreviations, with D's lexicon — session 5 |
+| 11 | witness B's word boxes in true page coordinates (`dj_witness.djvu_words` flipped them about the text layer's bounding box); B's text moves on 110 pages, nearly all gutter specks changing column — session 6 |
