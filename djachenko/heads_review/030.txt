@@ -1,0 +1,18 @@
+# sheet 030: djachenko/cache/hwocr/review/030.png (dj_hwocr.py review, 2026-09-21)
+# After the last tab of each line write: a (the first reading is right), b (the second), the headword
+# itself as printed (civil letters will do), or - (the line begins no entry). Empty = not yet read.
+1	0859-2-03	a: Уечръга	b: Уехръга	
+2	0859-2-04	a: Уешмение	b: Уешменне	
+3	0867-2-06	a: Уѣша	b: Увша	
+4	0875-1-02	a: Щапленіе	b: Шапленіе	
+5	0875-1-15	a: Щедрыи	b: Шедрыи	
+6	0875-2-03	a: Щелокъ	b: Шелокъ	
+7	0879-2-02	a: Бкъ и вкъже	b: Ћкъ и вкъже-какои, каковои	
+8	0885-1-10	a: Агня	b: Агна	
+9	0886-2-02	a: Азвина	b: Азкина	
+10	0886-2-08	a: Азыконевоздержаніе	b: Азыконекоздержаніе	
+11	0892-2-05	a: Угърь	b: гърь	
+12	0892-2-11	a: Уже	b: Дже	
+13	0897-1-04	a: Ѳее и ѳееімъ, также Аеиладъ	b: Θεε и дім, также деилад	
+14	0898-1-04	a: Чиваида	b: Ѳнкаид	
+15	0908-2-04	a: Алфеи	b: Ялфеи	

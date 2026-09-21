@@ -1,0 +1,8 @@
+# sheet 034: djachenko/cache/hwocr/review/034.png (dj_hwocr.py review, 2026-09-21)
+# After the last tab of each line write: a (the first reading is right), b (the second), the headword
+# itself as printed (civil letters will do), or - (the line begins no entry). Empty = not yet read.
+1	1143-2-03	a: Слово	b: Слоко	
+2	1144-2-10	a: Соизволяти	b: СонзκοлΑти	
+3	1145-2-10	a: Снолу	b: Сполу	
+4	1152-3-02	a: Убълѣти	b: Увълѣти	
+5	1154-4-02	a: Хіа	b: Хіл	

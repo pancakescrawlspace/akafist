@@ -267,8 +267,19 @@ Spending human effort on the cases a model finds hardest is called **active lear
    Showing the two readings is faster than typing every word; its risk, *anchoring* (a plausible wrong suggestion
    is easier to accept than to invent), is small when the two disagree, since at least one is wrong. ~500 answers,
    about an hour.
-3. `python3 tools/dj_hwocr.py data` adds every answered line as a fourth kind of sample, `checked`: the answered head,
-   then the rest of the line as the vote reads it. Retrain, `eval`, and repeat while a round still pays.
+3. `python3 tools/dj_hwocr.py data` adds every answered line as a fourth kind of sample, `checked`, labelled with the
+   whole line as read by the reader whose head the user confirmed — the model's line for `a`, the vote's for `b`,
+   and for a typed head the model's line with the typed head put over its own (matched with a free-end alignment,
+   then to the end of the word). Not "the answered head, then the vote's line from its separator on": the two
+   readers cut their heads at different places (`Апоплезіа-греч` against `Апоплазія-греч.-ударъ`), and a label
+   must match its image exactly. Retrain, `eval`, and repeat while a round still pays.
+
+   The first round (session 6), drawn from the epoch-10 model's reading of the whole book: 24,845 first lines; model
+   and vote read the head alike in 49 % of the 22,142 lines scan A shows whole (14 % on the cut columns); 11,130
+   disagreements to draw from, 500 drawn — sheets 001–034. Comparing two heads needed care: in norm text every dash
+   is `-`, so a separator printed without spaces (`Агапы-греч.`) cannot be told from a hyphen inside a word; two
+   heads count as alike when one is the other followed by `-`. The sample also turns up the pipeline's own faults:
+   `0057-1-16`, where the scan's line reads `встрѣтившееся…` and the vote puts `Аполинъ` — answered `-`.
 
 The answers are also proofread headwords, which a corrections layer can later give to the edition itself.
 

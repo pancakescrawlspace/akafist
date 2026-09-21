@@ -911,6 +911,12 @@ See PLAN.md for the phases. Newest entry last.
   p. 246 found by it — `Касфїѧ`, `Катавасїѧ` (ѧ, not а; checked on scan A) — corrected. `eval` now reads the test
   lines from the GT files, so a GT correction counts without a data rebuild. `dj_hwocr.py alphabet` → alphabet.tsv
   (169 characters + blank = the 170 outputs of the model summary).
+- **The review round, drawn.** `book` with the epoch-10 model (on the CPU, 8 Kraken processes side by side, while
+  training went on): 24,845 first lines; model and vote read the head alike in 49 % of the 22,142 intact lines.
+  Fixed on the way: heads cut at a dash (norm text has only `-`; `-` with a space on one side, or unspaced as a
+  prefix match), and the label of an answered line built from the confirmed reader's whole line (a free-end
+  alignment for a typed head). **500 disagreements drawn → `djachenko/heads_review/001–034.txt`** (committed,
+  unanswered), images `cache/hwocr/review/NNN.png`. The user reads them next; then `data`, retrain, `eval`.
 
 NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two entries are not headwords at all:
   the library stamp on p. 41 (`0078-2-21`) and the tail of the footer on p. 913 (`0950-2-15`). Then the 53 pages

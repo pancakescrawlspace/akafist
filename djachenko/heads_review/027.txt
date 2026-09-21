@@ -1,0 +1,18 @@
+# sheet 027: djachenko/cache/hwocr/review/027.png (dj_hwocr.py review, 2026-09-21)
+# After the last tab of each line write: a (the first reading is right), b (the second), the headword
+# itself as printed (civil letters will do), or - (the line begins no entry). Empty = not yet read.
+1	0775-2-03	a: Тягъ	b: Тагъ	
+2	0781-1-10	a: Тѣряти	b: Тѣрити	
+3	0781-2-08	a: Тягненыи	b: Тагненыи	
+4	0782-1-05	a: Тажаиіе	b: ТΑжаніе	
+5	0782-1-12	a: Тажесть слоновая	b: Тажесть слоновла	
+6	0782-3-01	a: 	b: У	
+7	0783-2-04	a: Убожити	b: Укожити	
+8	0784-2-11	a: Увирити	b: Увнрηтη	
+9	0784-2-12	a: Уводъ	b: Откодъ	
+10	0784-2-15	a: Уврачествити	b: Украчествити	
+11	0785-2-11	a: Углубити	b: Углосити	
+12	0787-2-06	a: Удобизно,-ѣ	b: Ордобидно,-ѣ	
+13	0787-2-15	a: Удобоотдательныи	b: Удокоотд ательныи	
+14	0788-1-09	a: Удобреніе	b: Ουροσρεπιε	
+15	0790-2-08	a: Унмати	b: Унматн	

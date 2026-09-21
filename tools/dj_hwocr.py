@@ -46,7 +46,7 @@ scan A cuts off — and writes numbered sheets (cache/hwocr/review/NNN.png, the 
 readings) and, for each, an answer file djachenko/heads_review/NNN.txt (committed: it is the user's work). The
 user answers each line: `a` (the model's reading is right), `b` (the vote's), the headword itself (civil letters
 will do), or `-` (the line begins no entry). `data` adds every answered line as a fourth kind of sample, `checked`:
-the answered head, then the rest of the line as the vote reads it.
+the whole line as read by the reader whose head the user confirmed (checked_label).
 
 Splits: `test` = the two held-out GT pages (leaves 283 and 696, eval/README.md) and nothing else from them; `val` =
 the agree samples of every 20th leaf, for Kraken to choose its best checkpoint by; `train` = everything else.
@@ -657,14 +657,22 @@ REVIEW = DJ / 'heads_review'            # the user's answers: committed
 PER_SHEET = 15
 
 
+HEAD_SEP = re.compile(r'=|\(|\s-|-\s|-$')     # in norm text every dash is "-": a separator has a space on one
+#                                                side or ends the line; a hyphen inside a word (Вратити-сѧ) does not
+
+
 def head_of(line):
-    """The head of a first line: the text before the separator, else its first word."""
-    m = SEP.search(line)
-    return (line[:m.start()] if m else line.split(' ')[0]).strip().strip(',')
+    """The head of a first line (norm text): the text before the separator, else its first word."""
+    m = HEAD_SEP.search(line)
+    return (line[:m.start()] if m else line.split(' ')[0]).strip().strip('.,;:-')
 
 
 def same(x, y):
-    return x.replace(' ', '') == y.replace(' ', '')
+    """Two heads read alike: equal (spaces ignored), or the longer is the shorter and a "-" on — a dash the OCR
+    printed without spaces (Агапы-греч.) cannot be told from a hyphen inside a word in norm text."""
+    x, y = x.replace(' ', ''), y.replace(' ', '')
+    short, long_ = sorted((x, y), key=len)
+    return x == y or (bool(short) and long_.startswith(short + '-'))
 
 
 def book_lines(leaf):
@@ -805,9 +813,38 @@ def cmd_review(a):
 
 # ---------------------------------------------------------------- commands
 
+def checked_label(head, how, r):
+    """The training label of an answered line: the whole line as read by the reader whose head the user confirmed —
+    the model's line for `a`, the vote's for `b` — and for a head typed by the user, the model's line with the typed
+    head aligned over its own (the two readers cut their heads at different places, and image and label must
+    match). The rest of either line is right in ~99 % of its characters."""
+    base = r['vote'] if how == 'b' else r['model']
+    if how in ('a', 'b'):
+        return base
+    end = prefix_end(head, base)
+    while end < len(base) and base[end].isalpha():               # to the end of the word it stops in
+        end += 1
+    return head + base[end:]
+
+
+def prefix_end(head, base):
+    """Where in `base` the prefix ends that `head` matches best: edit distance with a free end in `base` (a global
+    alignment would spread the head over the whole line); of equal matches the one nearest the head's length."""
+    col = list(range(len(head) + 1))
+    best = (col[-1], 0)
+    for j, ch in enumerate(base, 1):
+        new = [j]
+        for i in range(1, len(head) + 1):
+            new.append(min(col[i] + 1, new[i - 1] + 1, col[i - 1] + (head[i - 1] != ch)))
+        col = new
+        if (col[-1], abs(j - len(head))) < (best[0], abs(best[1] - len(head))):
+            best = (col[-1], j)
+    return best[1]
+
+
 def build_checked():
-    """The reviewed lines (djachenko/heads_review/): the answered head, then the rest of the line as the vote reads
-    it (from the separator on). A line answered '-' begins no entry and is not a sample."""
+    """The reviewed lines (djachenko/heads_review/), labelled by checked_label. A line answered '-' begins no entry
+    and is not a sample."""
     answers = review_answers()
     if not answers:
         return []
@@ -816,15 +853,13 @@ def build_checked():
     rows = []
     for eid, ans in sorted(answers.items()):
         r = book.get(eid)
-        m = SEP.search(r['vote']) if r else None
-        if ans is None or not m:
+        if ans is None or r is None:
             continue
-        label = ans[0] + ' ' + r['vote'][m.start():].strip() if not r['vote'][m.start():].startswith('(') \
-            else ans[0] + ' ' + r['vote'][m.start():]
+        label = norm(checked_label(ans[0], ans[1], r))
         shutil.copy(BOOK / 'img' / f'{eid}.png', OUT / 'checked' / f'{eid}.png')
-        (OUT / 'checked' / f'{eid}.gt.txt').write_text(norm(label) + '\n', encoding='utf-8')
+        (OUT / 'checked' / f'{eid}.gt.txt').write_text(label + '\n', encoding='utf-8')
         rows.append(dict(id=eid, set='checked', split='train', leaf=int(eid[:4]), first=1, flags=f'answer={ans[1]}',
-                         image=f'checked/{eid}.png', norm=norm(label), strict=''))
+                         image=f'checked/{eid}.png', norm=label, strict=''))
     return rows
 
 
