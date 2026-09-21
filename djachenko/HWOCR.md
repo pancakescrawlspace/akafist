@@ -116,7 +116,12 @@ sheet of samples with their labels — the quickest check that image and text be
 
 **The labels** come at three levels. `norm` is what stage 1 trains on: Church Slavonic letters folded to civil
 ones, look-alikes and dashes unified, оу → у, й → и, Greek without accents — the level at which the witnesses are
-compared and the headwords benchmarked (`Азбꙋка` → `Азбука`, `еврейскихъ` → `евреискихъ`). `strict` (letters as
+compared and the headwords benchmarked (`Азбꙋка` → `Азбука`, `еврейскихъ` → `евреискихъ`). On top of that, one
+symbol per printed glyph: the OCR layers write look-alikes the book does not have — fita as Cyrillic barred o
+(`ө`), І as palochka (`Ӏ`), Latin h and j as Cyrillic `һ` and `ј`, braces for brackets — and these are folded to
+the book's letter, since a network taught two answers for one glyph can only guess between them; a Greek breathing
+standing on its own is dropped like every other accent; an automatic line with OCR debris (`■`, a column rule read
+as `|`) is left out. `strict` (letters as
 printed, no accents) is kept wherever it is known — the GT and the synthetic lines — for stage 2. `marked` (with the
 accents) exists for the synthetic lines only: the Phase 0 decision to leave accents and titla out is not final.
 
@@ -175,7 +180,14 @@ out of order and a half line lost (PROGRESS.md).
 
 `-d mps` the Mac's GPU; `--workers 4` processes preparing (and augmenting) the images while the GPU trains;
 `-f path` images with `.gt.txt` files; `-t`/`-e` the training and validation lists; `-o` the directory for the
-checkpoints; `-B 16` the batch; `--augment` as in § 4; `-q early` stop when validation stops improving. Expect a
+checkpoints; `-B 16` the batch; `--augment` as in § 4; `-q early` stop when validation stops improving.
+
+At the start Kraken prints a warning like `alphabet mismatch: chars in training set only: {…} (not included in
+accuracy test during training)`. It compares the characters of the training labels with those of the validation
+labels; a character that never occurs among the 359 validation lines cannot be scored there, so it is left out of
+`val_accuracy`. Expected for rare characters — Greek capitals, Latin letters of the etymologies, Cyrillic capitals,
+`№`, `§` — and harmless. But the list is worth reading once: on the first run it also showed characters that
+should not be in the labels at all (`{`, `■`, `|`, the look-alikes above), which is how the fold came about. Expect a
 few hours — tens of epochs at ~12 minutes; `--resume <checkpoint>` continues an interrupted run. The progress bar
 shows `train_loss` falling within each epoch and `val_accuracy` after it.
 

@@ -31,7 +31,7 @@ decision to leave accents and titla out of the headwords is not final.
 Splits: `test` = the two held-out GT pages (leaves 283 and 696, eval/README.md) and nothing else from them; `val` =
 the agree samples of every 20th leaf, for Kraken to choose its best checkpoint by; `train` = everything else.
 """
-import argparse, csv, json, random, re, shutil, subprocess, sys, zlib
+import argparse, csv, json, random, re, shutil, subprocess, sys, unicodedata, zlib
 from multiprocessing import Pool
 from pathlib import Path
 
@@ -54,6 +54,16 @@ PPI = 400
 PAD = 12                                # px at 600 ppi around A's line box
 CS_FONTS = ('Ponomar Unicode', 'Pochaevsk Unicode', 'Monomakh Unicode', 'Menaion Unicode', 'Fedorovsk Unicode')
 SEP = re.compile(r'=|—|–|\s-\s|\(')
+# One symbol per printed glyph. The OCR layers write look-alikes the book does not have (session 6, from Kraken's
+# alphabet warning): fita as barred o, І as palochka, h and j as Cyrillic shha and je; braces where the book prints
+# brackets. Spacing accents (a Greek breathing standing alone) go the way the norm level sends every accent.
+FOLD = str.maketrans({'Ө': 'Ѳ', 'ө': 'ѳ', 'Ӏ': 'І', 'ӏ': 'і', 'һ': 'h', 'Һ': 'H', 'ј': 'j', 'Ј': 'J',
+                      '{': '(', '}': ')'})
+JUNK = set('■|')                        # OCR debris (a column rule read as |): a line with it is left out
+
+
+def fold(s):
+    return ''.join(ch for ch in s.translate(FOLD) if unicodedata.category(ch) not in ('Sk', 'Lm'))
 
 
 # ---------------------------------------------------------------- labels
@@ -67,7 +77,7 @@ def norm(s):
                 out.append(' ')
             continue
         out.append(norm_char(ch))
-    t = ''.join(out).strip()
+    t = fold(''.join(out)).strip()
     return t.replace('оу', 'у').replace('Оу', 'У').replace('ОУ', 'У')
 
 
@@ -181,6 +191,8 @@ def agree_lines(pg):
             label = clean(text[b0:b1]) + ('-' if hy else '')
             if letters(label) < 4 or not 0.7 <= len(label) / max(1, len(ln['text'].strip())) <= 1.4:
                 continue                                        # a line start carried over badly
+            if JUNK & set(label):
+                continue
             out.append((c['n'], first_k, label, tail))
     return out
 
@@ -206,7 +218,8 @@ def cont_lines(pg):
                 if any(s < b1 and e > b0 for s, e, *_ in dis) or ln['bbox'][2] >= W - CLIPPED:
                     continue
                 label = clean(text[b0:b1]) + ('-' if hy else '')
-                if letters(label) >= 4 and 0.7 <= len(label) / max(1, len(ln['text'].strip())) <= 1.4:
+                if letters(label) >= 4 and 0.7 <= len(label) / max(1, len(ln['text'].strip())) <= 1.4 \
+                        and not JUNK & set(label):
                     out.append((c['n'], k + j, label))
             k += len(par['lines'])
     return out
@@ -402,8 +415,9 @@ def build_synth(n, rows_real, workers, seed=2026):
             if len(h) >= 3 and h.isalpha() and h[0].isupper():
                 heads.append(h)
     global TAILS
-    TAILS = [r['definition'] for r in csv.DictReader(open(ENTRIES, encoding='utf-8'), delimiter='\t',
-                                                      quoting=csv.QUOTE_NONE) if len(r['definition']) > 80]
+    TAILS = [re.sub(r'\s+', ' ', ''.join(ch for ch in fold(r['definition']) if ch not in JUNK))
+             for r in csv.DictReader(open(ENTRIES, encoding='utf-8'), delimiter='\t', quoting=csv.QUOTE_NONE)
+             if len(r['definition']) > 80]
     civil = sorted({h for h in heads if not CS_ONLY & set(h.lower())})
     texts = synth_texts(n, rnd, heads, civil)
     tmp = OUT / 'synth_tmp'
