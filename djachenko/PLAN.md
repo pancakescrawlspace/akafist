@@ -134,6 +134,11 @@ Decide and record in `PROGRESS.md`:
    Rationale: every OCR route can produce this reliably, PT Serif renders it, and lookup from the akathist dictionary
    works. The exact Church Slavonic form (titla etc.) can be added later as a separate column if wanted; rendering it
    needs a Slavonic font (Ponomar Unicode, OFL).
+   **Revised (session 6, 2026-09-21, the user):** the target is the headword in the *letters as printed* — the Church
+   Slavonic letters (ꙋ ѧ ꙗ ѡ є ї ѯ ѱ ѳ ѵ ѿ …), as the GT has them — without titla and accents; the civil pre-reform
+   form and the key are derived from it, not the other way round. Civil readings alone ("plain Russian") are an
+   intermediate result, not the end: the headword reading (Phase 3b step 2, option C) reads them first because
+   that is where cheap labels exist, then fills in the printed letters (stage 2 below).
 3. **Proofreading policy.** Nothing will be proofread completely by machine or by me. Priority order: (i) entries hit
    by the akathist lemma list; (ii) entries in any subset chosen for the PDF; (iii) the rest as time allows. The
    `status` column of `entries.tsv` records this; the PDF marks unchecked entries (e.g. a small ° after the headword).
@@ -309,7 +314,16 @@ A's segmentation, in three steps per page, each idempotent and each recorded in 
      line; `review` samples the lines where it and the vote disagree into sheets of 15 (both readings shown); the
      user answers in `djachenko/heads_review/NNN.txt` (committed); `data` adds the answers as exact samples.
    - *Decision:* stage 1 is worth pursuing if, on the held-out pages, it reads more headwords exactly (norm) than
-     the vote does (merged: hw CER 6.7 % on p. 246, 9.3 % on p. 659). Then stage 2: letters as printed (strict),
+     the vote does (merged: hw CER 6.7 % on p. 246, 9.3 % on p. 659). Stage 2 — the letters as printed, the target
+     (Phase 0, decision 2 revised): a civil reading cannot be turned back (у may be у ꙋ ѹ оу ѫ; о, о ѡ ѻ; я, ѧ ꙗ ѩ;
+     е, е є ѥ; …), but a *confirmed* one narrows each headword to a handful of spellings (`Азбука`: Азбука, Азбꙋка,
+     Азбѹка, Азбоука). So: the stage-1 model trained on with its alphabet extended by the Church Slavonic letters
+     (Kraken `--resize union`), on the labels that have them (GT, synthetic, the user's typed answers); then
+     *constrained reading* — for every headword whose civil form is confirmed (agreement or review), the model
+     scores the candidate spellings from its frame scores and chooses; it never invents a word, only letters;
+     orthographic rules (ꙗ initial or after a vowel, ѧ after a consonant, є initial, ї before a vowel, ѯ ѱ ѳ ѵ in
+     Greek words, ѿ for от-) as tie-breakers only, Дьяченко quoting forms from many sources; self-training on the
+     confident choices; measured at the strict level on the test pages; review rounds in printed letters. Then
      trained on the GT and synthetic lines; stage 3 perhaps accents; and self-training — the model reads every
      headword, the readings that agree with D or B join the training data, repeat.
 3. *Greek.* Greek runs come with D's text; where C disagrees on a Greek run, mark it `disputed`.

@@ -289,8 +289,14 @@ The answers are also proofread headwords, which a corrections layer can later gi
 
 ## 10. What comes after
 
-If stage 1 beats the vote on the test pages: **stage 2**, letters as printed (strict labels: the GT and the
-synthetic lines; the automatic labels cannot teach them); **stage 3** perhaps the accents; and **self-training** —
+If stage 1 beats the vote on the test pages: **stage 2**, letters as printed — the target (the user, session 6: not
+"plain Russian"; titla and accents may stay out). Stage 1 does not lock this out: the images keep every letter, the
+strict labels are kept (GT, synthetic, the user's typed answers), and entries.tsv holds the printed form and the civil
+one apart. A civil reading cannot be turned back — у may be у, ꙋ, ѹ, оу or ѫ — but a *confirmed* one narrows a
+headword to a handful of spellings (`Азбука`: Азбука, Азбꙋка, Азбѹка, Азбоука), and choosing among them is a far
+smaller task than reading: the stage-1 model trained on with the Church Slavonic letters added to its alphabet,
+then made to score the candidate spellings of every confirmed headword (*constrained reading*), orthographic rules
+as tie-breakers, the confident choices as new labels (*self-training*), review rounds in printed letters; **stage 3** perhaps the accents; and **self-training** —
 the model reads every headword of the book, readings that agree with D or B join the training data, train again.
 The 242 pages whose left margin scan A cuts off need witness D's images of the same lines. The heavy citation type
 will stay hard for any glyph model — in it и and н are one glyph, which only the sense decides; there (A) or the
