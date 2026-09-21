@@ -226,7 +226,19 @@ its image and the three readings; `report.tsv` has every line.
 First look, the checkpoint after epoch 2 (val_accuracy 98.2 %), while training went on: on the sides scan A shows
 whole, **31 of 40 headwords exactly right against the vote's 28**; on the cut column of p. 659, 2 of 12 against 8
 (its images lack the letters). Where model and vote read a headword alike (27 times) they were right 26 times —
-the independent-partner argument of § 1 in numbers. A detail the sheet shows: on p. 246 the model reads
+the independent-partner argument of § 1 in numbers.
+
+Epoch 10 (val_accuracy 98.82 %, the run still going): **37 of 40 headwords right on the intact sides, the vote 29;
+41 of 52 in all against 37**; the character error of the test lines 1.27 % (first lines) and 0.91 % (continuation
+lines). The validation score had crept up by only 0.2 points since epoch 4, while the test headwords went from 30
+to 37 of 40 — validation measures agreement with noisy automatic labels, mostly civil text; it is the right signal
+for *when to stop*, not for *how good*. Where model and vote agreed (30 times) they were right every time. And the
+model found two errors in the ground truth: on p. 246 it and the vote both read `Касфія`, `Катавасія` where the GT
+had `…їа`; the scan shows ѧ (pointed, with a crossbar — the а of the same words is round). Corrected, and counted
+fairly: two independent readers agreeing against the GT is the same test `dj_eval.py --suspects` applies to any pair
+of readers — correcting the GT only where the model disagrees with it would tilt the test in the model's favour.
+The three misses left on intact sides are all и/н in the citation type, which only the sense decides. A detail the
+sheet shows: on p. 246 the model reads
 `священни` where the GT's label says `священни-` — the print broke the word without a hyphen, and the GT's
 convention implies one; the model is right there.
 

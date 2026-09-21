@@ -906,6 +906,11 @@ See PLAN.md for the phases. Newest entry last.
   right (the vote reads ѣ as е or ъ), its own weak spot В/К in the headword type. Sheets labelled in Old Standard
   (its ѣ unmistakable) with Greek from Arial Unicode. The trial sheets were removed; the real round waits for the
   final model. Also answered: what a contact sheet is (HWOCR.md § 9).
+- **Epoch 10 of the first run** (val 98.82 %), evaluated while training goes on: **37/40 test headwords exact on the
+  intact sides against the vote's 29; 41/52 in all against 37**; where they agree (30) all right. Two GT slips on
+  p. 246 found by it — `Касфїѧ`, `Катавасїѧ` (ѧ, not а; checked on scan A) — corrected. `eval` now reads the test
+  lines from the GT files, so a GT correction counts without a data rebuild. `dj_hwocr.py alphabet` → alphabet.tsv
+  (169 characters + blank = the 170 outputs of the model summary).
 
 NEXT: (1) **Phase 3a: page furniture must not become a paragraph of A.** Two entries are not headwords at all:
   the library stamp on p. 41 (`0078-2-21`) and the tail of the footer on p. 913 (`0950-2-15`). Then the 53 pages

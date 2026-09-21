@@ -566,6 +566,9 @@ def cmd_eval(a):
     outdir = OUT / 'eval' / model.stem
     kraken_read(model, [OUT / r['image'] for r in rows], outdir, a.device)
     heads = {leaf: gt_heads(leaf) for leaf in HELD_OUT}
+    # the lines' text straight from the GT files, not from the manifest: a correction to the GT counts at once,
+    # without rebuilding the training data
+    truth = {leaf: gt_lines(leaf) for leaf in HELD_OUT}
     # a column whose left margin scan A cuts off shows its headwords without their first letters: there the vote
     # has witness D's intact margin and the model only A's image — reported apart (D's images are a later stage)
     cut_cols = {}
@@ -583,12 +586,13 @@ def cmd_eval(a):
         for r in (r for r in rows if int(r['leaf']) == leaf):
             n, k = (int(x) for x in r['id'].split('-')[1:])
             pred = norm((outdir / (Path(r['image']).stem + '.txt')).read_text(encoding='utf-8'))
-            x, y = list(r['norm'].replace(' ', '')), list(pred.replace(' ', ''))
+            label = norm(truth[leaf][n][k][0])
+            x, y = list(label.replace(' ', '')), list(pred.replace(' ', ''))
             d, cost_at, j_at = align(x, y)
             kind = 'first' if (n, k) in heads[leaf] else 'cont'
             ed[kind][0] += d
             ed[kind][1] += len(x)
-            row = dict(id=r['id'], kind=kind, flags=r['flags'], gt=r['norm'], model=pred,
+            row = dict(id=r['id'], kind=kind, flags=r['flags'], gt=label, model=pred,
                        cer=f'{d / max(1, len(x)):.3f}')
             if kind == 'first':
                 head, cs = heads[leaf][(n, k)]
